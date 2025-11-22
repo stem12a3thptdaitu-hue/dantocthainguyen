@@ -1,72 +1,74 @@
-/* FILE: style.css */
+/* ============================================================
+   FILE: style.css
+   MỤC ĐÍCH: Trang trí màu sắc, phông chữ và các hiệu ứng.
+   ============================================================ */
 
-/* 1. Cấu hình chung */
+/* Cấu hình chung cho toàn trang */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa; /* Màu nền xám nhạt của Bootstrap */
+    background-color: #f8f9fa; /* Màu nền xám nhạt dịu mắt */
+    color: #333; /* Màu chữ đen xám */
 }
 
-/* 2. Tinh chỉnh Menu Bootstrap */
-/* Đổi màu nền menu sang màu xanh lá đậm (Màu chè Thái Nguyên) */
+/* --- TÙY CHỈNH MENU BOOTSTRAP --- */
+/* Màu nền xanh lá đặc trưng của đồi chè Thái Nguyên */
 .bg-tea-green {
     background-color: #2c7a3d !important; 
 }
 
-.navbar-brand {
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Hiệu ứng khi di chuột vào link menu */
+/* Màu chữ khi di chuột vào menu */
 .nav-link:hover {
-    color: #ffeb3b !important; /* Màu vàng */
+    color: #ffeb3b !important; /* Màu vàng chanh */
 }
 
-/* 3. Ảnh bìa (Banner) */
+/* --- TÙY CHỈNH BANNER (ẢNH BÌA) --- */
 .main-banner {
-    /* Thay 'banner.jpg' bằng tên ảnh thật của bạn */
+    /* Thay 'banner.jpg' bằng ảnh thật của bạn trong thư mục images */
     background-image: url('images/banner.jpg'); 
     background-size: cover;
     background-position: center;
-    height: 350px;
+    height: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* Bóng đen sau chữ */
     position: relative;
 }
 
-/* Lớp phủ màu đen mờ trên banner để chữ dễ đọc hơn */
+/* Lớp phủ màu đen mờ giúp chữ trên banner dễ đọc hơn */
 .overlay {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 30px;
     border-radius: 10px;
+    color: white;
+    text-align: center;
 }
 
-/* 4. Hiệu ứng thẻ Card (Dân tộc) */
-.ethnic-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none; /* Bỏ viền mặc định */
-    border-radius: 10px;
-    overflow: hidden;
+/* --- TÙY CHỈNH TAB MENU (TRONG TRANG DÂN TỘC) --- */
+.nav-tabs .nav-link {
+    color: #2c7a3d; /* Màu chữ xanh khi chưa bấm */
+    font-weight: bold;
 }
 
-.ethnic-card:hover {
-    transform: translateY(-5px); /* Nổi lên khi di chuột */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+.nav-tabs .nav-link.active {
+    background-color: #2c7a3d !important; /* Màu nền xanh khi ĐANG bấm */
+    color: white !important;
+    border-color: #2c7a3d;
 }
 
-.ethnic-card img {
-    height: 220px; /* Chiều cao ảnh cố định */
-    object-fit: cover;
+.tab-content {
+    background: white;
+    padding: 30px;
+    border: 1px solid #dee2e6;
+    border-top: none; /* Bỏ viền trên để liền mạch với Tab */
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* 5. Chân trang */
+/* --- CHÂN TRANG --- */
 footer {
     background-color: #212529;
     color: white;
     padding: 30px 0;
     margin-top: 50px;
+    text-align: center;
 }
