@@ -3,30 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ - Thái Nguyên</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Thái Nguyên - Sắc Màu Văn Hóa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                🌿 VĂN HÓA THÁI NGUYÊN
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span> </button>
-            
-            <div class="collapse navbar-collapse" id="mainMenu">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Trang chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
-                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Các dân tộc
-                        </a>
-                        <ul class="dropdown-menu border-0 shadow">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="dan-toc-tay.html">Dân tộc Tày</a></li>
                             <li><a class="dropdown-item" href="dan-toc-nung.html">Dân tộc Nùng</a></li>
                             <li><a class="dropdown-item" href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
@@ -34,90 +29,91 @@
                             <li><a class="dropdown-item" href="dan-toc-hmong.html">Dân tộc H'Mông</a></li>
                         </ul>
                     </li>
-                    
                     <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
                 </ul>
-                <a href="lien-he.html" class="btn btn-custom ms-3">Góp ý ngay</a>
             </div>
         </div>
     </nav>
 
-    <header class="banner-overlay">
+    <header class="hero-section">
         <div class="container">
-            <h1 class="display-4 fw-bold">THÁI NGUYÊN</h1>
-            [cite_start]<p class="lead fs-3">Vùng đất của danh trà và bản sắc văn hóa [cite: 24, 34]</p>
+            <h1 class="hero-title">Vùng đất của Văn hóa & Bản sắc</h1>
+            <p class="lead mt-3">Khám phá vẻ đẹp của hơn 50 dân tộc anh em trên mảnh đất Thái Nguyên</p>
+            <a href="#kham-pha" class="btn btn-warning btn-lg mt-4 rounded-pill fw-bold">Bắt đầu khám phá</a>
         </div>
     </header>
 
-    <div class="container my-5">
+    <div class="container" id="kham-pha">
         <div class="text-center mb-5">
-            <h2 style="color: var(--primary-color);">Đa dạng bản sắc tộc người</h2>
-            [cite_start]<p class="text-muted">Khám phá nét độc đáo của hơn 50 dân tộc anh em [cite: 38]</p>
-            <div style="width: 80px; height: 4px; background: var(--secondary-color); margin: 10px auto;"></div>
+            <h2 class="fw-bold text-success">CÁC DÂN TỘC TIÊU BIỂU</h2>
+            <p class="text-muted">Nhấn vào từng hình ảnh để tìm hiểu chi tiết</p>
         </div>
 
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="card h-100">
-                    <img src="https://placehold.co/400x300?text=Dan+Toc+Tay" class="card-img-top" alt="Tày">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dân tộc Tày</h5>
-                        [cite_start]<p class="card-text">Dân tộc đông thứ hai, nổi bật với hát Then và nhà sàn truyền thống[cite: 42, 44].</p>
-                        <a href="dan-toc-tay.html" class="btn btn-outline-success rounded-pill">Xem chi tiết</a>
+                <div class="ethnic-card h-100">
+                    <img src="https://placehold.co/400x300?text=Nguoi+Tay" alt="Dân tộc Tày" class="w-100">
+                    <div class="card-body">
+                        <h4>Dân tộc Tày</h4>
+                        <p>Dân tộc đông thứ hai, nổi bật với nhà sàn và điệu hát Then.</p>
+                        <a href="dan-toc-tay.html" class="btn btn-custom">Xem chi tiết</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="card h-100">
-                    <img src="https://placehold.co/400x300?text=Dan+Toc+Nung" class="card-img-top" alt="Nùng">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dân tộc Nùng</h5>
-                        [cite_start]<p class="card-text">Giàu bản sắc với điệu hát Sli và trang phục chàm giản dị[cite: 45, 47].</p>
-                        <a href="dan-toc-nung.html" class="btn btn-outline-success rounded-pill">Xem chi tiết</a>
+                <div class="ethnic-card h-100">
+                    <img src="https://placehold.co/400x300?text=Nguoi+Nung" alt="Dân tộc Nùng" class="w-100">
+                    <div class="card-body">
+                        <h4>Dân tộc Nùng</h4>
+                        <p>Giản dị trong sắc chàm, độc đáo với điệu hát Sli giao duyên.</p>
+                        <a href="dan-toc-nung.html" class="btn btn-custom">Xem chi tiết</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="card h-100">
-                    <img src="https://placehold.co/400x300?text=Dan+Toc+San+Diu" class="card-img-top" alt="Sán Dìu">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dân tộc Sán Dìu</h5>
-                        [cite_start]<p class="card-text">Nổi tiếng với hát Soọng Cô và phong tục hôn nhân độc đáo[cite: 48, 50].</p>
-                        <a href="dan-toc-san-diu.html" class="btn btn-outline-success rounded-pill">Xem chi tiết</a>
+                <div class="ethnic-card h-100">
+                    <img src="https://placehold.co/400x300?text=San+Diu" alt="Dân tộc Sán Dìu" class="w-100">
+                    <div class="card-body">
+                        <h4>Dân tộc Sán Dìu</h4>
+                        <p>Nổi tiếng với hát Soọng Cô và phong tục hôn nhân đặc sắc.</p>
+                        <a href="dan-toc-san-diu.html" class="btn btn-custom">Xem chi tiết</a>
                     </div>
                 </div>
             </div>
 
-             <div class="col-md-4">
-                <div class="card h-100">
-                    <img src="https://placehold.co/400x300?text=Dan+Toc+Dao" class="card-img-top" alt="Dao">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dân tộc Dao</h5>
-                        [cite_start]<p class="card-text">Trang phục thêu tay tinh xảo và lễ Cấp Sắc linh thiêng[cite: 51, 52].</p>
-                        <a href="dan-toc-dao.html" class="btn btn-outline-success rounded-pill">Xem chi tiết</a>
+            <div class="col-md-4">
+                <div class="ethnic-card h-100">
+                    <img src="https://placehold.co/400x300?text=Nguoi+Dao" alt="Dân tộc Dao" class="w-100">
+                    <div class="card-body">
+                        <h4>Dân tộc Dao</h4>
+                        <p>Trang phục thêu tay tinh xảo và lễ Cấp Sắc linh thiêng.</p>
+                        <a href="dan-toc-dao.html" class="btn btn-custom">Xem chi tiết</a>
                     </div>
                 </div>
             </div>
 
-             <div class="col-md-4">
-                <div class="card h-100">
-                    <img src="https://placehold.co/400x300?text=Dan+Toc+HMong" class="card-img-top" alt="H'Mông">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Dân tộc H'Mông</h5>
-                        [cite_start]<p class="card-text">Văn hóa rẻo cao với tiếng Khèn và lễ hội mùa xuân[cite: 53, 54].</p>
-                        <a href="dan-toc-hmong.html" class="btn btn-outline-success rounded-pill">Xem chi tiết</a>
+            <div class="col-md-4">
+                <div class="ethnic-card h-100">
+                    <img src="https://placehold.co/400x300?text=HMong" alt="Dân tộc H'Mông" class="w-100">
+                    <div class="card-body">
+                        <h4>Dân tộc H'Mông</h4>
+                        <p>Văn hóa vùng cao với tiếng Khèn Mông và lễ hội mùa xuân.</p>
+                        <a href="dan-toc-hmong.html" class="btn btn-custom">Xem chi tiết</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="text-center">
-        <p class="mb-0">Dự án STEM © 2025 | Văn hóa Thái Nguyên</p>
+    <footer>
+        <div class="container">
+            <p>Dự án STEM 2025 | Trường THPT [Tên Trường]</p>
+            <p class="small text-white-50">Thiết kế bởi: [Tên Bạn]</p>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
