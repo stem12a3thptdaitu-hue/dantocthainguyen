@@ -1,74 +1,125 @@
 /* ============================================================
-   FILE: style.css
-   MỤC ĐÍCH: Trang trí màu sắc, phông chữ và các hiệu ứng.
+   FILE: style.css (Phiên bản V2.0 - Đẹp & Hiện đại)
    ============================================================ */
 
-/* Cấu hình chung cho toàn trang */
+/* 1. NHÚNG PHÔNG CHỮ GOOGLE (Để web không bị thô) */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #2E7D32; /* Xanh lá đậm (Màu chè già) */
+    --secondary-color: #FF6F00; /* Cam đậm (Điểm nhấn) */
+    --light-bg: #e8f5e9; /* Nền xanh rất nhạt */
+    --dark-text: #333;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa; /* Màu nền xám nhạt dịu mắt */
-    color: #333; /* Màu chữ đen xám */
+    font-family: 'Nunito', sans-serif; /* Sử dụng phông chữ mới */
+    background-color: #f8f9fa;
+    color: var(--dark-text);
+    padding-top: 70px; /* Để nội dung không bị menu che mất */
 }
 
-/* --- TÙY CHỈNH MENU BOOTSTRAP --- */
-/* Màu nền xanh lá đặc trưng của đồi chè Thái Nguyên */
-.bg-tea-green {
-    background-color: #2c7a3d !important; 
+/* 2. MENU BOOTSTRAP TÙY BIẾN (Gradient Xanh) */
+.navbar-custom {
+    background: linear-gradient(to right, #1b5e20, #4caf50); /* Màu chuyển sắc sang trọng */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Tạo bóng đổ cho menu nổi lên */
 }
 
-/* Màu chữ khi di chuột vào menu */
-.nav-link:hover {
-    color: #ffeb3b !important; /* Màu vàng chanh */
+.navbar-brand {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff !important;
 }
 
-/* --- TÙY CHỈNH BANNER (ẢNH BÌA) --- */
-.main-banner {
-    /* Thay 'banner.jpg' bằng ảnh thật của bạn trong thư mục images */
-    background-image: url('images/banner.jpg'); 
-    background-size: cover;
-    background-position: center;
-    height: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+.nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    font-weight: 600;
+    margin: 0 10px;
+    transition: all 0.3s;
 }
 
-/* Lớp phủ màu đen mờ giúp chữ trên banner dễ đọc hơn */
-.overlay {
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 30px;
-    border-radius: 10px;
+.nav-link:hover, .nav-link.active {
+    color: #FFD54F !important; /* Màu vàng khi di chuột vào */
+    transform: translateY(-2px); /* Chữ nảy lên nhẹ */
+}
+
+/* 3. NÚT BẤM (BUTTON) ĐẸP HƠN */
+.btn-custom {
+    background-color: var(--secondary-color);
     color: white;
-    text-align: center;
+    border-radius: 50px; /* Bo tròn nút */
+    padding: 8px 20px;
+    border: none;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* --- TÙY CHỈNH TAB MENU (TRONG TRANG DÂN TỘC) --- */
+.btn-custom:hover {
+    background-color: #e65100;
+    color: white;
+    transform: scale(1.05); /* Phóng to nhẹ khi bấm */
+    box-shadow: 0 4px 10px rgba(230, 81, 0, 0.4);
+}
+
+/* 4. THẺ CARD (DÂN TỘC) */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Bay lên cao hơn khi di chuột */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* 5. TAB MENU (TRONG TRANG CHI TIẾT) */
 .nav-tabs .nav-link {
-    color: #2c7a3d; /* Màu chữ xanh khi chưa bấm */
+    color: var(--primary-color);
     font-weight: bold;
+    border: none;
+    border-bottom: 3px solid transparent;
 }
 
 .nav-tabs .nav-link.active {
-    background-color: #2c7a3d !important; /* Màu nền xanh khi ĐANG bấm */
-    color: white !important;
-    border-color: #2c7a3d;
+    color: var(--secondary-color) !important;
+    border-bottom: 3px solid var(--secondary-color);
+    background: none;
 }
 
 .tab-content {
     background: white;
     padding: 30px;
-    border: 1px solid #dee2e6;
-    border-top: none; /* Bỏ viền trên để liền mạch với Tab */
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 20px;
 }
 
-/* --- CHÂN TRANG --- */
-footer {
-    background-color: #212529;
+/* 6. BANNER */
+.banner-overlay {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('images/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    padding: 30px 0;
-    margin-top: 50px;
     text-align: center;
+    border-radius: 0 0 20px 20px; /* Bo tròn 2 góc dưới */
+}
+
+footer {
+    background-color: #1b5e20;
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
 }
