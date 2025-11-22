@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Dân tộc H'Mông</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">🌿 VĂN HÓA THÁI NGUYÊN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+            <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
+            <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Các dân tộc</a>
-                        <ul class="dropdown-menu border-0 shadow">
+                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="dan-toc-tay.html">Dân tộc Tày</a></li>
                             <li><a class="dropdown-item" href="dan-toc-nung.html">Dân tộc Nùng</a></li>
                             <li><a class="dropdown-item" href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
@@ -33,53 +33,57 @@
         </div>
     </nav>
 
-    <div class="container my-5 pt-4">
+    <div class="container my-5 pt-3">
         <div class="text-center mb-5">
-            <h1 class="fw-bold" style="color: var(--primary-color)">DÂN TỘC H'MÔNG</h1>
-            <div style="width: 60px; height: 5px; background: var(--secondary-color); margin: 10px auto; border-radius: 10px;"></div>
+            <h1 class="fw-bold text-uppercase" style="color: var(--primary-color); font-size: 2.5rem;">DÂN TỘC H'MÔNG</h1>
+            <div style="width: 80px; height: 5px; background: var(--secondary-color); margin: 10px auto; border-radius: 10px;"></div>
         </div>
 
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1">📖 Giới thiệu</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2">🎺 Khèn Mông</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab3">🌸 Lễ hội</button></li>
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#intro">📖 Giới thiệu</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#khen">🎺 Khèn Mông</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#festival">🌸 Lễ hội</button></li>
         </ul>
 
-        <div class="tab-content shadow-sm">
-            <div class="tab-pane fade show active" id="tab1">
+        <div class="tab-content tab-content-box">
+            
+            <div class="tab-pane fade show active" id="intro">
                 <div class="row align-items-center">
                     <div class="col-md-7">
-                        <h3 class="mb-3">Tổng quan</h3>
-                        <p>Người H'Mông sinh sống tại các xã vùng cao, núi đá hiểm trở nhất của huyện Đồng Hỷ và Võ Nhai. Họ có nền văn hóa lâu đời và khả năng thích ứng tuyệt vời với thiên nhiên khắc nghiệt[cite: 33].</p>
+                        <h3 class="text-success mb-3">Tổng quan</h3>
+                        <p class="lead">Người H'Mông sinh sống tại các xã vùng cao, núi đá hiểm trở nhất của huyện Đồng Hỷ và Võ Nhai. Họ có nền văn hóa lâu đời và khả năng thích ứng tuyệt vời với thiên nhiên khắc nghiệt.</p>
                     </div>
                     <div class="col-md-5">
-                        <img src="https://placehold.co/500x350?text=Nguoi+HMong" class="img-fluid rounded-3 shadow" alt="Người H'Mông">
+                        <img src="images/hmong.jpg" class="img-fluid rounded shadow" alt="Người H'Mông">
                     </div>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="tab2">
+            <div class="tab-pane fade" id="khen">
                 <div class="row">
                     <div class="col-md-4 text-center">
-                        <img src="https://placehold.co/300x450?text=Khen+Mong" class="img-fluid rounded-3 shadow" alt="Khèn Mông">
+                        <img src="images/hmong.jpg" class="img-fluid rounded shadow" alt="Múa Khèn">
                     </div>
                     <div class="col-md-8">
-                        <h3 class="mb-3">Văn hóa Khèn</h3>
-                        <p>Tiếng Khèn là linh hồn của người H'Mông. Khèn vừa là nhạc cụ, vừa là đạo cụ múa. Tiếng khèn là cầu nối tâm linh và là phương tiện để các chàng trai thể hiện tài năng, tỏ tình với người thương.</p>
+                        <h3 class="text-success">Văn hóa Khèn</h3>
+                        <p>Tiếng Khèn là linh hồn của người H'Mông. Khèn vừa là nhạc cụ, vừa là đạo cụ múa. Tiếng khèn là cầu nối tâm linh và là phương tiện để các chàng trai thể hiện tài năng, tỏ tình với người thương trong các dịp lễ hội.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="tab3">
-                <h3 class="mb-3">Lễ hội Mùa xuân</h3>
+            <div class="tab-pane fade" id="festival">
+                <h3 class="text-success">Lễ hội Mùa xuân</h3>
                 <p>Vào dịp Tết, bản làng người H'Mông rộn ràng với các lễ hội Gầu Tào, trò chơi ném pao, đánh quay. Các cô gái H'Mông xúng xính trong những bộ váy xòe rực rỡ sắc màu tạo nên bức tranh tuyệt đẹp giữa núi rừng.</p>
             </div>
+
         </div>
 
-        <div class="text-center mt-5"><a href="index.html" class="btn btn-custom">← Quay lại trang chủ</a></div>
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-custom">← Quay lại trang chủ</a>
+        </div>
     </div>
 
-    <footer><p class="text-center text-white mb-0">Dự án STEM © 2025</p></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <footer><p>Dự án STEM © 2025</p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
