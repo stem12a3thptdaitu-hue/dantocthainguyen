@@ -1,10 +1,9 @@
-/* FILE: style.css */
+/* FILE: style.css - ĐÃ SỬA LỖI HIỂN THỊ */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
 :root {
-    --primary-color: #1b5e20; /* Xanh lá đậm (Màu chủ đạo) */
-    --secondary-color: #fbc02d; /* Vàng nghệ (Màu điểm nhấn) */
-    --light-bg: #f1f8e9; /* Nền xanh nhạt */
+    --primary-color: #1b5e20; /* Xanh lá đậm */
+    --secondary-color: #fbc02d; /* Vàng nghệ */
     --text-color: #333;
 }
 
@@ -12,7 +11,8 @@ body {
     font-family: 'Nunito', sans-serif;
     background-color: #fafafa;
     color: var(--text-color);
-    padding-top: 76px; /* Tránh nội dung bị menu che */
+    /* ĐÃ XÓA padding-top để tránh lỗi khoảng trắng thừa */
+    margin: 0;
 }
 
 /* --- MENU (NAVBAR) --- */
@@ -34,29 +34,15 @@ body {
     color: rgba(255,255,255,0.9) !important;
     font-weight: 600;
     margin: 0 10px;
-    position: relative;
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--secondary-color) !important;
 }
 
-/* Hiệu ứng gạch chân khi di chuột vào menu */
-.nav-link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: var(--secondary-color);
-    transition: width 0.3s;
-}
-.nav-link:hover::after {
-    width: 100%;
-}
-
 /* --- BANNER --- */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('images/banner.jpg');
+    /* Ảnh nền sẽ được đặt trực tiếp trong HTML để tránh lỗi */
     background-size: cover;
     background-position: center;
     height: 500px;
@@ -66,16 +52,16 @@ body {
     text-align: center;
     color: white;
     margin-bottom: 40px;
-    border-radius: 0 0 30px 30px; /* Bo tròn góc dưới */
+    border-radius: 0 0 30px 30px;
 }
 
 .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Tăng độ đậm bóng đen để chữ rõ hơn */
 }
 
-/* --- THẺ CARD DÂN TỘC --- */
+/* --- CÁC THẺ DÂN TỘC --- */
 .ethnic-card {
     border: none;
     border-radius: 15px;
@@ -86,18 +72,13 @@ body {
 }
 
 .ethnic-card:hover {
-    transform: translateY(-10px); /* Bay lên khi di chuột */
+    transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(27, 94, 32, 0.2);
 }
 
 .ethnic-card img {
     height: 250px;
     object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.ethnic-card:hover img {
-    transform: scale(1.1); /* Phóng to ảnh nhẹ */
 }
 
 .card-body {
@@ -111,7 +92,9 @@ body {
     border-radius: 25px;
     padding: 8px 25px;
     border: 2px solid var(--primary-color);
-    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .btn-custom:hover {
@@ -119,21 +102,16 @@ body {
     color: var(--primary-color);
 }
 
-/* --- TAB MENU TRONG TRANG CHI TIẾT --- */
+/* --- TAB MENU --- */
 .nav-tabs .nav-link {
-    border: none;
     color: #666;
     font-weight: 700;
     font-size: 1.1rem;
-    padding: 15px 25px;
 }
-
 .nav-tabs .nav-link.active {
     color: var(--primary-color) !important;
     border-bottom: 3px solid var(--primary-color);
-    background: transparent;
 }
-
 .tab-content-box {
     background: white;
     padding: 40px;
