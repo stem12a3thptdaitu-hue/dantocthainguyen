@@ -2,14 +2,15 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Dân tộc H'Mông - Thái Nguyên</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dân tộc H'Mông - Văn hóa Thái Nguyên</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-tea-green sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">VĂN HÓA THÁI NGUYÊN</a>
+            <a class="navbar-brand fw-bold" href="index.html">VĂN HÓA THÁI NGUYÊN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,47 +37,50 @@
     <div class="container my-5">
         <div class="text-center mb-5">
             <h1 class="text-uppercase fw-bold text-success">DÂN TỘC H'MÔNG</h1>
-            <div class="d-flex justify-content-center">
-                <div style="width: 100px; height: 3px; background-color: #c0392b;"></div>
-            </div>
+            <div class="d-flex justify-content-center"><div style="width: 100px; height: 3px; background-color: #2c7a3d;"></div></div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-8">
-                <h3 class="text-success">1. Giới thiệu chung</h3>
-                <p>Người H'Mông tại Thái Nguyên sinh sống chủ yếu tại các xã vùng cao, núi đá hiểm trở của huyện Đồng Hỷ và Võ Nhai. Họ có nền văn hóa lâu đời, giàu bản sắc và khả năng thích ứng tuyệt vời với thiên nhiên khắc nghiệt.</p>
-                
-                <h3 class="text-success mt-4">2. Văn hóa Khèn Mông</h3>
-                <p>Nói đến người H'Mông là nói đến <strong>Tiếng Khèn</strong>. Khèn Mông vừa là nhạc cụ, vừa là đạo cụ múa. Tiếng khèn là cầu nối tâm linh, là tiếng lòng của các chàng trai gửi tới người thương trong những phiên chợ tình hay dịp lễ tết.</p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1">Giới thiệu</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2">Khèn Mông</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab3">Lễ hội</button></li>
+        </ul>
 
-                <h3 class="text-success mt-4">3. Lễ hội mùa xuân</h3>
-                <p>Vào dịp Tết, bản làng người H'Mông rộn ràng với các lễ hội Gầu Tào, trò chơi ném pao, đánh quay. Các cô gái H'Mông xúng xính trong những bộ váy xòe rực rỡ sắc màu tạo nên bức tranh tuyệt đẹp giữa núi rừng.</p>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card mb-3 shadow-sm">
-                    <img src="https://placehold.co/400x500?text=Nguoi+HMong" class="card-img-top" alt="Người H'Mông">
-                    <div class="card-body">
-                        <p class="card-text text-muted small text-center">Vẻ đẹp thiếu nữ H'Mông</p>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="tab1">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3>Tổng quan</h3>
+                        <p>Người H'Mông thường cư trú ở những vùng núi cao hiểm trở nhất. Tại Thái Nguyên, họ sinh sống chủ yếu tại các xã vùng cao của huyện Đồng Hỷ, Võ Nhai. Dân tộc H'Mông có nền văn hóa lâu đời và khả năng thích ứng tuyệt vời với thiên nhiên khắc nghiệt.</p>
                     </div>
-                </div>
-                <div class="card shadow-sm">
-                    <img src="https://placehold.co/400x300?text=Mua+Khen" class="card-img-top" alt="Múa Khèn">
-                    <div class="card-body">
-                        <p class="card-text text-muted small text-center">Chàng trai H'Mông múa khèn</p>
+                    <div class="col-md-4">
+                        <img src="https://placehold.co/400x300?text=Nguoi+HMong" class="img-fluid rounded" alt="H'Mông">
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="text-center mt-5">
-            <a href="index.html#danh-sach" class="btn btn-outline-success btn-lg">← Quay lại danh sách</a>
+            <div class="tab-pane fade" id="tab2">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="https://placehold.co/300x400?text=Mua+Khen" class="img-fluid rounded" alt="Khèn Mông">
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Văn hóa Khèn</h3>
+                        <p>Tiếng Khèn là linh hồn của người H'Mông. Khèn vừa là nhạc cụ, vừa là đạo cụ múa. Tiếng khèn là cầu nối tâm linh và là phương tiện để các chàng trai thể hiện tài năng, tỏ tình với người thương trong các dịp lễ hội.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="tab3">
+                <h3>Lễ hội Mùa Xuân</h3>
+                <p>Vào dịp Tết, người H'Mông tổ chức Lễ hội Gầu Tào, ném pao, đánh quay... Trong dịp này, trang phục váy xòe rực rỡ sắc màu của các cô gái H'Mông tạo nên bức tranh tuyệt đẹp giữa núi rừng.</p>
+            </div>
         </div>
+        
+        <div class="text-center mt-5"><a href="index.html" class="btn btn-outline-success">← Quay lại danh sách</a></div>
     </div>
 
-    <footer class="text-center bg-dark text-white py-4 mt-5">
-        <p>Dự án STEM © 2025</p>
-    </footer>
+    <footer><p>Dự án STEM © 2025</p></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
