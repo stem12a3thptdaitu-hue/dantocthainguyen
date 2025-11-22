@@ -1,0 +1,72 @@
+/* FILE: style.css */
+
+/* 1. Cấu hình chung */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Màu nền xám nhạt của Bootstrap */
+}
+
+/* 2. Tinh chỉnh Menu Bootstrap */
+/* Đổi màu nền menu sang màu xanh lá đậm (Màu chè Thái Nguyên) */
+.bg-tea-green {
+    background-color: #2c7a3d !important; 
+}
+
+.navbar-brand {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hiệu ứng khi di chuột vào link menu */
+.nav-link:hover {
+    color: #ffeb3b !important; /* Màu vàng */
+}
+
+/* 3. Ảnh bìa (Banner) */
+.main-banner {
+    /* Thay 'banner.jpg' bằng tên ảnh thật của bạn */
+    background-image: url('images/banner.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* Bóng đen sau chữ */
+    position: relative;
+}
+
+/* Lớp phủ màu đen mờ trên banner để chữ dễ đọc hơn */
+.overlay {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* 4. Hiệu ứng thẻ Card (Dân tộc) */
+.ethnic-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none; /* Bỏ viền mặc định */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ethnic-card:hover {
+    transform: translateY(-5px); /* Nổi lên khi di chuột */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.ethnic-card img {
+    height: 220px; /* Chiều cao ảnh cố định */
+    object-fit: cover;
+}
+
+/* 5. Chân trang */
+footer {
+    background-color: #212529;
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+}
