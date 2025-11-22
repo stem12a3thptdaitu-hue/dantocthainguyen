@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Dân tộc Dao</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">🌿 VĂN HÓA THÁI NGUYÊN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+            <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
+            <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Các dân tộc</a>
-                        <ul class="dropdown-menu border-0 shadow">
+                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="dan-toc-tay.html">Dân tộc Tày</a></li>
                             <li><a class="dropdown-item" href="dan-toc-nung.html">Dân tộc Nùng</a></li>
                             <li><a class="dropdown-item" href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
@@ -33,56 +33,60 @@
         </div>
     </nav>
 
-    <div class="container my-5 pt-4">
+    <div class="container my-5 pt-3">
         <div class="text-center mb-5">
-            <h1 class="fw-bold" style="color: var(--primary-color)">DÂN TỘC DAO</h1>
-            <div style="width: 60px; height: 5px; background: var(--secondary-color); margin: 10px auto; border-radius: 10px;"></div>
+            <h1 class="fw-bold text-uppercase" style="color: var(--primary-color); font-size: 2.5rem;">DÂN TỘC DAO</h1>
+            <div style="width: 80px; height: 5px; background: var(--secondary-color); margin: 10px auto; border-radius: 10px;"></div>
         </div>
 
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1">📖 Giới thiệu</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2">🧵 Trang phục</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab3">🕯️ Lễ Cấp Sắc</button></li>
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#intro">📖 Giới thiệu</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#embroidery">🧵 Thêu thùa</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#ritual">🕯️ Lễ Cấp Sắc</button></li>
         </ul>
 
-        <div class="tab-content shadow-sm">
-            <div class="tab-pane fade show active" id="tab1">
+        <div class="tab-content tab-content-box">
+            
+            <div class="tab-pane fade show active" id="intro">
                 <div class="row align-items-center">
                     <div class="col-md-7">
-                        <h3 class="mb-3">Tổng quan</h3>
-                        <p>Người Dao ở Thái Nguyên thường cư trú ở các vùng núi cao và thung lũng. Họ chia thành nhiều nhóm như Dao Quần Chẹt, Dao Tiền, Dao Lô Gang... nhưng đều thống nhất trong bản sắc văn hóa và ngôn ngữ[cite: 31].</p>
+                        <h3 class="text-success mb-3">Tổng quan</h3>
+                        <p class="lead">Người Dao ở Thái Nguyên thường cư trú ở các vùng núi cao và thung lũng. Họ chia thành nhiều nhóm như Dao Quần Chẹt, Dao Tiền, Dao Lô Gang... nhưng đều thống nhất trong bản sắc văn hóa và ngôn ngữ.</p>
                     </div>
                     <div class="col-md-5">
-                        <img src="https://placehold.co/500x350?text=Nguoi+Dao" class="img-fluid rounded-3 shadow" alt="Người Dao">
+                        <img src="images/dao.jpg" class="img-fluid rounded shadow" alt="Người Dao">
                     </div>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="tab2">
+            <div class="tab-pane fade" id="embroidery">
                 <div class="row">
                     <div class="col-md-4 text-center">
-                        <img src="https://placehold.co/300x450?text=Trang+Phuc+Dao" class="img-fluid rounded-3 shadow" alt="Trang phục Dao">
+                        <img src="images/dao.jpg" class="img-fluid rounded shadow" alt="Trang phục Dao">
                     </div>
                     <div class="col-md-8">
-                        <h3 class="mb-3">Nghệ thuật thêu tay</h3>
+                        <h3 class="text-success">Nghệ thuật thêu tay</h3>
                         <p>Người Dao nổi tiếng với kỹ thuật thêu thùa tinh xảo. Trên nền vải chàm, phụ nữ Dao thêu các hoa văn sặc sỡ bằng chỉ màu đỏ, vàng, xanh mô phỏng hoa lá, động vật. Đây là nét nhận diện văn hóa đặc trưng nhất.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="tab3">
-                <h3 class="mb-3">Lễ Cấp Sắc (Lập Tịch)</h3>
+            <div class="tab-pane fade" id="ritual">
+                <h3 class="text-success">Lễ Cấp Sắc (Lập Tịch)</h3>
                 <div class="alert alert-warning">
                     <strong>Nghi lễ trưởng thành:</strong> Lễ Cấp sắc là nghi lễ quan trọng bậc nhất đời người đàn ông Dao.
                 </div>
                 <p>Người được cấp sắc mới được coi là người lớn, được đặt tên âm và có quyền tham gia vào các công việc hệ trọng của dòng họ và cộng đồng.</p>
             </div>
+
         </div>
 
-        <div class="text-center mt-5"><a href="index.html" class="btn btn-custom">← Quay lại trang chủ</a></div>
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-custom">← Quay lại trang chủ</a>
+        </div>
     </div>
 
-    <footer><p class="text-center text-white mb-0">Dự án STEM © 2025</p></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <footer><p>Dự án STEM © 2025</p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
