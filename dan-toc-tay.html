@@ -2,15 +2,14 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dân tộc Tày - Thái Nguyên</title>
+    <title>Dân tộc Tày</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-tea-green sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">VĂN HÓA THÁI NGUYÊN</a>
+            <a class="navbar-brand fw-bold" href="index.html">VĂN HÓA THÁI NGUYÊN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,53 +36,47 @@
     <div class="container my-5">
         <div class="text-center mb-5">
             <h1 class="text-uppercase fw-bold text-success">DÂN TỘC TÀY</h1>
-            <div class="d-flex justify-content-center">
-                <div style="width: 100px; height: 3px; background-color: #2c7a3d;"></div>
-            </div>
+            <div class="d-flex justify-content-center"><div style="width: 100px; height: 3px; background-color: #2c7a3d;"></div></div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-8">
-                <h3 class="text-success">1. Giới thiệu chung</h3>
-                [cite_start]<p>Dân tộc Tày là một trong những cộng đồng cư dân đông nhất tại Thái Nguyên. Họ tập trung nhiều ở các huyện <strong>Định Hóa, Võ Nhai và Phú Lương</strong>[cite: 59].</p>
-                
-                <h3 class="text-success mt-4">2. Trang phục truyền thống</h3>
-                <p>Trang phục truyền thống của người Tày mang tông màu chàm đặc trưng, thiết kế đơn giản nhưng tinh tế. [cite_start]Phụ nữ thường đội khăn mỏ quạ, đeo vòng bạc[cite: 62].</p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1">Giới thiệu</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2">Trang phục</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab3">Văn hóa & Lễ hội</button></li>
+        </ul>
 
-                <h3 class="text-success mt-4">3. Phong tục & Tín ngưỡng</h3>
-                <p>Người Tày có tục thờ cúng tổ tiên. [cite_start]Các phong tục cưới hỏi mang đậm tính cộng đồng[cite: 66].</p>
-
-                <h3 class="text-success mt-4">4. Lễ hội đặc sắc</h3>
-                <div class="alert alert-success">
-                    [cite_start]<strong>Lễ hội Lồng Tồng (Xuống đồng):</strong> Lễ hội cầu mùa lớn nhất, thường tổ chức vào tháng Giêng[cite: 68].
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="tab1">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3>Tổng quan</h3>
+                        <p>Dân tộc Tày là cộng đồng đông thứ hai tại Thái Nguyên. Họ cư trú tập trung tại các huyện <strong>Định Hóa, Võ Nhai và Phú Lương</strong>. Người Tày có truyền thống canh tác lúa nước lâu đời và kỹ thuật thâm canh cao.</p>
+                    </div>
+                    <div class="col-md-4"><img src="https://placehold.co/400x300?text=Ban+Lang+Tay" class="img-fluid rounded"></div>
                 </div>
             </div>
-
-            <div class="col-lg-4">
-                <div class="card mb-3">
-                    <img src="https://placehold.co/400x500?text=Trang+Phuc+Tay" class="card-img-top" alt="Trang phục Tày">
-                    <div class="card-body">
-                        <p class="card-text text-muted fst-italic small text-center">Phụ nữ Tày trong trang phục truyền thống</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <img src="https://placehold.co/400x300?text=Le+Hoi+Long+Tong" class="card-img-top" alt="Lễ hội">
-                    <div class="card-body">
-                        <p class="card-text text-muted fst-italic small text-center">Lễ hội Lồng Tồng</p>
+            <div class="tab-pane fade" id="tab2">
+                <div class="row">
+                    <div class="col-md-4 text-center"><img src="https://placehold.co/300x400?text=Trang+Phuc+Tay" class="img-fluid rounded"></div>
+                    <div class="col-md-8">
+                        <h3>Sắc Chàm bình dị</h3>
+                        <p>Trang phục truyền thống của người Tày mang tông màu chàm đặc trưng, được làm từ vải bông tự dệt. Thiết kế đơn giản, ít thêu thùa nhưng toát lên vẻ đẹp trang nhã.</p>
                     </div>
                 </div>
             </div>
+            <div class="tab-pane fade" id="tab3">
+                <h3>Lễ hội & Tín ngưỡng</h3>
+                <ul>
+                    <li><strong>Lễ hội Lồng Tồng:</strong> Lễ xuống đồng cầu mùa màng bội thu vào tháng Giêng.</li>
+                    <li><strong>Hát Then:</strong> Di sản văn hóa phi vật thể đặc sắc.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="text-center mt-5">
-            <a href="index.html#danh-sach" class="btn btn-outline-success btn-lg">← Quay lại danh sách</a>
-        </div>
+        <div class="text-center mt-5"><a href="index.html" class="btn btn-outline-success">← Quay lại</a></div>
     </div>
 
-    <footer class="text-center bg-dark text-white py-4 mt-5">
-        <p>Dự án STEM © 2025</p>
-    </footer>
+    <footer><p>Dự án STEM © 2025</p></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
