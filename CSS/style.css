@@ -1,28 +1,25 @@
-/* ============================================================
-   FILE: style.css (Phiên bản V2.0 - Đẹp & Hiện đại)
-   ============================================================ */
-
-/* 1. NHÚNG PHÔNG CHỮ GOOGLE (Để web không bị thô) */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+/* FILE: style.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
 :root {
-    --primary-color: #2E7D32; /* Xanh lá đậm (Màu chè già) */
-    --secondary-color: #FF6F00; /* Cam đậm (Điểm nhấn) */
-    --light-bg: #e8f5e9; /* Nền xanh rất nhạt */
-    --dark-text: #333;
+    --primary-color: #1b5e20; /* Xanh lá đậm (Màu chủ đạo) */
+    --secondary-color: #fbc02d; /* Vàng nghệ (Màu điểm nhấn) */
+    --light-bg: #f1f8e9; /* Nền xanh nhạt */
+    --text-color: #333;
 }
 
 body {
-    font-family: 'Nunito', sans-serif; /* Sử dụng phông chữ mới */
-    background-color: #f8f9fa;
-    color: var(--dark-text);
-    padding-top: 70px; /* Để nội dung không bị menu che mất */
+    font-family: 'Nunito', sans-serif;
+    background-color: #fafafa;
+    color: var(--text-color);
+    padding-top: 76px; /* Tránh nội dung bị menu che */
 }
 
-/* 2. MENU BOOTSTRAP TÙY BIẾN (Gradient Xanh) */
+/* --- MENU (NAVBAR) --- */
 .navbar-custom {
-    background: linear-gradient(to right, #1b5e20, #4caf50); /* Màu chuyển sắc sang trọng */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Tạo bóng đổ cho menu nổi lên */
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 15px 0;
 }
 
 .navbar-brand {
@@ -30,96 +27,126 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #fff !important;
+    font-size: 1.4rem;
 }
 
 .nav-link {
     color: rgba(255,255,255,0.9) !important;
     font-weight: 600;
     margin: 0 10px;
-    transition: all 0.3s;
+    position: relative;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: #FFD54F !important; /* Màu vàng khi di chuột vào */
-    transform: translateY(-2px); /* Chữ nảy lên nhẹ */
-}
-
-/* 3. NÚT BẤM (BUTTON) ĐẸP HƠN */
-.btn-custom {
-    background-color: var(--secondary-color);
-    color: white;
-    border-radius: 50px; /* Bo tròn nút */
-    padding: 8px 20px;
-    border: none;
-    font-weight: bold;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-custom:hover {
-    background-color: #e65100;
-    color: white;
-    transform: scale(1.05); /* Phóng to nhẹ khi bấm */
-    box-shadow: 0 4px 10px rgba(230, 81, 0, 0.4);
-}
-
-/* 4. THẺ CARD (DÂN TỘC) */
-.card {
-    border: none;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: white;
-}
-
-.card:hover {
-    transform: translateY(-10px); /* Bay lên cao hơn khi di chuột */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.card-title {
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-/* 5. TAB MENU (TRONG TRANG CHI TIẾT) */
-.nav-tabs .nav-link {
-    color: var(--primary-color);
-    font-weight: bold;
-    border: none;
-    border-bottom: 3px solid transparent;
-}
-
-.nav-tabs .nav-link.active {
     color: var(--secondary-color) !important;
-    border-bottom: 3px solid var(--secondary-color);
-    background: none;
 }
 
-.tab-content {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    margin-top: 20px;
+/* Hiệu ứng gạch chân khi di chuột vào menu */
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s;
+}
+.nav-link:hover::after {
+    width: 100%;
 }
 
-/* 6. BANNER */
-.banner-overlay {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('images/banner.jpg');
+/* --- BANNER --- */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('images/banner.jpg');
     background-size: cover;
     background-position: center;
-    height: 400px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     text-align: center;
-    border-radius: 0 0 20px 20px; /* Bo tròn 2 góc dưới */
+    color: white;
+    margin-bottom: 40px;
+    border-radius: 0 0 30px 30px; /* Bo tròn góc dưới */
 }
 
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* --- THẺ CARD DÂN TỘC --- */
+.ethnic-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.ethnic-card:hover {
+    transform: translateY(-10px); /* Bay lên khi di chuột */
+    box-shadow: 0 15px 30px rgba(27, 94, 32, 0.2);
+}
+
+.ethnic-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.ethnic-card:hover img {
+    transform: scale(1.1); /* Phóng to ảnh nhẹ */
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.btn-custom {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 25px;
+    padding: 8px 25px;
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+/* --- TAB MENU TRONG TRANG CHI TIẾT --- */
+.nav-tabs .nav-link {
+    border: none;
+    color: #666;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 15px 25px;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color) !important;
+    border-bottom: 3px solid var(--primary-color);
+    background: transparent;
+}
+
+.tab-content-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+/* --- FOOTER --- */
 footer {
     background-color: #1b5e20;
     color: white;
-    padding: 40px 0;
-    margin-top: 50px;
+    padding: 50px 0 20px;
+    margin-top: 60px;
+    text-align: center;
 }
