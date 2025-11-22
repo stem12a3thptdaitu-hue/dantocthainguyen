@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Dân tộc Sán Dìu</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">🌿 VĂN HÓA THÁI NGUYÊN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+            <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
+            <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Các dân tộc</a>
-                        <ul class="dropdown-menu border-0 shadow">
+                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="dan-toc-tay.html">Dân tộc Tày</a></li>
                             <li><a class="dropdown-item" href="dan-toc-nung.html">Dân tộc Nùng</a></li>
                             <li><a class="dropdown-item" href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
@@ -33,53 +33,50 @@
         </div>
     </nav>
 
-    <div class="container my-5 pt-4">
+    <div class="container my-5 pt-3">
         <div class="text-center mb-5">
-            <h1 class="fw-bold" style="color: var(--primary-color)">DÂN TỘC SÁN DÌU</h1>
-            <div style="width: 60px; height: 5px; background: var(--secondary-color); margin: 10px auto; border-radius: 10px;"></div>
+            <h1 class="fw-bold text-uppercase" style="color: var(--primary-color); font-size: 2.5rem;">DÂN TỘC SÁN DÌU</h1>
+            <div style="width: 80px; height: 5px; background: var(--secondary-color); margin: 10px auto; border-radius: 10px;"></div>
         </div>
 
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1">📖 Giới thiệu</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2">🎵 Soọng Cô</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab3">💍 Phong tục</button></li>
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#intro">📖 Giới thiệu</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#culture">🎵 Soọng Cô</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#customs">💍 Phong tục</button></li>
         </ul>
 
-        <div class="tab-content shadow-sm">
-            <div class="tab-pane fade show active" id="tab1">
+        <div class="tab-content tab-content-box">
+            
+            <div class="tab-pane fade show active" id="intro">
                 <div class="row align-items-center">
                     <div class="col-md-7">
-                        <h3 class="mb-3">Tổng quan</h3>
-                        <p>Người Sán Dìu (còn gọi là Sán Déo) cư trú chủ yếu ở vùng trung du như Đồng Hỷ, Phú Lương. Họ sống thành từng xóm nhỏ, nổi tiếng với đời sống văn hóa tinh thần phong phú và tình đoàn kết cộng đồng[cite: 28].</p>
+                        <h3 class="text-success mb-3">Tổng quan</h3>
+                        <p class="lead">Người Sán Dìu (còn gọi là Sán Déo) cư trú chủ yếu ở vùng trung du như Đồng Hỷ, Phú Lương. Họ sống thành từng xóm nhỏ, nổi tiếng với đời sống văn hóa tinh thần phong phú và tình đoàn kết cộng đồng.</p>
                     </div>
                     <div class="col-md-5">
-                        <img src="https://placehold.co/500x350?text=Nguoi+San+Diu" class="img-fluid rounded-3 shadow" alt="Người Sán Dìu">
+                        <img src="images/sandiu.jpg" class="img-fluid rounded shadow" alt="Người Sán Dìu">
                     </div>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="tab2">
-                <div class="row">
-                    <div class="col-md-4 text-center">
-                        <img src="https://placehold.co/300x450?text=Hat+Soong+Co" class="img-fluid rounded-3 shadow" alt="Hát Soọng Cô">
-                    </div>
-                    <div class="col-md-8">
-                        <h3 class="mb-3">Hát Soọng Cô</h3>
-                        <p>Soọng Cô là kho tàng văn nghệ dân gian độc đáo nhất của người Sán Dìu. Đây là hình thức hát đối đáp trữ tình, thường được tổ chức vào ban đêm trong các dịp lễ tết, đám cưới, thể hiện tình yêu đôi lứa và tình yêu thiên nhiên.</p>
-                    </div>
-                </div>
+            <div class="tab-pane fade" id="culture">
+                <h3 class="text-success">Hát Soọng Cô</h3>
+                <p>Soọng Cô là kho tàng văn nghệ dân gian độc đáo nhất của người Sán Dìu. Đây là hình thức hát đối đáp trữ tình, thường được tổ chức vào ban đêm trong các dịp lễ tết, đám cưới, thể hiện tình yêu đôi lứa và tình yêu thiên nhiên.</p>
             </div>
 
-            <div class="tab-pane fade" id="tab3">
-                <h3 class="mb-3">Phong tục Hôn nhân</h3>
-                <p>Người Sán Dìu lưu giữ nhiều phong tục hôn nhân độc đáo và các nghi lễ truyền thống nghiêm ngặt. Trang phục của phụ nữ Sán Dìu cũng rất đặc biệt với chiếc khăn đội đầu mỏ quạ và váy rời (váy lá tọa).</p>
+            <div class="tab-pane fade" id="customs">
+                <h3 class="text-success">Hôn nhân & Trang phục</h3>
+                <p>Người Sán Dìu lưu giữ nhiều phong tục hôn nhân độc đáo và các nghi lễ truyền thống nghiêm ngặt. Trang phục của phụ nữ Sán Dìu đặc biệt với chiếc khăn đội đầu mỏ quạ và váy lá tọa (váy rời).</p>
             </div>
+
         </div>
 
-        <div class="text-center mt-5"><a href="index.html" class="btn btn-custom">← Quay lại trang chủ</a></div>
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-custom">← Quay lại trang chủ</a>
+        </div>
     </div>
 
-    <footer><p class="text-center text-white mb-0">Dự án STEM © 2025</p></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <footer><p>Dự án STEM © 2025</p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
