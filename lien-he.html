@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-tea-green sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">VĂN HÓA THÁI NGUYÊN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Các dân tộc</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="dan-toc-tay.html">Dân tộc Tày</a></li>
                             <li><a class="dropdown-item" href="dan-toc-nung.html">Dân tộc Nùng</a></li>
@@ -36,31 +36,26 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card shadow">
-                    <div class="card-header bg-tea-green text-white text-center">
-                        <h3 class="mb-0">LIÊN HỆ & GÓP Ý</h3>
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-success text-white text-center py-4">
+                        <h3 class="mb-0">LIÊN HỆ VỚI CHÚNG TÔI</h3>
                     </div>
-                    <div class="card-body p-4">
-                        <div class="text-center mb-4">
-                            <p><strong>Thực hiện bởi:</strong> Nhóm STEM [Tên Lớp]</p>
-                            <p><strong>Email:</strong> [email@example.com]</p>
-                        </div>
-                        <hr>
+                    <div class="card-body p-5">
                         <form>
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Họ và tên:</label>
-                                <input type="text" class="form-control" placeholder="Nhập tên của bạn">
+                                <label class="form-label fw-bold">Họ và tên</label>
+                                <input type="text" class="form-control rounded-pill p-2 px-3" placeholder="Nhập tên của bạn">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Email:</label>
-                                <input type="email" class="form-control" placeholder="name@example.com">
+                                <label class="form-label fw-bold">Email</label>
+                                <input type="email" class="form-control rounded-pill p-2 px-3" placeholder="email@vidu.com">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Nội dung góp ý:</label>
-                                <textarea class="form-control" rows="4"></textarea>
+                                <label class="form-label fw-bold">Nội dung</label>
+                                <textarea class="form-control rounded-3" rows="5" placeholder="Bạn muốn góp ý điều gì?"></textarea>
                             </div>
                             <div class="d-grid">
-                                <button type="button" class="btn btn-success btn-lg" onclick="alert('Đã gửi!')">Gửi tin nhắn</button>
+                                <button type="button" class="btn btn-success rounded-pill py-2 fw-bold" onclick="alert('Cảm ơn bạn đã gửi tin!')">Gửi đi</button>
                             </div>
                         </form>
                     </div>
