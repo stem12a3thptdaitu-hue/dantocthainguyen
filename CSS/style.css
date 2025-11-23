@@ -1,130 +1,87 @@
-/* FILE: style.css - ĐÃ SỬA LỖI HIỂN THỊ */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+/* FILE: style.css */
 
-:root {
-    --primary-color: #1b5e20; /* Xanh lá đậm */
-    --secondary-color: #fbc02d; /* Vàng nghệ */
-    --text-color: #333;
-}
-
+/* 1. Cấu hình chung */
 body {
-    font-family: 'Nunito', sans-serif;
-    background-color: #fafafa;
-    color: var(--text-color);
-    /* ĐÃ XÓA padding-top để tránh lỗi khoảng trắng thừa */
-    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
 }
 
-/* --- MENU (NAVBAR) --- */
+/* 2. Cấu hình MENU MỚI (navbar-custom) */
 .navbar-custom {
-    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    padding: 15px 0;
+    background-color: #2c7a3d; /* Màu xanh lá đậm đặc trưng */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.navbar-brand {
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #fff !important;
-    font-size: 1.4rem;
+.navbar-custom .navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 
-.nav-link {
-    color: rgba(255,255,255,0.9) !important;
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: #ffeb3b !important; /* Màu vàng nổi bật khi active */
     font-weight: 600;
-    margin: 0 10px;
 }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--secondary-color) !important;
+.dropdown-menu {
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* --- BANNER --- */
-.hero-section {
-    /* Ảnh nền sẽ được đặt trực tiếp trong HTML để tránh lỗi */
+/* 3. Ảnh bìa và Card */
+.main-banner {
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     color: white;
-    margin-bottom: 40px;
-    border-radius: 0 0 30px 30px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    position: relative;
 }
 
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Tăng độ đậm bóng đen để chữ rõ hơn */
-}
-
-/* --- CÁC THẺ DÂN TỘC --- */
 .ethnic-card {
+    transition: transform 0.3s ease;
     border: none;
-    border-radius: 15px;
+    border-radius: 8px;
     overflow: hidden;
-    background: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
 }
 
 .ethnic-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(27, 94, 32, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .ethnic-card img {
-    height: 250px;
+    height: 220px;
     object-fit: cover;
 }
 
-.card-body {
-    padding: 20px;
-    text-align: center;
+/* 4. Map Responsive */
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 75%;
+    position: relative;
+    height: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.map-responsive iframe {
+    left: 0; top: 0; height: 100%; width: 100%; position: absolute; border: 0;
 }
 
-.btn-custom {
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 25px;
-    padding: 8px 25px;
-    border: 2px solid var(--primary-color);
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.btn-custom:hover {
-    background-color: white;
-    color: var(--primary-color);
-}
-
-/* --- TAB MENU --- */
-.nav-tabs .nav-link {
-    color: #666;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-.nav-tabs .nav-link.active {
-    color: var(--primary-color) !important;
-    border-bottom: 3px solid var(--primary-color);
-}
-.tab-content-box {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    margin-top: 20px;
-}
-
-/* --- FOOTER --- */
 footer {
-    background-color: #1b5e20;
+    background-color: #212529;
     color: white;
-    padding: 50px 0 20px;
-    margin-top: 60px;
-    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
 }
