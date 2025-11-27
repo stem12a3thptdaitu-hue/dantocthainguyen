@@ -1,87 +1,229 @@
-/* FILE: style.css */
+/* ========================================= */
+/* 1. BẢNG MÀU & CẤU HÌNH CHUNG (VARIABLES) */
+/* ========================================= */
+:root {
+    /* Màu sắc lấy cảm hứng từ thổ cẩm Tây Bắc */
+    --color-bg: #FAF0E6;       /* Trắng ngà (Màu vải mộc) */
+    --color-red: #8B0000;      /* Đỏ đô (Màu chủ đạo lễ hội) */
+    --color-green: #004D40;    /* Xanh chàm/Xanh rừng già */
+    --color-yellow: #D2691E;   /* Vàng đất/Cam cháy (Hoa văn) */
+    --color-text: #2c2c2c;     /* Màu chữ chính */
+    
+    /* Font chữ */
+    --font-title: 'Playfair Display', serif; /* Cổ điển, sang trọng */
+    --font-body: 'Montserrat', sans-serif;   /* Hiện đại, dễ đọc */
+}
 
-/* 1. Cấu hình chung */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    background-color: var(--color-bg);
+    font-family: var(--font-body);
+    color: var(--color-text);
+    /* Tạo vân vải mờ cho toàn trang */
+    background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
-/* 2. Cấu hình MENU MỚI (navbar-custom) */
+/* ========================================= */
+/* 2. NAVIGATION (THANH ĐIỀU HƯỚNG) */
+/* ========================================= */
 .navbar-custom {
-    background-color: #2c7a3d; /* Màu xanh lá đậm đặc trưng */
-    color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--color-green);
+    border-bottom: 4px solid var(--color-red); /* Viền đỏ đậm dưới menu */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    /* Họa tiết thổ cẩm giả lập bằng CSS Gradient */
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
 }
 
-.navbar-custom .navbar-brand {
-    color: white !important;
-    font-weight: bold;
-    font-size: 1.3rem;
+.navbar-brand {
+    font-family: var(--font-title);
+    font-weight: 900;
+    color: #fff !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0px var(--color-yellow);
 }
 
-.navbar-custom .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
-    transition: color 0.3s ease;
+.nav-link {
+    color: #eee !important;
+    font-weight: 500;
+    margin: 0 5px;
+    transition: all 0.3s ease;
 }
 
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link.active {
-    color: #ffeb3b !important; /* Màu vàng nổi bật khi active */
-    font-weight: 600;
+.nav-link:hover, .nav-link.active {
+    color: var(--color-yellow) !important;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
 }
 
+/* Dropdown Menu */
 .dropdown-menu {
-    border-radius: 0;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-green);
+    border-top: 5px solid var(--color-red);
+    border-radius: 0 0 8px 8px;
 }
 
-/* 3. Ảnh bìa và Card */
+.dropdown-item:hover {
+    background-color: var(--color-red);
+    color: #fff;
+}
+
+/* ========================================= */
+/* 3. HEADER BANNER */
+/* ========================================= */
 .main-banner {
-    background-size: cover;
-    background-position: center;
-    height: 400px;
+    position: relative;
+    /* Overlay làm tối ảnh nền để chữ nổi bật */
+    box-shadow: inset 0 0 0 1000px rgba(0, 77, 64, 0.4); 
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-    position: relative;
+    border-bottom: 5px double var(--color-yellow); /* Viền kép ngăn cách */
 }
 
+.main-banner h1 {
+    color: #fff;
+    font-family: var(--font-title);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    border-bottom: 2px dashed var(--color-yellow); /* Gạch chân nét đứt */
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.main-banner .lead {
+    color: #f0f0f0;
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+/* ========================================= */
+/* 4. SECTIONS & TEXT STYLING */
+/* ========================================= */
+
+/* Ghi đè class text-success của Bootstrap thành màu Đỏ thổ cẩm */
+.text-success {
+    color: var(--color-red) !important;
+    font-family: var(--font-title);
+    letter-spacing: 1px;
+}
+
+/* Tạo đường gạch chân trang trí dưới tiêu đề H2 */
+h2.text-success {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+h2.text-success::after {
+    content: "❖ ❖ ❖"; /* Biểu tượng họa tiết nhỏ */
+    display: block;
+    font-size: 14px;
+    color: var(--color-yellow);
+    text-align: center;
+    margin-top: 5px;
+    letter-spacing: 5px;
+}
+
+.text-muted {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* ========================================= */
+/* 5. CARD (THẺ DÂN TỘC) - PHẦN QUAN TRỌNG NHẤT */
+/* ========================================= */
 .ethnic-card {
-    transition: transform 0.3s ease;
     border: none;
-    border-radius: 8px;
-    overflow: hidden;
+    background-color: #fff;
+    /* Tạo viền khung tranh độc đáo */
+    outline: 2px solid var(--color-green);
+    outline-offset: -6px;
+    border-radius: 0; /* Bo góc vuông vức kiểu khung dệt */
+    transition: all 0.4s ease;
 }
 
-.ethnic-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.ethnic-card img {
-    height: 220px;
+/* Ảnh trong card */
+.card-img-top {
+    height: 240px;
     object-fit: cover;
+    border-bottom: 4px solid var(--color-red);
+    padding: 6px; /* Tạo khoảng trắng giữa ảnh và viền */
+    background: #fff;
 }
 
-/* 4. Map Responsive */
-.map-responsive {
-    overflow: hidden;
-    padding-bottom: 75%;
+.card-body {
+    padding: 1.5rem;
+    z-index: 2; /* Để nội dung nổi lên trên outline */
+    background-color: #fff; 
+}
+
+/* Hiệu ứng khi di chuột vào card */
+.ethnic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 0px var(--color-yellow); /* Bóng đổ cứng kiểu retro/thủ công */
+    outline-color: var(--color-red);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================================= */
+/* 6. BUTTONS (NÚT BẤM) */
+/* ========================================= */
+.btn-outline-success {
+    color: var(--color-green);
+    border: 2px solid var(--color-green);
+    border-radius: 0; /* Nút vuông */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     position: relative;
-    height: 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-.map-responsive iframe {
-    left: 0; top: 0; height: 100%; width: 100%; position: absolute; border: 0;
+    overflow: hidden;
+    z-index: 1;
 }
 
+.btn-outline-success::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 0%; height: 100%;
+    background-color: var(--color-red);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    border-color: var(--color-red);
+}
+
+.btn-outline-success:hover::before {
+    width: 100%;
+}
+
+/* ========================================= */
+/* 7. FOOTER */
+/* ========================================= */
 footer {
-    background-color: #212529;
-    color: white;
-    padding: 30px 0;
+    background-color: var(--color-green);
+    color: #fff;
+    padding: 20px 0;
     margin-top: 50px;
+    border-top: 6px solid var(--color-yellow);
+    /* Họa tiết đường diềm chân trang */
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--color-green),
+        var(--color-green) 10px,
+        #003d33 10px,
+        #003d33 20px
+    );
+}
+
+footer p {
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
