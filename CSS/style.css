@@ -3,7 +3,7 @@
 /* ========================================= */
 @font-face {
     font-family: 'Stinger Fit';
-    /* Đường dẫn: từ thư mục CSS lùi ra 1 cấp (..) rồi vào thư mục fonts */
+    /* Đường dẫn: Lùi ra khỏi thư mục CSS (..) -> vào thư mục fonts -> chọn file */
     src: url('../fonts/stinger-fit-trial.regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -38,6 +38,7 @@ body {
     margin: 0;
     overflow-x: hidden;
     
+    /* CẬP NHẬT TÊN FILE: hoatiet.jpg */
     background-image: 
         radial-gradient(circle at center, var(--bg-light-overlay) 0%, var(--bg-dark-overlay) 90%),
         url('../images/hoatiet.jpg'); 
@@ -112,7 +113,7 @@ body {
     position: absolute;
     width: 800px;
     height: 800px;
-    background-image: url('../images/trong-dong.jpg.png');
+    background-image: url('../images/trong-dong.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -149,7 +150,7 @@ body {
 }
 
 /* ========================================= */
-/* 6. TIÊU ĐỀ MỤC + CHIM LẠC VÀNG */
+/* 6. TIÊU ĐỀ MỤC + CHIM LẠC VÀNG (Dùng cho cả Trang chủ & Giới thiệu) */
 /* ========================================= */
 h2.text-success {
     font-family: var(--font-heading);
@@ -166,42 +167,53 @@ h2.text-success {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    margin: 60px 0 20px 0; /* Giảm margin dưới một chút để gần đoạn văn hơn */
+    margin: 60px 0 20px 0;
 }
 
+/* --- CHIM LẠC Ở ĐÂY --- */
 h2.text-success::before, 
 h2.text-success::after {
     content: '';
     display: block;
     width: 70px; height: 70px;
+    /* CẬP NHẬT TÊN FILE: chim-lac.jpg.png */
     background-image: url('../images/chim-lac.jpg.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    /* Bộ lọc biến Chim Lạc thành màu vàng rực rỡ */
     filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
 }
 
 h2.text-success::before { transform: scaleX(-1); }
 
-/* --- SỬA CHỖ NÀY: ĐOẠN VĂN GIỚI THIỆU (Thái Nguyên là nơi...) --- */
-/* Target cụ thể vào đoạn văn có class text-muted nằm trong container */
+/* ĐOẠN VĂN GIỚI THIỆU CHUNG (chữ vàng nhạt) */
 .container .text-center .text-muted {
-    color: #FFF9C4 !important; /* Màu vàng kem nhạt sáng sủa */
+    color: #FFF9C4 !important; 
     font-family: var(--font-body);
-    font-size: 1.3rem;         /* To hơn để dễ đọc */
+    font-size: 1.3rem;
     font-weight: 400;
     line-height: 1.6;
-    text-shadow: 0 2px 4px rgba(0,0,0,1); /* Bóng đen đậm để tách khỏi nền */
-    opacity: 1 !important;     /* Bỏ độ mờ mặc định của Bootstrap */
-    max-width: 800px;          /* Giới hạn chiều rộng cho đẹp */
+    text-shadow: 0 2px 4px rgba(0,0,0,1);
+    opacity: 1 !important;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* TIÊU ĐỀ H3 TRANG GIỚI THIỆU (Không có Chim Lạc) */
+h3.text-success {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-gold) !important;
+    text-shadow: 0 2px 5px #000;
+}
+
 /* ========================================= */
-/* 7. THẺ CARD: NỀN TỐI + VIỀN HỌA TIẾT */
+/* 7. THẺ CARD & HỘP THÔNG TIN (INFO BOX) */
 /* ========================================= */
-.ethnic-card {
+.ethnic-card, .info-box {
     background: rgba(20, 20, 20, 0.6); 
     backdrop-filter: blur(10px);
     border: 1px solid var(--color-gold-dim);
@@ -209,8 +221,10 @@ h2.text-success::before { transform: scaleX(-1); }
     overflow: hidden;
     transition: 0.4s;
     position: relative;
+    height: 100%;
 }
 
+/* CẬP NHẬT TÊN FILE: hoatiet.jpg */
 .ethnic-card::before {
     content: '';
     display: block;
@@ -220,7 +234,7 @@ h2.text-success::before { transform: scaleX(-1); }
     background-size: cover;
 }
 
-.ethnic-card:hover {
+.ethnic-card:hover, .info-box:hover {
     transform: translateY(-10px);
     background: rgba(40, 40, 40, 0.9);
     box-shadow: 0 0 25px rgba(255, 215, 0, 0.25); 
@@ -233,15 +247,20 @@ h2.text-success::before { transform: scaleX(-1); }
     border-bottom: 2px solid var(--color-gold-dim);
 }
 
-.card-body { padding: 1.5rem; }
+.card-body, .info-box { padding: 1.5rem; text-align: center; }
 
-.card-title {
+.card-title, .info-box h4 {
     color: var(--color-gold);
     font-family: var(--font-heading);
     font-size: 1.5rem;
 }
 
-.card-text { color: #ddd; }
+.card-text, .info-box p { color: #ddd; }
+
+.info-box .display-4 {
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(255,215,0,0.5));
+}
 
 /* ========================================= */
 /* 8. FOOTER & BUTTONS */
@@ -262,12 +281,26 @@ h2.text-success::before { transform: scaleX(-1); }
     box-shadow: 0 0 15px var(--color-gold);
 }
 
+.map-responsive {
+    border: 2px solid var(--color-gold-dim);
+    border-radius: 8px;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+.map-responsive iframe {
+    position: absolute; top:0; left: 0; width: 100%; height: 100%;
+    filter: contrast(1.1) grayscale(0.2);
+}
+
 footer {
     background-color: #000;
     color: var(--color-gold-dim);
     padding: 50px 0;
     margin-top: 80px;
     border-top: 5px solid transparent;
+    /* CẬP NHẬT TÊN FILE: hoatiet.jpg */
     border-image: url('../images/hoatiet.jpg') 30 stretch;
     text-align: center;
 }
