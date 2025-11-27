@@ -1,131 +1,109 @@
-/* ========================================================= */
-/* 1. BẢNG MÀU & CẤU HÌNH (THỔ CẨM + ĐỒNG ĐÔNG SƠN)          */
-/* ========================================================= */
+/* ========================================= */
+/* 1. CẤU HÌNH CHUNG (HIỆN ĐẠI) */
+/* ========================================= */
 :root {
-    /* Nền: Màu đen than (Lấy từ ảnh vải đen bạn gửi) */
-    --color-bg: #1a1a1a; 
+    --bg-body: #F9FAFB; 
+    --bg-card: #FFFFFF;
+    --primary-color: #1A2C42; /* Xanh than */
+    --accent-orange: #D97706; /* Vàng cam */
     
-    /* MÀU CHỦ ĐẠO */
-    --color-red: #D50000;      /* Đỏ rực (Viền vải) */
-    --color-bronze: #D4AF37;   /* Vàng Đồng */
-    --color-neon-green: #64DD17; 
-    --color-neon-blue: #00B0FF;  
-    --color-neon-yellow: #FFD600;
-    
-    /* Font chữ */
-    --font-heading: 'Eczar', serif; 
-    --font-body: 'Podkova', serif;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Be Vietnam Pro', sans-serif;
 }
 
 body {
-    background-color: var(--color-bg);
+    background-color: var(--bg-body);
     font-family: var(--font-body);
-    color: #e0e0e0;
-    overflow-x: hidden;
-    /* Họa tiết nền mờ */
-    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px);
+    color: #333;
+    overflow-x: hidden; /* Ngăn thanh cuộn ngang do hiệu ứng */
 }
 
-/* ========================================================= */
-/* 2. CHỮ CÁCH ĐIỆU (TEXT MASKING)                           */
-/* ========================================================= */
-.ethnic-text {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    text-transform: uppercase;
-    color: transparent; 
-    background-image: repeating-linear-gradient(
-        135deg,
-        var(--color-red) 0px, var(--color-red) 10px,
-        var(--color-bronze) 10px, var(--color-bronze) 20px,
-        var(--color-neon-green) 20px, var(--color-neon-green) 30px,
-        var(--color-neon-blue) 30px, var(--color-neon-blue) 40px
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    filter: drop-shadow(2px 2px 0px rgba(255,255,255,0.2));
-}
-
-/* ========================================================= */
-/* 3. NAVIGATION (THANH MENU)                                */
-/* ========================================================= */
+/* ========================================= */
+/* 2. THANH MENU & LOGO */
+/* ========================================= */
 .navbar-custom {
-    background-color: #000;
-    border-bottom: 4px dashed var(--color-neon-yellow);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    background-color: var(--primary-color);
     padding: 15px 0;
+    border-bottom: 4px solid var(--accent-orange);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* Logo chữ thổ cẩm */
 .navbar-brand {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--color-bronze) !important;
+    font-weight: 900;
+    font-size: 1.5rem;
     text-transform: uppercase;
-    border: 2px solid var(--color-bronze);
-    padding: 5px 15px;
-    letter-spacing: 1px;
+    
+    background-image: url('../images/hoatiet.jpg');
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 2px rgba(255,255,255,0.2));
 }
 
 .nav-link {
-    color: #fff !important;
-    font-family: var(--font-body);
+    color: rgba(255,255,255,0.8) !important;
     text-transform: uppercase;
-    margin: 0 8px;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0 10px;
     transition: 0.3s;
 }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--color-neon-green) !important;
-    text-shadow: 0 0 10px var(--color-neon-green);
+.nav-link:hover {
+    color: #fff !important;
+    border-bottom: 2px solid var(--accent-orange);
 }
 
-.dropdown-menu {
-    background-color: #000;
-    border: 1px solid var(--color-red);
-}
-.dropdown-item { color: #fff; }
-.dropdown-item:hover { background-color: var(--color-red); }
-
-/* ========================================================= */
-/* 4. BANNER (TRỐNG ĐỒNG THẬT XOAY TRÒN)                     */
-/* ========================================================= */
+/* ========================================= */
+/* 3. BANNER VỚI TRỐNG ĐỒNG XOAY (ĐÃ SỬA) */
+/* ========================================= */
 .main-banner {
     position: relative;
-    height: 500px; /* Chiều cao lớn để chứa đủ trống đồng */
-    margin: 40px 0;
-    
-    /* Khung viền style vải đen */
-    background-color: #0a0a0a;
-    border-top: 5px solid var(--color-red);
-    border-bottom: 5px solid var(--color-red);
-    
+    height: 500px;
     display: flex;
-    flex-direction: column; /* Xếp chữ dọc */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    z-index: 1;
+    overflow: hidden; /* Cắt phần thừa của trống đồng */
+    background-color: #000; /* Màu nền dự phòng nếu ảnh banner lỗi */
+    /* Ảnh nền phong cảnh (nếu có) */
+    background-size: cover;
+    background-position: center;
 }
 
-/* LỚP ẢNH TRỐNG ĐỒNG XOAY */
+/* Lớp phủ màu tối để làm nổi chữ và trống đồng */
 .main-banner::before {
     content: '';
     position: absolute;
-    width: 900px; /* Kích thước trống đồng */
-    height: 900px;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(26, 44, 66, 0.7); /* Xanh than tối mờ */
+    z-index: 1;
+}
+
+/* --- TRỐNG ĐỒNG XOAY (NẰM DƯỚI CHỮ) --- */
+.main-banner::after {
+    content: '';
+    position: absolute;
+    width: 700px;  /* Kích thước trống */
+    height: 700px;
     
-    /* --- QUAN TRỌNG: ĐƯỜNG DẪN ĐẾN ẢNH TRỐNG ĐỒNG BẠN LƯU --- */
-    /* Hãy chắc chắn bạn đã lưu ảnh tên là trong-dong.jpg vào thư mục images */
-    background-image: url('../images/trong-dong.jpg.png'); 
-    
-    background-position: center;
-    background-size: contain; /* Hiển thị đầy đủ hình trống */
+    /* ĐƯỜNG DẪN ẢNH TRỐNG ĐỒNG */
+    background-image: url('../images/trong-dong.jpg.png');
+    background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.4; /* Làm mờ trống đi để chữ nổi lên */
-    z-index: -1; /* Nằm dưới chữ */
+    background-position: center;
     
-    /* Hiệu ứng xoay tròn */
+    opacity: 0.15; /* Rất mờ để trông sang trọng, không bị rối */
+    z-index: 1; /* Nằm cùng lớp với nền tối */
+    
+    /* Hiệu ứng xoay */
     animation: spin 60s linear infinite;
 }
 
@@ -134,46 +112,55 @@ body {
     to { transform: rotate(360deg); } 
 }
 
-/* Chữ trong Banner */
+/* Chữ trên Banner */
+.main-banner h1, .main-banner p {
+    position: relative;
+    z-index: 2; /* Phải nổi lên trên trống đồng */
+    color: #fff;
+    text-align: center;
+}
+
 .main-banner h1 {
     font-family: var(--font-heading);
-    font-size: 4rem; /* Chữ to rõ */
     font-weight: 900;
-    color: #fff; /* Màu trắng cho dễ đọc trên nền tối */
+    font-size: 4rem;
     text-transform: uppercase;
-    text-shadow: 4px 4px 0px #000, 0 0 20px var(--color-red); /* Viền đen dày để tách khỏi nền */
-    margin-bottom: 10px;
-    z-index: 2;
-    text-align: center;
-    line-height: 1.2;
-}
-
-.main-banner .lead {
-    font-family: var(--font-body);
-    color: var(--color-bronze);
-    background: rgba(0,0,0,0.8); /* Nền đen mờ dưới chữ phụ */
-    padding: 10px 20px;
-    border: 1px solid var(--color-bronze);
-    font-size: 1.5rem;
-    z-index: 2;
-}
-
-/* ========================================================= */
-/* 5. TIÊU ĐỀ + CHIM LẠC (DÙNG ẢNH THẬT)                     */
-/* ========================================================= */
-.text-success {
-    /* Style cho chữ Khám Phá Bản Sắc */
-    font-family: var(--font-heading);
-    font-weight: 800;
-    text-transform: uppercase;
-    color: transparent !important;
-    background-image: repeating-linear-gradient(
-        90deg, var(--color-red), var(--color-red) 10px, var(--color-neon-green) 10px, var(--color-neon-green) 20px
-    );
+    
+    /* Áp dụng họa tiết thổ cẩm cho tiêu đề lớn */
+    background-image: url('../images/hoatiet.jpg');
+    background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
+    color: transparent;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.8));
+    
+    margin-bottom: 20px;
+}
+
+.main-banner p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ========================================= */
+/* 4. TIÊU ĐỀ + CHIM LẠC (ĐÃ THÊM LẠI) */
+/* ========================================= */
+h2.text-success {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    text-transform: uppercase;
     font-size: 2.5rem;
     
+    /* Chữ thổ cẩm */
+    background-image: url('../images/hoatiet.jpg');
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+    
+    /* Căn giữa để gắn Chim Lạc */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,89 +168,83 @@ body {
     margin-bottom: 30px;
 }
 
-/* HIỂN THỊ CHIM LẠC 2 BÊN */
-.text-success::before, .text-success::after {
+/* THÊM CHIM LẠC 2 BÊN */
+h2.text-success::before, 
+h2.text-success::after {
     content: '';
     display: block;
-    width: 80px;  /* Chiều rộng con chim */
-    height: 50px; /* Chiều cao con chim */
+    width: 60px;  /* Độ rộng chim */
+    height: 40px; /* Độ cao chim */
     
-    /* --- QUAN TRỌNG: ĐƯỜNG DẪN ĐẾN ẢNH CHIM LẠC --- */
+    /* ĐƯỜNG DẪN ẢNH CHIM LẠC */
     background-image: url('../images/chim-lac.jpg.png');
-    
-    background-repeat: no-repeat;
     background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
+    
+    /* Làm chim tối màu đi chút cho tiệp với màu chữ thổ cẩm */
+    opacity: 0.8; 
 }
 
-/* Con chim bên trái: Lật ngược lại để đối xứng */
-.text-success::before { 
-    transform: scaleX(-1); 
+/* Lật ngược con chim bên trái cho đối xứng */
+h2.text-success::before {
+    transform: scaleX(-1);
 }
 
-/* ========================================================= */
-/* 6. THẺ CARD & FOOTER                                      */
-/* ========================================================= */
+/* ========================================= */
+/* 5. THẺ CARD & FOOTER (GIỮ NGUYÊN HIỆN ĐẠI) */
+/* ========================================= */
 .ethnic-card {
-    background-color: #000;
-    border: 4px solid var(--color-red);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-    transition: 0.4s;
-    position: relative;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    overflow: hidden;
 }
-
-/* Xoay ngẫu nhiên */
-.col-lg-4:nth-child(odd) .ethnic-card { transform: rotate(-1.5deg); }
-.col-lg-4:nth-child(even) .ethnic-card { transform: rotate(1.5deg); }
 
 .ethnic-card:hover {
-    transform: rotate(0deg) scale(1.05) !important;
-    border-color: var(--color-bronze);
-    z-index: 10;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    /* Viền dưới màu cam khi hover */
+    border-bottom: 4px solid var(--accent-orange);
 }
 
 .card-img-top {
-    height: 230px;
+    height: 240px;
     object-fit: cover;
-    margin: 8px; 
-    width: calc(100% - 16px);
-    border-bottom: 2px solid var(--color-neon-blue);
 }
 
-.card-body { padding: 15px; color: #fff; }
+.card-body {
+    padding: 1.5rem;
+    position: relative;
+    /* Dải họa tiết ngăn cách ảnh và chữ */
+    border-top: 4px solid var(--primary-color);
+}
+
 .card-title {
+    color: var(--primary-color);
+    font-weight: 700;
     font-family: var(--font-heading);
-    color: var(--color-neon-yellow) !important;
-    font-size: 1.4rem;
 }
 
 .btn-outline-success {
-    color: var(--color-bg);
-    background-color: var(--color-bronze);
-    border: 2px solid #fff;
-    font-family: var(--font-heading);
-    font-weight: 800;
-    text-transform: uppercase;
-    box-shadow: 4px 4px 0px var(--color-red);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 24px;
+    font-weight: 600;
 }
+
 .btn-outline-success:hover {
-    background-color: var(--color-red);
+    background-color: var(--primary-color);
     color: #fff;
-    box-shadow: 2px 2px 0px #fff;
 }
 
 footer {
-    background-color: #000;
-    color: var(--color-bronze);
+    background-color: var(--primary-color);
+    color: #fff;
     padding: 40px 0;
-    margin-top: 80px;
-    border-top: 5px solid var(--color-red);
-    background-image: 
-        linear-gradient(135deg, var(--color-red) 25%, transparent 25%), 
-        linear-gradient(225deg, var(--color-red) 25%, transparent 25%), 
-        linear-gradient(45deg, var(--color-red) 25%, transparent 25%), 
-        linear-gradient(315deg, var(--color-red) 25%, transparent 25%);
-    background-position: 10px 0, 10px 0, 0 0, 0 0;
-    background-size: 20px 20px;
-    background-repeat: repeat-x;
+    margin-top: 60px;
+    border-top: 5px solid var(--accent-orange);
+    text-align: center;
 }
