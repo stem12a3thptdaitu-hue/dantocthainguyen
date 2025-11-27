@@ -139,17 +139,13 @@ body {
     text-shadow: 0 4px 8px #000000; 
 }
 
-/* --- ĐÃ SỬA: CHỮ TO HƠN VÀ MÀU VÀNG NHẠT --- */
 .main-banner p {
     font-family: var(--font-body);
-    color: #FFF9C4; /* Màu vàng kem nhạt (sáng hơn màu gold cũ) */
-    font-size: 1.9rem; /* Tăng kích thước (cũ là 1.6rem) */
+    color: var(--color-gold); 
+    font-size: 1.6rem; 
     font-weight: 500; 
-    letter-spacing: 1px; /* Giảm khoảng cách chữ xíu cho dễ đọc */
-    text-shadow: 0 2px 5px rgba(0,0,0,1); /* Bóng đen đậm hơn để nổi trên nền */
-    max-width: 800px; /* Giới hạn chiều rộng để không bị tràn lề */
-    margin: 0 auto;
-    line-height: 1.4;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
 }
 
 /* ========================================= */
@@ -170,7 +166,7 @@ h2.text-success {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    margin: 60px 0 40px 0;
+    margin: 60px 0 20px 0; /* Giảm margin dưới một chút để gần đoạn văn hơn */
 }
 
 h2.text-success::before, 
@@ -186,6 +182,21 @@ h2.text-success::after {
 }
 
 h2.text-success::before { transform: scaleX(-1); }
+
+/* --- SỬA CHỖ NÀY: ĐOẠN VĂN GIỚI THIỆU (Thái Nguyên là nơi...) --- */
+/* Target cụ thể vào đoạn văn có class text-muted nằm trong container */
+.container .text-center .text-muted {
+    color: #FFF9C4 !important; /* Màu vàng kem nhạt sáng sủa */
+    font-family: var(--font-body);
+    font-size: 1.3rem;         /* To hơn để dễ đọc */
+    font-weight: 400;
+    line-height: 1.6;
+    text-shadow: 0 2px 4px rgba(0,0,0,1); /* Bóng đen đậm để tách khỏi nền */
+    opacity: 1 !important;     /* Bỏ độ mờ mặc định của Bootstrap */
+    max-width: 800px;          /* Giới hạn chiều rộng cho đẹp */
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* ========================================= */
 /* 7. THẺ CARD: NỀN TỐI + VIỀN HỌA TIẾT */
@@ -260,4 +271,3 @@ footer {
     border-image: url('../images/hoatiet.jpg') 30 stretch;
     text-align: center;
 }
-
