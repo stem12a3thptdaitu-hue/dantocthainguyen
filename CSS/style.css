@@ -1,275 +1,46 @@
-/* ========================================= */
-/* 1. HIỆN ĐẠI HÓA BẢNG MÀU (PALETTE) */
-/* ========================================= */
+/* ========================================================= */
+/* 1. BẢNG MÀU & CẤU HÌNH CHUNG (THEO ẢNH VẢI THỔ CẨM)       */
+/* ========================================================= */
 :root {
-    /* MÀU NỀN: Trắng sạch, hiện đại */
-    --bg-body: #F9FAFB; 
-    --bg-card: #FFFFFF;
-
-    /* MÀU CHỦ ĐẠO: Xanh Chàm (Màu vải đặc trưng Tày/Nùng) */
-    /* Màu này sang trọng, trầm, không bị chói */
-    --primary-indigo: #1A2C42; 
+    /* Nền: Trắng kem (màu sợi vải tự nhiên) */
+    --color-bg: #FFFDE7; 
     
-    /* MÀU ĐIỂM NHẤN 1: Đỏ Thổ Cẩm (Dùng cho nút, tiêu đề quan trọng) */
-    --accent-red: #B91C1C; 
+    /* CHỦ ĐẠO 1: Đỏ Hồng/Berry (Màu nổi nhất) */
+    --color-primary: #C2185B; 
     
-    /* MÀU ĐIỂM NHẤN 2: Vàng Nghệ (Dùng cho họa tiết nhỏ) */
-    --accent-yellow: #D97706;
-
-    /* TEXT */
-    --text-main: #1F2937; /* Xám đậm (dễ đọc hơn đen tuyền) */
-    --text-muted: #6B7280;
-
-    /* FONTS */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Montserrat', sans-serif;
+    /* CHỦ ĐẠO 2: Tím than (Tạo chiều sâu, dùng cho nền tối) */
+    --color-deep-purple: #4A148C;
+    
+    /* ĐIỂM NHẤN 1: Xanh ngọc/Cyan (Dải màu sáng) */
+    --color-cyan: #00BCD4;
+    
+    /* ĐIỂM NHẤN 2: Vàng nghệ/Cam (Hoa văn) */
+    --color-yellow: #FB8C00;
+    
+    /* Màu chữ: Nâu đậm (mềm mại hơn đen) */
+    --color-text: #3E2723;
+    
+    /* Font chữ */
+    --font-title: 'Playfair Display', serif; /* Cổ điển, sang trọng */
+    --font-body: 'Montserrat', sans-serif;   /* Hiện đại, dễ đọc */
 }
 
 body {
-    background-color: var(--bg-body);
+    background-color: var(--color-bg);
     font-family: var(--font-body);
-    color: var(--text-main);
-    line-height: 1.6;
+    color: var(--color-text);
+    
+    /* HIỆU ỨNG: Nền vải dệt xước (Cross-hatch pattern) */
+    background-image: 
+        repeating-linear-gradient(45deg, rgba(194, 24, 91, 0.03) 0px, rgba(194, 24, 91, 0.03) 1px, transparent 1px, transparent 10px),
+        repeating-linear-gradient(-45deg, rgba(0, 188, 212, 0.03) 0px, rgba(0, 188, 212, 0.03) 1px, transparent 1px, transparent 10px);
 }
 
-/* ========================================= */
-/* 2. THANH MENU (SANG TRỌNG) */
-/* ========================================= */
+/* ========================================================= */
+/* 2. NAVIGATION (THANH MENU 7 SẮC CẦU VỒNG)                 */
+/* ========================================================= */
 .navbar-custom {
-    background-color: var(--primary-indigo);
-    padding: 1rem 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    /* Tạo đường diềm họa tiết răng cưa nhỏ dưới menu bằng CSS */
-    border-bottom: 4px solid var(--accent-red);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar-brand {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    color: #fff !important;
-    letter-spacing: 1px;
-    font-size: 1.5rem;
-}
-
-.nav-link {
-    color: rgba(255,255,255,0.8) !important;
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin: 0 10px;
-    padding-bottom: 5px;
-    position: relative;
-    transition: all 0.3s;
-}
-
-/* Hiệu ứng gạch chân hiện đại khi hover */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-yellow);
-    transition: width 0.3s;
-}
-
-.nav-link:hover {
-    color: #fff !important;
-}
-
-.nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
-}
-
-.dropdown-menu {
-    border: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-top: 3px solid var(--accent-red);
-}
-
-/* ========================================= */
-/* 3. HERO BANNER (TỐI GIẢN) */
-/* ========================================= */
-.main-banner {
-    position: relative;
-    height: 450px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-}
-
-/* Lớp phủ Gradient đen mờ để làm nổi chữ (trông chuyên nghiệp hơn) */
-.main-banner::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(26, 44, 66, 0.7), rgba(26, 44, 66, 0.4));
-}
-
-.main-banner .container {
-    position: relative;
-    z-index: 2;
-    color: white;
-}
-
-.main-banner h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.main-banner p {
-    font-size: 1.25rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* ========================================= */
-/* 4. SECTIONS & TYPOGRAPHY */
-/* ========================================= */
-.text-success {
-    color: var(--primary-indigo) !important;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    display: inline-block;
-}
-
-/* Họa tiết trang trí dưới tiêu đề (Mô phỏng đường thêu) */
-h2.text-success::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: repeating-linear-gradient(
-        45deg,
-        var(--accent-red),
-        var(--accent-red) 5px,
-        var(--primary-indigo) 5px,
-        var(--primary-indigo) 10px
-    );
-    margin: 15px auto 0;
-}
-
-/* ========================================= */
-/* 5. MODERN CARDS (THẺ DÂN TỘC) */
-/* ========================================= */
-.ethnic-card {
-    border: none;
-    background: var(--bg-card);
-    border-radius: 12px; /* Bo góc mềm mại */
-    overflow: hidden;
-    /* Đổ bóng nhẹ nhàng (Soft Shadow) chuẩn hiện đại */
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-img-top {
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-/* Dải họa tiết thổ cẩm chèn giữa ảnh và nội dung */
-.ethnic-card .card-body {
-    position: relative;
-    padding: 2rem;
-    padding-top: 2.5rem;
-}
-
-.ethnic-card .card-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    /* Tạo họa tiết dệt vải bằng CSS */
-    background: repeating-linear-gradient(
-        90deg,
-        var(--accent-red) 0px,
-        var(--accent-red) 10px,
-        var(--accent-yellow) 10px,
-        var(--accent-yellow) 20px,
-        var(--primary-indigo) 20px,
-        var(--primary-indigo) 30px
-    );
-}
-
-/* Hiệu ứng Hover */
-.ethnic-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.ethnic-card:hover .card-img-top {
-    transform: scale(1.05); /* Zoom nhẹ ảnh */
-}
-
-.card-title {
-    color: var(--primary-indigo);
-    font-weight: 700;
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-}
-
-.card-text {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-/* ========================================= */
-/* 6. BUTTONS (NÚT BẤM) */
-/* ========================================= */
-.btn-outline-success {
-    color: var(--primary-indigo);
-    border: 1px solid var(--primary-indigo);
-    padding: 10px 24px;
-    font-weight: 600;
-    border-radius: 6px;
-    transition: all 0.3s;
-    background: transparent;
-}
-
-.btn-outline-success:hover {
-    background-color: var(--primary-indigo);
-    color: #fff;
-    border-color: var(--primary-indigo);
-    box-shadow: 0 4px 12px rgba(26, 44, 66, 0.3);
-}
-
-/* ========================================= */
-/* 7. FOOTER */
-/* ========================================= */
-footer {
-    background-color: var(--primary-indigo);
-    color: rgba(255,255,255,0.7);
-    padding: 3rem 0;
-    margin-top: 4rem;
-    text-align: center;
-    border-top: 4px solid var(--accent-yellow);
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 400;
-    }/* 2. NAVIGATION (THANH MENU MÀU SẮC) */
-/* ========================================= */
-.navbar-custom {
-    /* Tạo dải màu Gradient 7 sắc giống như xếp chồng các tấm vải trong ảnh */
+    /* Gradient tạo dải màu xếp lớp như vải */
     background: linear-gradient(90deg, 
         var(--color-deep-purple) 0%, 
         var(--color-primary) 25%, 
@@ -279,8 +50,7 @@ footer p {
     
     border-bottom: 5px solid var(--color-yellow);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    padding-bottom: 15px; /* Tăng chiều cao để lộ rõ màu */
-    padding-top: 15px;
+    padding: 15px 0; /* Tăng chiều cao */
 }
 
 .navbar-brand {
@@ -288,9 +58,9 @@ footer p {
     font-weight: 900;
     color: #fff !important;
     text-transform: uppercase;
-    text-shadow: 2px 2px 0px var(--color-deep-purple); /* Bóng chữ cứng */
-    font-size: 1.8rem;
-    background-color: rgba(0,0,0,0.2); /* Nền mờ để dễ đọc chữ trên nền sặc sỡ */
+    text-shadow: 2px 2px 0px var(--color-deep-purple);
+    font-size: 1.5rem;
+    background-color: rgba(0,0,0,0.2); /* Nền mờ dưới logo */
     padding: 5px 15px;
     border-radius: 4px;
 }
@@ -302,13 +72,14 @@ footer p {
     font-size: 0.9rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     margin: 0 5px;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover, .nav-link.active {
     background-color: #fff;
     color: var(--color-primary) !important;
-    border-radius: 20px; /* Bo tròn nút khi hover */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 /* Dropdown Menu */
@@ -317,116 +88,185 @@ footer p {
     border-top: 5px solid var(--color-cyan);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+.dropdown-item:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
 
-/* ========================================= */
-/* 3. HEADER BANNER */
-/* ========================================= */
+/* ========================================================= */
+/* 3. HEADER BANNER (CÓ HÌNH TRỐNG ĐỒNG)                     */
+/* ========================================================= */
 .main-banner {
     position: relative;
-    /* Lớp phủ màu tím than mờ để làm nổi bật chữ trắng */
-    box-shadow: inset 0 0 0 1000px rgba(74, 20, 140, 0.4); 
     display: flex;
     align-items: center;
-    border-bottom: 8px solid var(--color-cyan); /* Viền xanh ngọc dưới banner */
+    justify-content: center;
+    /* Viền dưới màu xanh ngọc */
+    border-bottom: 8px solid var(--color-cyan);
+    
+    /* MÀU TÍM THAN + HÌNH TRỐNG ĐỒNG IN MỜ */
+    background-color: #2E1A47; 
+    background-image: 
+        /* Lớp phủ tối màu để chữ dễ đọc */
+        linear-gradient(rgba(46, 26, 71, 0.7), rgba(46, 26, 71, 0.7)), 
+        /* Hình SVG Trống Đồng (Ngôi sao và vòng tròn) */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L55 35L90 35L60 55L75 90L50 70L25 90L40 55L10 35L45 35Z' fill='%23FB8C00' opacity='0.2'/%3E%3Ccircle cx='50' cy='50' r='30' stroke='%23FB8C00' stroke-width='1' fill='none' opacity='0.2'/%3E%3Ccircle cx='50' cy='50' r='40' stroke='%23FB8C00' stroke-width='2' stroke-dasharray='4,2' fill='none' opacity='0.2'/%3E%3Ccircle cx='50' cy='50' r='48' stroke='%23FB8C00' stroke-width='1' fill='none' opacity='0.2'/%3E%3C/svg%3E");
+    
+    background-size: cover, 600px 600px; /* Kích thước trống đồng */
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    
+    /* Hiệu ứng bóng đổ vào trong để tạo chiều sâu */
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5); 
 }
 
 .main-banner h1 {
     font-family: var(--font-title);
     color: #fff;
-    text-shadow: 3px 3px 0px var(--color-primary); /* Bóng đổ màu hồng đậm */
+    text-shadow: 4px 4px 0px var(--color-primary); /* Bóng chữ dày màu hồng */
     border-bottom: 3px dashed var(--color-yellow);
     display: inline-block;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
-/* ========================================= */
-/* 4. CÁC THẺ CARD (QUAN TRỌNG NHẤT) */
-/* ========================================= */
-/* Tiêu đề mục */
+.main-banner .lead {
+    color: #E0F7FA; /* Màu xanh nhạt */
+    font-weight: 500;
+}
+
+/* ========================================================= */
+/* 4. TIÊU ĐỀ & BIỂU TƯỢNG (CÓ HÌNH CHIM LẠC)                */
+/* ========================================================= */
 .text-success {
-    color: var(--color-primary) !important; /* Đổi màu xanh mặc định thành Đỏ Hồng */
+    color: var(--color-primary) !important; /* Đổi thành màu Đỏ Hồng */
     font-family: var(--font-title);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
+/* Thay dấu gạch chân bằng hình CHIM LẠC */
 h2.text-success::after {
-    content: "♦ ♦ ♦";
-    color: var(--color-cyan);
+    content: '';
     display: block;
-    font-size: 20px;
-    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    margin: 5px auto 0;
+    
+    /* SVG Chim Lạc cách điệu */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' fill='%2300BCD4'%3E%3Cpath d='M10 25 Q 30 5, 50 25 T 90 25 L 80 35 Q 60 25, 50 35 T 10 35 Z' /%3E%3Ccircle cx='85' cy='22' r='3' fill='%23C2185B'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-/* Thẻ Dân Tộc */
+.text-muted {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* ========================================================= */
+/* 5. THẺ CARD DÂN TỘC (KHUNG TRANH ĐA SẮC)                  */
+/* ========================================================= */
 .ethnic-card {
     border: none;
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
     
-    /* VIỀN TRANG TRÍ ĐA SẮC (Mô phỏng lớp vải xếp chồng) */
-    border-top: 5px solid var(--color-primary);
-    border-bottom: 5px solid var(--color-deep-purple);
+    /* 2 Viền trên/dưới màu khác nhau */
+    border-top: 6px solid var(--color-primary);
+    border-bottom: 6px solid var(--color-deep-purple);
     position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Tạo thêm các dải màu bên trái và phải card */
+/* Tạo dải màu bên trái/phải bằng pseudo-elements */
 .ethnic-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 6px; height: 100%;
     background-color: var(--color-yellow);
+    z-index: 1;
 }
 .ethnic-card::after {
     content: '';
     position: absolute;
     top: 0; right: 0; width: 6px; height: 100%;
     background-color: var(--color-cyan);
+    z-index: 1;
 }
 
 .ethnic-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(194, 24, 91, 0.2); /* Bóng màu hồng nhạt */
+    box-shadow: 0 15px 30px rgba(194, 24, 91, 0.25);
+}
+
+.card-img-top {
+    height: 240px;
+    object-fit: cover;
+    padding: 0 6px; /* Để hở dải màu 2 bên */
+}
+
+.card-body {
+    padding: 1.5rem 1.5rem;
+    color: var(--color-text);
 }
 
 .card-title {
     color: var(--color-deep-purple) !important;
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
-/* ========================================= */
-/* 5. NÚT BẤM (BUTTONS) */
-/* ========================================= */
+/* ========================================================= */
+/* 6. NÚT BẤM (BUTTONS)                                      */
+/* ========================================================= */
 .btn-outline-success {
     color: var(--color-primary);
     border: 2px solid var(--color-primary);
-    border-radius: 30px; /* Nút bo tròn mềm mại */
+    border-radius: 30px; /* Bo tròn hình viên thuốc */
     font-weight: 600;
-    padding: 8px 20px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 10px 25px;
+    transition: all 0.3s;
 }
 
 .btn-outline-success:hover {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
     color: #fff;
-    box-shadow: 0 4px 10px rgba(194, 24, 91, 0.4);
+    box-shadow: 0 5px 15px rgba(194, 24, 91, 0.4);
 }
 
-/* ========================================= */
-/* 6. FOOTER */
-/* ========================================= */
+/* ========================================================= */
+/* 7. FOOTER (HOA VĂN RĂNG CƯA)                              */
+/* ========================================================= */
 footer {
-    /* Footer màu tím than đậm đà */
     background-color: var(--color-deep-purple);
     color: #fff;
     padding: 30px 0;
-    margin-top: 50px;
-    
-    /* Viền trên rực rỡ */
+    margin-top: 60px;
     border-top: 5px solid var(--color-yellow);
-    border-bottom: 10px solid var(--color-cyan);
+    
+    /* TẠO HOA VĂN RĂNG CƯA / HÌNH THOI Ở MÉP TRÊN */
+    background-image: 
+        linear-gradient(135deg, var(--color-primary) 25%, transparent 25%), 
+        linear-gradient(225deg, var(--color-primary) 25%, transparent 25%), 
+        linear-gradient(45deg, var(--color-primary) 25%, transparent 25%), 
+        linear-gradient(315deg, var(--color-primary) 25%, transparent 25%);
+        
+    background-position: 10px 0, 10px 0, 0 0, 0 0;
+    background-size: 20px 20px; /* Độ lớn của hoa văn */
+    background-repeat: repeat-x;
+    background-position-y: 0; /* Đặt sát mép trên */
 }
 
+footer p {
+    margin-top: 25px; /* Đẩy chữ xuống dưới hoa văn */
+    font-weight: 500;
+    opacity: 0.9;
+}
