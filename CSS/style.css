@@ -28,7 +28,7 @@ body {
     /* KỸ THUẬT: Ảnh họa tiết nằm dưới cùng, phủ lên 1 lớp đen mờ */
     background-image: 
         radial-gradient(circle at center, var(--bg-light-overlay) 0%, var(--bg-dark-overlay) 90%),
-        url('../images/hoatiet.jpg'); /* <-- Ảnh nền thổ cẩm */
+        url('../images/hoatiet.png'); /* Đã sửa thành .png cho chuẩn */
         
     background-repeat: repeat;
     background-size: 300px 300px; 
@@ -36,7 +36,7 @@ body {
 }
 
 /* ========================================= */
-/* 3. MENU: CÓ VIỀN HỌA TIẾT THỔ CẨM */
+/* 3. MENU: ĐÃ SỬA LẠI VIỀN VÀNG SẮC NÉT */
 /* ========================================= */
 .navbar-custom {
     background-color: #000;
@@ -46,9 +46,9 @@ body {
     top: 0;
     z-index: 1000;
     
-    /* --- THÊM LẠI: VIỀN DƯỚI LÀ HỌA TIẾT THỔ CẨM --- */
-    border-bottom: 4px solid transparent;
-    border-image: url('../images/hoatiet.jpg') 30 stretch;
+    /* --- ĐÃ SỬA: Dùng viền vàng cứng, bỏ ảnh họa tiết bị nhòe --- */
+    border-bottom: 4px solid var(--color-gold-dim);
+    border-image: none; /* Đảm bảo xóa bỏ họa tiết cũ */
 }
 
 .navbar-brand {
@@ -74,7 +74,7 @@ body {
 }
 
 /* ========================================= */
-/* 4. BANNER: CÓ TRỐNG ĐỒNG XOAY (ĐÃ CHỈNH SỬA CHỮ NỔI BẬT) */
+/* 4. BANNER: CHỮ NỔI BẬT + VIỀN VÀNG ĐỒNG BỘ */
 /* ========================================= */
 .main-banner {
     height: 500px;
@@ -84,17 +84,17 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    
+    /* Viền dưới banner: Màu vàng đồng (Giống hệt menu ở trên) */
     border-bottom: 4px solid var(--color-gold-dim);
-    /* Ảnh nền gốc (nếu có, ví dụ ảnh đồi chè) sẽ nằm ở đây */
 }
 
-/* Lớp phủ màu tối để làm nổi chữ - TĂNG ĐỘ TỐI LÊN MỘT CHÚT */
+/* Lớp phủ màu tối để làm nổi chữ */
 .main-banner::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    /* Tăng độ mờ từ 0.6 lên 0.75 để nền tối hơn, chữ sẽ nổi hơn */
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.75); /* Tối 75% */
     z-index: 1;
 }
 
@@ -121,34 +121,32 @@ body {
     z-index: 2; /* Đảm bảo container chứa chữ nổi lên trên cùng */
 }
 
-/* --- CHỈNH SỬA TIÊU ĐỀ CHÍNH --- */
+/* --- TIÊU ĐỀ CHÍNH --- */
 .main-banner h1 {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 4.5rem; /* Tăng kích thước chữ lên một chút */
-    color: #FFF; /* Dùng màu trắng sáng nhất */
+    font-size: 4.5rem; 
+    color: #FFF; 
     text-transform: uppercase;
     margin-bottom: 15px;
     
-    /* TẠO HIỆU ỨNG BÓNG ĐỔ NỔI KHỐI MẠNH HƠN */
+    /* HIỆU ỨNG BÓNG ĐỔ MẠNH */
     text-shadow: 
-        0 2px 4px #000, /* Bóng đen sắc nét sát chân chữ */
-        0 0 20px var(--color-gold), /* Bóng tỏa sáng màu vàng kim xung quanh */
-        0 0 40px var(--color-gold-dim); /* Bóng tỏa rộng hơn để tạo hào quang */
+        0 2px 4px #000, 
+        0 0 20px var(--color-gold), 
+        0 0 40px var(--color-gold-dim);
 }
 
-/* --- CHỈNH SỬA DÒNG CHỮ PHỤ --- */
+/* --- DÒNG CHỮ PHỤ --- */
 .main-banner p {
     font-family: var(--font-body);
-    /* Dùng màu vàng kim sáng thay vì màu đồng tối */
     color: var(--color-gold); 
-    font-size: 1.6rem; /* Tăng kích thước nhẹ */
-    font-weight: 500; /* Tăng độ đậm một chút */
+    font-size: 1.6rem; 
+    font-weight: 500; 
     letter-spacing: 2px;
-    
-    /* Thêm bóng đen để tách chữ khỏi nền */
     text-shadow: 0 2px 5px rgba(0,0,0,0.9);
 }
+
 /* ========================================= */
 /* 5. TIÊU ĐỀ MỤC + CHIM LẠC VÀNG */
 /* ========================================= */
@@ -158,7 +156,6 @@ h2.text-success {
     font-size: 2.5rem;
     text-transform: uppercase;
     
-    /* Chữ màu Vàng Kim (Không họa tiết) */
     background: none !important;
     -webkit-background-clip: unset !important;
     color: var(--color-gold) !important;
@@ -177,7 +174,8 @@ h2.text-success::after {
     content: '';
     display: block;
     width: 70px; height: 70px;
-    background-image: url('../images/chim-lac.jpg.png');
+    /* Đã sửa tên file cho chuẩn */
+    background-image: url('../images/chim-lac.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -201,13 +199,13 @@ h2.text-success::before { transform: scaleX(-1); }
     position: relative;
 }
 
-/* --- THÊM LẠI: DẢI HỌA TIẾT TRÊN ĐẦU CARD --- */
+/* --- DẢI HỌA TIẾT TRÊN ĐẦU CARD --- */
 .ethnic-card::before {
     content: '';
     display: block;
-    height: 6px; /* Độ dày dải họa tiết */
+    height: 6px; 
     width: 100%;
-    background-image: url('../images/hoatiet.jpg');
+    background-image: url('../images/hoatiet.png'); /* Đã sửa thành .png */
     background-size: cover;
 }
 
@@ -260,7 +258,6 @@ footer {
     margin-top: 80px;
     /* Viền trên là họa tiết */
     border-top: 5px solid transparent;
-    border-image: url('../images/hoatiet.jpg') 30 stretch;
+    border-image: url('../images/hoatiet.png') 30 stretch; /* Đã sửa thành .png */
     text-align: center;
 }
-
