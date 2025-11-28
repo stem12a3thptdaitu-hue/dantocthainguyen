@@ -1,5 +1,83 @@
 /* ========================================= */
-/* 5. BANNER TRANG CHỦ (CÓ TRỐNG ĐỒNG) */
+/* 1. NHÚNG PHÔNG CHỮ RIÊNG (STINGER FIT) */
+/* ========================================= */
+@font-face {
+    font-family: 'Stinger Fit';
+    src: url('../fonts/stinger-fit-trial.regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ========================================= */
+/* 2. CẤU HÌNH MÀU SẮC & PHÔNG MẶC ĐỊNH */
+/* ========================================= */
+:root {
+    --color-gold: #FFD700;        
+    --color-gold-dim: #C5A059;    
+    --color-text: #ECEFF1;        
+    
+    --bg-dark-overlay: rgba(0, 0, 0, 0.90); 
+    --bg-light-overlay: rgba(0, 0, 0, 0.70);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Be Vietnam Pro', sans-serif;
+    --font-stinger: 'Stinger Fit', 'Playfair Display', serif; 
+}
+
+/* ========================================= */
+/* 3. NỀN TRANG CHUNG */
+/* ========================================= */
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    margin: 0;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at center, var(--bg-light-overlay) 0%, var(--bg-dark-overlay) 90%),
+        url('../images/hoatiet.jpg'); 
+    background-repeat: repeat;
+    background-size: 300px 300px; 
+    background-attachment: fixed; 
+}
+
+/* ========================================= */
+/* 4. MENU */
+/* ========================================= */
+.navbar-custom {
+    background-color: #000;
+    padding: 10px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 4px solid var(--color-gold-dim); 
+    border-image: none; 
+}
+
+.navbar-brand {
+    font-family: var(--font-stinger); 
+    font-weight: normal; 
+    font-size: 1.8rem; 
+    color: var(--color-gold) !important;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.6) !important;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--color-gold) !important;
+    text-shadow: 0 0 8px var(--color-gold);
+}
+
+/* ========================================= */
+/* 5. BANNER TRANG CHỦ (ĐÃ SỬA MÀU VÀ CỠ CHỮ ĐOẠN VĂN) */
 /* ========================================= */
 .main-banner {
     height: 500px;
@@ -36,7 +114,7 @@
 
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-.main-banner .container { position: relative; z-index: 2; text-align: center; } /* Thêm text-align center để căn giữa nội dung */
+.main-banner .container { position: relative; z-index: 2; text-align: center; }
 
 .main-banner h1 {
     font-family: var(--font-heading);
@@ -48,22 +126,206 @@
     text-shadow: 0 4px 8px #000000; 
 }
 
-/* --- PHẦN ĐÃ CHỈNH SỬA Ở DƯỚI ĐÂY --- */
+/* --- PHẦN ĐÃ CHỈNH SỬA: CHỮ VÀNG NHẠT & TO HƠN --- */
 .main-banner p {
     font-family: var(--font-body);
     
-    /* 1. Đổi thành màu vàng nhạt (LemonChiffon) thay vì màu vàng đậm cũ */
-    color: #fffacd; 
+    /* Màu vàng nhạt (LemonChiffon) */
+    color: #FFFACD; 
     
-    /* 2. Tăng cỡ chữ to hơn (từ 1.6rem lên 2.0rem) */
-    font-size: 2.0rem; 
+    /* Cỡ chữ to hơn */
+    font-size: 2.2rem; 
     
     font-weight: 500; 
-    letter-spacing: 1px; /* Giảm khoảng cách chữ một chút cho dễ đọc khi chữ to */
-    line-height: 1.4;    /* Thêm giãn dòng để đoạn văn thoáng hơn */
-    text-shadow: 0 2px 5px rgba(0,0,0,1); /* Tăng độ đậm bóng đen để chữ sáng nổi bật hơn */
-    
-    /* Giới hạn chiều rộng để dòng chữ không bị dài ngoằng sang hai bên */
-    max-width: 800px; 
-    margin: 0 auto; /* Căn giữa đoạn văn */
+    letter-spacing: 2px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+    line-height: 1.4; /* Thêm giãn dòng để chữ to dễ đọc hơn */
+}
+
+/* ========================================= */
+/* 9. BANNER GIỚI THIỆU (CÓ CHIM LẠC) */
+/* ========================================= */
+.main-banner-intro {
+    height: 400px; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 4px solid var(--color-gold-dim);
+    background-size: cover;
+    background-position: center;
+}
+
+.main-banner-intro::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.main-banner-intro .container { position: relative; z-index: 2; width: 100%; }
+
+.main-banner-intro h1 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 3rem; 
+    color: var(--color-gold);
+    text-transform: uppercase;
+    text-shadow: 0 4px 10px #000;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; 
+}
+
+.main-banner-intro h1::before, 
+.main-banner-intro h1::after {
+    content: '';
+    display: block;
+    width: 80px; height: 60px; 
+    background-image: url('../images/chim-lac.jpg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
+}
+
+.main-banner-intro h1::before { transform: scaleX(-1); }
+
+/* ========================================= */
+/* 6. TIÊU ĐỀ MỤC KHÁC */
+/* ========================================= */
+h2.text-success {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--color-gold) !important;
+    text-shadow: 0 2px 5px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 60px 0 20px 0;
+}
+
+h2.text-success::before, 
+h2.text-success::after {
+    content: '';
+    display: block;
+    width: 70px; height: 70px;
+    background-image: url('../images/chim-lac.jpg.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
+}
+
+h2.text-success::before { transform: scaleX(-1); }
+
+h3.text-success {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-gold) !important;
+    text-shadow: 0 2px 5px #000;
+}
+
+/* ========================================= */
+/* 7. CÁC THẺ CARD & HỘP THÔNG TIN */
+/* ========================================= */
+.ethnic-card, .info-box {
+    background: rgba(20, 20, 20, 0.6); 
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-gold-dim);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: 0.4s;
+    position: relative;
+    height: 100%;
+}
+
+.ethnic-card::before {
+    content: '';
+    display: block;
+    height: 6px; 
+    width: 100%;
+    background-image: url('../images/hoatiet.jpg');
+    background-size: cover;
+}
+
+.ethnic-card:hover, .info-box:hover {
+    transform: translateY(-10px);
+    background: rgba(40, 40, 40, 0.9);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25); 
+    border-color: var(--color-gold);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--color-gold-dim);
+}
+
+.card-body, .info-box { padding: 1.5rem; text-align: center; }
+
+.card-title, .info-box h4 {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.card-text, .info-box p { color: #ddd; }
+
+.info-box { padding: 2rem; }
+.info-box .display-4 { margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(255,215,0,0.5)); }
+
+/* ========================================= */
+/* 8. FOOTER & KHÁC */
+/* ========================================= */
+.btn-outline-success {
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    background: transparent;
+    padding: 10px 30px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--color-gold);
+    color: #000;
+    box-shadow: 0 0 15px var(--color-gold);
+}
+
+.map-responsive {
+    border: 2px solid var(--color-gold-dim);
+    border-radius: 8px;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+.map-responsive iframe {
+    position: absolute; top:0; left: 0; width: 100%; height: 100%;
+    filter: contrast(1.1) grayscale(0.2);
+}
+
+.list-group-item.bg-transparent {
+    color: #ECEFF1;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+footer {
+    background-color: #000;
+    color: var(--color-gold-dim);
+    padding: 50px 0;
+    margin-top: 80px;
+    border-top: 5px solid transparent;
+    border-image: url('../images/hoatiet.jpg') 30 stretch;
+    text-align: center;
 }
