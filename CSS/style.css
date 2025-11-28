@@ -336,3 +336,79 @@ footer {
     border-image: url('../images/hoatiet.jpg') 30 stretch;
     text-align: center;
 }
+/* ========================================= */
+/* 9. BANNER GIỚI THIỆU (ĐÃ SỬA THEO YÊU CẦU) */
+/* ========================================= */
+.main-banner-intro {
+    height: 450px; /* Chiều cao banner */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 4px solid var(--color-gold-dim);
+    
+    /* --- [QUAN TRỌNG] CHÈN LINK ẢNH NỀN CỦA BẠN VÀO DƯỚI ĐÂY --- */
+    background-image: url('../images/hinh-nen-gioi-thieu.jpg'); 
+    /* Hãy thay 'hinh-nen-gioi-thieu.jpg' bằng tên file ảnh thực tế của bạn */
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Lớp phủ Gradient đen nhạt để làm nổi bật chữ */
+.main-banner-intro::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* Tạo hiệu ứng chuyển màu từ đen nhạt sang đen đậm dần xuống dưới */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)); 
+    z-index: 1;
+}
+
+/* Đảm bảo nội dung (chữ) nằm đè lên lớp phủ đen */
+.main-banner-intro .container { 
+    position: relative; 
+    z-index: 2; 
+    width: 100%; 
+    text-align: center;
+}
+
+/* Tiêu đề H1: TỔNG QUAN TỈNH THÁI NGUYÊN (Vàng + Chim Lạc) */
+.main-banner-intro h1 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 3.5rem; /* Cỡ chữ to rõ ràng */
+    color: var(--color-gold);
+    text-transform: uppercase;
+    text-shadow: 0 4px 15px #000; /* Đổ bóng đen đậm để chữ nổi bật trên nền ảnh */
+    margin: 0;
+    
+    /* Flexbox để căn chim lạc 2 bên */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Khoảng cách giữa chim và chữ */
+}
+
+/* Tạo hình Chim Lạc 2 bên */
+.main-banner-intro h1::before, 
+.main-banner-intro h1::after {
+    content: '';
+    display: block;
+    width: 80px; height: 60px; /* Kích thước chim */
+    background-image: url('../images/chim-lac.jpg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Bộ lọc màu vàng gold cho chim lạc */
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
+}
+
+/* Lật ngược con chim bên trái cho đối xứng */
+.main-banner-intro h1::before { 
+    transform: scaleX(-1); 
+}
