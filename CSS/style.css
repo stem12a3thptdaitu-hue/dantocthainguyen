@@ -186,38 +186,31 @@ footer {
 .contact-banner h1::before { transform: scaleX(-1); }
 
 /* B. CARD MỚI: WHITE GLASS MODE (Trắng trong suốt) */
-/* Class này dùng thay cho ethnic-card và info-box Ở TRANG LIÊN HỆ */
 .contact-glass-box {
-    background: rgba(255, 255, 255, 0.85) !important; /* Nền trắng trong 85% */
-    backdrop-filter: blur(10px) !important;           /* Làm mờ họa tiết nền */
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
     border-radius: 8px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15) !important;
-    color: #2c2c2c !important; /* Chữ màu đen */
+    color: #2c2c2c !important;
     padding: 2rem;
     height: 100%;
     transition: 0.4s;
     text-align: center;
 }
-
 .contact-glass-box:hover {
     background: rgba(255, 255, 255, 0.95) !important;
     transform: translateY(-5px);
-    border-color: #B8860B !important; /* Viền vàng đất */
+    border-color: #B8860B !important;
 }
-
-/* Chỉnh màu tiêu đề bên trong box trắng */
-.contact-glass-box h2, 
-.contact-glass-box h4,
-.contact-glass-box strong {
-    color: #B8860B !important; /* Màu Vàng Đất */
+.contact-glass-box h2, .contact-glass-box h4, .contact-glass-box strong {
+    color: #B8860B !important;
     text-shadow: none !important;
     font-weight: 800;
 }
 .contact-glass-box i { color: #B8860B !important; margin-right: 5px;}
 .contact-glass-box hr { border-color: #B8860B !important; opacity: 0.5; }
 
-/* C. INPUT FORM (Giao diện sáng) - Chỉ áp dụng bên trong .contact-glass-box */
 .contact-glass-box .form-control {
     background-color: #f8f9fa !important;
     border: 1px solid #ced4da !important;
@@ -238,3 +231,31 @@ footer {
 .contact-glass-box .btn-outline-success:hover {
     background-color: #B8860B !important; color: #fff !important;
 }
+
+/* ========================================= */
+/* PHẦN 3: SỬA LỖI MÀU CHỮ (TRANG GIỚI THIỆU) */
+/* ========================================= */
+
+/* Áp dụng cho danh sách "Phía Bắc, Phía Tây..." */
+.intro-location-list {
+    list-style: none; /* Xóa dấu chấm mặc định nếu có */
+    padding-left: 0;
+}
+
+.intro-location-list li, 
+.intro-location-list p,
+.intro-location-list span {
+    color: #FFFFFF !important; /* Chuyển màu chữ thành trắng tinh */
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9); /* Tạo bóng đen để chữ nổi rõ trên nền tối/hoa tiết */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Sửa màu dòng kẻ ngăn cách thành trắng mờ */
+    padding: 10px 0;
+}
+
+/* Nếu bạn dùng thẻ i cho icon đỏ (như trong ảnh) */
+.intro-location-list i {
+    margin-right: 10px;
+    filter: drop-shadow(0 0 2px #000); /* Làm nổi bật icon */
+    }
