@@ -416,7 +416,7 @@ footer {
 /* 10. TRANG LIÊN HỆ (CONTACT PAGE) */
 /* ========================================= */
 
-/* Banner riêng cho trang Liên Hệ */
+/* --- BANNER (Giữ nguyên giao diện Tối để sang trọng) --- */
 .contact-banner {
     position: relative;
     height: 350px;
@@ -425,12 +425,11 @@ footer {
     justify-content: center;
     overflow: hidden;
     border-bottom: 4px solid var(--color-gold-dim);
-    background-image: url('../images/hoatiet.jpg'); /* Hoặc ảnh nền khác */
+    background-image: url('../images/hoatiet.jpg'); 
     background-size: cover;
     background-position: center;
 }
 
-/* Lớp phủ ĐEN ĐẬM (92%) theo yêu cầu */
 .contact-banner::before {
     content: '';
     position: absolute;
@@ -439,19 +438,10 @@ footer {
     z-index: 1;
 }
 
-/* QUAN TRỌNG: Tắt Trống đồng xoay ở banner này */
-.contact-banner::after {
-    content: none;
-    display: none;
-}
+.contact-banner::after { content: none; display: none; }
 
-.contact-banner .container {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
+.contact-banner .container { position: relative; z-index: 2; text-align: center; }
 
-/* Tiêu đề trang Liên Hệ */
 .contact-banner h1 {
     font-family: var(--font-heading);
     font-weight: 900;
@@ -467,7 +457,6 @@ footer {
     gap: 20px;
 }
 
-/* Chim Lạc trang trí 2 bên tiêu đề */
 .contact-banner h1::before, 
 .contact-banner h1::after {
     content: '';
@@ -483,42 +472,83 @@ footer {
 .contact-banner h1::before { transform: scaleX(-1); }
 
 /* ========================================= */
-/* 11. FORM INPUT (Giao diện SÁNG - LIGHT MODE) */
+/* 12. KHUNG CHỨA NỘI DUNG (GIAO DIỆN SÁNG) */
 /* ========================================= */
 
+/* Chuyển nền hộp thông tin và hộp form sang màu trắng */
+.ethnic-card, .info-box {
+    background: #ffffff !important; /* Nền trắng tinh */
+    border: 1px solid #e0e0e0;      /* Viền xám nhẹ nhàng */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Bóng đổ mềm tạo chiều sâu */
+    color: #333333 !important;      /* Chữ màu đen xám (thay vì màu trắng cũ) */
+    border-radius: 8px;
+}
+
+/* Xóa hiệu ứng hover nền tối cũ (nếu có) */
+.ethnic-card:hover, .info-box:hover {
+    background: #ffffff !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-color: var(--color-gold); /* Viền vàng khi di chuột vào */
+}
+
+/* --- CHỈNH MÀU CHỮ TIÊU ĐỀ TRONG KHUNG TRẮNG --- */
+
+/* Tiêu đề "THÔNG TIN", "GỬI TIN NHẮN" */
+.ethnic-card h2, 
+.info-box h4 {
+    /* Đổi từ Vàng sáng (#FFD700) sang Vàng Đất (#B8860B) để dễ đọc trên nền trắng */
+    color: #B8860B !important; 
+    text-shadow: none !important; /* Bỏ bóng đen */
+    font-weight: 800;
+}
+
+/* Các mục con đậm (Địa chỉ, Email, Hotline...) */
+.info-box strong {
+    color: #2c2c2c; /* Màu đen đậm */
+}
+
+/* Icon (nếu có dùng icon Bootstrap) */
+.info-box i {
+    color: #B8860B; /* Icon màu vàng đất */
+    margin-right: 8px;
+}
+
+/* Đường kẻ ngang */
+.info-box hr {
+    border-color: #B8860B !important;
+    opacity: 0.3;
+}
+
+/* ========================================= */
+/* 11. FORM INPUT & LABEL (GIAO DIỆN SÁNG) */
+/* ========================================= */
+
+.form-label {
+    /* Màu nhãn: Đen đậm để tương phản tốt với nền trắng */
+    color: #2c2c2c !important; 
+    font-weight: 700;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
 .form-control {
-    /* Nền trắng sạch sẽ */
-    background-color: #ffffff !important;
-    /* Viền xám nhạt để tạo sự nhẹ nhàng */
+    background-color: #f9f9f9 !important; /* Nền xám cực nhạt */
     border: 1px solid #ced4da;
-    /* Chữ màu đen xám để dễ đọc trên nền trắng */
-    color: #333333 !important;
+    color: #333 !important;
     border-radius: 4px;
-    transition: all 0.3s ease;
 }
 
 .form-control:focus {
-    /* Khi bấm vào vẫn giữ nền trắng */
     background-color: #ffffff !important;
-    /* Viền chuyển sang màu Vàng chủ đạo */
-    border-color: var(--color-gold);
-    /* Chữ đậm hơn */
-    color: #000000 !important;
-    /* Hiệu ứng tỏa sáng màu vàng nhẹ */
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+    border-color: #B8860B; /* Viền khi bấm vào màu Vàng đất */
+    color: #000 !important;
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15); /* Hiệu ứng focus */
 }
 
 .form-control::placeholder {
-    /* Màu chữ gợi ý (placeholder) màu xám trung tính */
-    color: #999999;
+    color: #999;
     font-style: italic;
 }
 
-.form-label {
-    /* Tiêu đề nhãn chuyển sang màu đậm (đen/nâu đậm) để nổi bật trên nền sáng */
-    color: #2c2c2c; 
-    font-weight: 700;
-    font-family: var(--font-heading);
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
