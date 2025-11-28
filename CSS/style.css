@@ -312,46 +312,48 @@ h3.text-success {
     font-weight: 700;
     text-transform: uppercase;
     color: var(--color-gold) !important;
-    text-shadow: 0 2px 5px #000;
-}
-
+    text-shadow: 0 2px 5px #000; }
 /* ========================================= */
-/* 9. CARD & INFO BOX (GIAO DIỆN SÁNG/LIGHT) */
+/* 9. CARD & INFO BOX (GIAO DIỆN KÍNH TRẮNG) */
 /* ========================================= */
-/* Phần này được cập nhật sang NỀN TRẮNG 
-   để khắc phục lỗi hiển thị tối đen ở trang Liên hệ 
-*/
 
 .ethnic-card, 
 .info-box,
 .ethnic-card .card-body {
-    background: #ffffff !important;       /* Nền Trắng */
-    background-color: #ffffff !important; 
-    background-image: none !important;
-    backdrop-filter: none !important;     /* Tắt kính mờ */
+    /* 1. NỀN TRẮNG TRONG SUỐT (QUAN TRỌNG) */
+    /* Màu trắng (255,255,255) với độ phủ 85% (0.85) */
+    background: rgba(255, 255, 255, 0.85) !important;
+    background-color: rgba(255, 255, 255, 0.85) !important;
     
-    border: 1px solid #d1d1d1 !important; /* Viền xám */
+    /* 2. HIỆU ỨNG LÀM MỜ NỀN (FROSTED GLASS) */
+    /* Giúp làm nhòe họa tiết thổ cẩm bên dưới để chữ dễ đọc hơn */
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    
+    /* Xóa ảnh nền cũ nếu có */
+    background-image: none !important;
+
+    /* 3. VIỀN VÀ BÓNG ĐỔ */
+    border: 1px solid rgba(255, 255, 255, 0.6) !important; /* Viền trắng mờ */
     border-radius: 8px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15) !important; /* Bóng đổ mềm */
+    
+    /* 4. MÀU CHỮ (ĐEN ĐẬM) */
+    /* Phải dùng màu đen đậm để tương phản tốt với nền kính trắng */
+    color: #2c2c2c !important; 
+    
     overflow: hidden;
     transition: 0.4s;
     position: relative;
     height: 100%;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
-    
-    /* Chữ bên trong màu Đen xám */
-    color: var(--color-text-dark) !important; 
 }
 
-/* Xóa họa tiết gạch ngang cũ của ethnic-card */
-.ethnic-card::before {
-    display: none;
-}
-
+/* Hiệu ứng khi di chuột vào: Nền đặc hơn một chút để nổi bật */
 .ethnic-card:hover, .info-box:hover {
+    background: rgba(255, 255, 255, 0.95) !important;
     transform: translateY(-5px);
-    background: #ffffff !important;
     border-color: var(--color-gold-dark) !important;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
 }
 
 /* Ảnh đầu thẻ Card */
@@ -363,27 +365,28 @@ h3.text-success {
 
 .card-body, .info-box { padding: 2rem; text-align: center; }
 
-/* Tiêu đề trong Box Trắng (Đổi sang Vàng Đất cho dễ đọc) */
+/* Tiêu đề (Vẫn giữ màu Vàng Đất sang trọng) */
 .card-title, 
 .info-box h4,
 .ethnic-card h2 {
-    color: var(--color-gold-dark) !important; /* Vàng đậm */
+    color: var(--color-gold-dark) !important; 
     font-family: var(--font-heading);
     font-weight: 800 !important;
     font-size: 1.8rem;
-    text-shadow: none !important;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.8) !important; /* Viền sáng nhẹ quanh chữ */
     margin-bottom: 1.5rem;
 }
 
-/* Nội dung chữ trong Box */
+/* Nội dung chữ */
 .card-text, .info-box p { 
-    color: var(--color-text-dark) !important; 
+    color: #333333 !important; 
+    font-weight: 500; /* Tăng độ đậm chữ lên một chút cho dễ đọc trên nền trong */
 }
 
 /* Các thành phần con trong Info Box */
-.info-box strong { color: #000; font-weight: 700; }
+.info-box strong { color: #000; font-weight: 800; }
 .info-box i { color: var(--color-gold-dark) !important; margin-right: 5px; }
-.info-box hr { border-color: var(--color-gold-dark) !important; opacity: 0.4; }
+.info-box hr { border-color: var(--color-gold-dark) !important; opacity: 0.5; }
 
 /* ========================================= */
 /* 10. FORM INPUT (GIAO DIỆN SÁNG/LIGHT) */
@@ -423,3 +426,4 @@ h3.text-success {
 /* ========================================= */
 .btn-outline-success {
     color:
+
