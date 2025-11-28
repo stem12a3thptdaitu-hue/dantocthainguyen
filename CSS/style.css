@@ -1,4 +1,8 @@
 /* ========================================= */
+/* BẢN CSS HOÀN CHỈNH - THÁI NGUYÊN CULTURE */
+/* ========================================= */
+
+/* ========================================= */
 /* 1. NHÚNG PHÔNG CHỮ RIÊNG (STINGER FIT) */
 /* ========================================= */
 @font-face {
@@ -9,12 +13,18 @@
 }
 
 /* ========================================= */
-/* 2. CẤU HÌNH MÀU SẮC & PHÔNG MẶC ĐỊNH */
+/* 2. CẤU HÌNH BIẾN (VARIABLES) */
 /* ========================================= */
 :root {
-    --color-gold: #FFD700;        
-    --color-gold-dim: #C5A059;    
-    --color-text: #ECEFF1;        
+    /* Màu Vàng Sáng (Dùng cho nền tối) */
+    --color-gold: #FFD700;
+    /* Màu Vàng Đất (Dùng cho nền sáng/viền) */
+    --color-gold-dark: #B8860B; 
+    /* Màu Vàng Nhạt (Dùng cho viền mờ) */
+    --color-gold-dim: #C5A059;
+    
+    --color-text-light: #ECEFF1; /* Chữ trắng */
+    --color-text-dark: #333333;  /* Chữ đen */
     
     --bg-dark-overlay: rgba(0, 0, 0, 0.90); 
     --bg-light-overlay: rgba(0, 0, 0, 0.70);
@@ -25,13 +35,14 @@
 }
 
 /* ========================================= */
-/* 3. NỀN TRANG CHUNG */
+/* 3. NỀN TRANG CHUNG (GLOBAL) */
 /* ========================================= */
 body {
     font-family: var(--font-body);
-    color: var(--color-text);
+    color: var(--color-text-light);
     margin: 0;
     overflow-x: hidden;
+    /* Hình nền hoa văn chìm toàn trang */
     background-image: 
         radial-gradient(circle at center, var(--bg-light-overlay) 0%, var(--bg-dark-overlay) 90%),
         url('../images/hoatiet.jpg'); 
@@ -41,7 +52,7 @@ body {
 }
 
 /* ========================================= */
-/* 4. MENU */
+/* 4. THANH ĐIỀU HƯỚNG (NAVBAR) */
 /* ========================================= */
 .navbar-custom {
     background-color: #000;
@@ -51,7 +62,6 @@ body {
     top: 0;
     z-index: 1000;
     border-bottom: 4px solid var(--color-gold-dim); 
-    border-image: none; 
 }
 
 .navbar-brand {
@@ -77,7 +87,7 @@ body {
 }
 
 /* ========================================= */
-/* 5. BANNER TRANG CHỦ */
+/* 5. BANNER TRANG CHỦ (CÓ TRỐNG ĐỒNG XOAY) */
 /* ========================================= */
 .main-banner {
     height: 500px;
@@ -126,7 +136,6 @@ body {
     text-shadow: 0 4px 8px #000000; 
 }
 
-/* Đây là đoạn chữ trên Banner chính (Vùng đất văn hóa...) */
 .main-banner p {
     font-family: var(--font-body);
     color: #FFFACD; 
@@ -138,37 +147,44 @@ body {
 }
 
 /* ========================================= */
-/* 9. BANNER GIỚI THIỆU (CÓ CHIM LẠC) */
+/* 6. BANNER GIỚI THIỆU (TĨNH, CHIM LẠC) */
 /* ========================================= */
 .main-banner-intro {
-    height: 400px; 
+    height: 450px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     border-bottom: 4px solid var(--color-gold-dim);
+    background-image: url('../images/hinh-nen-gioi-thieu.jpg'); 
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .main-banner-intro::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)); 
     z-index: 1;
 }
 
-.main-banner-intro .container { position: relative; z-index: 2; width: 100%; }
+.main-banner-intro .container { 
+    position: relative; 
+    z-index: 2; 
+    width: 100%; 
+    text-align: center;
+}
 
 .main-banner-intro h1 {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 3rem; 
+    font-size: 3.5rem;
     color: var(--color-gold);
     text-transform: uppercase;
-    text-shadow: 0 4px 10px #000;
+    text-shadow: 0 4px 15px #000;
     margin: 0;
     display: flex;
     align-items: center;
@@ -191,232 +207,8 @@ body {
 .main-banner-intro h1::before { transform: scaleX(-1); }
 
 /* ========================================= */
-/* 6. TIÊU ĐỀ MỤC KHÁC */
+/* 7. BANNER LIÊN HỆ (ĐEN ĐẬM, KHÔNG XOAY) */
 /* ========================================= */
-h2.text-success {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    color: var(--color-gold) !important;
-    text-shadow: 0 2px 5px #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    margin: 60px 0 20px 0;
-}
-
-h2.text-success::before, 
-h2.text-success::after {
-    content: '';
-    display: block;
-    width: 70px; height: 70px;
-    background-image: url('../images/chim-lac.jpg.png'); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
-}
-
-h2.text-success::before { transform: scaleX(-1); }
-
-/* --- [MỚI] DÒNG NÀY ĐỂ SỬA CHỮ BẠN YÊU CẦU --- */
-/* Chọn thẻ <p> nằm ngay sau thẻ H2 (dòng: Thái Nguyên là nơi hội tụ...) */
-h2.text-success + p {
-    color: #FFFACD;         /* Màu vàng nhạt */
-    font-size: 1.5rem;      /* Cỡ chữ to hơn (khoảng 24px) */
-    text-align: center;     /* Căn giữa */
-    max-width: 900px;       /* Không cho chữ tràn quá rộng */
-    margin: 10px auto 40px auto; /* Căn giữa khối văn bản */
-    line-height: 1.6;       /* Giãn dòng cho đẹp */
-    font-weight: 400;
-}
-
-h3.text-success {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-gold) !important;
-    text-shadow: 0 2px 5px #000;
-}
-
-/* ========================================= */
-/* 7. CÁC THẺ CARD & HỘP THÔNG TIN */
-/* ========================================= */
-.ethnic-card, .info-box {
-    background: rgba(20, 20, 20, 0.6); 
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--color-gold-dim);
-    border-radius: 6px;
-    overflow: hidden;
-    transition: 0.4s;
-    position: relative;
-    height: 100%;
-}
-
-.ethnic-card::before {
-    content: '';
-    display: block;
-    height: 6px; 
-    width: 100%;
-    background-image: url('../images/hoatiet.jpg');
-    background-size: cover;
-}
-
-.ethnic-card:hover, .info-box:hover {
-    transform: translateY(-10px);
-    background: rgba(40, 40, 40, 0.9);
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25); 
-    border-color: var(--color-gold);
-}
-
-.card-img-top {
-    height: 250px;
-    object-fit: cover;
-    border-bottom: 2px solid var(--color-gold-dim);
-}
-
-.card-body, .info-box { padding: 1.5rem; text-align: center; }
-
-.card-title, .info-box h4 {
-    color: var(--color-gold);
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-}
-
-.card-text, .info-box p { color: #ddd; }
-
-.info-box { padding: 2rem; }
-.info-box .display-4 { margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(255,215,0,0.5)); }
-
-/* ========================================= */
-/* 8. FOOTER & KHÁC */
-/* ========================================= */
-.btn-outline-success {
-    color: var(--color-gold);
-    border: 1px solid var(--color-gold);
-    background: transparent;
-    padding: 10px 30px;
-    font-weight: 600;
-    transition: 0.3s;
-    text-transform: uppercase;
-}
-
-.btn-outline-success:hover {
-    background-color: var(--color-gold);
-    color: #000;
-    box-shadow: 0 0 15px var(--color-gold);
-}
-
-.map-responsive {
-    border: 2px solid var(--color-gold-dim);
-    border-radius: 8px;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
-}
-.map-responsive iframe {
-    position: absolute; top:0; left: 0; width: 100%; height: 100%;
-    filter: contrast(1.1) grayscale(0.2);
-}
-
-.list-group-item.bg-transparent {
-    color: #ECEFF1;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-}
-
-footer {
-    background-color: #000;
-    color: var(--color-gold-dim);
-    padding: 50px 0;
-    margin-top: 80px;
-    border-top: 5px solid transparent;
-    border-image: url('../images/hoatiet.jpg') 30 stretch;
-    text-align: center;
-}
-/* ========================================= */
-/* 9. BANNER GIỚI THIỆU (ĐÃ SỬA THEO YÊU CẦU) */
-/* ========================================= */
-.main-banner-intro {
-    height: 450px; /* Chiều cao banner */
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-bottom: 4px solid var(--color-gold-dim);
-    
-    /* --- [QUAN TRỌNG] CHÈN LINK ẢNH NỀN CỦA BẠN VÀO DƯỚI ĐÂY --- */
-    background-image: url('../images/hinh-nen-gioi-thieu.jpg'); 
-    /* Hãy thay 'hinh-nen-gioi-thieu.jpg' bằng tên file ảnh thực tế của bạn */
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Lớp phủ Gradient đen nhạt để làm nổi bật chữ */
-.main-banner-intro::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* Tạo hiệu ứng chuyển màu từ đen nhạt sang đen đậm dần xuống dưới */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)); 
-    z-index: 1;
-}
-
-/* Đảm bảo nội dung (chữ) nằm đè lên lớp phủ đen */
-.main-banner-intro .container { 
-    position: relative; 
-    z-index: 2; 
-    width: 100%; 
-    text-align: center;
-}
-
-/* Tiêu đề H1: TỔNG QUAN TỈNH THÁI NGUYÊN (Vàng + Chim Lạc) */
-.main-banner-intro h1 {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 3.5rem; /* Cỡ chữ to rõ ràng */
-    color: var(--color-gold);
-    text-transform: uppercase;
-    text-shadow: 0 4px 15px #000; /* Đổ bóng đen đậm để chữ nổi bật trên nền ảnh */
-    margin: 0;
-    
-    /* Flexbox để căn chim lạc 2 bên */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px; /* Khoảng cách giữa chim và chữ */
-}
-
-/* Tạo hình Chim Lạc 2 bên */
-.main-banner-intro h1::before, 
-.main-banner-intro h1::after {
-    content: '';
-    display: block;
-    width: 80px; height: 60px; /* Kích thước chim */
-    background-image: url('../images/chim-lac.jpg.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    /* Bộ lọc màu vàng gold cho chim lạc */
-    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
-}
-
-/* Lật ngược con chim bên trái cho đối xứng */
-.main-banner-intro h1::before { 
-    transform: scaleX(-1); 
-}
-/* ========================================= */
-/* 10. TRANG LIÊN HỆ (CONTACT PAGE) */
-/* ========================================= */
-
-/* --- BANNER (Giữ nguyên giao diện Tối để sang trọng) --- */
 .contact-banner {
     position: relative;
     height: 350px;
@@ -430,6 +222,7 @@ footer {
     background-position: center;
 }
 
+/* Lớp phủ ĐEN ĐẬM (92%) */
 .contact-banner::before {
     content: '';
     position: absolute;
@@ -438,6 +231,7 @@ footer {
     z-index: 1;
 }
 
+/* Tắt trống đồng xoay */
 .contact-banner::after { content: none; display: none; }
 
 .contact-banner .container { position: relative; z-index: 2; text-align: center; }
@@ -472,128 +266,160 @@ footer {
 .contact-banner h1::before { transform: scaleX(-1); }
 
 /* ========================================= */
-/* 12. KHUNG CHỨA NỘI DUNG (GIAO DIỆN SÁNG) */
+/* 8. TIÊU ĐỀ & NỘI DUNG */
 /* ========================================= */
+h2.text-success {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--color-gold) !important;
+    text-shadow: 0 2px 5px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 60px 0 20px 0;
+}
 
-/* Chuyển nền hộp thông tin và hộp form sang màu trắng */
-.ethnic-card, .info-box {
-    background: #ffffff !important; /* Nền trắng tinh */
-    border: 1px solid #e0e0e0;      /* Viền xám nhẹ nhàng */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Bóng đổ mềm tạo chiều sâu */
-    color: #333333 !important;      /* Chữ màu đen xám (thay vì màu trắng cũ) */
+h2.text-success::before, 
+h2.text-success::after {
+    content: '';
+    display: block;
+    width: 70px; height: 70px;
+    background-image: url('../images/chim-lac.jpg.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
+}
+
+h2.text-success::before { transform: scaleX(-1); }
+
+/* Đoạn văn dưới tiêu đề H2 */
+h2.text-success + p {
+    color: #FFFACD; 
+    font-size: 1.5rem; 
+    text-align: center; 
+    max-width: 900px; 
+    margin: 10px auto 40px auto;
+    line-height: 1.6; 
+    font-weight: 400;
+}
+
+h3.text-success {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-gold) !important;
+    text-shadow: 0 2px 5px #000;
+}
+
+/* ========================================= */
+/* 9. CARD & INFO BOX (GIAO DIỆN SÁNG/LIGHT) */
+/* ========================================= */
+/* Phần này được cập nhật sang NỀN TRẮNG 
+   để khắc phục lỗi hiển thị tối đen ở trang Liên hệ 
+*/
+
+.ethnic-card, 
+.info-box,
+.ethnic-card .card-body {
+    background: #ffffff !important;       /* Nền Trắng */
+    background-color: #ffffff !important; 
+    background-image: none !important;
+    backdrop-filter: none !important;     /* Tắt kính mờ */
+    
+    border: 1px solid #d1d1d1 !important; /* Viền xám */
     border-radius: 8px;
+    overflow: hidden;
+    transition: 0.4s;
+    position: relative;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
+    
+    /* Chữ bên trong màu Đen xám */
+    color: var(--color-text-dark) !important; 
 }
 
-/* Xóa hiệu ứng hover nền tối cũ (nếu có) */
+/* Xóa họa tiết gạch ngang cũ của ethnic-card */
+.ethnic-card::before {
+    display: none;
+}
+
 .ethnic-card:hover, .info-box:hover {
-    background: #ffffff !important;
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    border-color: var(--color-gold); /* Viền vàng khi di chuột vào */
+    background: #ffffff !important;
+    border-color: var(--color-gold-dark) !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
 }
 
-/* --- CHỈNH MÀU CHỮ TIÊU ĐỀ TRONG KHUNG TRẮNG --- */
-
-/* Tiêu đề "THÔNG TIN", "GỬI TIN NHẮN" */
-.ethnic-card h2, 
-.info-box h4 {
-    /* Đổi từ Vàng sáng (#FFD700) sang Vàng Đất (#B8860B) để dễ đọc trên nền trắng */
-    color: #B8860B !important; 
-    text-shadow: none !important; /* Bỏ bóng đen */
-    font-weight: 800;
+/* Ảnh đầu thẻ Card */
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--color-gold-dark);
 }
 
-/* Các mục con đậm (Địa chỉ, Email, Hotline...) */
-.info-box strong {
-    color: #2c2c2c; /* Màu đen đậm */
+.card-body, .info-box { padding: 2rem; text-align: center; }
+
+/* Tiêu đề trong Box Trắng (Đổi sang Vàng Đất cho dễ đọc) */
+.card-title, 
+.info-box h4,
+.ethnic-card h2 {
+    color: var(--color-gold-dark) !important; /* Vàng đậm */
+    font-family: var(--font-heading);
+    font-weight: 800 !important;
+    font-size: 1.8rem;
+    text-shadow: none !important;
+    margin-bottom: 1.5rem;
 }
 
-/* Icon (nếu có dùng icon Bootstrap) */
-.info-box i {
-    color: #B8860B; /* Icon màu vàng đất */
-    margin-right: 8px;
+/* Nội dung chữ trong Box */
+.card-text, .info-box p { 
+    color: var(--color-text-dark) !important; 
 }
 
-/* Đường kẻ ngang */
-.info-box hr {
-    border-color: #B8860B !important;
-    opacity: 0.3;
-}
+/* Các thành phần con trong Info Box */
+.info-box strong { color: #000; font-weight: 700; }
+.info-box i { color: var(--color-gold-dark) !important; margin-right: 5px; }
+.info-box hr { border-color: var(--color-gold-dark) !important; opacity: 0.4; }
 
 /* ========================================= */
-/* 11. FORM INPUT & LABEL (GIAO DIỆN SÁNG) */
+/* 10. FORM INPUT (GIAO DIỆN SÁNG/LIGHT) */
 /* ========================================= */
 
 .form-label {
-    /* Màu nhãn: Đen đậm để tương phản tốt với nền trắng */
-    color: #2c2c2c !important; 
+    color: #2c2c2c !important; /* Nhãn màu đen đậm */
     font-weight: 700;
     font-family: var(--font-heading);
     letter-spacing: 0.5px;
     margin-bottom: 8px;
+    display: block;
 }
 
 .form-control {
-    background-color: #f9f9f9 !important; /* Nền xám cực nhạt */
-    border: 1px solid #ced4da;
-    color: #333 !important;
+    background-color: #f8f9fa !important; /* Nền xám trắng */
+    border: 1px solid #ced4da !important;
+    color: #333 !important; /* Chữ khi gõ màu đen */
     border-radius: 4px;
+    padding: 12px;
 }
 
 .form-control:focus {
     background-color: #ffffff !important;
-    border-color: #B8860B; /* Viền khi bấm vào màu Vàng đất */
+    border-color: var(--color-gold-dark) !important; /* Viền focus màu vàng đất */
     color: #000 !important;
-    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15); /* Hiệu ứng focus */
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15) !important;
 }
 
 .form-control::placeholder {
     color: #999;
     font-style: italic;
 }
-/* ================================================= */
-/* FIX LỖI: ÉP GIAO DIỆN SANG MÀU TRẮNG (FORCE LIGHT) */
-/* ================================================= */
 
-/* 1. Xử lý khung chứa (Card & Info Box) */
-.ethnic-card, 
-.info-box, 
-.ethnic-card .card-body {
-    background: #ffffff !important;       /* Bắt buộc nền trắng 100% */
-    background-color: #ffffff !important; /* Nhấn mạnh lần 2 */
-    background-image: none !important;    /* Xóa sạch ảnh nền mờ cũ */
-    backdrop-filter: none !important;     /* Tắt hiệu ứng kính mờ */
-    
-    color: #333333 !important;            /* Chữ nội dung màu đen xám */
-    border: 1px solid #d1d1d1 !important; /* Viền xám nhẹ */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important; /* Bóng đổ nhẹ */
-}
-
-/* 2. Xử lý Tiêu đề (Để không bị chìm trên nền trắng) */
-.ethnic-card h2,
-.info-box h4,
-.form-label,
-.info-box strong {
-    color: #B8860B !important; /* Màu Vàng Đất (Gold Dark) cho dễ đọc */
-    text-shadow: none !important; /* Bỏ bóng đen của chữ */
-    font-weight: 700 !important;
-}
-
-/* 3. Xử lý Input (Ô nhập liệu) */
-.form-control {
-    background-color: #f8f9fa !important; /* Nền xám trắng */
-    color: #333 !important;               /* Chữ khi gõ màu đen */
-    border: 1px solid #ccc !important;
-}
-
-.form-control:focus {
-    background-color: #fff !important;
-    border-color: #B8860B !important;     /* Viền khi bấm vào màu vàng đất */
-    box-shadow: 0 0 8px rgba(184, 134, 11, 0.2) !important;
-}
-
-/* 4. Xử lý Icon trong phần thông tin (nếu có) */
-.info-box i {
-    color: #B8860B !important;
-}
-
+/* ========================================= */
+/* 11. FOOTER & COMPONENT KHÁC */
+/* ========================================= */
+.btn-outline-success {
+    color:
