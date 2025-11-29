@@ -175,19 +175,28 @@ html, body {
 
 /* SLOGAN */
 .main-banner p {
+    /* --- THÊM 2 DÒNG NÀY ĐỂ CHỮ NỔI LÊN TRÊN --- */
+    position: relative;
+    z-index: 10;
+    /* ------------------------------------------- */
+
     font-family: var(--font-tet-xua); 
     color: #FFFACD; /* Màu vàng kem nhạt */
-    font-size: 2.2rem; 
-    font-weight: normal; 
-    letter-spacing: 1px; 
-    
-    /* Tăng bóng đen cho Slogan */
-    text-shadow: 0 3px 10px rgba(0,0,0,1);
-    
-    margin-top: 10px;
-    background-color: rgba(0,0,0,0.2); /* Thêm một nền đen mờ rất nhẹ ngay sát chữ để dễ đọc hơn nữa */
-    padding: 5px 20px;
+    /* ... (các thuộc tính khác giữ nguyên) ... */
     border-radius: 20px;
+}
+
+/* TIÊU ĐỀ: "THÁI NGUYÊN" */
+.main-banner h1 {
+    /* --- THÊM 2 DÒNG NÀY ĐỂ CHỮ NỔI LÊN TRÊN --- */
+    position: relative;
+    z-index: 10;
+    /* ------------------------------------------- */
+
+    font-family: var(--font-co-truyen); 
+    font-weight: normal; 
+    /* ... (các thuộc tính khác giữ nguyên) ... */
+    line-height: 1.1;
 }
 /* TIÊU ĐỀ: "THÁI NGUYÊN" */
 .main-banner h1 {
@@ -440,6 +449,7 @@ h3.text-success, h4.text-success, .text-start .text-success {
     text-align: justify; /* Căn đều 2 bên cho đẹp */
     font-weight: 500;
 }
+
 
 
 
