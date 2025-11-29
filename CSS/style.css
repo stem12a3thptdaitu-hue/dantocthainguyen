@@ -43,22 +43,13 @@
     --font-co-truyen: 'Tet Co Truyen', serif;
 }
 
-/* ========================================= */
-/* PHẦN 2: CSS GỐC & CHỈNH SỬA THEO YÊU CẦU */
-/* ========================================= */
-
-/* ========================================= */
-/* 1. NỀN TRANG CHUNG (ĐÃ ĐỔI SANG ẢNH) */
-/* ========================================= */
-
-/* Ẩn video cũ nếu chưa xóa thẻ HTML */
 #video-background {
     display: none !important;
 }
 
-/* Cấu hình ảnh nền cho toàn trang */
+
 body {
-    /* Đường dẫn ảnh - Hãy đảm bảo bạn đã lưu ảnh vào thư mục images */
+   
     background-image: url('../images/backgr.png') !important;
     
     /* Căn chỉnh ảnh */
@@ -77,21 +68,19 @@ body::before {
     width: 100%;
     height: 100%;
     
-    /* Điều chỉnh Gradient: */
-    /* Giữa màn hình tối nhẹ (0.5) để thấy chi tiết ảnh */
-    /* Góc màn hình tối đậm (0.85) để tập trung thị giác */
+    
     background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
     
     z-index: -1; /* Nằm dưới nội dung web */
     pointer-events: none; 
 }
 
-/* Đảm bảo body hiển thị 100% chiều cao */
+
 html, body {
     height: 100%;
     margin: 0;
 }
-/* 2. MENU (NAVBAR) - ĐÃ SỬA: TRONG SUỐT */
+
 .navbar-custom {
     /* ĐÃ SỬA: Xóa nền đen, chuyển sang trong suốt */
     background-color: transparent !important; 
@@ -147,7 +136,7 @@ html, body {
     /* Thêm hiệu ứng làm mờ nhẹ để nền trông mềm mại hơn */
     backdrop-filter: blur(2px);
 }
-/* --- THAY ĐỔI 2: TRỐNG ĐỒNG SÁNG HƠN RẤT NHIỀU --- */
+
 .main-banner::after {
     content: ''; position: absolute; width: 800px; height: 800px;
     background-image: url('../images/trong-dong.jpg.png');
@@ -157,12 +146,10 @@ html, body {
     
     z-index: 1; animation: spin 80s linear infinite;
     
-    /* --- ĐÃ CHỈNH SỬA LẠI Ở ĐÂY --- */
-    /* Tăng brightness từ 1.5 lên 2.5 để sáng hơn hẳn */
-    /* Tăng saturate từ 250% lên 300% để màu vàng không bị nhạt đi khi sáng lên */
+   
     filter: sepia(100%) hue-rotate(5deg) saturate(300%) brightness(2.5); 
     
-    /* Vẫn giữ nguyên chế độ hòa trộn này để nó ăn nhập vào nền */
+   
     mix-blend-mode: multiply;
 }
     
@@ -440,6 +427,7 @@ h3.text-success, h4.text-success, .text-start .text-success {
     text-align: justify; /* Căn đều 2 bên cho đẹp */
     font-weight: 500;
 }
+
 
 
 
