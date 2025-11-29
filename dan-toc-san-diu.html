@@ -4,18 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Người Sán Dìu - Giai Điệu Soọng Cô</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="CSS/cac-dan-toc.css">
     <link rel="stylesheet" href="CSS/thanh-menu.css">
+
+    <link rel="stylesheet" href="CSS/style.css"> 
+
+    <style>
+        /* Đẩy nội dung toàn trang sang phải 64px */
+        body {
+            padding-left: 64px;
+        }
+        
+        /* Chỉnh lại Navbar trên cùng: Bắt đầu từ sau Sidebar */
+        nav.fixed {
+            left: 64px !important;
+            width: calc(100% - 64px) !important;
+        }
+
+        /* Đảm bảo Sidebar nằm trên tất cả */
+        .sidebar-left {
+            z-index: 10000;
+        }
+    </style>
 </head>
+
 <body class="theme-sandiu">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+    <div class="sidebar-left">
+        <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
+            <i class="fas fa-leaf"></i>
+        </a>
+
+        <a href="index.html" class="sidebar-item" data-tooltip="Trang chủ">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <a href="gioi-thieu.html" class="sidebar-item" data-tooltip="Giới thiệu">
+            <div class="custom-img-icon icon-drum-bg"></div>
+        </a>
+
+        <div class="sidebar-item-wrap has-submenu">
+            <a href="#" class="sidebar-item active" data-tooltip="Các dân tộc"> 
+                <div class="custom-img-icon icon-brocade-bg"></div>
+            </a>
+
+            <div class="ethnic-menu">
+                <div class="menu-header">Các dân tộc</div>
+                <ul>
+                    <li><a href="dan-toc-tay.html">Dân tộc Tày</a></li>
+                    <li><a href="dan-toc-nung.html">Dân tộc Nùng</a></li>
+                    <li><a href="dan-toc-san-diu.html" style="color: #198754; font-weight: bold; background-color: #f0f9f4;">Dân tộc Sán Dìu</a></li>
+                    <li><a href="dan-toc-san-chay.html">Dân tộc Sán Chay</a></li>
+                    <li><a href="dan-toc-dao.html">Dân tộc Dao</a></li>
+                    <li><a href="dan-toc-kinh.html">Dân tộc Kinh</a></li>
+                    <li><a href="dan-toc-hoa.html">Dân tộc Hoa</a></li>
+                    <li><a href="dan-toc-muong.html">Dân tộc Mường</a></li>
+                    <li><a href="dan-toc-ngai.html">Dân tộc Ngái</a></li>
+                    <li><a href="dan-toc-thai.html">Dân tộc Thái</a></li>
+                    <li><a href="dan-toc-mong.html">Dân tộc H'Mông</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="lien-he.html" class="sidebar-item" data-tooltip="Liên hệ & Góp ý">
+            <i class="fas fa-comment-dots"></i>
+            <span class="badge-count">3</span>
+        </a>
+    </div>
+    <nav class="bg-white shadow-md fixed top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -29,7 +94,6 @@
                     <a href="#van-hoa" class="text-gray-600 hover:text-amber-800 transition">Soọng Cô</a>
                     <a href="#am-thuc" class="text-gray-600 hover:text-amber-800 transition">Ẩm thực</a>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button class="text-gray-600 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
@@ -39,10 +103,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-50">
-            <!-- Ảnh nền vùng đồi trung du -->
             <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=2066&auto=format&fit=crop" alt="Vùng đồi núi Thái Nguyên" class="w-full h-full object-cover">
         </div>
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -56,13 +118,12 @@
         </div>
     </header>
 
-    <!-- Section: Kinh Tế (Xe Quệt) -->
     <section id="kinh-te" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
-                                        <div class="mt-4 bg-amber-50 p-6 rounded-lg border-l-4 border-amber-700 shadow-sm">
+                    <div class="mt-4 bg-amber-50 p-6 rounded-lg border-l-4 border-amber-700 shadow-sm">
                         <h4 class="font-bold text-amber-900 text-lg mb-2"><i class="fas fa-hammer mr-2"></i>Chiếc Xe Quệt độc đáo</h4>
                         <p class="text-gray-700 text-sm">
                             Một sáng tạo kỹ thuật tuyệt vời (yếu tố STEM): xe không bánh, dùng sức trâu kéo, chuyên trị địa hình đường đất đồi trơn trượt mà xe có bánh phải bó tay.
@@ -88,7 +149,6 @@
         </div>
     </section>
 
-    <!-- Section: Nhà cửa -->
     <section id="nha-cua" class="section-padding bg-stone-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -115,15 +175,15 @@
                 </div>
             </div>
             
-             <div class="mt-12 rounded-xl overflow-hidden shadow-2xl relative h-80">
-                                 <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-4 w-full">
+            <div class="mt-12 rounded-xl overflow-hidden shadow-2xl relative h-80">
+                <img src="https://images.unsplash.com/photo-1512404090906-8d07e2a9b407?q=80&w=2070&auto=format&fit=crop" alt="Kiến trúc Nhà Sán Dìu" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-4 w-full">
                     <p class="italic text-center">"Ngôi nhà trình tường - Nét đặc trưng kiến trúc Sán Dìu"</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section: Trang phục -->
     <section id="trang-phuc" class="section-padding primary-bg text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -151,18 +211,19 @@
                 </div>
                 <div class="lg:w-1/2 grid grid-cols-2 gap-4">
                     <div class="space-y-4 mt-8">
-                                             </div>
+                        <img src="https://image.vietnamnews.vn/uploadvnnews/Article/2017/3/20/san-dieu-1.jpg" alt="Phụ nữ Sán Dìu" class="h-64 w-full object-cover rounded-lg shadow-xl">
+                    </div>
                     <div class="space-y-4">
                         <div class="bg-amber-900 h-40 rounded-lg flex items-center justify-center p-4 text-center border border-amber-700">
                              <span class="italic font-serif text-amber-100">"Áo nâu sồng - Hồn quê mộc mạc"</span>
                         </div>
-                                            </div>
+                        <img src="https://static.vov.vn/sites/default/files/styles/large/public/2020-04/10432381_1660144594247551_2097003009587391157_n.jpg" alt="Khăn mỏ quạ" class="h-40 w-full object-cover rounded-lg shadow-xl">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section: Hát Soọng Cô -->
     <section id="van-hoa" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -175,16 +236,15 @@
             </div>
 
             <div class="flex flex-col lg:flex-row gap-10 items-stretch">
-                <!-- Image Card -->
                 <div class="lg:w-1/2 relative group overflow-hidden rounded-2xl shadow-xl">
-                                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <img src="https://media-cdn-v2.laodong.vn/storage/newsportal/2016/10/11/giai-dieu-soong-co-cua-nguoi-san-diu-6-522108.jpg" alt="Hát Soọng Cô" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-0 left-0 p-8 text-white">
                         <h3 class="text-2xl font-bold mb-2">Dân ca giao duyên</h3>
                         <p class="text-gray-200">Ngân vang vào những đêm trăng sáng hay dịp hội làng.</p>
                     </div>
                 </div>
                 
-                <!-- Content Right -->
                 <div class="lg:w-1/2 flex flex-col justify-center space-y-6">
                     <div class="flex items-start">
                         <div class="flex-shrink-0 bg-amber-100 rounded-full p-4 mr-4">
@@ -203,7 +263,6 @@
         </div>
     </section>
 
-    <!-- Section: Ẩm thực -->
     <section id="am-thuc" class="section-padding bg-orange-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -227,7 +286,7 @@
                                 <p class="text-sm text-gray-600">Sợi cháo dai ngon, nước dùng ngọt thanh từ gà, sườn lợn hoặc cá.</p>
                             </div>
                         </div>
-                         <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
                             <i class="fas fa-gift text-orange-600 text-xl mr-4 mt-1"></i>
                             <div>
                                 <h4 class="font-bold text-orange-900">Đặc sản khác</h4>
@@ -237,13 +296,13 @@
                     </div>
                 </div>
                 <div class="relative">
+                    <img src="https://static.vov.vn/sites/default/files/styles/large/public/2021-08/chao-thai-san-diu-01.jpg" alt="Món Cháo Thái (Cháo Se)" class="w-full h-full object-cover rounded-xl shadow-2xl">
                     <div class="absolute -inset-4 bg-orange-200 rounded-full opacity-50 blur-2xl"></div>
-                                     </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-stone-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4 font-serif">Người Sán Dìu Thái Nguyên</h2>
@@ -259,7 +318,6 @@
         </div>
     </footer>
 
-    <!-- Smooth Scroll Script -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
