@@ -1,201 +1,254 @@
-/* Import phông chữ để tạo vẻ đẹp văn hóa và sang trọng giống ảnh tham khảo */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,400&family=Montserrat:wght@400;500;600&display=swap');
+/* ==========================================================================
+   FILE: cac-dan-toc.css
+   MÔ TẢ: CSS dùng chung cho dự án STEM Văn hóa các dân tộc Thái Nguyên
+   ========================================================================== */
 
-:root {
-    /* Bảng màu lấy cảm hứng từ trang Fang's Noodles nhưng áp dụng cho Người Hoa */
-    --hoa-red-dark: #9a1b1b;      /* Đỏ đậm sang trọng (giống nền header/footer trong ảnh) */
-    --hoa-red-primary: #b71c1c;   /* Đỏ tươi hơn cho các điểm nhấn */
-    --hoa-gold: #d4af37;          /* Vàng kim loại sang trọng */
-    --hoa-cream: #fbf7f0;         /* Màu kem nền nã (giống phần thân trang trong ảnh) */
-    --hoa-text-dark: #2c1a1a;     /* Màu chữ nâu đen */
-    --hoa-card-bg: #8b1818;       /* Màu nền cho các thẻ bài (giống mục Soups/Noodles) */
-}
+/* 1. CẤU HÌNH CHUNG (GLOBAL FONTS & RESETS) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap');
 
-/* --- Cấu trúc chung --- */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--hoa-cream);
-    color: var(--hoa-text-dark);
-    line-height: 1.8;
+    color: #333;
+    line-height: 1.6;
 }
 
-h1, h2, h3, h4, .navbar-brand {
-    font-family: 'Merriweather', serif; /* Phông có chân sang trọng */
+h1, h2, h3, h4, h5 {
+    font-family: 'Merriweather', serif;
 }
 
-/* --- Tùy biến Navbar --- */
-nav.bg-white {
-    background-color: var(--hoa-red-dark) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* 2. CÁC CLASS TIỆN ÍCH CHUNG (UTILITIES) */
+.section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
-nav .primary-text {
-    color: #fff !important; /* Chuyển chữ logo sang trắng để nổi bật trên nền đỏ */
-    letter-spacing: 1px;
+.image-card {
+    transition: transform 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-nav a.text-gray-600 {
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-weight: 500;
+.image-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --------------------------------------------------------------------------
+   3. CẤU HÌNH THEME CHO TỪNG DÂN TỘC
+   (Mỗi dân tộc giữ nguyên mã màu và hoa văn như bản gốc)
+   -------------------------------------------------------------------------- */
+
+/* === NGƯỜI NÙNG === */
+.theme-nung {
+    background-color: #F3F4F6;
+    color: #1F2937;
+}
+.theme-nung .primary-bg { background-color: #1A237E; }
+.theme-nung .primary-text { color: #1A237E; }
+.theme-nung .secondary-bg { background-color: #90A4AE; }
+.theme-nung .text-accent { color: #D84315; }
+.theme-nung .border-indigo { border-color: #1A237E; }
+.theme-nung .pattern-bg {
+    background-image: radial-gradient(#1A237E 0.5px, transparent 0.5px), radial-gradient(#1A237E 0.5px, #F3F4F6 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.05;
+}
+
+/* === NGƯỜI SÁN DÌU === */
+.theme-sandiu {
+    background-color: #FAFAFA;
+}
+.theme-sandiu .primary-bg { background-color: #5D4037; }
+.theme-sandiu .primary-text { color: #5D4037; }
+.theme-sandiu .secondary-bg { background-color: #3F51B5; }
+.theme-sandiu .text-accent { color: #D84315; }
+.theme-sandiu .pattern-bg {
+    background-image: repeating-linear-gradient(45deg, #5D4037 0, #5D4037 1px, transparent 0, transparent 50%);
+    background-size: 10px 10px;
+    opacity: 0.05;
+}
+
+/* === NGƯỜI MÔNG === */
+.theme-mong {
+    background-color: #F3F4F6;
+}
+.theme-mong .primary-bg { background-color: #374151; }
+.theme-mong .primary-text { color: #374151; }
+.theme-mong .secondary-bg { background-color: #E11D48; }
+.theme-mong .text-accent { color: #D97706; }
+.theme-mong .pattern-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17l-7-7h14l-7 7z' fill='%23374151' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* === NGƯỜI KINH (VIỆT) === */
+.theme-kinh {
+    background-color: #fdfbf7;
+}
+.theme-kinh .primary-bg { background-color: #922B21; }
+.theme-kinh .primary-text { color: #922B21; }
+.theme-kinh .text-accent { color: #D68910; }
+.theme-kinh .pattern-bg {
+    background-image: radial-gradient(#922B21 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+}
+
+/* === NGƯỜI TÀY === */
+.theme-tay {
+    background-color: #f8f9fa;
+}
+.theme-tay .indigo-bg { background-color: #2E4053; } /* Class riêng của Tày */
+.theme-tay .indigo-text { color: #2E4053; }
+.theme-tay .text-accent { color: #D35400; }
+.theme-tay .pattern-bg {
+    background-image: radial-gradient(#2E4053 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+}
+
+/* === NGƯỜI NGÁI === */
+.theme-ngai {
+    background-color: #FDF5E6;
+}
+.theme-ngai .primary-bg { background-color: #5D4037; }
+.theme-ngai .primary-text { color: #5D4037; }
+.theme-ngai .secondary-bg { background-color: #283593; }
+.theme-ngai .text-accent { color: #BF360C; }
+.theme-ngai .pattern-bg {
+    background-image: repeating-linear-gradient(45deg, #5D4037 0, #5D4037 1px, transparent 0, transparent 50%);
+    background-size: 10px 10px;
+    opacity: 0.05;
+}
+
+/* === NGƯỜI SÁN CHAY === */
+.theme-sanchay {
+    background-color: #F4F6F8;
+}
+.theme-sanchay .primary-bg { background-color: #2C3E50; }
+.theme-sanchay .primary-text { color: #2C3E50; }
+.theme-sanchay .text-accent { color: #E74C3C; }
+.theme-sanchay .pattern-bg {
+    background-image: linear-gradient(135deg, #2C3E50 25%, transparent 25%), linear-gradient(-135deg, #2C3E50 25%, transparent 25%), linear-gradient(45deg, #2C3E50 25%, transparent 25%), linear-gradient(-45deg, #2C3E50 25%, transparent 25%);
+    background-size: 15px 15px;
+    opacity: 0.05;
+}
+
+/* === NGƯỜI HOA === */
+.theme-hoa {
+    background-color: #FFF8E1;
+}
+.theme-hoa .primary-bg { background-color: #B71C1C; }
+.theme-hoa .primary-text { color: #B71C1C; }
+.theme-hoa .secondary-bg { background-color: #FFC107; }
+.theme-hoa .text-accent { color: #F57F17; }
+.theme-hoa .border-gold { border-color: #FFC107; }
+.theme-hoa .pattern-bg {
+    background-image: radial-gradient(#B71C1C 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+}
+
+/* === NGƯỜI MƯỜNG === */
+.theme-muong {
+    background-color: #F5F5DC;
+}
+.theme-muong .primary-bg { background-color: #3E2723; }
+.theme-muong .primary-text { color: #3E2723; }
+.theme-muong .secondary-bg { background-color: #F9A825; }
+.theme-muong .text-accent { color: #C62828; }
+.theme-muong .pattern-bg {
+    background-image: radial-gradient(#3E2723 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+}
+
+/* === NGƯỜI THÁI === */
+.theme-thai {
+    background-color: #FAFAFA;
+}
+.theme-thai .primary-bg { background-color: #6A1B9A; }
+.theme-thai .primary-text { color: #6A1B9A; }
+.theme-thai .secondary-bg { background-color: #E1BEE7; }
+.theme-thai .text-accent { color: #C2185B; }
+.theme-thai .pattern-bg {
+    background-image: linear-gradient(135deg, #6A1B9A 25%, transparent 25%), linear-gradient(225deg, #6A1B9A 25%, transparent 25%), linear-gradient(45deg, #6A1B9A 25%, transparent 25%), linear-gradient(315deg, #6A1B9A 25%, transparent 25%);
+    background-position: 10px 0, 10px 0, 0 0, 0 0;
+    background-size: 20px 20px;
+    background-repeat: repeat;
+    opacity: 0.03;
+}
+
+/* --------------------------------------------------------------------------
+   4. THEME ĐẶC BIỆT: NGƯỜI DAO 
+   (Giữ nguyên cấu trúc CSS riêng biệt sử dụng biến :root)
+   -------------------------------------------------------------------------- */
+.theme-dao {
+    /* Định nghĩa biến cục bộ cho scope theme-dao */
+    --bg-main: 254, 251, 243; 
+    --text-main: 28, 28, 28;
+    --nav-footer: 52, 73, 94;
+    --accent-red: 159, 29, 44;
+    --accent-gold: 204, 166, 59;
+    
+    background-color: rgb(var(--bg-main));
+    color: rgb(var(--text-main));
+}
+
+.theme-dao .text-custom-black { color: rgb(var(--text-main)); }
+.theme-dao .text-custom-red { color: rgb(var(--accent-red)); }
+.theme-dao .text-custom-gold { color: rgb(var(--accent-gold)); }
+.theme-dao .text-custom-nav { color: rgb(var(--nav-footer)); }
+
+.theme-dao .bg-custom-nav { background-color: rgb(var(--nav-footer)); }
+.theme-dao .bg-custom-red { background-color: rgb(var(--accent-red)); }
+.theme-dao .bg-custom-gold { background-color: rgb(var(--accent-gold)); }
+.theme-dao .bg-custom-light { background-color: rgba(var(--nav-footer), 0.05); }
+
+.theme-dao .border-custom-red { border-color: rgb(var(--accent-red)); }
+.theme-dao .border-custom-gold { border-color: rgb(var(--accent-gold)); }
+
+.theme-dao .nav-link {
+    position: relative;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.theme-dao .nav-link:hover {
+    color: rgb(var(--accent-gold));
+}
+
+.theme-dao .btn-primary {
+    background-color: rgb(var(--accent-red));
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
     transition: all 0.3s ease;
+    border: 2px solid rgb(var(--accent-red));
+    display: inline-block;
 }
 
-nav a.text-gray-600:hover {
-    color: var(--hoa-gold) !important;
+.theme-dao .btn-primary:hover {
+    background-color: transparent;
+    color: rgb(var(--accent-red));
     transform: translateY(-2px);
 }
 
-/* --- Hero Section (Phần đầu trang) --- */
-header#gioi-thieu {
-    background-color: var(--hoa-red-dark); /* Đảm bảo nền đỏ đậm nếu ảnh chưa load */
+.theme-dao .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+    border-bottom: 3px solid transparent;
 }
 
-/* Tiêu đề chính lớn và sang trọng */
-h1.text-4xl {
-    font-size: 4rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    margin-bottom: 0.5rem;
+.theme-dao .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-bottom-color: rgb(var(--accent-gold));
 }
 
-/* Dòng mô tả dưới tiêu đề */
-h2.text-xl {
-    color: var(--hoa-gold) !important;
-    font-style: italic;
-    letter-spacing: 1px;
-    font-weight: 400;
-}
-
-/* Nút bấm (CTA) */
-a.inline-block {
-    background-color: var(--hoa-gold);
-    color: var(--hoa-red-dark);
-    border: 2px solid #fff;
-    padding: 12px 35px;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: all 0.3s;
-}
-
-a.inline-block:hover {
-    background-color: #fff;
-    color: var(--hoa-red-dark);
-    border-color: var(--hoa-gold);
-}
-
-/* --- Các Section Nội dung --- */
-.section-padding {
-    padding: 6rem 0;
-}
-
-/* Tiêu đề của từng phần (VD: "Phi thương bất phú") */
-h2.primary-text {
-    color: var(--hoa-red-dark) !important;
-    font-size: 3rem;
-    position: relative;
-    display: inline-block;
-    margin-bottom: 2rem;
-}
-
-/* Đường gạch chân trang trí dưới tiêu đề (giống ảnh mẫu) */
-h2.primary-text::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--hoa-gold);
-    margin: 15px auto 0; /* Căn giữa */
-}
-
-/* Căn trái đường gạch chân nếu tiêu đề không ở giữa */
-.order-1 h2.primary-text::after {
-    margin: 15px 0 0; 
-}
-
-/* --- Card Styles (Các khối nội dung như Không gian sống) --- */
-/* Biến các khối này thành các thẻ bài màu đỏ đậm giống mục Menu trong ảnh */
-.bg-white.p-6.rounded-xl {
-    background-color: var(--hoa-card-bg); /* Nền đỏ đậm */
-    color: #fff; /* Chữ trắng */
-    border: 2px solid var(--hoa-gold); /* Viền vàng kim */
-    border-top: none; /* Bỏ border-top cũ của HTML gốc */
-    border-radius: 4px; /* Bo góc ít hơn để trông cứng cáp */
-    text-align: center;
-    padding: 2.5rem 1.5rem;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(139, 24, 24, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.bg-white.p-6.rounded-xl:hover {
-    transform: translateY(-10px);
-}
-
-/* Chỉnh màu icon và tiêu đề trong card */
-.bg-white.p-6.rounded-xl .text-4xl,
-.bg-white.p-6.rounded-xl h3 {
-    color: var(--hoa-gold) !important;
-}
-
-.bg-white.p-6.rounded-xl p {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 0.95rem;
-}
-
-/* Xử lý chữ Hán nền chìm */
-.bg-white.p-6.rounded-xl .absolute {
-    color: rgba(255, 255, 255, 0.1) !important; /* Làm mờ chữ Hán đi */
-}
-
-/* --- Hình ảnh --- */
-/* Tạo khung tròn hoặc bo góc mềm mại cho ảnh */
-img.rounded-lg, img.rounded-xl {
-    border: 4px solid #fff;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* Ảnh tròn (như bát súp trong ảnh mẫu) - áp dụng cho một số ảnh vuông */
-.image-card {
-    border-radius: 50%; /* Thử nghiệm làm tròn ảnh */
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border: 6px solid #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-/* Nếu ảnh không vuông, giữ bo góc thường nhưng thêm viền */
-.w-full.h-80.object-cover {
-    border-radius: 12px;
-    border: none;
-    aspect-ratio: auto;
-}
-
-/* --- Footer --- */
-footer {
-    background-color: var(--hoa-red-dark);
-    border-top: 8px solid var(--hoa-gold); /* Viền trên dày màu vàng */
-    color: #fff;
-}
-
-footer h2 {
-    color: var(--hoa-gold);
-    letter-spacing: 1px;
-}
-
-footer p {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-    h1.text-4xl {
-        font-size: 2.5rem;
-    }
-    h2.primary-text {
-        font-size: 2rem;
-    }
-    .section-padding {
-        padding: 4rem 0;
-    }
+.theme-dao .pattern-overlay {
+    background-image: radial-gradient(rgb(var(--nav-footer)) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.03;
 }
