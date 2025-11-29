@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Người Kinh (Việt) - Bản sắc truyền thống</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Liên kết CSS của bạn -->
+    
     <link rel="stylesheet" href="CSS/cac-dan-toc.css">
+    
     <style>
-        /* CSS dự phòng nếu file CSS/cac-dan-toc.css chưa tải được */
+        /* CSS Gốc của bạn */
         body.theme-kinh { font-family: 'Montserrat', sans-serif; }
         .primary-text { color: #B91C1C; }
         .primary-bg { background-color: #B91C1C; }
@@ -23,11 +26,147 @@
             background-size: 20px 20px;
             opacity: 0.05;
         }
+
+        /* =========================================
+           CSS CHO SIDEBAR MỚI (Đã thêm vào)
+           ========================================= */
+        body {
+            padding-left: 64px; /* Đẩy nội dung sang phải */
+        }
+
+        /* Navbar cũ chỉnh lại width để không bị sidebar che */
+        nav.fixed {
+            width: calc(100% - 64px) !important;
+            margin-left: 64px !important;
+        }
+
+        /* Sidebar Container */
+        .sidebar-left {
+            position: fixed; top: 0; left: 0; height: 100vh; width: 64px;
+            background-color: white; display: flex; flex-direction: column;
+            align-items: center; padding-top: 20px;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.05); z-index: 9999;
+        }
+
+        /* Sidebar Item */
+        .sidebar-item {
+            width: 40px; height: 40px; display: flex; justify-content: center;
+            align-items: center; border-radius: 50%; margin-bottom: 16px;
+            color: #5f5f5f; text-decoration: none; font-size: 20px;
+            transition: all 0.2s ease; position: relative; cursor: pointer;
+        }
+        .sidebar-item:hover { background-color: #f0f2f5; color: #198754; }
+        .sidebar-item.active { background-color: #000; color: #fff; }
+
+        /* Icon Lá Trà */
+        .icon-tea { color: #28a745; font-size: 28px; margin-bottom: 25px; }
+        .icon-tea:hover { background-color: transparent; }
+
+        /* Icon Ảnh (Trống đồng & Thổ cẩm) */
+        .custom-img-icon {
+            width: 100%; height: 100%; background-size: cover;
+            background-position: center; display: block;
+        }
+        .icon-drum-bg {
+            background-image: url('images/trong-dong.jpg.png'); /* Ảnh Trống Đồng */
+            border-radius: 50%;
+        }
+        .icon-brocade-bg {
+            background-image: url('images/hoatiet.jpg'); /* Ảnh Thổ Cẩm */
+            border-radius: 8px;
+        }
+        .sidebar-item:hover .icon-drum-bg,
+        .sidebar-item:hover .icon-brocade-bg { box-shadow: 0 0 0 2px #198754; }
+
+        /* Badge tin nhắn */
+        .badge-count {
+            position: absolute; top: -2px; right: -2px; background-color: #e60023;
+            color: white; font-size: 9px; font-weight: 700; padding: 1px 5px;
+            border-radius: 10px; border: 2px solid white;
+        }
+
+        /* --- Tooltip & Menu Dropdown --- */
+        .sidebar-item::after {
+            content: attr(data-tooltip); position: absolute; left: 100%; top: 50%;
+            transform: translateY(-50%); background-color: #333; color: #fff;
+            padding: 6px 12px; border-radius: 6px; font-size: 14px; white-space: nowrap;
+            margin-left: 15px; opacity: 0; visibility: hidden; transition: all 0.2s ease;
+            z-index: 10000; pointer-events: none;
+        }
+        .sidebar-item::before {
+            content: ""; position: absolute; left: 100%; top: 50%;
+            transform: translateY(-50%); border-width: 6px; border-style: solid;
+            border-color: transparent #333 transparent transparent; margin-left: 3px;
+            opacity: 0; visibility: hidden; transition: all 0.2s ease; z-index: 10000;
+        }
+        .sidebar-item:hover::after, .sidebar-item:hover::before { opacity: 1; visibility: visible; }
+
+        /* Dropdown Menu */
+        .sidebar-item-wrap { position: relative; display: flex; justify-content: center; width: 100%; }
+        .has-submenu .sidebar-item:hover::after, .has-submenu .sidebar-item:hover::before { display: none; }
+        
+        .ethnic-menu {
+            position: absolute; left: 70px; top: -50px; width: 200px;
+            background-color: white; box-shadow: 4px 4px 15px rgba(0,0,0,0.15);
+            border-radius: 8px; padding: 10px 0; opacity: 0; visibility: hidden;
+            transform: translateX(-10px); transition: all 0.3s ease; z-index: 10001; text-align: left;
+        }
+        .sidebar-item-wrap:hover .ethnic-menu { opacity: 1; visibility: visible; transform: translateX(0); }
+        
+        .ethnic-menu .menu-header {
+            font-weight: bold; color: #198754; padding: 5px 20px 10px 20px;
+            border-bottom: 1px solid #eee; margin-bottom: 5px; font-family: sans-serif;
+        }
+        .ethnic-menu ul { list-style: none; padding: 0; margin: 0; }
+        .ethnic-menu li a {
+            display: block; padding: 8px 20px; color: #333; text-decoration: none;
+            font-size: 15px; transition: background 0.2s; font-family: sans-serif;
+        }
+        .ethnic-menu li a:hover { background-color: #f0f9f4; color: #198754; padding-left: 25px; }
     </style>
 </head>
 <body class="theme-kinh bg-gray-50">
 
-    <!-- Navigation -->
+    <div class="sidebar-left">
+        <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
+            <i class="fas fa-leaf"></i>
+        </a>
+
+        <a href="index.html" class="sidebar-item" data-tooltip="Trang chủ">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <a href="gioi-thieu.html" class="sidebar-item" data-tooltip="Giới thiệu">
+            <div class="custom-img-icon icon-drum-bg"></div>
+        </a>
+
+        <div class="sidebar-item-wrap has-submenu">
+            <a href="#" class="sidebar-item" data-tooltip="Các dân tộc">
+                <div class="custom-img-icon icon-brocade-bg"></div>
+            </a>
+            <div class="ethnic-menu">
+                <div class="menu-header">Các dân tộc</div>
+                <ul>
+                    <li><a href="dan-toc-tay.html">Dân tộc Tày</a></li>
+                    <li><a href="dan-toc-nung.html">Dân tộc Nùng</a></li>
+                    <li><a href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
+                    <li><a href="dan-toc-san-chay.html">Dân tộc Sán Chay</a></li>
+                    <li><a href="dan-toc-dao.html">Dân tộc Dao</a></li>
+                    <li><a href="dan-toc-kinh.html">Dân tộc Kinh</a></li>
+                    <li><a href="dan-toc-hoa.html">Dân tộc Hoa</a></li>
+                    <li><a href="dan-toc-muong.html">Dân tộc Mường</a></li>
+                    <li><a href="dan-toc-ngai.html">Dân tộc Ngái</a></li>
+                    <li><a href="dan-toc-thai.html">Dân tộc Thái</a></li>
+                    <li><a href="dan-toc-mong.html">Dân tộc H'Mông</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="lien-he.html" class="sidebar-item" data-tooltip="Liên hệ & Góp ý">
+            <i class="fas fa-comment-dots"></i>
+            <span class="badge-count">3</span>
+        </a>
+    </div>
     <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -41,7 +180,6 @@
                     <a href="#am-thuc" class="text-gray-600 hover:text-red-800 transition">Ẩm thực</a>
                     <a href="#trang-phuc" class="text-gray-600 hover:text-red-800 transition">Trang phục</a>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button class="text-gray-600 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
@@ -51,7 +189,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-40">
             <img src="https://images.unsplash.com/photo-1558617719-7589f898393b?q=80&w=2070&auto=format&fit=crop" alt="Làng quê Việt Nam" class="w-full h-full object-cover">
@@ -67,7 +204,6 @@
         </div>
     </header>
 
-    <!-- Section: Kinh Tế -->
     <section id="kinh-te" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -78,7 +214,6 @@
                              <span class="font-serif italic text-yellow-800 text-lg">"Bờ xôi ruộng mật"</span>
                         </div>
                         <img src="images/Ruộng.jpg" class="rounded-lg shadow-md h-40 object-cover w-full" alt="Ruộng lúa">
-                        <!-- ĐÃ THAY ẢNH ĐỒI CHÈ -->
                         <img src="images/Chè.jpg" class="rounded-lg shadow-md h-40 object-cover w-full" alt="Đồi chè">
                     </div>
                 </div>
@@ -101,7 +236,6 @@
         </div>
     </section>
 
-    <!-- Section: Không gian sống -->
     <section id="khong-gian-song" class="section-padding bg-orange-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -129,7 +263,6 @@
             </div>
             
              <div class="mt-12 rounded-xl overflow-hidden shadow-2xl relative w-full">
-                <!-- ĐÃ SỬA KHUNG CỔNG: XÓA CẮT ẢNH, HIỂN THỊ ĐẦY ĐỦ -->
                 <img src="images/Cổng.jpg" alt="Cổng làng" class="w-full h-auto object-contain">
                  <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-4 w-full">
                     <p class="italic text-center">"Cổng làng uy nghiêm - Biểu tượng của văn hóa làng xã"</p>
@@ -138,7 +271,6 @@
         </div>
     </section>
 
-    <!-- Section: Ẩm thực -->
     <section id="am-thuc" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -166,7 +298,6 @@
         </div>
     </section>
 
-    <!-- Section: Trang phục (Áo Dài) -->
     <section id="trang-phuc" class="section-padding primary-bg text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -203,7 +334,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4 font-serif">Người Kinh (Việt) Thái Nguyên</h2>
@@ -219,7 +349,6 @@
         </div>
     </footer>
 
-    <!-- Smooth Scroll Script -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
