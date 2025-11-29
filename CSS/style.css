@@ -80,7 +80,7 @@ body::before {
     /* Điều chỉnh Gradient: */
     /* Giữa màn hình tối nhẹ (0.5) để thấy chi tiết ảnh */
     /* Góc màn hình tối đậm (0.85) để tập trung thị giác */
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.85) 100%);
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
     
     z-index: -1; /* Nằm dưới nội dung web */
     pointer-events: none; 
@@ -379,6 +379,7 @@ footer {
     margin-right: 10px;
     filter: drop-shadow(0 0 2px #000);
 }
+
 
 
 
