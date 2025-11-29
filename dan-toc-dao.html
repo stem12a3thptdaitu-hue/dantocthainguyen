@@ -4,129 +4,218 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Người Dao - Bản Sắc Rực Rỡ Thái Nguyên</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/cac-dan-toc.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-     <link rel="stylesheet" href="CSS/thanh-menu.css">
+    <link rel="stylesheet" href="CSS/cac-dan-toc.css">
+    <link rel="stylesheet" href="CSS/thanh-menu.css">
 
     <style>
-        /* --- CSS CHO SIDEBAR MỚI VỚI ICON VĂN HÓA --- */
+        /* =========================================
+           1. CSS CHO SIDEBAR MỚI (CHUẨN 64PX)
+           ========================================= */
         body {
-            padding-left: 80px; 
+            padding-left: 64px; /* Đẩy nội dung sang phải 64px */
             background-color: #f8f9fa;
         }
 
         .sidebar-left {
-            /* Giữ nguyên các thuộc tính cũ */
-            position: fixed; top: 0; left: 0; height: 100vh; width: 80px;
-            background-color: white; display: flex; flex-direction: column;
-            align-items: center; padding-top: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.05); z-index: 1050;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 64px;        /* Rộng 64px */
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+            z-index: 9999;
         }
 
         .sidebar-item {
-            /* Giữ nguyên các thuộc tính cũ */
-            width: 50px; height: 50px; display: flex; justify-content: center;
-            align-items: center; border-radius: 50%; margin-bottom: 15px;
-            color: #5f5f5f; text-decoration: none; font-size: 24px;
-            transition: all 0.2s ease; position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-bottom: 16px;
+            color: #5f5f5f;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.2s ease;
+            position: relative;
+            cursor: pointer;
         }
 
         .sidebar-item:hover {
-            background-color: #e9ecef;
-            color: #198754; /* Màu xanh của theme */
+            background-color: #f0f2f5;
+            color: #198754;
         }
 
         .sidebar-item.active {
-            background-color: #111;
-            color: white;
+            background-color: #000;
+            color: #fff;
         }
 
-        /* --- CÁC ICON MỚI --- */
-        
-        /* 1. Lá trà (Thay vị trí logo trên cùng) */
+        /* Icon Lá Trà */
         .icon-tea {
-            color: #28a745; /* Màu xanh lá cây */
+            color: #28a745;
             font-size: 28px;
             margin-bottom: 25px;
         }
         .icon-tea:hover { background-color: transparent; }
 
-        /* 4. Ô vuông vải thổ cẩm */
-        .icon-brocade-container {
-            width: 42px; /* Kích thước ô vuông */
-            height: 42px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px; /* Bo góc nhẹ cho giống miếng vải */
-            overflow: hidden; /* Cắt phần ảnh thừa */
-            border: 2px solid transparent; /* Viền trong suốt */
-            transition: all 0.2s ease;
-        }
-        /* Khi hover vào item cha thì viền ô vuông đổi màu */
-        .sidebar-item:hover .icon-brocade-container {
-             border-color: #198754;
-        }
-        
-        .icon-brocade-img {
+        /* Icon Ảnh (Trống đồng & Thổ cẩm) */
+        .custom-img-icon {
             width: 100%;
             height: 100%;
-            /* Đường dẫn đến ảnh thổ cẩm của bạn.
-               QUAN TRỌNG: Bạn cần tải ảnh 'image_0.png' về và đặt vào thư mục dự án,
-               ví dụ: 'images/tho-cam.png' và sửa lại đường dẫn bên dưới cho đúng. */
-            background-image: url('image_0.png'); 
-            background-size: cover; /* Ảnh phủ kín ô vuông */
-            background-position: center; /* Căn giữa ảnh */
+            background-size: cover;
+            background-position: center;
+            display: block;
         }
 
-        /* Số thông báo (cho tin nhắn) */
+        .icon-drum-bg {
+            background-image: url('images/trong-dong.jpg.png'); /* Đảm bảo đường dẫn ảnh đúng */
+            border-radius: 50%;
+        }
+
+        .icon-brocade-bg {
+            background-image: url('images/hoatiet.jpg'); /* Đảm bảo đường dẫn ảnh đúng */
+            border-radius: 8px;
+        }
+
+        .sidebar-item:hover .icon-drum-bg,
+        .sidebar-item:hover .icon-brocade-bg {
+            box-shadow: 0 0 0 2px #198754;
+        }
+
+        /* Badge tin nhắn */
         .badge-count {
-            /* Giữ nguyên */
-            position: absolute; top: 0px; right: 0px; background-color: #e60023;
-            color: white; font-size: 10px; font-weight: bold; padding: 2px 5px;
+            position: absolute; top: -2px; right: -2px;
+            background-color: #e60023; color: white;
+            font-size: 9px; font-weight: 700; padding: 1px 5px;
             border-radius: 10px; border: 2px solid white;
         }
 
-        /* --- Giữ nguyên CSS cho navbar cũ và video nền --- */
-        .navbar-custom { width: calc(100% - 80px); margin-left: 80px; }
+        /* Navbar cũ chỉnh lại width */
+        .navbar-custom, .bg-custom-nav {
+            width: calc(100% - 64px) !important;
+            margin-left: 64px !important;
+        }
+
+        /* =========================================
+           2. CSS TOOLTIP & MENU (Sao chép từ Index)
+           ========================================= */
+        
+        /* Tooltip đen bên phải */
+        .sidebar-item::after {
+            content: attr(data-tooltip);
+            position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
+            background-color: #333; color: #fff;
+            padding: 6px 12px; border-radius: 6px; font-size: 14px;
+            white-space: nowrap; margin-left: 15px;
+            opacity: 0; visibility: hidden; transition: all 0.2s ease;
+            z-index: 10000; pointer-events: none;
+        }
+        
+        /* Mũi tên tooltip */
+        .sidebar-item::before {
+            content: ""; position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
+            border-width: 6px; border-style: solid;
+            border-color: transparent #333 transparent transparent;
+            margin-left: 3px; opacity: 0; visibility: hidden;
+            transition: all 0.2s ease; z-index: 10000;
+        }
+
+        .sidebar-item:hover::after, .sidebar-item:hover::before {
+            opacity: 1; visibility: visible;
+        }
+
+        /* Menu Dân Tộc (Dropdown) */
+        .sidebar-item-wrap {
+            position: relative; display: flex; justify-content: center; width: 100%;
+        }
+        .has-submenu .sidebar-item:hover::after,
+        .has-submenu .sidebar-item:hover::before { display: none; } /* Tắt tooltip đen cho thổ cẩm */
+
+        .ethnic-menu {
+            position: absolute; left: 70px; top: -50px; width: 200px;
+            background-color: white; box-shadow: 4px 4px 15px rgba(0,0,0,0.15);
+            border-radius: 8px; padding: 10px 0;
+            opacity: 0; visibility: hidden; transform: translateX(-10px);
+            transition: all 0.3s ease; z-index: 10001; text-align: left;
+        }
+        .sidebar-item-wrap:hover .ethnic-menu {
+            opacity: 1; visibility: visible; transform: translateX(0);
+        }
+
+        .ethnic-menu .menu-header {
+            font-weight: bold; color: #198754; padding: 5px 20px 10px 20px;
+            border-bottom: 1px solid #eee; margin-bottom: 5px; font-family: sans-serif;
+        }
+        .ethnic-menu ul { list-style: none; padding: 0; margin: 0; }
+        .ethnic-menu li a {
+            display: block; padding: 8px 20px; color: #333;
+            text-decoration: none; font-size: 15px; transition: background 0.2s; font-family: sans-serif;
+        }
+        .ethnic-menu li a:hover {
+            background-color: #f0f9f4; color: #198754; padding-left: 25px;
+        }
     </style>
 </head>
+
 <body class="theme-dao">
-    <body>
+    
     <div class="sidebar-left">
-        <a href="#" class="sidebar-item icon-tea" title="Lá trà Thái Nguyên">
-            <i class="bi bi-flower1"></i> 
+        <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
+            <i class="fas fa-leaf"></i>
         </a>
 
-        <a href="index.html" class="sidebar-item active" title="Nhà sàn">
-            <i class="bi bi-house-door-fill"></i>
+        <a href="index.html" class="sidebar-item" data-tooltip="Trang chủ">
+            <i class="fas fa-home"></i>
         </a>
 
-        <a href="#" class="sidebar-item" title="Trống đồng">
-            <i class="fa-solid fa-drum-steelpan"></i>
+        <a href="gioi-thieu.html" class="sidebar-item" data-tooltip="Giới thiệu">
+            <div class="custom-img-icon icon-drum-bg"></div>
         </a>
 
-        <a href="#" class="sidebar-item" title="Vải thổ cẩm">
-            <div class="icon-brocade-container">
-                <div class="icon-brocade-img"></div>
+        <div class="sidebar-item-wrap has-submenu">
+            <a href="#" class="sidebar-item" data-tooltip="Các dân tộc">
+                <div class="custom-img-icon icon-brocade-bg"></div>
+            </a>
+            <div class="ethnic-menu">
+                <div class="menu-header">Các dân tộc</div>
+                <ul>
+                    <li><a href="dan-toc-tay.html">Dân tộc Tày</a></li>
+                    <li><a href="dan-toc-nung.html">Dân tộc Nùng</a></li>
+                    <li><a href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
+                    <li><a href="dan-toc-san-chay.html">Dân tộc Sán Chay</a></li>
+                    <li><a href="dan-toc-dao.html">Dân tộc Dao</a></li>
+                    <li><a href="dan-toc-kinh.html">Dân tộc Kinh</a></li>
+                    <li><a href="dan-toc-hoa.html">Dân tộc Hoa</a></li>
+                    <li><a href="dan-toc-muong.html">Dân tộc Mường</a></li>
+                    <li><a href="dan-toc-ngai.html">Dân tộc Ngái</a></li>
+                    <li><a href="dan-toc-thai.html">Dân tộc Thái</a></li>
+                    <li><a href="dan-toc-mong.html">Dân tộc H'Mông</a></li>
+                </ul>
             </div>
+        </div>
+
+        <a href="lien-he.html" class="sidebar-item" data-tooltip="Liên hệ & Góp ý">
+            <i class="fas fa-comment-dots"></i>
+            <span class="badge-count">3</span>
         </a>
-
-        <a href="lien-he.html" class="sidebar-item" title="Tin nhắn">
-            <i class="bi bi-chat-dots-fill"></i>
-            <span class="badge-count">3</span> </a>
     </div>
-    </body>
-
-    <!-- Navigation -->
     <nav class="bg-custom-nav shadow-lg fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
@@ -136,15 +225,13 @@
                         Người Dao
                     </span>
                 </div>
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#gioi-thieu" class="nav-link font-medium">Giới thiệu</a>
-                    <a href="#y-hoc" class="nav-link font-medium">Y học</a>
-                    <a href="#trang-phuc" class="nav-link font-medium">Trang phục</a>
-                    <a href="#tin-nguong" class="nav-link font-medium">Tín ngưỡng</a>
-                    <a href="#le-hoi" class="nav-link font-medium">Lễ Cấp Sắc</a>
+                    <a href="#gioi-thieu" class="nav-link font-medium no-underline text-white hover:text-yellow-400">Giới thiệu</a>
+                    <a href="#y-hoc" class="nav-link font-medium no-underline text-white hover:text-yellow-400">Y học</a>
+                    <a href="#trang-phuc" class="nav-link font-medium no-underline text-white hover:text-yellow-400">Trang phục</a>
+                    <a href="#tin-nguong" class="nav-link font-medium no-underline text-white hover:text-yellow-400">Tín ngưỡng</a>
+                    <a href="#le-hoi" class="nav-link font-medium no-underline text-white hover:text-yellow-400">Lễ Cấp Sắc</a>
                 </div>
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
                     <button class="text-white hover:text-custom-gold focus:outline-none transition-colors">
                         <i class="fas fa-bars text-2xl"></i>
@@ -154,51 +241,47 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Ảnh nền với lớp phủ màu chàm -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9e6?q=80&w=2070&auto=format&fit=crop" alt="Ruộng bậc thang Thái Nguyên" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-custom-nav opacity-60"></div>
+            <div class="absolute inset-0 bg-black opacity-40"></div>
         </div>
 
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto text-white">
-            <h3 class="text-lg md:text-xl font-light mb-4 text-custom-gold uppercase tracking-widest">Bản sắc rực rỡ Thái Nguyên</h3>
+            <h3 class="text-lg md:text-xl font-light mb-4 text-yellow-400 uppercase tracking-widest">Bản sắc rực rỡ Thái Nguyên</h3>
             <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">NGƯỜI DAO <br> <span class="font-light italic text-3xl md:text-4xl">Vẻ đẹp giữa mây ngàn gió núi</span></h1>
             
             <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed opacity-90 font-light">
                 Cư dân yêu thích sự khoáng đạt, định cư nơi sườn núi cao Võ Nhai, Đại Từ, Đồng Hỷ. Một nền văn hóa vừa bí ẩn, vừa quyến rũ với những gam màu nóng ấm.
             </p>
             
-            <a href="#y-hoc" class="btn-primary">
+            <a href="#y-hoc" class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-8 rounded-full transition duration-300 no-underline">
                 Khám Phá Văn Hóa
             </a>
         </div>
     </header>
 
-    <!-- Section: Y học & Thảo dược -->
-    <section id="y-hoc" class="section-padding relative">
-        <div class="absolute inset-0 pattern-overlay pointer-events-none"></div>
+    <section id="y-hoc" class="py-20 relative bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="order-2 md:order-1">
                     <div class="relative">
-                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-custom-gold rounded-lg transform translate-x-2 translate-y-2"></div>
+                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-yellow-500 rounded-lg transform translate-x-2 translate-y-2"></div>
                         <img src="https://images.unsplash.com/photo-1546842931-886c185b4c8c?q=80&w=1985&auto=format&fit=crop" alt="Thảo dược rừng" class="relative w-full h-[400px] object-cover rounded-lg shadow-xl z-10">
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
                     <div class="flex items-center mb-4">
-                        <span class="w-12 h-1 bg-custom-gold mr-4"></span>
-                        <span class="text-custom-red font-bold uppercase tracking-widest text-sm">Tri thức dân gian</span>
+                        <span class="w-12 h-1 bg-yellow-500 mr-4"></span>
+                        <span class="text-red-700 font-bold uppercase tracking-widest text-sm">Tri thức dân gian</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-custom-black">Bậc thầy Thảo Dược & Y Học</h2>
-                    <p class="text-custom-black mb-6 text-justify">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Bậc thầy Thảo Dược & Y Học</h2>
+                    <p class="text-gray-700 mb-6 text-justify">
                         Không chỉ giỏi canh tác lúa nương, ngô, khoai trên những thửa ruộng bậc thang, người Dao còn nắm giữ kho tàng tri thức khổng lồ về Y học. Từ bao đời nay, họ đã biết vào rừng sâu tìm kiếm cây thuốc quý.
                     </p>
                     
-                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-custom-red">
-                        <h4 class="text-xl font-bold mb-2 text-custom-red flex items-center">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-red-700">
+                        <h4 class="text-xl font-bold mb-2 text-red-700 flex items-center">
                             <i class="fas fa-spa mr-3"></i>Thuốc tắm người Dao
                         </h4>
                         <p class="text-sm text-gray-700">
@@ -210,45 +293,41 @@
         </div>
     </section>
 
-    <!-- Section: Trang phục -->
-    <section id="trang-phuc" class="section-padding bg-custom-light">
+    <section id="trang-phuc" class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-custom-red font-bold uppercase tracking-widest text-sm mb-2 block">Nghệ thuật thêu tay</span>
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-custom-black">Trang Phục Rực Rỡ</h2>
-                <div class="w-20 h-1 bg-custom-gold mx-auto"></div>
+                <span class="text-red-700 font-bold uppercase tracking-widest text-sm mb-2 block">Nghệ thuật thêu tay</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Trang Phục Rực Rỡ</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-600">Tác phẩm nghệ thuật cầu kỳ đến từng đường kim mũi chỉ.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="card-hover p-8 rounded-lg">
-                    <div class="w-14 h-14 bg-custom-nav rounded-full flex items-center justify-center mb-6 text-white text-2xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center mb-6 text-white text-2xl mx-auto">
                         <span class="font-serif">1</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-center text-custom-black">Dao Quần Chẹt</h3>
+                    <h3 class="text-xl font-bold mb-3 text-center text-gray-900">Dao Quần Chẹt</h3>
                     <p class="text-sm text-gray-600 text-center leading-relaxed">
                         Phụ nữ mặc quần ống hẹp, đầu đội khăn dài. Trang phục chủ yếu là màu chàm sẫm, điểm xuyết hoa văn thêu chỉ đỏ và vàng nổi bật ở gấu áo, yếm.
                     </p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="card-hover p-8 rounded-lg border-custom-gold border-2 transform md:-translate-y-4">
-                    <div class="w-14 h-14 bg-custom-gold rounded-full flex items-center justify-center mb-6 text-white text-2xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition duration-300 border-yellow-500 border-2 transform md:-translate-y-4">
+                    <div class="w-14 h-14 bg-yellow-500 rounded-full flex items-center justify-center mb-6 text-white text-2xl mx-auto">
                         <span class="font-serif">2</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-center text-custom-red">Dao Lô Gang</h3>
+                    <h3 class="text-xl font-bold mb-3 text-center text-red-700">Dao Lô Gang</h3>
                     <p class="text-sm text-gray-600 text-center leading-relaxed">
                         Nổi bật với những họa tiết hình ngôi sao 8 cánh, hình cây thông, hình quả trám được thêu tay tỉ mỉ bằng chỉ màu sặc sỡ trên nền vải đen huyền bí.
                     </p>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="card-hover p-8 rounded-lg">
-                    <div class="w-14 h-14 bg-custom-nav rounded-full flex items-center justify-center mb-6 text-white text-2xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center mb-6 text-white text-2xl mx-auto">
                         <span class="font-serif">3</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-center text-custom-black">Dao Tiền</h3>
+                    <h3 class="text-xl font-bold mb-3 text-center text-gray-900">Dao Tiền</h3>
                     <p class="text-sm text-gray-600 text-center leading-relaxed">
                         Đặc biệt với kỹ thuật in hoa văn bằng sáp ong độc đáo và những đồng bạc trắng đính trên cổ áo - nguồn gốc của tên gọi "Dao Tiền".
                     </p>
@@ -257,29 +336,28 @@
         </div>
     </section>
 
-    <!-- Section: Không gian sống & Tín ngưỡng -->
-    <section id="tin-nguong" class="section-padding">
+    <section id="tin-nguong" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-custom-nav">
+                <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-gray-800">
                     <div class="flex items-center mb-6">
-                        <i class="fas fa-home text-4xl text-custom-gold mr-4"></i>
-                        <h3 class="text-2xl font-bold text-custom-black">Không Gian Sống</h3>
+                        <i class="fas fa-home text-4xl text-yellow-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900">Không Gian Sống</h3>
                     </div>
                     <p class="text-gray-700 mb-4">
                         Người Dao cư trú trong ba loại nhà chính để thích nghi với độ dốc của núi:
                     </p>
                     <ul class="space-y-3">
-                        <li class="flex items-center text-sm"><i class="fas fa-check text-custom-red mr-3"></i> Nhà sàn</li>
-                        <li class="flex items-center text-sm"><i class="fas fa-check text-custom-red mr-3"></i> Nhà đất</li>
-                        <li class="flex items-center text-sm"><i class="fas fa-check text-custom-red mr-3"></i> Nhà nửa sàn nửa đất</li>
+                        <li class="flex items-center text-sm"><i class="fas fa-check text-red-700 mr-3"></i> Nhà sàn</li>
+                        <li class="flex items-center text-sm"><i class="fas fa-check text-red-700 mr-3"></i> Nhà đất</li>
+                        <li class="flex items-center text-sm"><i class="fas fa-check text-red-700 mr-3"></i> Nhà nửa sàn nửa đất</li>
                     </ul>
                 </div>
 
-                <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-custom-red">
+                <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-red-700">
                     <div class="flex items-center mb-6">
-                        <i class="fas fa-praying-hands text-4xl text-custom-gold mr-4"></i>
-                        <h3 class="text-2xl font-bold text-custom-black">Tín Ngưỡng & Chữ Viết</h3>
+                        <i class="fas fa-praying-hands text-4xl text-yellow-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900">Tín Ngưỡng & Chữ Viết</h3>
                     </div>
                     <p class="text-gray-700 mb-4 text-justify">
                         Bàn thờ tổ tiên và <strong>Bàn Vương</strong> (Thủy tổ người Dao) luôn ở vị trí trang trọng nhất. Họ lưu giữ hệ thống chữ viết riêng (<strong>chữ Nôm Dao</strong>) trong những cuốn sách cổ giấy dó, ghi chép lịch sử và bài cúng.
@@ -289,44 +367,33 @@
         </div>
     </section>
 
-    <!-- Section: Lễ Cấp Sắc -->
-    <section id="le-hoi" class="section-padding bg-custom-nav text-white relative overflow-hidden">
-        <!-- Background decorative elements -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-custom-gold rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-custom-red rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
-
+    <section id="le-hoi" class="py-20 bg-gray-900 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-custom-gold">Lễ Cấp Sắc <br> <span class="text-2xl text-white font-normal">(Quá Tăng)</span></h2>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-yellow-500">Lễ Cấp Sắc <br> <span class="text-2xl text-white font-normal">(Quá Tăng)</span></h2>
                     <p class="text-gray-300 text-lg mb-6 leading-relaxed">
                         Nét văn hóa tâm linh đặc sắc và quan trọng nhất. Đây là nghi lễ đánh dấu sự trưởng thành của người đàn ông Dao.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <i class="fas fa-star text-custom-red"></i>
-                            </div>
+                            <div class="flex-shrink-0 mt-1"><i class="fas fa-star text-red-600"></i></div>
                             <p class="ml-4 text-sm text-gray-300">Người đàn ông phải qua lễ Cấp Sắc mới được coi là người lớn, được tham gia việc hệ trọng của làng bản.</p>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <i class="fas fa-star text-custom-red"></i>
-                            </div>
+                            <div class="flex-shrink-0 mt-1"><i class="fas fa-star text-red-600"></i></div>
                             <p class="ml-4 text-sm text-gray-300">Quan niệm khi chết đi, hồn mới được về với tổ tiên.</p>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <i class="fas fa-star text-custom-red"></i>
-                            </div>
+                            <div class="flex-shrink-0 mt-1"><i class="fas fa-star text-red-600"></i></div>
                             <p class="ml-4 text-sm text-gray-300">Nghi lễ huyền bí với tiếng kèn, trống rộn ràng, giáo dục con người hướng Thiện, biết ơn cha mẹ.</p>
                         </div>
                     </div>
                 </div>
                 <div class="lg:w-1/2">
-                    <div class="relative rounded-lg p-2 border border-custom-gold">
+                    <div class="relative rounded-lg p-2 border border-yellow-500">
                         <img src="https://images.unsplash.com/photo-1516939884455-14a5c08ac0e8?q=80&w=2040&auto=format&fit=crop" alt="Nghi lễ truyền thống" class="rounded w-full shadow-2xl opacity-90 hover:opacity-100 transition-opacity">
-                        <div class="absolute bottom-4 right-4 bg-custom-red px-4 py-2 text-xs font-bold uppercase tracking-wider rounded text-white shadow-lg">
+                        <div class="absolute bottom-4 right-4 bg-red-700 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded text-white shadow-lg">
                             Di sản văn hóa
                         </div>
                     </div>
@@ -335,15 +402,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-12 border-t-4 border-custom-gold">
+    <footer class="bg-black py-12 border-t-4 border-yellow-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-6 font-serif text-white">VĂN HÓA NGƯỜI DAO THÁI NGUYÊN</h2>
             
             <div class="flex justify-center space-x-8 mb-8">
-                <a href="#" class="text-gray-400 hover:text-custom-gold transition-colors"><i class="fab fa-facebook-f text-xl"></i></a>
-                <a href="#" class="text-gray-400 hover:text-custom-gold transition-colors"><i class="fab fa-youtube text-xl"></i></a>
-                <a href="#" class="text-gray-400 hover:text-custom-gold transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
             </div>
             
             <div class="text-gray-500 text-sm">
@@ -353,7 +419,6 @@
         </div>
     </footer>
 
-    <!-- Script cuộn mượt -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -366,8 +431,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
