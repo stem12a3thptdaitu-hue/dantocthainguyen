@@ -126,7 +126,9 @@ html, body {
     text-shadow: 0 0 10px var(--color-gold);
 }
 
-/* 3. BANNER TRANG CHỦ (XOAY) */
+/* ========================================= */
+/* 3. BANNER TRANG CHỦ (XOAY) - ĐÃ CHỈNH SỬA SÁNG HƠN */
+/* ========================================= */
 .main-banner {
     height: 500px; position: relative; display: flex;
     align-items: center; justify-content: center; overflow: hidden;
@@ -134,22 +136,73 @@ html, body {
     border-bottom: none; 
     flex-direction: column; 
 }
+
+/* --- THAY ĐỔI 1: LỚP PHỦ SÁNG MÀU KEM --- */
 .main-banner::before {
-    /* Giảm độ tối của nền banner riêng biệt (nếu có) */
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Giảm từ 0.75 xuống 0.4 */
+    /* CŨ: background: rgba(0, 0, 0, 0.4); (Đen mờ) */
+    /* MỚI: Màu kem sáng nhẹ, độ trong suốt 0.5. Giúp làm sáng không gian nhưng vẫn giữ tông ấm */
+    background: rgba(250, 245, 220, 0.5); 
     z-index: 1;
+    /* Thêm hiệu ứng làm mờ nhẹ để nền trông mềm mại hơn */
+    backdrop-filter: blur(2px);
 }
+
+/* --- THAY ĐỔI 2: TRỐNG ĐỒNG SÁNG HƠN RẤT NHIỀU --- */
 .main-banner::after {
     content: ''; position: absolute; width: 800px; height: 800px;
     background-image: url('../images/trong-dong.jpg.png');
     background-size: contain; background-repeat: no-repeat; background-position: center;
-    opacity: 0.2; z-index: 1; animation: spin 80s linear infinite;
-    filter: sepia(100%) hue-rotate(5deg) saturate(200%);
+    
+    /* CŨ: opacity: 0.2; */
+    /* MỚI: Tăng lên 0.7 để trống rõ nét hơn */
+    opacity: 0.7; 
+    
+    z-index: 1; animation: spin 80s linear infinite;
+    
+    /* CŨ: filter: sepia(100%) hue-rotate(5deg) saturate(200%); */
+    /* MỚI: Thêm brightness(1.5) để làm cái trống rực sáng lên */
+    filter: sepia(100%) hue-rotate(5deg) saturate(250%) brightness(1.5); 
+    
+    /* Hòa trộn màu trống vào nền sáng để trông tự nhiên hơn */
+    mix-blend-mode: multiply;
 }
+
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .main-banner .container { position: relative; z-index: 2; text-align: center; }
 
+/* TIÊU ĐỀ: "THÁI NGUYÊN" */
+.main-banner h1 {
+    font-family: var(--font-co-truyen); 
+    font-weight: normal; 
+    font-size: 6rem; 
+    color: #FFF; 
+    text-transform: uppercase; 
+    margin-bottom: 0px; 
+    
+    /* --- THAY ĐỔI 3 (QUAN TRỌNG): Tăng bóng đen để chữ nổi trên nền sáng --- */
+    /* Bóng đổ đậm hơn và sắc nét hơn */
+    text-shadow: 0 5px 20px rgba(0,0,0,1), 0 2px 5px rgba(0,0,0,1);
+    
+    line-height: 1.1;
+}
+
+/* SLOGAN */
+.main-banner p {
+    font-family: var(--font-tet-xua); 
+    color: #FFFACD; /* Màu vàng kem nhạt */
+    font-size: 2.2rem; 
+    font-weight: normal; 
+    letter-spacing: 1px; 
+    
+    /* Tăng bóng đen cho Slogan */
+    text-shadow: 0 3px 10px rgba(0,0,0,1);
+    
+    margin-top: 10px;
+    background-color: rgba(0,0,0,0.2); /* Thêm một nền đen mờ rất nhẹ ngay sát chữ để dễ đọc hơn nữa */
+    padding: 5px 20px;
+    border-radius: 20px;
+}
 /* TIÊU ĐỀ: "THÁI NGUYÊN" */
 .main-banner h1 {
     font-family: var(--font-co-truyen); 
@@ -379,6 +432,7 @@ footer {
     margin-right: 10px;
     filter: drop-shadow(0 0 2px #000);
 }
+
 
 
 
