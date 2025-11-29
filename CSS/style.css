@@ -91,6 +91,7 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
 /* 2. MENU (NAVBAR) - ĐÃ SỬA: TRONG SUỐT */
 .navbar-custom {
     /* ĐÃ SỬA: Xóa nền đen, chuyển sang trong suốt */
@@ -127,7 +128,7 @@ html, body {
 }
 
 /* ========================================= */
-/* 3. BANNER TRANG CHỦ (XOAY) - ĐÃ CHỈNH SỬA SÁNG HƠN */
+/* 3. BANNER TRANG CHỦ (XOAY) - ĐÃ CHỈNH SỬA CHO NHẠT ĐI */
 /* ========================================= */
 .main-banner {
     height: 500px; position: relative; display: flex;
@@ -147,31 +148,37 @@ html, body {
     /* Thêm hiệu ứng làm mờ nhẹ để nền trông mềm mại hơn */
     backdrop-filter: blur(2px);
 }
-/* --- THAY ĐỔI 2: TRỐNG ĐỒNG - ĐÃ ĐIỀU CHỈNH ĐẬM HƠN & RÕ NÉT HƠN --- */
+
+/* --- THAY ĐỔI 2: TRỐNG ĐỒNG - ĐÃ ĐIỀU CHỈNH CHO NHẠT ĐI --- */
 .main-banner::after {
     content: ''; position: absolute; width: 800px; height: 800px;
     background-image: url('../images/trong-dong.jpg.png');
     background-size: contain; background-repeat: no-repeat; background-position: center;
     
-    /* YÊU CẦU: Độ trong suốt tầm 0.8-0.9 */
-    opacity: 0.85; 
+    /* YÊU CẦU MỚI: Giảm độ trong suốt xuống để trông nhạt hơn (0.85 -> 0.65) */
+    opacity: 0.65; 
     
-    z-index: 1; animation: spin 80s linear infinite;
+    z-index: 1; 
     
-    /* YÊU CẦU: Làm trống đồng đậm hơn -> Giảm brightness xuống 0.9 */
-    /* Vẫn giữ sepia và saturate cao để giữ màu vàng đồng */
-    filter: sepia(100%) hue-rotate(5deg) saturate(300%) brightness(0.9); 
+    /* GỌI HIỆU ỨNG QUAY TRÒN */
+    animation: spin 80s linear infinite;
     
-    /* ĐÃ XÓA chế độ hòa trộn cũ để hình ảnh rõ nét hơn */
-    /* mix-blend-mode: multiply; */
+    /* YÊU CẦU MỚI: Điều chỉnh bộ lọc cho bớt gắt */
+    /* Sepia giữ nguyên màu đồng */
+    /* Saturate: Giảm từ 300% xuống 180% (bớt rực rỡ) */
+    /* Brightness: Tăng từ 0.9 lên 1.05 (cho sáng và nhẹ nhàng hơn) */
+    filter: sepia(100%) hue-rotate(5deg) saturate(180%) brightness(1.05); 
 }
-    
-    /* --- THAY ĐỔI 3 (QUAN TRỌNG): Tăng bóng đen để chữ nổi trên nền sáng --- */
-    /* Bóng đổ đậm hơn và sắc nét hơn */
-    /* text-shadow: 0 5px 20px rgba(0,0,0,1), 0 2px 5px rgba(0,0,0,1); */
-    
-    /* line-height: 1.1; */
-/* } Lỗi thừa dấu đóng ngoặc ở đoạn code gốc của bạn, tôi đã xóa đi */
+
+/* --- ĐỊNH NGHĨA HIỆU ỨNG QUAY TRÒN (SPIN) --- */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 /* SLOGAN */
 .main-banner p {
