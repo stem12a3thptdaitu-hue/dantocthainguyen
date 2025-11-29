@@ -4,17 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Người Nùng - Sắc chàm bền bỉ</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="CSS/cac-dan-toc.css">
     <link rel="stylesheet" href="CSS/thanh-menu.css">
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        /* Đẩy nội dung toàn trang sang phải 64px */
+        body {
+            padding-left: 64px;
+        }
+        
+        /* Chỉnh lại Navbar trên cùng: Bắt đầu từ sau Sidebar */
+        nav.fixed {
+            left: 64px !important;
+            width: calc(100% - 64px) !important;
+        }
+
+        /* Đảm bảo Sidebar nằm trên tất cả */
+        .sidebar-left {
+            z-index: 10000;
+        }
+    </style>
 </head>
+
 <body class="theme-nung">
 
-    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+    <div class="sidebar-left">
+        <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
+            <i class="fas fa-leaf"></i>
+        </a>
+
+        <a href="index.html" class="sidebar-item" data-tooltip="Trang chủ">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <a href="gioi-thieu.html" class="sidebar-item" data-tooltip="Giới thiệu">
+            <div class="custom-img-icon icon-drum-bg"></div>
+        </a>
+
+        <div class="sidebar-item-wrap has-submenu">
+            <a href="#" class="sidebar-item active" data-tooltip="Các dân tộc"> 
+                <div class="custom-img-icon icon-brocade-bg"></div>
+            </a>
+
+            <div class="ethnic-menu">
+                <div class="menu-header">Các dân tộc</div>
+                <ul>
+                    <li><a href="dan-toc-tay.html">Dân tộc Tày</a></li>
+                    <li><a href="dan-toc-nung.html" style="color: #198754; font-weight: bold; background-color: #f0f9f4;">Dân tộc Nùng</a></li>
+                    <li><a href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
+                    <li><a href="dan-toc-san-chay.html">Dân tộc Sán Chay</a></li>
+                    <li><a href="dan-toc-dao.html">Dân tộc Dao</a></li>
+                    <li><a href="dan-toc-kinh.html">Dân tộc Kinh</a></li>
+                    <li><a href="dan-toc-hoa.html">Dân tộc Hoa</a></li>
+                    <li><a href="dan-toc-muong.html">Dân tộc Mường</a></li>
+                    <li><a href="dan-toc-ngai.html">Dân tộc Ngái</a></li>
+                    <li><a href="dan-toc-thai.html">Dân tộc Thái</a></li>
+                    <li><a href="dan-toc-mong.html">Dân tộc H'Mông</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="lien-he.html" class="sidebar-item" data-tooltip="Liên hệ & Góp ý">
+            <i class="fas fa-comment-dots"></i>
+            <span class="badge-count">3</span>
+        </a>
+    </div>
+    <nav class="bg-white shadow-md fixed top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -178,6 +244,7 @@
                         <p class="text-sm text-gray-700 mb-2">
                             Lợn khoảng 20-30kg được nhồi **lá mác mật** (móc mật) và các loại gia vị vào bụng, sau đó khâu lại và quay trên than hồng.
                         </p>
+
                         <h4 class="font-bold text-accent mb-2 mt-4"><i class="fas fa-utensils mr-2"></i>Hương vị</h4>
                         <p class="text-sm text-gray-700">
                             Da lợn nổ giòn tan, có màu vàng mật ong, thịt bên trong ngọt mềm thấm đẫm hương thơm đặc trưng của lá mác mật.
@@ -222,7 +289,3 @@
     </script>
 </body>
 </html>
-
-
-
-
