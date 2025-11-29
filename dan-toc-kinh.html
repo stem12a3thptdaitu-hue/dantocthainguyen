@@ -27,8 +27,11 @@
             opacity: 0.05;
         }
 
+        /* Hiệu ứng con trỏ khi di chuột vào ảnh (Cho tính năng Lightbox) */
+        img { cursor: pointer; }
+
         /* =========================================
-           CSS CHO SIDEBAR MỚI (Đã thêm vào)
+           CSS CHO SIDEBAR MỚI
            ========================================= */
         body {
             padding-left: 64px; /* Đẩy nội dung sang phải */
@@ -125,8 +128,15 @@
         .ethnic-menu li a:hover { background-color: #f0f9f4; color: #198754; padding-left: 25px; }
     </style>
 </head>
-<body class="theme-kinh bg-gray-50">
+<body class="theme-kinh bg-gray-50 relative">
 
+    <!-- Modal Phóng to ảnh (Lightbox) -->
+    <div id="imageModal" class="fixed inset-0 z-[100000] hidden bg-black bg-opacity-95 flex items-center justify-center p-4 transition-opacity duration-300" onclick="closeModal()">
+        <span class="absolute top-5 right-8 text-white text-5xl font-bold cursor-pointer hover:text-gray-300">&times;</span>
+        <img id="modalImage" src="" alt="Phóng to" class="max-h-[90vh] max-w-full object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- SIDEBAR -->
     <div class="sidebar-left">
         <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
             <i class="fas fa-leaf"></i>
@@ -167,6 +177,8 @@
             <span class="badge-count">3</span>
         </a>
     </div>
+
+    <!-- Navigation (Giữ nguyên class fixed) -->
     <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -189,6 +201,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-40">
             <img src="https://images.unsplash.com/photo-1558617719-7589f898393b?q=80&w=2070&auto=format&fit=crop" alt="Làng quê Việt Nam" class="w-full h-full object-cover">
@@ -204,6 +217,7 @@
         </div>
     </header>
 
+    <!-- Section: Kinh Tế -->
     <section id="kinh-te" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -213,8 +227,8 @@
                         <div class="bg-yellow-50 rounded-lg flex items-center justify-center p-4 text-center border border-yellow-200 col-span-2">
                              <span class="font-serif italic text-yellow-800 text-lg">"Bờ xôi ruộng mật"</span>
                         </div>
-                        <img src="images/Ruộng.jpg" class="rounded-lg shadow-md h-40 object-cover w-full" alt="Ruộng lúa">
-                        <img src="images/Chè.jpg" class="rounded-lg shadow-md h-40 object-cover w-full" alt="Đồi chè">
+                        <img src="images/Ruộng.jpg" class="rounded-lg shadow-md h-40 object-cover w-full transform hover:scale-105 transition duration-300" alt="Ruộng lúa">
+                        <img src="images/Chè.jpg" class="rounded-lg shadow-md h-40 object-cover w-full transform hover:scale-105 transition duration-300" alt="Đồi chè">
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
@@ -236,6 +250,7 @@
         </div>
     </section>
 
+    <!-- Section: Không gian sống -->
     <section id="khong-gian-song" class="section-padding bg-orange-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -262,8 +277,8 @@
                 </div>
             </div>
             
-             <div class="mt-12 rounded-xl overflow-hidden shadow-2xl relative w-full">
-                <img src="images/Cổng.jpg" alt="Cổng làng" class="w-full h-auto object-contain">
+             <div class="mt-12 rounded-xl overflow-hidden shadow-2xl relative w-full group">
+                <img src="images/Cổng.jpg" alt="Cổng làng" class="w-full h-auto object-contain transform group-hover:scale-105 transition duration-500">
                  <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-4 w-full">
                     <p class="italic text-center">"Cổng làng uy nghiêm - Biểu tượng của văn hóa làng xã"</p>
                 </div>
@@ -271,6 +286,7 @@
         </div>
     </section>
 
+    <!-- Section: Ẩm thực -->
     <section id="am-thuc" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -288,8 +304,8 @@
                     <p class="text-gray-600 italic">"Mâm cỗ ngày Tết là tác phẩm nghệ thuật với bánh chưng xanh, dưa hành, thịt mỡ..."</p>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <img src="images/Ăn1.png" class="rounded-lg shadow-md h-48 object-cover w-full" alt="Món ăn 1">
-                    <img src="images/Ăn2.png" class="rounded-lg shadow-md h-48 object-cover w-full" alt="Món ăn 2">
+                    <img src="images/Ăn1.png" class="rounded-lg shadow-md h-48 object-cover w-full transform hover:scale-105 transition duration-300" alt="Món ăn 1">
+                    <img src="images/Ăn2.png" class="rounded-lg shadow-md h-48 object-cover w-full transform hover:scale-105 transition duration-300" alt="Món ăn 2">
                     <div class="col-span-2 bg-yellow-100 rounded-lg p-4 text-center text-yellow-800 font-serif">
                         Hương vị quê hương
                     </div>
@@ -298,6 +314,7 @@
         </div>
     </section>
 
+    <!-- Section: Trang phục (Áo Dài) -->
     <section id="trang-phuc" class="section-padding primary-bg text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -324,16 +341,37 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- PHẦN ẢNH TRANG PHỤC (LƯỚI 4 ẢNH) -->
                 <div class="lg:w-1/2 relative">
                      <div class="absolute -top-10 -right-10 w-32 h-32 bg-yellow-400 rounded-full opacity-20 blur-xl"></div>
-                     <div class="rounded-xl overflow-hidden border-4 border-yellow-500 border-opacity-30 shadow-2xl mx-auto w-3/4 md:w-full bg-white">
-                        <img src="images/Picture1.png" alt="Phụ nữ Việt Nam duyên dáng" class="w-full h-auto object-cover transform hover:scale-105 transition duration-500">
+                     <div class="bg-white p-4 rounded-xl shadow-2xl relative z-10">
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Ảnh TP1 -->
+                            <div class="overflow-hidden rounded-lg h-48 border-2 border-yellow-200">
+                                <img src="images/TP1.jpg" alt="Trang phục 1" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            </div>
+                            <!-- Ảnh TP2 -->
+                            <div class="overflow-hidden rounded-lg h-48 border-2 border-yellow-200">
+                                <img src="images/TP2.jpg" alt="Trang phục 2" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            </div>
+                            <!-- Ảnh TP3 -->
+                            <div class="overflow-hidden rounded-lg h-48 border-2 border-yellow-200">
+                                <img src="images/TP3.jpg" alt="Trang phục 3" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            </div>
+                            <!-- Ảnh TP4 -->
+                            <div class="overflow-hidden rounded-lg h-48 border-2 border-yellow-200">
+                                <img src="images/TP4.jpg" alt="Trang phục 4" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            </div>
+                        </div>
+                        <p class="text-center text-red-800 font-serif italic mt-4 text-sm bg-yellow-50 py-2 rounded">"Nét duyên dáng trong tà áo dài truyền thống"</p>
                      </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4 font-serif">Người Kinh (Việt) Thái Nguyên</h2>
@@ -349,14 +387,52 @@
         </div>
     </footer>
 
+    <!-- Script Xử lý phóng to ảnh & Smooth scroll -->
     <script>
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== "#") {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // Image Modal Logic (Lightbox)
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        
+        // Thêm sự kiện click cho tất cả thẻ img (trừ ảnh trong modal)
+        document.querySelectorAll('img:not(#modalImage)').forEach(img => {
+            img.onclick = function() {
+                modal.classList.remove('hidden');
+                modalImg.src = this.src;
+                // Thêm một chút delay để hiệu ứng transition hoạt động mượt mà
+                setTimeout(() => {
+                    modalImg.classList.remove('scale-95');
+                    modalImg.classList.add('scale-100');
+                }, 10);
+            }
+        });
+
+        // Hàm đóng modal
+        function closeModal() {
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Đợi hiệu ứng thu nhỏ xong mới ẩn
+        }
+
+        // Đóng modal khi nhấn ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
         });
     </script>
 </body>
