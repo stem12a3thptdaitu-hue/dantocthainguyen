@@ -1,1 +1,174 @@
+/* Import phông chữ để tạo vẻ đẹp văn hóa và sang trọng giống ảnh tham khảo */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,400&family=Montserrat:wght@400;500&display=swap');
 
+:root {
+    /* Định nghĩa bảng màu dựa trên tông xanh (text-success) của bạn nhưng sang trọng hơn */
+    --dao-green-dark: #14522d;   /* Xanh rừng già đậm đà */
+    --dao-green-primary: #198754; /* Xanh lá chủ đạo (tương ứng text-success) */
+    --dao-green-light: #e8f5e9;   /* Xanh nhạt cho nền phụ */
+    --bg-cream: #fbf7f0;          /* Màu kem nền nã giống giấy dó/ảnh tham khảo */
+    --text-color: #2c3e50;
+    --gold-accent: #d4af37;       /* Màu vàng kim làm điểm nhấn */
+}
+
+/* --- Cấu trúc chung --- */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Merriweather', serif; /* Phông có chân sang trọng */
+}
+
+/* --- Tùy biến Navbar --- */
+.navbar-custom {
+    background-color: var(--dao-green-dark);
+    box-shadow: 0 4px 12px rgba(20, 82, 45, 0.15);
+    padding: 1rem 0;
+}
+
+.navbar-custom .navbar-brand {
+    color: #fff !important;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: var(--gold-accent) !important;
+    transform: translateY(-2px);
+}
+
+.dropdown-menu {
+    background-color: var(--bg-cream);
+    border: 1px solid var(--dao-green-light);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dropdown-item:hover {
+    background-color: var(--dao-green-light);
+    color: var(--dao-green-dark);
+}
+
+/* --- Phần tiêu đề chính (Hero Text) --- */
+h1.text-success {
+    color: var(--dao-green-dark) !important; /* Ghi đè màu bootstrap gốc cho đậm đà hơn */
+    font-size: 3.5rem;
+    margin-top: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Tạo đường gạch chân trang trí giống ảnh tham khảo */
+h1.text-success::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--gold-accent);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.fst-italic {
+    font-family: 'Merriweather', serif;
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+/* --- Phần nội dung (Cột trái) --- */
+h3.text-success {
+    color: var(--dao-green-dark) !important;
+    background-color: var(--dao-green-light); /* Tạo khối nền cho tiêu đề giống các thẻ trong ảnh */
+    padding: 10px 20px;
+    border-left: 5px solid var(--gold-accent); /* Điểm nhấn viền trái */
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 3px solid var(--dao-green-primary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- Phần hình ảnh (Cột phải - Sticky) --- */
+/* Tạo khung hình ảnh giống như một tấm thẻ bài hoặc menu trong ảnh tham khảo */
+.sticky-top img {
+    border: 8px solid #fff;
+    box-shadow: 0 10px 30px rgba(20, 82, 45, 0.2);
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+}
+
+.sticky-top img:hover {
+    transform: scale(1.02);
+}
+
+.sticky-top p.text-muted {
+    background-color: var(--dao-green-dark);
+    color: #fff !important;
+    padding: 10px;
+    margin-top: -5px; /* Kéo lên đè vào ảnh một chút */
+    position: relative;
+    z-index: 2;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dao-green-dark);
+    color: #fff;
+    margin-top: 5rem;
+    border-top: 5px solid var(--gold-accent);
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.8;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center; /* Đảm bảo căn giữa */
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 991px) {
+    h1.text-success {
+        font-size: 2.5rem;
+    }
+    
+    .sticky-top {
+        position: static !important; /* Tắt sticky trên mobile */
+        margin-top: 2rem;
+    }
+}
