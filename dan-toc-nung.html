@@ -2,52 +2,271 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Dân tộc Nùng</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Người Nùng - Sắc Chàm Bền Bỉ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #1F2937;
+            background-color: #F3F4F6; /* Màu xám trắng nhẹ nhàng */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+        }
+        /* Màu chủ đạo: Xanh Chàm (Indigo) */
+        .primary-bg {
+            background-color: #1A237E; 
+        }
+        .primary-text {
+            color: #1A237E;
+        }
+        /* Màu phụ: Bạc (Trang sức) và Nâu đất (Nhà trình tường) */
+        .secondary-bg {
+            background-color: #90A4AE; /* Màu bạc xám */
+        }
+        .text-accent {
+            color: #D84315; /* Màu nâu cam đất nung */
+        }
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .image-card {
+            transition: transform 0.3s ease-in-out;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+        }
+        /* Hiệu ứng hoa văn vải dệt */
+        .pattern-bg {
+            background-image: radial-gradient(#1A237E 0.5px, transparent 0.5px), radial-gradient(#1A237E 0.5px, #F3F4F6 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+        .border-indigo {
+            border-color: #1A237E;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="dan-toc-tay.html">Dân tộc Tày</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-nung.html">Dân tộc Nùng</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-dao.html">Dân tộc Dao</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-hmong.html">Dân tộc H'Mông</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
-                </ul>
+
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold primary-text uppercase"><i class="fas fa-mountain mr-2"></i>Văn Hóa Người Nùng</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#gioi-thieu" class="text-gray-600 hover:text-indigo-800 transition">Giới thiệu</a>
+                    <a href="#kinh-te" class="text-gray-600 hover:text-indigo-800 transition">Kinh tế</a>
+                    <a href="#kientruc-trangphuc" class="text-gray-600 hover:text-indigo-800 transition">Nhà & Áo Chàm</a>
+                    <a href="#van-hoa" class="text-gray-600 hover:text-indigo-800 transition">Điệu Sli</a>
+                    <a href="#am-thuc" class="text-gray-600 hover:text-indigo-800 transition">Ẩm thực</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="container my-5">
-        <h1 class="text-center fw-bold text-success mb-4">DÂN TỘC NÙNG</h1>
-        <div class="row">
-            <div class="col-lg-8">
-                <h3 class="text-success">Giới thiệu chung</h3>
-                <p>Người Nùng cư trú xen kẽ với người Tày. Nổi tiếng với tinh thần cộng đồng và làn điệu hát Sli.</p>
-                <h3 class="text-success mt-4">Văn hóa đặc trưng</h3>
-                <p>Trang phục vải chàm giản dị. Hát Sli là hình thức giao duyên độc đáo trong các lễ hội.</p>
-            </div>
-            <div class="col-lg-4">
-                <img src="https://placehold.co/400x500?text=Nguoi+Nung" class="img-fluid rounded shadow" alt="Người Nùng">
+    <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-50">
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=2070&auto=format&fit=crop" alt="Núi rừng Thái Nguyên" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            [cite_start]<span class="text-blue-200 tracking-widest uppercase text-sm font-semibold mb-2 block">Dân tộc thiểu số đông thứ hai tại Thái Nguyên [cite: 2]</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight hover:scale-105 transition-transform duration-300 inline-block cursor-default">NGƯỜI NÙNG</h1>
+            <br>
+            [cite_start]<h2 class="text-xl md:text-3xl font-light mb-8 text-blue-100 italic hover:scale-105 transition-transform duration-300 inline-block cursor-default">"Bản tình ca Sli và Sắc chàm bền bỉ" [cite: 1]</h2>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed opacity-90">
+                [cite_start]Sống dưới chân núi đá vôi Võ Nhai, Đồng Hỷ[cite: 5]. [cite_start]Người Nùng mang vẻ đẹp văn hóa mạnh mẽ, dứt khoát [cite: 4] cùng sắc áo chàm giản dị mà đầy kiêu hãnh.
+            </p>
+            <a href="#kientruc-trangphuc" class="inline-block bg-white text-indigo-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg border-2 border-indigo-200">Khám Phá Sắc Chàm</a>
+        </div>
+    </header>
+
+    <section id="kinh-te" class="section-padding bg-white relative">
+        <div class="absolute inset-0 pattern-bg"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                     [cite_start]<h3 class="text-accent font-bold uppercase tracking-wide mb-2">Cần cù bậc nhất [cite: 7]</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 primary-text hover:scale-105 transition-transform duration-300 inline-block cursor-default">Nông nghiệp đa canh</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Người Nùng không chỉ trồng lúa nước ở thung lũng mà còn rất giỏi tận dụng đất đồi dốc để canh tác. [cite_start]Các loại cây thế mạnh bao gồm ngô, khoai và đặc biệt là cây công nghiệp như Chè và Hồi[cite: 8].
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        [cite_start]Họ nổi tiếng "mát tay" trong chăn nuôi đại gia súc như trâu, bò[cite: 9]. [cite_start]Nổi bật nhất là giống lợn đen địa phương được chăn thả tự nhiên, cho chất lượng thịt thơm ngon nức tiếng[cite: 10].
+                    </p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-700 bg-blue-50 p-2 rounded border-l-4 border-indigo-500"><i class="fas fa-seedling text-indigo-600 mr-3"></i> Giỏi canh tác đất dốc (Chè, Hồi)</li>
+                        <li class="flex items-center text-gray-700 bg-blue-50 p-2 rounded border-l-4 border-indigo-500"><i class="fas fa-piggy-bank text-indigo-600 mr-3"></i> Chăn nuôi lợn đen đặc sản</li>
+                    </ul>
+                </div>
+                <div class="order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1597825686520-5c6832df752d?q=80&w=1974&auto=format&fit=crop" alt="Đồi chè Thái Nguyên" class="w-full h-96 object-cover rounded-lg shadow-xl mb-4 image-card border-r-4 border-indigo-700">
+                    [cite_start]<div class="text-center italic text-sm text-gray-500">Người Nùng gắn bó với nông nghiệp và núi rừng [cite: 6]</div>
+                </div>
             </div>
         </div>
-    </div>
-    <footer><p>Dự án STEM © 2025</p></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </section>
+
+    <section id="kientruc-trangphuc" class="section-padding bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 primary-text hover:scale-105 transition-transform duration-300 inline-block cursor-default">Nhà Trình Tường & Sắc Chàm</h2>
+                <div class="w-24 h-1 bg-indigo-600 mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Nét độc đáo trong không gian sống và trang phục truyền thống.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-yellow-600 relative overflow-hidden group">
+                    <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-home text-9xl text-yellow-800"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-800"><i class="fas fa-layer-group mr-2"></i>Nhà Trình Tường</h3>
+                    <p class="text-gray-600 mb-4">
+                        [cite_start]Một nét độc đáo của người Nùng vùng cao biên giới di cư về Thái Nguyên[cite: 14]. 
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        [cite_start]<li><strong>Cấu tạo:</strong> Tường làm bằng đất nện dày, mái lợp ngói âm dương[cite: 15].</li>
+                        [cite_start]<li><strong>Ưu điểm:</strong> "Đông ấm, hè mát"[cite: 16].</li>
+                        [cite_start]<li><strong>Chức năng:</strong> Khả năng phòng thủ tốt, chống đạn và trộm cướp ngày xưa[cite: 16].</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-indigo-900 relative overflow-hidden group">
+                     <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-tshirt text-9xl text-indigo-900"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-900"><i class="fas fa-palette mr-2"></i>Đỉnh cao nhuộm Chàm</h3>
+                    <p class="text-gray-600 mb-4">
+                        [cite_start]Không rực rỡ hoa văn, trang phục người Nùng chinh phục bằng sắc chàm (indigo) thuần khiết[cite: 18].
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        [cite_start]<li><strong>Chất liệu:</strong> Vải tự dệt, nhuộm chàm nhiều lần đến khi có màu xanh đen bóng[cite: 19].</li>
+                        [cite_start]<li><strong>Nam giới:</strong> Áo cổ đứng, xẻ ngực, hàng cúc vải[cite: 21].</li>
+                        [cite_start]<li><strong>Phụ nữ:</strong> Áo 5 thân cài cúc nách phải, đội khăn mỏ quạ, đeo kiềng bạc[cite: 22, 24].</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="van-hoa" class="section-padding bg-indigo-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-10 mix-blend-overlay">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-yellow-300 hover:scale-105 transition-transform duration-300 inline-block cursor-default">Điệu Sli Giao Duyên</h2>
+                    [cite_start]<p class="text-xl text-indigo-200 mb-6 italic">"Tiếng hát Sli ngân nga như lời tâm tình của núi rừng." [cite: 30]</p>
+                    
+                    <div class="space-y-6 text-gray-200">
+                        <p>
+                            <strong class="text-white">Sli là gì?</strong> Là lối hát giao duyên đối đáp giữa các nhóm nam và nữ. [cite_start]Lời ca ví von, bóng bẩy, thể hiện trí tuệ và tình cảm[cite: 27, 28].
+                        </p>
+                        <p>
+                            [cite_start]<strong class="text-white">Không gian:</strong> Diễn ra tại chợ phiên, ngày hội hay những đêm trăng sáng đầu bản[cite: 29]. [cite_start]Đây là sợi dây kết nối bao đôi lứa nên duyên vợ chồng[cite: 30].
+                        </p>
+                         <div class="bg-indigo-800 bg-opacity-50 p-4 rounded-lg border border-indigo-500 mt-4">
+                            <i class="fas fa-calendar-alt text-yellow-400 mr-2"></i>
+                            [cite_start]<strong>Lễ hội Oóc Pò (Ra đồi):</strong> Tổ chức dịp đầu xuân để cầu mùa màng tốt tươi[cite: 31].
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 text-center">
+                    <div class="relative inline-block">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-yellow-300 overflow-hidden shadow-2xl mx-auto animate-pulse-slow">
+                             <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop" alt="Hát giao duyên" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-white text-indigo-900 px-4 py-2 rounded-full font-bold shadow-lg">
+                            <i class="fas fa-music"></i> Hát Sli
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="am-thuc" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                 <span class="text-accent font-bold tracking-widest uppercase mb-2 block">Hương vị núi rừng</span>
+                <h2 class="text-3xl md:text-5xl font-bold primary-text hover:scale-105 transition-transform duration-300 inline-block cursor-default">Đặc sản Lợn Quay</h2>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1625938145744-e38051527743?q=80&w=2072&auto=format&fit=crop" alt="Lợn quay lá mác mật" class="rounded-lg shadow-2xl w-full h-auto object-cover border-4 border-gray-200">
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Lợn quay lá mác mật (móc mật)</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        [cite_start]Món ăn không thể thiếu trong các dịp lễ tết, cưới hỏi của người Nùng[cite: 36].
+                    </p>
+                    
+                    <div class="bg-orange-50 p-6 rounded-xl border border-orange-200 mb-6">
+                        [cite_start]<h4 class="font-bold text-accent mb-2"><i class="fas fa-fire mr-2"></i>Bí quyết chế biến [cite: 34]</h4>
+                        <p class="text-sm text-gray-700 mb-2">
+                            Lợn khoảng 20-30kg, làm sạch. Nhồi lá mác mật và gia vị vào bụng, khâu lại rồi quay trên than hồng.
+                        </p>
+                        [cite_start]<h4 class="font-bold text-accent mb-2 mt-4"><i class="fas fa-utensils mr-2"></i>Hương vị [cite: 35]</h4>
+                        <p class="text-sm text-gray-700">
+                            Da nổ giòn tan màu mật ong, thịt ngọt mềm thấm đẫm hương thơm đặc trưng của lá mác mật.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-4">
+                        [cite_start]<span class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700 font-semibold">Khâu nhục [cite: 37]</span>
+                        [cite_start]<span class="bg-green-100 px-3 py-1 rounded-full text-sm text-green-800 font-semibold">Bánh ngải (Bánh giầy ngải cứu) [cite: 37]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12 border-t-4 border-indigo-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold mb-4 font-serif text-indigo-300">Văn Hóa Người Nùng Thái Nguyên</h2>
+            <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                Từ sắc chàm bền bỉ, những nếp nhà trình tường độc đáo đến điệu Sli giao duyên ngọt ngào.
+            </p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-sm text-gray-500">
+                &copy; [cite_start]2024 Dựa trên tài liệu "NGƯỜI NÙNG - BẢN TÌNH CA SLI VÀ SẮC CHÀM BỀN BỈ"[cite: 1].
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
