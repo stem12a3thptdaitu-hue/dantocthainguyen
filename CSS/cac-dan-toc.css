@@ -252,3 +252,69 @@ h1, h2, h3, h4, h5 {
     background-size: 30px 30px;
     opacity: 0.03;
 }
+/* --------------------------------------------------------------------------
+   5. CẤU HÌNH LAYOUT & SIDEBAR (FIX LỖI CHE NỘI DUNG)
+   Thêm phần này để xử lý thanh menu bên trái và đẩy nội dung sang phải
+   -------------------------------------------------------------------------- */
+
+/* 1. Đẩy toàn bộ trang sang phải 64px */
+body {
+    padding-left: 64px; /* QUAN TRỌNG: Chừa chỗ cho Sidebar */
+    box-sizing: border-box;
+    overflow-x: hidden; /* Ẩn thanh cuộn ngang thừa */
+}
+
+/* 2. Cố định Sidebar bên trái */
+.sidebar-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 64px; /* Độ rộng cố định */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 9999; /* Luôn nổi lên trên cùng */
+}
+
+/* 3. Chỉnh lại Menu ngang (Top Nav) để không bị Sidebar che */
+/* Sử dụng !important để ghi đè các class của Tailwind nếu có */
+nav.fixed, nav.w-full {
+    width: calc(100% - 64px) !important; /* Trừ đi phần sidebar */
+    margin-left: 64px !important;        /* Dịch sang phải */
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* 4. CSS cho các icon trong Sidebar (Nếu chưa có trong thanh-menu.css) */
+.sidebar-item {
+    width: 40px; height: 40px; 
+    display: flex; justify-content: center; align-items: center; 
+    border-radius: 50%; margin-bottom: 16px;
+    color: #5f5f5f; text-decoration: none; font-size: 20px;
+    transition: all 0.2s ease; position: relative; cursor: pointer;
+}
+.sidebar-item:hover { background-color: #f0f2f5; color: #198754; }
+.sidebar-item.active { background-color: #000; color: #fff; }
+
+.icon-tea { color: #28a745; font-size: 28px; margin-bottom: 25px; }
+
+/* Icon hình ảnh (Trống đồng, Thổ cẩm) */
+.custom-img-icon {
+    width: 100%; height: 100%; 
+    background-size: cover; background-position: center; display: block;
+}
+/* Bạn nhớ kiểm tra lại đường dẫn ảnh cho đúng thư mục dự án */
+.icon-drum-bg { border-radius: 50%; background-image: url('../images/trong-dong.jpg.png'); }
+.icon-brocade-bg { border-radius: 8px; background-image: url('../images/hoatiet.jpg'); }
+
+/* Badge tin nhắn đỏ */
+.badge-count {
+    position: absolute; top: -2px; right: -2px; 
+    background-color: #e60023; color: white; 
+    font-size: 9px; font-weight: 700; padding: 1px 5px;
+    border-radius: 10px; border: 2px solid white;
+}
