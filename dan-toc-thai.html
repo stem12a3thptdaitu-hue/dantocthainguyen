@@ -4,18 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Người Thái - Vũ Điệu Xòe Hoa</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="CSS/cac-dan-toc.css">
     <link rel="stylesheet" href="CSS/thanh-menu.css">
+
+    <link rel="stylesheet" href="CSS/style.css"> 
+
+    <style>
+        /* Đẩy nội dung toàn trang sang phải 64px */
+        body {
+            padding-left: 64px;
+        }
+        
+        /* Chỉnh lại Navbar trên cùng: Bắt đầu từ sau Sidebar */
+        nav.fixed {
+            left: 64px !important;
+            width: calc(100% - 64px) !important;
+        }
+
+        /* Đảm bảo Sidebar nằm trên tất cả */
+        .sidebar-left {
+            z-index: 10000;
+        }
+    </style>
 </head>
+
 <body class="theme-thai">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+    <div class="sidebar-left">
+        <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
+            <i class="fas fa-leaf"></i>
+        </a>
+
+        <a href="index.html" class="sidebar-item" data-tooltip="Trang chủ">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <a href="gioi-thieu.html" class="sidebar-item" data-tooltip="Giới thiệu">
+            <div class="custom-img-icon icon-drum-bg"></div>
+        </a>
+
+        <div class="sidebar-item-wrap has-submenu">
+            <a href="#" class="sidebar-item active" data-tooltip="Các dân tộc"> 
+                <div class="custom-img-icon icon-brocade-bg"></div>
+            </a>
+
+            <div class="ethnic-menu">
+                <div class="menu-header">Các dân tộc</div>
+                <ul>
+                    <li><a href="dan-toc-tay.html">Dân tộc Tày</a></li>
+                    <li><a href="dan-toc-nung.html">Dân tộc Nùng</a></li>
+                    <li><a href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
+                    <li><a href="dan-toc-san-chay.html">Dân tộc Sán Chay</a></li>
+                    <li><a href="dan-toc-dao.html">Dân tộc Dao</a></li>
+                    <li><a href="dan-toc-kinh.html">Dân tộc Kinh</a></li>
+                    <li><a href="dan-toc-hoa.html">Dân tộc Hoa</a></li>
+                    <li><a href="dan-toc-muong.html">Dân tộc Mường</a></li>
+                    <li><a href="dan-toc-ngai.html">Dân tộc Ngái</a></li>
+                    <li><a href="dan-toc-thai.html" style="color: #198754; font-weight: bold; background-color: #f0f9f4;">Dân tộc Thái</a></li>
+                    <li><a href="dan-toc-mong.html">Dân tộc H'Mông</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="lien-he.html" class="sidebar-item" data-tooltip="Liên hệ & Góp ý">
+            <i class="fas fa-comment-dots"></i>
+            <span class="badge-count">3</span>
+        </a>
+    </div>
+    <nav class="bg-white shadow-md fixed top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -29,7 +94,6 @@
                     <a href="#van-hoa" class="text-gray-600 hover:text-purple-800 transition">Múa Xòe</a>
                     <a href="#am-thuc" class="text-gray-600 hover:text-purple-800 transition">Ẩm thực</a>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button class="text-gray-600 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
@@ -39,11 +103,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-50">
-            <!-- Ảnh nền múa xòe hoa hoặc cảnh Tây Bắc -->
-                    </div>
+            <img src="https://images.unsplash.com/photo-1549487779-d5c225a0a383?q=80&w=2070&auto=format&fit=crop" alt="Ruộng bậc thang Mường Lò" class="w-full h-full object-cover">
+        </div>
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
             <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight hover:scale-105 transition-transform duration-300 inline-block cursor-default">NGƯỜI THÁI</h1>
             <br>
@@ -55,14 +118,14 @@
         </div>
     </header>
 
-    <!-- Section: Kinh tế (Thủy lợi) -->
     <section id="kinh-te" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
-                                        <div class="mt-4 grid grid-cols-2 gap-4">
-                                                <div class="bg-purple-50 rounded-lg flex items-center justify-center p-4 text-center border border-purple-200">
+                    <div class="mt-4 grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1546200213-9a3d4f4f7d4d?q=80&w=2070&auto=format&fit=crop" alt="Hệ thống thủy lợi" class="h-64 w-full object-cover rounded-lg shadow-md col-span-2">
+                        <div class="bg-purple-50 rounded-lg flex items-center justify-center p-4 text-center border border-purple-200 col-span-2">
                              <span class="font-serif italic text-purple-900">"Mương - Phai - Lái - Lin"</span>
                         </div>
                     </div>
@@ -86,7 +149,6 @@
         </div>
     </section>
 
-    <!-- Section: Kiến trúc (Nhà sàn) -->
     <section id="kien-truc" class="section-padding bg-purple-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -101,19 +163,20 @@
                     <p class="text-gray-600 leading-relaxed mb-4">
                         Nổi bật với mái nhà hình mai rùa (khum khum). Đặc biệt là biểu tượng <strong>"Khau cút"</strong> (cặp sừng trâu cách điệu) trên nóc nhà - vật linh thiêng chắn gió bão và nhận diện gia thế.
                     </p>
-                                    </div>
+                    <img src="https://vietnam.vnanet.vn/vnp/images/2021/04/16/00_47_29_023.jpg" alt="Nhà sàn Thái Đen Khau Cút" class="w-full h-48 object-cover rounded-lg shadow-md">
+                </div>
                 
                 <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-pink-500">
                     <h3 class="text-2xl font-bold mb-4 flex items-center text-pink-700"><i class="fas fa-home mr-3"></i> Người Thái Trắng</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">
                         Nhà sàn thường có lan can phía trước, các chi tiết trang trí thoáng đạt, thể hiện sự tinh tế và cởi mở trong không gian sống.
                     </p>
-                                    </div>
+                    <img src="https://vietnamtourism.gov.vn/images/upload/tin/11-2017/thai_trang.jpg" alt="Nhà sàn Thái Trắng" class="w-full h-48 object-cover rounded-lg shadow-md">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section: Trang phục -->
     <section id="trang-phuc" class="section-padding primary-bg text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -143,18 +206,19 @@
                 </div>
                 <div class="lg:w-1/2 grid grid-cols-2 gap-4">
                     <div class="space-y-4 mt-8">
-                                             </div>
+                        <img src="https://images.unsplash.com/photo-1598000424696-3a72d73315a6?q=80&w=2070&auto=format&fit=crop" alt="Phụ nữ Thái" class="w-full h-64 object-cover rounded-lg shadow-xl">
+                    </div>
                     <div class="space-y-4">
                         <div class="bg-pink-700 h-40 rounded-lg flex items-center justify-center p-4 text-center border border-pink-500">
                              <span class="italic font-serif text-white">"Nụ cười rạng rỡ như hoa Ban"</span>
                         </div>
-                                            </div>
+                         <img src="https://static.vov.vn/sites/default/files/styles/large/public/2021-03/khan_pi_u.jpg" alt="Khăn Piêu" class="w-full h-40 object-cover rounded-lg shadow-xl">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section: Văn hóa (Múa Xòe) -->
     <section id="van-hoa" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -167,16 +231,15 @@
             </div>
 
             <div class="flex flex-col lg:flex-row gap-10 items-stretch">
-                <!-- Image Card -->
                 <div class="lg:w-1/2 relative group overflow-hidden rounded-2xl shadow-xl">
-                                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900 via-transparent to-transparent opacity-60"></div>
+                    <img src="https://images.unsplash.com/photo-1613589839447-7e6d1b72e5b7?q=80&w=2070&auto=format&fit=crop" alt="Vũ điệu Xòe Thái" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-900 via-transparent to-transparent opacity-60"></div>
                     <div class="absolute bottom-0 left-0 p-8 text-white">
                         <h3 class="text-2xl font-bold mb-2">Nghệ thuật Xòe Thái</h3>
                         <p class="text-purple-200">Biểu tượng của tình đoàn kết cộng đồng.</p>
                     </div>
                 </div>
                 
-                <!-- Content Right -->
                 <div class="lg:w-1/2 flex flex-col justify-center space-y-6">
                     <div class="flex items-start">
                         <div class="flex-shrink-0 bg-purple-100 rounded-full p-4 mr-4">
@@ -201,7 +264,6 @@
         </div>
     </section>
 
-    <!-- Section: Ẩm thực -->
     <section id="am-thuc" class="section-padding bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -222,12 +284,16 @@
                     </div>
                 </div>
                 <div class="md:w-1/2 grid grid-cols-2 gap-4">
-                                                          </div>
+                    <img src="https://static.vov.vn/sites/default/files/styles/large/public/2021-03/ca_nuong_pa_pinh_top.jpg" alt="Pa pỉnh tộp" class="w-full h-64 object-cover rounded-lg shadow-xl col-span-2">
+                    <img src="https://image.thanhnien.vn/w1024/uploaded/dinhminh/2021_04_25/comlam_ydtu.jpg" alt="Cơm lam" class="w-full h-32 object-cover rounded-lg shadow-md">
+                    <div class="bg-purple-900 h-32 rounded-lg flex items-center justify-center p-4 text-center text-white font-serif italic">
+                        "Khẩu vị của núi rừng"
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4 font-serif">Văn Hóa Người Thái Thái Nguyên</h2>
@@ -243,7 +309,6 @@
         </div>
     </footer>
 
-    <!-- Smooth Scroll Script -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
