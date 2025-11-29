@@ -156,7 +156,7 @@ html, body {
     
     /* CŨ: opacity: 0.2; */
     /* MỚI: Tăng lên 0.7 để trống rõ nét hơn */
-    opacity: 0.7; 
+    opacity: 0.8; 
     
     z-index: 1; animation: spin 80s linear infinite;
     
@@ -432,6 +432,7 @@ footer {
     margin-right: 10px;
     filter: drop-shadow(0 0 2px #000);
 }
+
 
 
 
