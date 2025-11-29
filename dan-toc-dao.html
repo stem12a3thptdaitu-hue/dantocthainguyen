@@ -9,105 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ĐỊNH NGHĨA MÀU SẮC THEO HỆ RGB */
-        :root {
-            /* Trắng Sáng (#FEFBF3) */
-            --bg-main: 254, 251, 243; 
-            /* Đen Gỗ Mun (#1C1C1C) */
-            --text-main: 28, 28, 28;
-            /* Chàm Sẫm (#34495E) */
-            --nav-footer: 52, 73, 94;
-            /* Đỏ Sơn Tra (#9F1D2C) */
-            --accent-red: 159, 29, 44;
-            /* Vàng Đồng (#CCA63B) */
-            --accent-gold: 204, 166, 59;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: rgb(var(--bg-main));
-            color: rgb(var(--text-main));
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Merriweather', serif;
-        }
-
-        /* --- CÁC LỚP MÀU SẮC TÙY CHỈNH --- */
-        
-        /* Chữ */
-        .text-custom-black { color: rgb(var(--text-main)); }
-        .text-custom-red { color: rgb(var(--accent-red)); }
-        .text-custom-gold { color: rgb(var(--accent-gold)); }
-        .text-custom-nav { color: rgb(var(--nav-footer)); }
-
-        /* Nền */
-        .bg-custom-nav { background-color: rgb(var(--nav-footer)); }
-        .bg-custom-red { background-color: rgb(var(--accent-red)); }
-        .bg-custom-gold { background-color: rgb(var(--accent-gold)); }
-        .bg-custom-light { background-color: rgba(var(--nav-footer), 0.05); }
-
-        /* Viền */
-        .border-custom-red { border-color: rgb(var(--accent-red)); }
-        .border-custom-gold { border-color: rgb(var(--accent-gold)); }
-
-        /* --- HIỆU ỨNG & THÀNH PHẦN --- */
-        .nav-link {
-            position: relative;
-            color: white;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: rgb(var(--accent-gold));
-        }
-
-        .section-padding {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-
-        .btn-primary {
-            background-color: rgb(var(--accent-red));
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid rgb(var(--accent-red));
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            color: rgb(var(--accent-red));
-            transform: translateY(-2px);
-        }
-
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: white;
-            border-bottom: 3px solid transparent;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-bottom-color: rgb(var(--accent-gold));
-        }
-
-        /* Họa tiết trang trí nhẹ */
-        .pattern-overlay {
-            background-image: radial-gradient(rgb(var(--nav-footer)) 1px, transparent 1px);
-            background-size: 30px 30px;
-            opacity: 0.03;
-        }
-    </style>
+    <link rel="stylesheet" href="cac-dan-toc.css">
 </head>
-<body>
+<body class="theme-dao">
 
     <!-- Navigation -->
     <nav class="bg-custom-nav shadow-lg fixed w-full z-50 transition-all duration-300">
@@ -349,3 +253,4 @@
     </script>
 </body>
 </html>
+
