@@ -147,38 +147,24 @@ html, body {
     /* Thêm hiệu ứng làm mờ nhẹ để nền trông mềm mại hơn */
     backdrop-filter: blur(2px);
 }
-
 /* --- THAY ĐỔI 2: TRỐNG ĐỒNG SÁNG HƠN RẤT NHIỀU --- */
 .main-banner::after {
     content: ''; position: absolute; width: 800px; height: 800px;
     background-image: url('../images/trong-dong.jpg.png');
     background-size: contain; background-repeat: no-repeat; background-position: center;
     
-    /* CŨ: opacity: 0.2; */
-    /* MỚI: Tăng lên 0.7 để trống rõ nét hơn */
     opacity: 1; 
     
     z-index: 1; animation: spin 80s linear infinite;
     
-    /* CŨ: filter: sepia(100%) hue-rotate(5deg) saturate(200%); */
-    /* MỚI: Thêm brightness(1.5) để làm cái trống rực sáng lên */
-    filter: sepia(100%) hue-rotate(5deg) saturate(250%) brightness(1.5); 
+    /* --- ĐÃ CHỈNH SỬA LẠI Ở ĐÂY --- */
+    /* Tăng brightness từ 1.5 lên 2.5 để sáng hơn hẳn */
+    /* Tăng saturate từ 250% lên 300% để màu vàng không bị nhạt đi khi sáng lên */
+    filter: sepia(100%) hue-rotate(5deg) saturate(300%) brightness(2.5); 
     
-    /* Hòa trộn màu trống vào nền sáng để trông tự nhiên hơn */
+    /* Vẫn giữ nguyên chế độ hòa trộn này để nó ăn nhập vào nền */
     mix-blend-mode: multiply;
 }
-
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.main-banner .container { position: relative; z-index: 2; text-align: center; }
-
-/* TIÊU ĐỀ: "THÁI NGUYÊN" */
-.main-banner h1 {
-    font-family: var(--font-co-truyen); 
-    font-weight: normal; 
-    font-size: 6rem; 
-    color: #FFF; 
-    text-transform: uppercase; 
-    margin-bottom: 0px; 
     
     /* --- THAY ĐỔI 3 (QUAN TRỌNG): Tăng bóng đen để chữ nổi trên nền sáng --- */
     /* Bóng đổ đậm hơn và sắc nét hơn */
@@ -454,6 +440,7 @@ h3.text-success, h4.text-success, .text-start .text-success {
     text-align: justify; /* Căn đều 2 bên cho đẹp */
     font-weight: 500;
 }
+
 
 
 
