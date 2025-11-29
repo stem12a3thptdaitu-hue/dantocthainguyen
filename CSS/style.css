@@ -432,6 +432,28 @@ footer {
     margin-right: 10px;
     filter: drop-shadow(0 0 2px #000);
 }
+/* ========================================= */
+/* PHẦN BỔ SUNG: CHỈNH MÀU TRANG GIỚI THIỆU */
+/* ========================================= */
+
+/* 1. Chỉnh màu tiêu đề "Vị trí địa lý" */
+/* Vì bên Bootstrap mặc định là màu xanh (text-success), ta cần ghi đè lại */
+h3.text-success, h4.text-success, .text-start .text-success {
+    color: #FFD700 !important; /* Đổi thành màu Vàng (hoặc mã màu bạn thích) */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Thêm bóng đổ để nổi trên nền ảnh */
+    font-family: var(--font-co-truyen); /* Dùng phông chữ đẹp */
+    font-size: 2.5rem; /* Điều chỉnh kích thước chữ nếu cần */
+}
+
+/* 2. Chỉnh màu đoạn văn "Thái Nguyên nằm ở..." */
+.col-md-6 p {
+    color: #FFFFFF !important; /* Đổi thành màu Trắng (hoặc #FF0000 nếu thích đỏ) */
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Bóng đổ giúp dễ đọc */
+    line-height: 1.6;
+    text-align: justify; /* Căn đều 2 bên cho đẹp */
+    font-weight: 500;
+}
 
 
 
