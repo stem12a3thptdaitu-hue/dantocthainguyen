@@ -3,137 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Người Kinh (Việt) - Bản sắc truyền thống</title>
-    
+    <title>Người Dao - Bản Sắc Rực Rỡ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'nen-chinh': '#FEFBF3',   // Trắng Sáng (Background)
-                        'van-ban': '#1C1C1C',     // Đen Gỗ Mun (Text)
-                        'thanh-nav': '#34495E',   // Chàm Sẫm (Nav/Footer)
-                        'do-son-tra': '#9F1D2C',  // Đỏ Sơn Tra (Title/Button)
-                        'vang-dong': '#CCA63B',   // Vàng Đồng (Hover/Icon)
-                    },
-                    fontFamily: {
-                        'tieu-de': ['Merriweather', 'serif'],
-                        'noi-dung': ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
         body {
-            background-color: #FEFBF3; /* Màu nền mặc định */
-            color: #1C1C1C;            /* Màu chữ mặc định */
             font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #FAFAFA;
         }
-        h1, h2, h3, h4, h5, h6 {
+        h1, h2, h3, h4 {
             font-family: 'Merriweather', serif;
+        }
+        /* Tông màu chủ đạo: Chàm (Indigo) của vải và Đỏ của họa tiết */
+        .primary-bg {
+            background-color: #1A237E; /* Màu chàm đậm */
+        }
+        .primary-text {
+            color: #1A237E;
+        }
+        .secondary-bg {
+            background-color: #C62828; /* Màu đỏ thêu thùa */
+        }
+        .text-accent {
+            color: #C62828;
+        }
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .image-card {
+            transition: transform 0.3s ease-in-out;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+        }
+        .pattern-bg {
+            /* Họa tiết chấm nhỏ tượng trưng cho sáp ong/thêu thùa */
+            background-image: radial-gradient(#1A237E 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="dan-toc-tay.html">Dân tộc Tày</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-nung.html">Dân tộc Nùng</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-san-chay.html">Dân tộc Sán Chay</a></li>
-                            <li><a class="dropdown-item active" href="dan-toc-dao.html">Dân tộc Dao</a></li> <li><a class="dropdown-item" href="dan-toc-hmong.html">Dân tộc H'Mông</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <div class="container my-5">
-        <h1 class="text-center fw-bold text-success mb-4">DÂN TỘC DAO</h1>
-        <p class="text-center fst-italic">Bản sắc rực rỡ và bí ẩn Lễ Cấp Sắc</p>
-        
-        <div class="row">
-            <div class="col-lg-8">
-                <h3 class="text-success">Giới thiệu chung</h3>
-                <p>
-                    Người Dao (với các nhóm chính như Dao Quần Chẹt, Dao Lô Gang, Dao Tiền, Dao Tam Đảo...) là những cư dân yêu thích sự khoáng đạt của núi rừng.
-                    Tại Thái Nguyên, họ thường chọn định cư ở lưng chừng các sườn núi cao hoặc thung lũng sâu tại các huyện Võ Nhai, Đại Từ, Đồng Hỷ.
-                    Cuộc sống gắn liền với mây ngàn gió núi đã hun đúc nên một nền văn hóa Dao đầy màu sắc, đóng góp những gam màu nóng ấm vào bức tranh văn hóa chung của tỉnh.
-                </p>
-
-                <h3 class="text-success mt-4">Bậc thầy của tri thức thảo dược</h3>
-                <p>
-                    Người Dao không chỉ giỏi canh tác lúa nương trên những thửa ruộng bậc thang dốc đứng, mà họ còn nắm giữ kho tàng tri thức khổng lồ về Y học dân gian.
-                    Từ bao đời nay, họ đã biết vào rừng sâu tìm kiếm cây thuốc quý. 
-                    Bài <strong>"Thuốc tắm người Dao"</strong> trứ danh với sự kết hợp của hàng chục loại lá cây rừng là minh chứng cho sự am hiểu tường tận về thực vật học của họ, giúp du khách xua tan mọi mệt mỏi.
-                </p>
-
-                <h3 class="text-success mt-4">Trang phục: Tác phẩm nghệ thuật thêu tay</h3>
-                <p>
-                    Trang phục của phụ nữ Dao là những tác phẩm nghệ thuật cầu kỳ, rực rỡ nhất trong các phiên chợ vùng cao:
-                </p>
-                <ul>
-                    <li><strong>Dao Quần Chẹt:</strong> Phụ nữ mặc quần ống hẹp, đầu đội khăn dài, trang phục chủ yếu màu chàm điểm xuyết hoa văn thêu chỉ đỏ, vàng ở gấu áo, yếm.</li>
-                    <li><strong>Dao Lô Gang:</strong> Nổi bật với họa tiết hình ngôi sao 8 cánh, hình cây thông, quả trám thêu tay tỉ mỉ bằng chỉ màu sặc sỡ trên nền vải đen.</li>
-                    <li><strong>Dao Tiền:</strong> Đặc biệt với kỹ thuật in hoa văn bằng sáp ong và những đồng bạc trắng đính trên cổ áo.</li>
-                </ul>
-
-                <h3 class="text-success mt-4">Không gian sống và Tín ngưỡng</h3>
-                <p>
-                    Người Dao cư trú trong ba loại nhà chính: nhà sàn, nhà đất và nhà nửa sàn nửa đất để thích nghi với độ dốc của núi. 
-                    Trong mỗi ngôi nhà, bàn thờ tổ tiên và <strong>Bàn Vương</strong> (Thủy tổ của người Dao) luôn được đặt ở vị trí trang trọng nhất.
-                    Họ còn lưu giữ hệ thống chữ viết riêng (chữ Nôm Dao) trong những cuốn sách cổ bằng giấy dó.
-                </p>
-
-                <h3 class="text-success mt-4">Nghi lễ trưởng thành: Lễ Cấp Sắc</h3>
-                <p>
-                    Nét văn hóa tâm linh đặc sắc và quan trọng nhất là <strong>Lễ Cấp Sắc</strong> (Quá Tăng). Đây là nghi lễ đánh dấu sự trưởng thành của người đàn ông Dao.
-                    Theo quan niệm, người đàn ông phải trải qua lễ này mới được coi là người lớn, được tham gia việc hệ trọng của làng bản.
-                    Lễ diễn ra với nhiều nghi thức huyền bí, tiếng kèn, tiếng trống rộn ràng, giáo dục con người hướng tới cái Thiện và sống có trách nhiệm.
-                </p>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="sticky-top" style="top: 100px;">
-                    <img src="https://placehold.co/400x500?text=Trang+Phuc+Nguoi+Dao" class="img-fluid rounded shadow mb-3" alt="Phụ nữ dân tộc Dao">
-                    <p class="text-muted small text-center">Trang phục rực rỡ của phụ nữ Dao trong dịp lễ hội.</p>
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold primary-text uppercase"><i class="fas fa-mountain mr-2"></i>Văn Hóa Người Dao</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#gioi-thieu" class="text-gray-600 hover:text-indigo-800 transition">Giới thiệu</a>
+                    <a href="#y-hoc" class="text-gray-600 hover:text-indigo-800 transition">Y học & Thảo dược</a>
+                    <a href="#trang-phuc" class="text-gray-600 hover:text-indigo-800 transition">Trang phục</a>
+                    <a href="#khong-gian" class="text-gray-600 hover:text-indigo-800 transition">Không gian sống</a>
+                    <a href="#le-cap-sac" class="text-gray-600 hover:text-indigo-800 transition">Lễ Cấp Sắc</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <footer>
-        <div class="container text-center py-4">
-            <p>Dự án STEM © 2025 - Khám phá văn hóa Thái Nguyên</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
     </nav>
 
-    <div class="container my-5">
+    <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-50">
+            <img src="https://images.unsplash.com/photo-1533552881273-066cb5561db9?q=80&w=2070&auto=format&fit=crop" alt="Núi rừng Thái Nguyên" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight hover:scale-105 transition-transform duration-300 inline-block cursor-default">NGƯỜI DAO</h1>
+            <br>
+            <h2 class="text-xl md:text-3xl font-light mb-8 text-yellow-300 hover:scale-105 transition-transform duration-300 inline-block cursor-default">Bản sắc rực rỡ & Bí ẩn Lễ Cấp Sắc</h2>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed opacity-90">
+                Những cư dân yêu thích sự khoáng đạt của núi rừng, định cư nơi sườn núi cao và thung lũng sâu tại Võ Nhai, Đại Từ, Đồng Hỷ. [cite_start]Một nền văn hóa đầy màu sắc, vừa bí ẩn, vừa quyến rũ[cite: 2, 3, 4].
+            </p>
+            <a href="#trang-phuc" class="inline-block bg-red-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-600 transition shadow-lg border-2 border-red-500">Khám Phá Sắc Màu</a>
+        </div>
+    </header>
 
+    <section id="y-hoc" class="section-padding bg-white relative">
+        <div class="absolute inset-0 pattern-bg"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://images.unsplash.com/photo-1515233157267-27b2756a5929?q=80&w=2069&auto=format&fit=crop" alt="Thảo dược rừng" class="w-full h-96 object-cover rounded-lg shadow-xl mb-4 image-card border-l-4 border-indigo-900">
+                    <div class="mt-4 bg-green-50 p-4 rounded-lg border border-green-200 shadow-sm flex items-center">
+                         <i class="fas fa-leaf text-green-700 text-2xl mr-4"></i>
+                         <div>
+                             <h4 class="font-bold text-green-900">Thuốc tắm người Dao</h4>
+                             [cite_start]<p class="text-sm text-gray-700">Kết hợp hàng chục đến hàng trăm loại lá cây rừng, giúp xua tan mệt mỏi[cite: 8, 9].</p>
+                         </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <h3 class="text-accent font-bold uppercase tracking-wide mb-2">Tri thức dân gian</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 primary-text inline-block">Bậc thầy thảo dược</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Không chỉ giỏi canh tác lúa nương trên ruộng bậc thang dốc đứng, người Dao còn nắm giữ kho tàng tri thức khổng lồ về Y học dân gian. [cite_start]Từ bao đời nay, họ đã biết vào rừng sâu tìm kiếm cây thuốc quý[cite: 6, 7].
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        [cite_start]Đến với các bản người Dao ở Thái Nguyên, du khách thường được trải nghiệm ngâm mình trong thùng gỗ pơ-mu với nước thuốc thơm lừng - minh chứng cho sự am hiểu tường tận về thực vật học[cite: 8, 9].
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700"><i class="fas fa-seedling text-green-600 mr-2"></i> Canh tác lúa nương, ngô, khoai</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-mortar-pestle text-green-600 mr-2"></i> Bài thuốc tắm trứ danh</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-tree text-green-600 mr-2"></i> Gắn liền với mây ngàn gió núi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="trang-phuc" class="section-padding bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <span class="text-red-600 font-bold tracking-widest uppercase mb-2 block">Nghệ thuật thêu tay</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 primary-text hover:scale-105 transition-transform duration-300 inline-block cursor-default">Trang phục <br><span class="text-xl font-normal italic text-gray-600">"Tác phẩm nghệ thuật cầu kỳ"</span></h2>
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                        [cite_start]Nếu bạn nhìn thấy những bộ trang phục rực rỡ nhất trong phiên chợ vùng cao, đó chắc chắn là của phụ nữ Dao[cite: 11]. Mỗi nhóm Dao lại có nét độc đáo riêng biệt:
+                    </p>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-indigo-600">
+                            <span class="block font-bold text-indigo-900 text-lg">Dao Quần Chẹt</span>
+                            <p class="text-sm text-gray-600">Quần ống hẹp, đầu đội khăn dài. [cite_start]Màu chàm chủ đạo điểm xuyết hoa văn thêu chỉ đỏ, vàng ở gấu áo, yếm[cite: 13].</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-red-600">
+                            <span class="block font-bold text-red-900 text-lg">Dao Lô Gang</span>
+                            [cite_start]<p class="text-sm text-gray-600">Nổi bật với họa tiết hình ngôi sao 8 cánh, hình cây thông, quả trám thêu tay tỉ mỉ trên nền vải đen[cite: 14].</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-yellow-500">
+                            <span class="block font-bold text-yellow-800 text-lg">Dao Tiền</span>
+                            [cite_start]<p class="text-sm text-gray-600">Đặc biệt với kỹ thuật in hoa văn bằng sáp ong và những đồng bạc trắng đính trên cổ áo[cite: 15].</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="space-y-4 pt-8">
+                        <img src="https://images.unsplash.com/photo-1598556816047-4952d7655d9d?q=80&w=1887&auto=format&fit=crop" alt="Vải thổ cẩm" class="rounded-lg shadow-md h-64 w-full object-cover">
+                         <div class="bg-red-800 h-24 rounded-lg flex items-center justify-center p-4 text-center text-white">
+                            <span class="italic font-serif">"Rực rỡ phiên chợ vùng cao"</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                         <div class="bg-indigo-800 h-24 rounded-lg flex items-center justify-center p-4 text-center text-white">
+                             <span class="italic font-serif">"Thêu tay tỉ mỉ"</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1605713437500-b66453d83d95?q=80&w=1887&auto=format&fit=crop" alt="Họa tiết chàm" class="rounded-lg shadow-md h-64 w-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="khong-gian" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 primary-text hover:scale-105 transition-transform duration-300 inline-block cursor-default">Không gian sống & Tín ngưỡng</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Sự thích nghi với địa hình và niềm tin tâm linh sâu sắc vào Bàn Vương.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-indigo-600 relative overflow-hidden">
+                    <div class="absolute -right-6 -top-6 text-gray-200 text-9xl z-0 opacity-50"><i class="fas fa-home"></i></div>
+                    <div class="relative z-10">
+                        <div class="text-4xl text-indigo-600 mb-4"><i class="fas fa-warehouse"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Kiến trúc nhà ở</h3>
+                        [cite_start]<p class="text-gray-600">Cư trú trong ba loại nhà chính: nhà sàn, nhà đất và nhà nửa sàn nửa đất để thích nghi với độ dốc của núi rừng[cite: 17].</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-red-600 relative overflow-hidden">
+                     <div class="absolute -right-6 -top-6 text-gray-200 text-9xl z-0 opacity-50"><i class="fas fa-fire"></i></div>
+                    <div class="relative z-10">
+                        <div class="text-4xl text-red-600 mb-4"><i class="fas fa-users"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Thờ Bàn Vương</h3>
+                        [cite_start]<p class="text-gray-600">Trong mỗi ngôi nhà, bàn thờ tổ tiên và Bàn Vương (Thủy tổ của người Dao) luôn được đặt ở vị trí trang trọng nhất[cite: 18].</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-yellow-600 relative overflow-hidden">
+                     <div class="absolute -right-6 -top-6 text-gray-200 text-9xl z-0 opacity-50"><i class="fas fa-book"></i></div>
+                    <div class="relative z-10">
+                        <div class="text-4xl text-yellow-600 mb-4"><i class="fas fa-scroll"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Chữ Nôm Dao</h3>
+                        [cite_start]<p class="text-gray-600">Hệ thống chữ viết riêng được lưu giữ trong những cuốn sách cổ bằng giấy dó, ghi chép lịch sử và phong tục[cite: 19].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="le-cap-sac" class="section-padding bg-gray-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-indigo-900 rounded-full opacity-30 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-red-900 rounded-full opacity-30 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-yellow-400 hover:scale-105 transition-transform duration-300 inline-block cursor-default">Nghi lễ Cấp Sắc (Quá Tăng)</h2>
+                <p class="max-w-3xl mx-auto text-gray-300 text-lg">
+                    [cite_start]Nét văn hóa tâm linh đặc sắc và quan trọng nhất của người Dao[cite: 21].
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 items-center justify-center">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db48e?q=80&w=2060&auto=format&fit=crop" alt="Nghi lễ tâm linh" class="rounded-xl shadow-2xl border-4 border-yellow-600 w-full transform hover:-rotate-1 transition duration-500 opacity-90">
+                </div>
+                <div class="md:w-1/2 space-y-6">
+                    <div class="flex items-start">
+                         <div class="flex-shrink-0 bg-red-700 rounded-full p-3 mr-4"><i class="fas fa-male text-white"></i></div>
+                         <div>
+                             <h4 class="text-xl font-bold text-white mb-2">Dấu mốc trưởng thành</h4>
+                             [cite_start]<p class="text-gray-400">Theo quan niệm, người đàn ông phải trải qua lễ Cấp Sắc mới được coi là người lớn, được tham gia việc hệ trọng của làng bản, và khi chết hồn mới về với tổ tiên[cite: 22, 23].</p>
+                         </div>
+                    </div>
+                    <div class="flex items-start">
+                         <div class="flex-shrink-0 bg-indigo-700 rounded-full p-3 mr-4"><i class="fas fa-music text-white"></i></div>
+                         <div>
+                             <h4 class="text-xl font-bold text-white mb-2">Không gian huyền bí</h4>
+                             [cite_start]<p class="text-gray-400">Lễ diễn ra với nhiều nghi thức huyền bí, tiếng kèn, tiếng trống, điệu múa rộn ràng, giáo dục con người hướng tới cái Thiện[cite: 24].</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-indigo-900 text-white py-12 border-t-4 border-red-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold mb-4 font-serif text-yellow-300">Văn Hóa Người Dao Thái Nguyên</h2>
+            <p class="text-indigo-200 mb-8 max-w-2xl mx-auto">Bản sắc rực rỡ, tri thức thảo dược quý báu và những nghi lễ tâm linh huyền bí.</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-indigo-200 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="text-indigo-200 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                <a href="#" class="text-indigo-200 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+            </div>
+            <div class="border-t border-indigo-800 pt-8 text-sm text-indigo-300">
+                &copy; 2024 Bản quyền nội dung thuộc về bài viết "Người Dao - Bản Sắc Rực Rỡ".
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
