@@ -4,226 +4,236 @@
 
 /* 1. Phông cũ (Giữ lại đề phòng) */
 @font-face {
-    font-family: 'Stinger Fit';
-    src: url('../fonts/stinger-fit-trial.regular.ttf') format('truetype');
+    font-family: 'Stinger Fit';
+    src: url('../fonts/stinger-fit-trial.regular.ttf') format('truetype');
 }
 
 /* 2. Phông: Hương Vị Tết Xưa (Dùng cho Logo, Slogan, Thông tin) */
 @font-face {
-    font-family: 'Huong Vi Tet Xua';
-    src: url('../fonts/HƯƠNG VỊ TẾT XƯA.ttf') format('truetype');
+    font-family: 'Huong Vi Tet Xua';
+    src: url('../fonts/HƯƠNG VỊ TẾT XƯA.ttf') format('truetype');
 }
 
 /* 3. Phông: Tết Cổ Truyền (Dùng cho Tiêu đề lớn) */
 @font-face {
-    font-family: 'Tet Co Truyen';
-    src: url('../fonts/TẾT CỔ TRUYỀN.otf') format('opentype'); 
+    font-family: 'Tet Co Truyen';
+    src: url('../fonts/TẾT CỔ TRUYỀN.otf') format('opentype'); 
 }
 
 /* ========================================= */
 /* PHẦN 1: CẤU HÌNH MÀU SẮC & BIẾN */
 /* ========================================= */
 :root {
-    --color-gold: #FFD700;        
-    --color-gold-dim: #C5A059;    
-    --color-text: #ECEFF1;        
-    
-    /* --- ĐÃ SỬA: LÀM LỚP PHỦ SÁNG HƠN --- */
-    /* Giảm độ mờ từ 0.9 xuống 0.65 (Viền) */
-    --bg-dark-overlay: rgba(0, 0, 0, 0.65); 
-    /* Giảm độ mờ từ 0.7 xuống 0.35 (Trung tâm) -> Để lộ video rõ hơn */
-    --bg-light-overlay: rgba(0, 0, 0, 0.35);
-    
-    /* CẤU HÌNH PHÔNG CHỮ */
-    --font-heading: 'Playfair Display', serif; /* Phông mặc định cũ */
-    --font-body: 'Be Vietnam Pro', sans-serif; /* Phông văn bản thường */
-    
-    /* BIẾN PHÔNG MỚI */
-    --font-tet-xua: 'Huong Vi Tet Xua', serif;
-    --font-co-truyen: 'Tet Co Truyen', serif;
+    --color-gold: #FFD700;        
+    --color-gold-dim: #C5A059;    
+    --color-text: #ECEFF1;        
+    
+    /* --- ĐÃ SỬA: LÀM LỚP PHỦ SÁNG HƠN --- */
+    /* Giảm độ mờ từ 0.9 xuống 0.65 (Viền) */
+    --bg-dark-overlay: rgba(0, 0, 0, 0.65); 
+    /* Giảm độ mờ từ 0.7 xuống 0.35 (Trung tâm) -> Để lộ video rõ hơn */
+    --bg-light-overlay: rgba(0, 0, 0, 0.35);
+    
+    /* CẤU HÌNH PHÔNG CHỮ */
+    --font-heading: 'Playfair Display', serif; /* Phông mặc định cũ */
+    --font-body: 'Be Vietnam Pro', sans-serif; /* Phông văn bản thường */
+    
+    /* BIẾN PHÔNG MỚI */
+    --font-tet-xua: 'Huong Vi Tet Xua', serif;
+    --font-co-truyen: 'Tet Co Truyen', serif;
 }
 
+/* ========================================= */
+/* PHẦN 2: CSS GỐC & CHỈNH SỬA THEO YÊU CẦU */
+/* ========================================= */
+
+/* ========================================= */
+/* 1. NỀN TRANG CHUNG (ĐÃ ĐỔI SANG ẢNH) */
+/* ========================================= */
+
+/* Ẩn video cũ nếu chưa xóa thẻ HTML */
 #video-background {
-    display: none !important;
+    display: none !important;
 }
 
-
+/* Cấu hình ảnh nền cho toàn trang */
 body {
-   
-    background-image: url('../images/backgr.png') !important;
-    
-    /* Căn chỉnh ảnh */
-    background-size: cover;           /* Phủ kín màn hình */
-    background-repeat: no-repeat;     /* Không lặp lại */
-    background-position: center center; /* Căn giữa ảnh */
-    background-attachment: fixed;     /* Cố định ảnh khi cuộn chuột (tạo hiệu ứng đẹp) */
+    /* Đường dẫn ảnh - Hãy đảm bảo bạn đã lưu ảnh vào thư mục images */
+    background-image: url('../images/backgr.png') !important;
+    
+    /* Căn chỉnh ảnh */
+    background-size: cover;           /* Phủ kín màn hình */
+    background-repeat: no-repeat;     /* Không lặp lại */
+    background-position: center center; /* Căn giữa ảnh */
+    background-attachment: fixed;     /* Cố định ảnh khi cuộn chuột (tạo hiệu ứng đẹp) */
 }
 
 /* Lớp phủ tối đè lên ảnh để chữ dễ đọc hơn */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
-    
-    z-index: -1; /* Nằm dưới nội dung web */
-    pointer-events: none; 
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Điều chỉnh Gradient: */
+    /* Giữa màn hình tối nhẹ (0.5) để thấy chi tiết ảnh */
+    /* Góc màn hình tối đậm (0.85) để tập trung thị giác */
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+    
+    z-index: -1; /* Nằm dưới nội dung web */
+    pointer-events: none; 
 }
 
-
+/* Đảm bảo body hiển thị 100% chiều cao */
 html, body {
-    height: 100%;
-    margin: 0;
+    height: 100%;
+    margin: 0;
 }
-
+/* 2. MENU (NAVBAR) - ĐÃ SỬA: TRONG SUỐT */
 .navbar-custom {
-    /* ĐÃ SỬA: Xóa nền đen, chuyển sang trong suốt */
-    background-color: transparent !important; 
-    
-    /* Thêm gradient nhẹ từ trên xuống để chữ Menu vẫn đọc được nếu video sáng */
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
-    
-    padding: 15px 0; /* Tăng padding một chút cho thoáng */
-    box-shadow: none; /* Bỏ bóng đổ đen đậm */
-    position: sticky; top: 0; z-index: 1000;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.5); /* Làm viền vàng mỏng và mờ hơn cho tinh tế */
-    backdrop-filter: blur(2px); /* Làm mờ nhẹ video đằng sau menu */
+    /* ĐÃ SỬA: Xóa nền đen, chuyển sang trong suốt */
+    background-color: transparent !important; 
+    
+    /* Thêm gradient nhẹ từ trên xuống để chữ Menu vẫn đọc được nếu video sáng */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+    
+    padding: 15px 0; /* Tăng padding một chút cho thoáng */
+    box-shadow: none; /* Bỏ bóng đổ đen đậm */
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.5); /* Làm viền vàng mỏng và mờ hơn cho tinh tế */
+    backdrop-filter: blur(2px); /* Làm mờ nhẹ video đằng sau menu */
 }
 
 /* LOGO: "THÁI NGUYÊN CULTURE" */
 .navbar-brand {
-    font-family: var(--font-tet-xua) !important; 
-    font-size: 2.2rem; 
-    color: var(--color-gold) !important;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Tăng bóng sáng để nổi trên nền trong suốt */
-    font-weight: normal; 
+    font-family: var(--font-tet-xua) !important; 
+    font-size: 2.2rem; 
+    color: var(--color-gold) !important;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Tăng bóng sáng để nổi trên nền trong suốt */
+    font-weight: normal; 
 }
 
 .nav-link {
-    color: rgba(255,255,255,0.9) !important; /* Làm chữ sáng hơn (0.6 -> 0.9) để dễ đọc trên nền video */
-    text-transform: uppercase; font-size: 0.9rem; margin: 0 10px; transition: 0.3s;
-    font-weight: 600; /* Đậm hơn một chút */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Thêm bóng đen sau chữ để chống lóa */
+    color: rgba(255,255,255,0.9) !important; /* Làm chữ sáng hơn (0.6 -> 0.9) để dễ đọc trên nền video */
+    text-transform: uppercase; font-size: 0.9rem; margin: 0 10px; transition: 0.3s;
+    font-weight: 600; /* Đậm hơn một chút */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Thêm bóng đen sau chữ để chống lóa */
 }
 .nav-link:hover, .nav-link.active {
-    color: var(--color-gold) !important;
-    text-shadow: 0 0 10px var(--color-gold);
+    color: var(--color-gold) !important;
+    text-shadow: 0 0 10px var(--color-gold);
 }
 
 /* ========================================= */
 /* 3. BANNER TRANG CHỦ (XOAY) - ĐÃ CHỈNH SỬA SÁNG HƠN */
 /* ========================================= */
 .main-banner {
-    height: 500px; position: relative; display: flex;
-    align-items: center; justify-content: center; overflow: hidden;
-    /* Xóa border dưới banner chính để hòa vào video nền */
-    border-bottom: none; 
-    flex-direction: column; 
+    height: 500px; position: relative; display: flex;
+    align-items: center; justify-content: center; overflow: hidden;
+    /* Xóa border dưới banner chính để hòa vào video nền */
+    border-bottom: none; 
+    flex-direction: column; 
 }
 
 /* --- THAY ĐỔI 1: LỚP PHỦ SÁNG MÀU KEM --- */
 .main-banner::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    /* CŨ: background: rgba(0, 0, 0, 0.4); (Đen mờ) */
-    /* MỚI: Màu kem sáng nhẹ, độ trong suốt 0.5. Giúp làm sáng không gian nhưng vẫn giữ tông ấm */
-    background: rgba(0, 0, 0, 0.2); 
-    z-index: 1;
-    /* Thêm hiệu ứng làm mờ nhẹ để nền trông mềm mại hơn */
-    backdrop-filter: blur(2px);
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    /* CŨ: background: rgba(0, 0, 0, 0.4); (Đen mờ) */
+    /* MỚI: Màu kem sáng nhẹ, độ trong suốt 0.5. Giúp làm sáng không gian nhưng vẫn giữ tông ấm */
+    background: rgba(0, 0, 0, 0.2); 
+    z-index: 1;
+    /* Thêm hiệu ứng làm mờ nhẹ để nền trông mềm mại hơn */
+    backdrop-filter: blur(2px);
 }
-
+/* --- THAY ĐỔI 2: TRỐNG ĐỒNG - ĐÃ ĐIỀU CHỈNH ĐẬM HƠN & RÕ NÉT HƠN --- */
 .main-banner::after {
-    content: ''; position: absolute; width: 800px; height: 800px;
-    background-image: url('../images/trong-dong.jpg.png');
-    background-size: contain; background-repeat: no-repeat; background-position: center;
-    
-    opacity: 1; 
-    
-    z-index: 1; animation: spin 80s linear infinite;
-    
-   
-    filter: sepia(100%) hue-rotate(5deg) saturate(300%) brightness(2.5); 
-    
-   
-    mix-blend-mode: multiply;
+    content: ''; position: absolute; width: 800px; height: 800px;
+    background-image: url('../images/trong-dong.jpg.png');
+    background-size: contain; background-repeat: no-repeat; background-position: center;
+    
+    /* YÊU CẦU: Độ trong suốt tầm 0.8-0.9 */
+    opacity: 0.85; 
+    
+    z-index: 1; animation: spin 80s linear infinite;
+    
+    /* YÊU CẦU: Làm trống đồng đậm hơn -> Giảm brightness xuống 0.9 */
+    /* Vẫn giữ sepia và saturate cao để giữ màu vàng đồng */
+    filter: sepia(100%) hue-rotate(5deg) saturate(300%) brightness(0.9); 
+    
+    /* ĐÃ XÓA chế độ hòa trộn cũ để hình ảnh rõ nét hơn */
+    /* mix-blend-mode: multiply; */
 }
-    
-    /* --- THAY ĐỔI 3 (QUAN TRỌNG): Tăng bóng đen để chữ nổi trên nền sáng --- */
-    /* Bóng đổ đậm hơn và sắc nét hơn */
-    text-shadow: 0 5px 20px rgba(0,0,0,1), 0 2px 5px rgba(0,0,0,1);
-    
-    line-height: 1.1;
-}
+    
+    /* --- THAY ĐỔI 3 (QUAN TRỌNG): Tăng bóng đen để chữ nổi trên nền sáng --- */
+    /* Bóng đổ đậm hơn và sắc nét hơn */
+    /* text-shadow: 0 5px 20px rgba(0,0,0,1), 0 2px 5px rgba(0,0,0,1); */
+    
+    /* line-height: 1.1; */
+/* } Lỗi thừa dấu đóng ngoặc ở đoạn code gốc của bạn, tôi đã xóa đi */
 
 /* SLOGAN */
 .main-banner p {
-    font-family: var(--font-tet-xua); 
-    color: #FFFACD; /* Màu vàng kem nhạt */
-    font-size: 2.2rem; 
-    font-weight: normal; 
-    letter-spacing: 1px; 
-    
-    /* Tăng bóng đen cho Slogan */
-    text-shadow: 0 3px 10px rgba(0,0,0,1);
-    
-    margin-top: 10px;
-    background-color: rgba(0,0,0,0.2); /* Thêm một nền đen mờ rất nhẹ ngay sát chữ để dễ đọc hơn nữa */
-    padding: 5px 20px;
-    border-radius: 20px;
+    /* --- QUAN TRỌNG: Đẩy chữ lên trên trống đồng --- */
+    position: relative;
+    z-index: 10;
+    
+    font-family: var(--font-tet-xua); 
+    color: #FFFACD; /* Màu vàng kem nhạt */
+    font-size: 2.2rem; 
+    font-weight: normal; 
+    letter-spacing: 1px; 
+    
+    /* Tăng bóng đen cho Slogan */
+    text-shadow: 0 3px 10px rgba(0,0,0,1);
+    
+    margin-top: 10px;
+    background-color: rgba(0,0,0,0.2); /* Thêm một nền đen mờ rất nhẹ ngay sát chữ để dễ đọc hơn nữa */
+    padding: 5px 20px;
+    border-radius: 20px;
 }
 /* TIÊU ĐỀ: "THÁI NGUYÊN" */
 .main-banner h1 {
-    font-family: var(--font-co-truyen); 
-    font-weight: normal; 
-    font-size: 6rem; 
-    color: #FFF; 
-    text-transform: uppercase; 
-    margin-bottom: 0px; 
-    text-shadow: 0 5px 15px rgba(0,0,0,0.9); /* Tăng bóng đổ để chữ nổi bật trên nền sáng */
-    line-height: 1.1;
-}
-
-/* SLOGAN */
-.main-banner p {
-    font-family: var(--font-tet-xua); 
-    color: #FFFACD; 
-    font-size: 2.2rem; 
-    font-weight: normal; 
-    letter-spacing: 1px; 
-    text-shadow: 0 3px 8px rgba(0,0,0,1); /* Tăng bóng đổ */
-    margin-top: 10px;
+    /* --- QUAN TRỌNG: Đẩy chữ lên trên trống đồng --- */
+    position: relative;
+    z-index: 10;
+    
+    font-family: var(--font-co-truyen); 
+    font-weight: normal; 
+    font-size: 6rem; 
+    color: #FFF; 
+    text-transform: uppercase; 
+    margin-bottom: 0px; 
+    text-shadow: 0 5px 15px rgba(0,0,0,0.9); /* Tăng bóng đổ để chữ nổi bật trên nền sáng */
+    line-height: 1.1;
 }
 
 /* 4. BANNER GIỚI THIỆU */
 .main-banner-intro {
-    height: 450px; position: relative; display: flex;
-    align-items: center; justify-content: center; overflow: hidden;
-    border-bottom: 4px solid var(--color-gold-dim);
-    background-image: url('../images/hinh-nen-gioi-thieu.jpg'); background-size: cover; background-position: center;
+    height: 450px; position: relative; display: flex;
+    align-items: center; justify-content: center; overflow: hidden;
+    border-bottom: 4px solid var(--color-gold-dim);
+    background-image: url('../images/hinh-nen-gioi-thieu.jpg'); background-size: cover; background-position: center;
 }
 .main-banner-intro::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)); z-index: 1;
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)); z-index: 1;
 }
 
 /* TIÊU ĐỀ: "TỔNG QUAN TỈNH THÁI NGUYÊN" */
 .main-banner-intro h1 {
-    position: relative; z-index: 2; 
-    font-family: var(--font-co-truyen); 
-    font-weight: normal; 
-    font-size: 4.5rem; 
-    color: var(--color-gold); text-transform: uppercase; text-shadow: 0 4px 15px #000;
-    display: flex; align-items: center; justify-content: center; gap: 30px; 
+    position: relative; z-index: 2; 
+    font-family: var(--font-co-truyen); 
+    font-weight: normal; 
+    font-size: 4.5rem; 
+    color: var(--color-gold); text-transform: uppercase; text-shadow: 0 4px 15px #000;
+    display: flex; align-items: center; justify-content: center; gap: 30px; 
 }
 .main-banner-intro h1::before, .main-banner-intro h1::after {
-    content: ''; display: block; width: 80px; height: 60px; 
-    background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
-    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
+    content: ''; display: block; width: 80px; height: 60px; 
+    background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
 }
 .main-banner-intro h1::before { transform: scaleX(-1); }
 
@@ -231,50 +241,50 @@ html, body {
 
 /* TIÊU ĐỀ: "KHÁM PHÁ BẢN SẮC" */
 h2.text-success {
-    font-family: var(--font-co-truyen); 
-    font-weight: normal; 
-    font-size: 3.5rem;
-    text-transform: uppercase; color: var(--color-gold) !important; 
-    text-shadow: 0 3px 10px rgba(0,0,0,0.9); /* Tăng bóng đổ */
-    display: flex; align-items: center; justify-content: center; gap: 30px; 
-    margin: 80px 0 15px 0; 
+    font-family: var(--font-co-truyen); 
+    font-weight: normal; 
+    font-size: 3.5rem;
+    text-transform: uppercase; color: var(--color-gold) !important; 
+    text-shadow: 0 3px 10px rgba(0,0,0,0.9); /* Tăng bóng đổ */
+    display: flex; align-items: center; justify-content: center; gap: 30px; 
+    margin: 80px 0 15px 0; 
 }
 h2.text-success::before, h2.text-success::after {
-    content: ''; display: block; width: 70px; height: 70px;
-    background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
-    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
+    content: ''; display: block; width: 70px; height: 70px;
+    background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
 }
 h2.text-success::before { transform: scaleX(-1); }
 
 /* ĐOẠN MÔ TẢ */
 h2.text-success + p {
-    color: #FFFFFF; /* Đổi thành trắng tinh để nổi hơn */
-    font-family: var(--font-body); 
-    font-size: 1.1rem; /* Tăng nhẹ size lên 1.1 */
-    text-align: center; 
-    max-width: 800px; 
-    margin: 10px auto 60px auto; 
-    line-height: 1.6;
-    font-weight: 400; /* Tăng độ đậm chữ */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Bóng đổ giúp chữ đọc được trên mọi nền */
+    color: #FFFFFF; /* Đổi thành trắng tinh để nổi hơn */
+    font-family: var(--font-body); 
+    font-size: 1.1rem; /* Tăng nhẹ size lên 1.1 */
+    text-align: center; 
+    max-width: 800px; 
+    margin: 10px auto 60px auto; 
+    line-height: 1.6;
+    font-weight: 400; /* Tăng độ đậm chữ */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Bóng đổ giúp chữ đọc được trên mọi nền */
 }
 
 /* 6. CARD GỐC (DÙNG CHO TRANG CHỦ - NỀN TỐI) */
 .ethnic-card, .info-box {
-    background: rgba(20, 20, 20, 0.6); 
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--color-gold-dim);
-    border-radius: 6px;
-    overflow: hidden;
-    transition: 0.4s; position: relative; height: 100%;
+    background: rgba(20, 20, 20, 0.6); 
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-gold-dim);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: 0.4s; position: relative; height: 100%;
 }
 .ethnic-card::before {
-    content: ''; display: block; height: 6px; width: 100%;
-    background-image: url('../images/hoatiet.jpg'); background-size: cover;
+    content: ''; display: block; height: 6px; width: 100%;
+    background-image: url('../images/hoatiet.jpg'); background-size: cover;
 }
 .ethnic-card:hover, .info-box:hover {
-    transform: translateY(-10px); background: rgba(40, 40, 40, 0.9);
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25); border-color: var(--color-gold);
+    transform: translateY(-10px); background: rgba(40, 40, 40, 0.9);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25); border-color: var(--color-gold);
 }
 .card-img-top { height: 250px; object-fit: cover; border-bottom: 2px solid var(--color-gold-dim); }
 .card-body, .info-box { padding: 1.5rem; text-align: center; }
@@ -284,13 +294,13 @@ h2.text-success + p {
 
 /* 7. FOOTER */
 .btn-outline-success {
-    color: var(--color-gold); border: 1px solid var(--color-gold); background: transparent; padding: 10px 30px; font-weight: 600; text-transform: uppercase;
+    color: var(--color-gold); border: 1px solid var(--color-gold); background: transparent; padding: 10px 30px; font-weight: 600; text-transform: uppercase;
 }
 .btn-outline-success:hover { background-color: var(--color-gold); color: #000; box-shadow: 0 0 15px var(--color-gold); }
 footer {
-    background-color: rgba(0,0,0,0.8); /* Làm footer hơi trong suốt để đồng bộ */
-    color: var(--color-gold-dim); padding: 50px 0; margin-top: 80px;
-    border-top: 5px solid transparent; border-image: url('../images/hoatiet.jpg') 30 stretch; text-align: center;
+    background-color: rgba(0,0,0,0.8); /* Làm footer hơi trong suốt để đồng bộ */
+    color: var(--color-gold-dim); padding: 50px 0; margin-top: 80px;
+    border-top: 5px solid transparent; border-image: url('../images/hoatiet.jpg') 30 stretch; text-align: center;
 }
 
 /* ========================================= */
@@ -299,85 +309,85 @@ footer {
 
 /* A. Banner Liên Hệ (Tối đậm, tĩnh) */
 .contact-banner {
-    position: relative; height: 350px; display: flex;
-    align-items: center; justify-content: center; overflow: hidden;
-    border-bottom: 4px solid var(--color-gold-dim);
-    background-image: url('../images/hoatiet.jpg'); background-size: cover; background-position: center;
+    position: relative; height: 350px; display: flex;
+    align-items: center; justify-content: center; overflow: hidden;
+    border-bottom: 4px solid var(--color-gold-dim);
+    background-image: url('../images/hoatiet.jpg'); background-size: cover; background-position: center;
 }
 .contact-banner::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.92); z-index: 1;
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.92); z-index: 1;
 }
 
 /* TIÊU ĐỀ: "LIÊN HỆ & GÓP Ý" */
 .contact-banner h1 {
-    position: relative; z-index: 2;
-    font-family: var(--font-co-truyen); 
-    font-weight: normal; 
-    font-size: 4rem;
-    color: var(--color-gold); text-transform: uppercase; letter-spacing: 3px;
-    display: flex; align-items: center; justify-content: center; gap: 20px;
+    position: relative; z-index: 2;
+    font-family: var(--font-co-truyen); 
+    font-weight: normal; 
+    font-size: 4rem;
+    color: var(--color-gold); text-transform: uppercase; letter-spacing: 3px;
+    display: flex; align-items: center; justify-content: center; gap: 20px;
 }
 .contact-banner h1::before, .contact-banner h1::after {
-    content: ''; display: block; width: 60px; height: 45px;
-    background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
-    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%);
-    opacity: 0.8;
+    content: ''; display: block; width: 60px; height: 45px;
+    background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%);
+    opacity: 0.8;
 }
 .contact-banner h1::before { transform: scaleX(-1); }
 
 /* B. CARD MỚI: WHITE GLASS MODE (Trắng trong suốt) */
 .contact-glass-box {
-    background: rgba(255, 255, 255, 0.85) !important;
-    backdrop-filter: blur(10px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    border-radius: 8px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15) !important;
-    color: #2c2c2c !important;
-    padding: 2rem;
-    height: 100%;
-    transition: 0.4s;
-    text-align: center;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15) !important;
+    color: #2c2c2c !important;
+    padding: 2rem;
+    height: 100%;
+    transition: 0.4s;
+    text-align: center;
 }
 .contact-glass-box:hover {
-    background: rgba(255, 255, 255, 0.95) !important;
-    transform: translateY(-5px);
-    border-color: #B8860B !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    transform: translateY(-5px);
+    border-color: #B8860B !important;
 }
 
 /* TIÊU ĐỀ CON */
-.contact-glass-box h2, 
-.contact-glass-box h4, 
+.contact-glass-box h2, 
+.contact-glass-box h4, 
 .contact-glass-box strong {
-    font-family: var(--font-tet-xua) !important; 
-    color: #B8860B !important;
-    text-shadow: none !important;
-    font-weight: normal; 
-    font-size: 2rem; 
+    font-family: var(--font-tet-xua) !important; 
+    color: #B8860B !important;
+    text-shadow: none !important;
+    font-weight: normal; 
+    font-size: 2rem; 
 }
 
 .contact-glass-box i { color: #B8860B !important; margin-right: 5px;}
 .contact-glass-box hr { border-color: #B8860B !important; opacity: 0.5; }
 
 .contact-glass-box .form-control {
-    background-color: #f8f9fa !important;
-    border: 1px solid #ced4da !important;
-    color: #333 !important;
-    border-radius: 4px; padding: 12px;
+    background-color: #f8f9fa !important;
+    border: 1px solid #ced4da !important;
+    color: #333 !important;
+    border-radius: 4px; padding: 12px;
 }
 .contact-glass-box .form-control:focus {
-    background-color: #ffffff !important;
-    border-color: #B8860B !important;
-    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15) !important;
+    background-color: #ffffff !important;
+    border-color: #B8860B !important;
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15) !important;
 }
 .contact-glass-box .form-label {
-    color: #2c2c2c !important; font-weight: 700;
+    color: #2c2c2c !important; font-weight: 700;
 }
 .contact-glass-box .btn-outline-success {
-    color: #B8860B !important; border-color: #B8860B !important;
+    color: #B8860B !important; border-color: #B8860B !important;
 }
 .contact-glass-box .btn-outline-success:hover {
-    background-color: #B8860B !important; color: #fff !important;
+    background-color: #B8860B !important; color: #fff !important;
 }
 
 /* ========================================= */
@@ -385,25 +395,25 @@ footer {
 /* ========================================= */
 
 .intro-location-list {
-    list-style: none;
-    padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
 
-.intro-location-list li, 
+.intro-location-list li, 
 .intro-location-list p,
 .intro-location-list span {
-    color: #FFFFFF !important;
-    font-weight: 500;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 10px 0;
+    color: #FFFFFF !important;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 0;
 }
 
 .intro-location-list i {
-    margin-right: 10px;
-    filter: drop-shadow(0 0 2px #000);
+    margin-right: 10px;
+    filter: drop-shadow(0 0 2px #000);
 }
 /* ========================================= */
 /* PHẦN BỔ SUNG: CHỈNH MÀU TRANG GIỚI THIỆU */
@@ -412,29 +422,18 @@ footer {
 /* 1. Chỉnh màu tiêu đề "Vị trí địa lý" */
 /* Vì bên Bootstrap mặc định là màu xanh (text-success), ta cần ghi đè lại */
 h3.text-success, h4.text-success, .text-start .text-success {
-    color: #FFD700 !important; /* Đổi thành màu Vàng (hoặc mã màu bạn thích) */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Thêm bóng đổ để nổi trên nền ảnh */
-    font-family: var(--font-co-truyen); /* Dùng phông chữ đẹp */
-    font-size: 2.5rem; /* Điều chỉnh kích thước chữ nếu cần */
+    color: #FFD700 !important; /* Đổi thành màu Vàng (hoặc mã màu bạn thích) */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Thêm bóng đổ để nổi trên nền ảnh */
+    font-family: var(--font-co-truyen); /* Dùng phông chữ đẹp */
+    font-size: 2.5rem; /* Điều chỉnh kích thước chữ nếu cần */
 }
 
 /* 2. Chỉnh màu đoạn văn "Thái Nguyên nằm ở..." */
 .col-md-6 p {
-    color: #FFFFFF !important; /* Đổi thành màu Trắng (hoặc #FF0000 nếu thích đỏ) */
-    font-size: 1.1rem;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Bóng đổ giúp dễ đọc */
-    line-height: 1.6;
-    text-align: justify; /* Căn đều 2 bên cho đẹp */
-    font-weight: 500;
+    color: #FFFFFF !important; /* Đổi thành màu Trắng (hoặc #FF0000 nếu thích đỏ) */
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Bóng đổ giúp dễ đọc */
+    line-height: 1.6;
+    text-align: justify; /* Căn đều 2 bên cho đẹp */
+    font-weight: 500;
 }
-
-
-
-
-
-
-
-
-
-
-
