@@ -1,17 +1,28 @@
 /* ========================================= */
-/* PHẦN 1: CẤU HÌNH PHÔNG CHỮ */
+/* PHẦN 0: KHAI BÁO PHÔNG CHỮ MỚI */
 /* ========================================= */
 
+/* 1. Phông cũ (Giữ lại đề phòng) */
 @font-face {
-    font-family: 'TetCoTruyen';
-    src: url('../fonts/TẾT CỔ TRUYỀN.otf') format('opentype');
+    font-family: 'Stinger Fit';
+    src: url('../fonts/stinger-fit-trial.regular.ttf') format('truetype');
 }
 
+/* 2. Phông: Hương Vị Tết Xưa (Dùng cho Logo, Slogan, Thông tin) */
 @font-face {
-    font-family: 'HuongViTetXua';
+    font-family: 'Huong Vi Tet Xua';
     src: url('../fonts/HƯƠNG VỊ TẾT XƯA.ttf') format('truetype');
 }
 
+/* 3. Phông: Tết Cổ Truyền (Dùng cho Tiêu đề lớn) */
+@font-face {
+    font-family: 'Tet Co Truyen';
+    src: url('../fonts/TẾT CỔ TRUYỀN.otf') format('opentype'); 
+}
+
+/* ========================================= */
+/* PHẦN 1: CẤU HÌNH MÀU SẮC & BIẾN */
+/* ========================================= */
 :root {
     --color-gold: #FFD700;        
     --color-gold-dim: #C5A059;    
@@ -19,63 +30,73 @@
     --bg-dark-overlay: rgba(0, 0, 0, 0.90); 
     --bg-light-overlay: rgba(0, 0, 0, 0.70);
     
-    --font-body: 'Be Vietnam Pro', sans-serif; 
-    --font-main: 'TetCoTruyen', serif;      /* Phông TẾT CỔ TRUYỀN */
-    --font-calligraphy: 'HuongViTetXua', serif; /* Phông HƯƠNG VỊ TẾT XƯA */
+    /* CẤU HÌNH PHÔNG CHỮ */
+    --font-heading: 'Playfair Display', serif; /* Phông mặc định cũ */
+    --font-body: 'Be Vietnam Pro', sans-serif; /* Phông văn bản thường */
+    
+    /* BIẾN PHÔNG MỚI */
+    --font-tet-xua: 'Huong Vi Tet Xua', serif;
+    --font-co-truyen: 'Tet Co Truyen', serif;
 }
 
 /* ========================================= */
-/* PHẦN 2: HEADER & MENU */
+/* PHẦN 2: CSS GỐC & CHỈNH SỬA THEO YÊU CẦU */
 /* ========================================= */
 
+/* 1. NỀN TRANG CHUNG */
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    margin: 0;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at center, var(--bg-light-overlay) 0%, var(--bg-dark-overlay) 90%),
+        url('../images/hoatiet.jpg'); 
+    background-repeat: repeat;
+    background-size: 300px 300px; 
+    background-attachment: fixed; 
+}
+
+/* 2. MENU (NAVBAR) */
 .navbar-custom {
     background-color: #000;
-    padding: 15px 0;
+    padding: 10px 0;
     box-shadow: 0 4px 20px rgba(0,0,0,1);
     position: sticky; top: 0; z-index: 1000;
     border-bottom: 4px solid var(--color-gold-dim); 
 }
 
+/* LOGO: "THÁI NGUYÊN CULTURE" -> Phông Hương Vị Tết Xưa */
 .navbar-brand {
-    font-family: var(--font-main) !important; /* Tết Cổ Truyền */
-    font-size: 3rem; 
-    font-weight: normal;
+    font-family: var(--font-tet-xua) !important; /* ĐÃ ĐỔI */
+    font-size: 2.2rem; /* Tăng lên một chút cho đẹp */
     color: var(--color-gold) !important;
     text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-    line-height: 0.8; 
-    padding-top: 5px; 
+    font-weight: normal; /* Phông này thường đậm sẵn */
 }
 
 .nav-link {
     color: rgba(255,255,255,0.6) !important;
-    text-transform: uppercase; font-size: 1rem; margin: 0 12px; transition: 0.3s;
-    font-weight: 600;
-    font-family: var(--font-body);
+    text-transform: uppercase; font-size: 0.9rem; margin: 0 10px; transition: 0.3s;
 }
 .nav-link:hover, .nav-link.active {
     color: var(--color-gold) !important;
     text-shadow: 0 0 8px var(--color-gold);
 }
 
-/* ========================================= */
-/* PHẦN 3: BANNER TRANG CHỦ (XỬ LÝ CHÍNH XÁC YÊU CẦU) */
-/* ========================================= */
-
+/* 3. BANNER TRANG CHỦ (XOAY) */
 .main-banner {
-    height: 750px; 
-    position: relative; display: flex;
-    flex-direction: column;
+    height: 500px; position: relative; display: flex;
     align-items: center; justify-content: center; overflow: hidden;
     border-bottom: 4px solid var(--color-gold-dim);
-    text-align: center;
+    flex-direction: column; /* Để Slogan nằm dưới Tiêu đề */
 }
 .main-banner::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.75); z-index: 1;
 }
-/* Hiệu ứng trống đồng quay */
 .main-banner::after {
-    content: ''; position: absolute; width: 900px; height: 900px;
+    content: ''; position: absolute; width: 800px; height: 800px;
     background-image: url('../images/trong-dong.jpg.png');
     background-size: contain; background-repeat: no-repeat; background-position: center;
     opacity: 0.2; z-index: 1; animation: spin 80s linear infinite;
@@ -84,57 +105,33 @@
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .main-banner .container { position: relative; z-index: 2; text-align: center; }
 
-
-/* --- 1. DÒNG CHỮ "THÁI NGUYÊN" (LỚN NHẤT) --- */
-/* Sử dụng class riêng .title-main thay vì h1 chung chung để tránh xung đột */
-.title-main {
-    font-family: var(--font-main) !important; /* Phông TẾT CỔ TRUYỀN */
-    font-weight: 400; 
-    font-size: 9rem !important; /* Kích thước 9rem */
+/* TIÊU ĐỀ: "THÁI NGUYÊN" -> Phông Tết Cổ Truyền */
+.main-banner h1 {
+    font-family: var(--font-co-truyen); /* ĐÃ ĐỔI */
+    font-weight: normal; /* Phông thư pháp không cần bold */
+    font-size: 6rem; /* To hơn để rõ nét */
     color: #FFF; 
     text-transform: uppercase; 
-    margin-bottom: 0; 
-    text-shadow: 0 8px 15px #000; 
-    line-height: 1; 
-    letter-spacing: 2px;
-    display: block; /* Đảm bảo xuống dòng */
+    margin-bottom: 0px; /* Giảm khoảng cách với Slogan */
+    text-shadow: 0 4px 8px #000;
+    line-height: 1.1;
 }
 
-/* --- 2. DÒNG CHỮ "KHÁM PHÁ BẢN SẮC" (BÉ HƠN MỘT CHÚT) --- */
-.title-sub {
-    font-family: var(--font-main) !important; /* Phông TẾT CỔ TRUYỀN */
-    font-weight: 400;
-    font-size: 7.5rem !important; /* Bé hơn Thái Nguyên một chút (7.5 vs 9) */
-    color: var(--color-gold); /* Màu vàng Gold */
-    text-transform: uppercase;
-    margin: 10px 0 20px 0;
-    line-height: 1;
-    text-shadow: 0 4px 10px rgba(0,0,0,1);
-    display: block;
-}
-
-/* --- 3. ĐOẠN VĂN GIỚI THIỆU (HƯƠNG VỊ TẾT XƯA) --- */
-.intro-text-calligraphy {
-    font-family: var(--font-calligraphy) !important; /* Phông HƯƠNG VỊ TẾT XƯA */
+/* SLOGAN: "Vùng đất của văn hóa..." -> Phông Hương Vị Tết Xưa */
+.main-banner p {
+    font-family: var(--font-tet-xua); /* ĐÃ ĐỔI */
     color: #FFFACD; 
-    font-size: 2.5rem !important; /* Kích thước vừa phải dễ đọc */
+    font-size: 2.2rem; 
     font-weight: normal; 
-    text-shadow: 0 2px 5px rgba(0,0,0,1);
+    letter-spacing: 1px; 
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
     margin-top: 10px;
-    line-height: 1.4;
-    max-width: 850px; 
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* ========================================= */
-/* PHẦN 4: CÁC BANNER KHÁC (DÙNG TẾT CỔ TRUYỀN) */
-/* ========================================= */
-
-/* Banner Giới Thiệu */
+/* 4. BANNER GIỚI THIỆU */
 .main-banner-intro {
-    height: 500px; position: relative; display: flex;
-    align-items: center; justify-content: center;
+    height: 450px; position: relative; display: flex;
+    align-items: center; justify-content: center; overflow: hidden;
     border-bottom: 4px solid var(--color-gold-dim);
     background-image: url('../images/hinh-nen-gioi-thieu.jpg'); background-size: cover; background-position: center;
 }
@@ -142,72 +139,61 @@
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)); z-index: 1;
 }
+
+/* TIÊU ĐỀ: "TỔNG QUAN TỈNH THÁI NGUYÊN" -> Phông Tết Cổ Truyền */
 .main-banner-intro h1 {
     position: relative; z-index: 2; 
-    font-family: var(--font-main) !important; /* Phông TẾT CỔ TRUYỀN */
-    font-size: 5.5rem !important; 
-    color: var(--color-gold); text-transform: uppercase; text-shadow: 0 5px 20px #000;
-    display: flex; align-items: center; justify-content: center; gap: 40px; 
+    font-family: var(--font-co-truyen); /* ĐÃ ĐỔI */
+    font-weight: normal; 
+    font-size: 4.5rem; 
+    color: var(--color-gold); text-transform: uppercase; text-shadow: 0 4px 15px #000;
+    display: flex; align-items: center; justify-content: center; gap: 30px; 
 }
-/* Icon Chim Lạc hai bên tiêu đề */
 .main-banner-intro h1::before, .main-banner-intro h1::after {
-    content: ''; display: block; width: 100px; height: 80px; 
+    content: ''; display: block; width: 80px; height: 60px; 
     background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
     filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
 }
 .main-banner-intro h1::before { transform: scaleX(-1); }
 
-/* Banner Liên Hệ */
-.contact-banner {
-    position: relative; height: 400px; display: flex;
-    align-items: center; justify-content: center;
-    border-bottom: 4px solid var(--color-gold-dim);
-    background-image: url('../images/hoatiet.jpg'); background-size: cover; background-position: center;
+/* 5. TIÊU ĐỀ KHÁC & ĐOẠN MÔ TẢ */
+
+/* TIÊU ĐỀ: "KHÁM PHÁ BẢN SẮC" -> Phông Tết Cổ Truyền, Xuống dưới */
+h2.text-success {
+    font-family: var(--font-co-truyen); /* ĐÃ ĐỔI */
+    font-weight: normal; 
+    font-size: 3.5rem;
+    text-transform: uppercase; color: var(--color-gold) !important; text-shadow: 0 2px 5px #000;
+    display: flex; align-items: center; justify-content: center; gap: 30px; 
+    margin: 80px 0 15px 0; /* ĐÃ SỬA: Tăng margin-top lên 80px để đẩy xuống */
 }
-.contact-banner::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.92); z-index: 1;
-}
-.contact-banner h1 {
-    position: relative; z-index: 2;
-    font-family: var(--font-main) !important; /* Phông TẾT CỔ TRUYỀN */
-    font-size: 6rem !important;
-    color: var(--color-gold); text-transform: uppercase; letter-spacing: 2px;
-    display: flex; align-items: center; justify-content: center; gap: 30px;
-}
-.contact-banner h1::before, .contact-banner h1::after {
-    content: ''; display: block; width: 80px; height: 60px;
+h2.text-success::before, h2.text-success::after {
+    content: ''; display: block; width: 70px; height: 70px;
     background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
-    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%);
-    opacity: 0.9;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%) drop-shadow(0 0 5px var(--color-gold));
 }
-.contact-banner h1::before { transform: scaleX(-1); }
+h2.text-success::before { transform: scaleX(-1); }
 
-/* ========================================= */
-/* PHẦN 5: RESPONSIVE (Mobile) */
-/* ========================================= */
-@media (max-width: 768px) {
-    .title-main { font-size: 4.5rem !important; } 
-    .title-sub { font-size: 3.5rem !important; }
-    .intro-text-calligraphy { font-size: 1.8rem !important; padding: 0 15px; }
-    
-    .main-banner-intro h1 { font-size: 3rem !important; flex-direction: column; gap: 10px; }
-    .contact-banner h1 { font-size: 3rem !important; }
-    .navbar-brand { font-size: 2rem !important; }
-    
-    /* Ẩn chim lạc trên mobile */
-    .main-banner-intro h1::before, .main-banner-intro h1::after,
-    .contact-banner h1::before, .contact-banner h1::after { display: none; } 
+/* ĐOẠN MÔ TẢ: "Thái Nguyên là nơi hội tụ..." -> Chữ nhỏ đi, xuống dưới */
+h2.text-success + p {
+    color: #ECEFF1; /* Màu sáng nhẹ */
+    font-family: var(--font-body); /* Dùng font thường để dễ đọc */
+    font-size: 1.0rem; /* ĐÃ SỬA: Nhỏ đi (từ 1.5 xuống 1.0) */
+    text-align: center; 
+    max-width: 800px; 
+    margin: 10px auto 60px auto; /* ĐÃ SỬA: Đẩy margin-bottom 60px */
+    line-height: 1.6;
+    font-weight: 300;
 }
 
-/* ========================================= */
-/* PHẦN 6: CÁC STYLE KHÁC (GIỮ NGUYÊN) */
-/* ========================================= */
-/* ... (Giữ nguyên các phần card, footer như cũ) ... */
+/* 6. CARD GỐC (DÙNG CHO TRANG CHỦ - NỀN TỐI) */
 .ethnic-card, .info-box {
-    background: rgba(20, 20, 20, 0.6); backdrop-filter: blur(10px);
-    border: 1px solid var(--color-gold-dim); border-radius: 6px;
-    overflow: hidden; transition: 0.4s; position: relative; height: 100%;
+    background: rgba(20, 20, 20, 0.6); 
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-gold-dim);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: 0.4s; position: relative; height: 100%;
 }
 .ethnic-card::before {
     content: ''; display: block; height: 6px; width: 100%;
@@ -219,31 +205,99 @@
 }
 .card-img-top { height: 250px; object-fit: cover; border-bottom: 2px solid var(--color-gold-dim); }
 .card-body, .info-box { padding: 1.5rem; text-align: center; }
-.card-title, .info-box h4 { color: var(--color-gold); font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; }
+.card-title, .info-box h4 { color: var(--color-gold); font-family: var(--font-heading); font-size: 1.5rem; }
 .card-text, .info-box p { color: #ddd; }
 .info-box { padding: 2rem; }
 
+/* 7. FOOTER */
+.btn-outline-success {
+    color: var(--color-gold); border: 1px solid var(--color-gold); background: transparent; padding: 10px 30px; font-weight: 600; text-transform: uppercase;
+}
+.btn-outline-success:hover { background-color: var(--color-gold); color: #000; box-shadow: 0 0 15px var(--color-gold); }
+footer {
+    background-color: #000; color: var(--color-gold-dim); padding: 50px 0; margin-top: 80px;
+    border-top: 5px solid transparent; border-image: url('../images/hoatiet.jpg') 30 stretch; text-align: center;
+}
+
+/* ========================================= */
+/* PHẦN 3: CHỈ DÀNH RIÊNG CHO TRANG LIÊN HỆ */
+/* ========================================= */
+
+/* A. Banner Liên Hệ (Tối đậm, tĩnh) */
+.contact-banner {
+    position: relative; height: 350px; display: flex;
+    align-items: center; justify-content: center; overflow: hidden;
+    border-bottom: 4px solid var(--color-gold-dim);
+    background-image: url('../images/hoatiet.jpg'); background-size: cover; background-position: center;
+}
+.contact-banner::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.92); z-index: 1;
+}
+
+/* TIÊU ĐỀ: "LIÊN HỆ & GÓP Ý" -> Phông Tết Cổ Truyền */
+.contact-banner h1 {
+    position: relative; z-index: 2;
+    font-family: var(--font-co-truyen); /* ĐÃ ĐỔI */
+    font-weight: normal; 
+    font-size: 4rem;
+    color: var(--color-gold); text-transform: uppercase; letter-spacing: 3px;
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+}
+.contact-banner h1::before, .contact-banner h1::after {
+    content: ''; display: block; width: 60px; height: 45px;
+    background-image: url('../images/chim-lac.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(1400%) hue-rotate(358deg) brightness(102%) contrast(106%);
+    opacity: 0.8;
+}
+.contact-banner h1::before { transform: scaleX(-1); }
+
+/* B. CARD MỚI: WHITE GLASS MODE (Trắng trong suốt) */
 .contact-glass-box {
     background: rgba(255, 255, 255, 0.85) !important;
     backdrop-filter: blur(10px) !important;
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
     border-radius: 8px;
-    padding: 2rem; height: 100%; transition: 0.4s; text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15) !important;
     color: #2c2c2c !important;
+    padding: 2rem;
+    height: 100%;
+    transition: 0.4s;
+    text-align: center;
 }
 .contact-glass-box:hover {
     background: rgba(255, 255, 255, 0.95) !important;
-    transform: translateY(-5px); border-color: #B8860B !important;
+    transform: translateY(-5px);
+    border-color: #B8860B !important;
 }
-.contact-glass-box h2, .contact-glass-box h4, .contact-glass-box strong {
-    font-family: 'Playfair Display', serif !important;
-    color: #B8860B !important; font-weight: 700;
+
+/* TIÊU ĐỀ CON: "THÔNG TIN" & "GỬI TIN NHẮN" -> Phông Hương Vị Tết Xưa */
+.contact-glass-box h2, 
+.contact-glass-box h4, 
+.contact-glass-box strong {
+    font-family: var(--font-tet-xua) !important; /* ĐÃ ĐỔI */
+    color: #B8860B !important;
+    text-shadow: none !important;
+    font-weight: normal; 
+    font-size: 2rem; /* Tăng size chút cho dễ đọc */
 }
+
 .contact-glass-box i { color: #B8860B !important; margin-right: 5px;}
 .contact-glass-box hr { border-color: #B8860B !important; opacity: 0.5; }
+
 .contact-glass-box .form-control {
-    background-color: #f8f9fa !important; border: 1px solid #ced4da !important;
-    color: #333 !important; border-radius: 4px; padding: 12px;
+    background-color: #f8f9fa !important;
+    border: 1px solid #ced4da !important;
+    color: #333 !important;
+    border-radius: 4px; padding: 12px;
+}
+.contact-glass-box .form-control:focus {
+    background-color: #ffffff !important;
+    border-color: #B8860B !important;
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15) !important;
+}
+.contact-glass-box .form-label {
+    color: #2c2c2c !important; font-weight: 700;
 }
 .contact-glass-box .btn-outline-success {
     color: #B8860B !important; border-color: #B8860B !important;
@@ -252,7 +306,28 @@
     background-color: #B8860B !important; color: #fff !important;
 }
 
-footer {
-    background-color: #000; color: var(--color-gold-dim); padding: 50px 0; margin-top: 80px;
-    border-top: 5px solid transparent; border-image: url('../images/hoatiet.jpg') 30 stretch; text-align: center;
+/* ========================================= */
+/* PHẦN 4: SỬA LỖI MÀU CHỮ (TRANG GIỚI THIỆU) */
+/* ========================================= */
+
+.intro-location-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.intro-location-list li, 
+.intro-location-list p,
+.intro-location-list span {
+    color: #FFFFFF !important;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 0;
+}
+
+.intro-location-list i {
+    margin-right: 10px;
+    filter: drop-shadow(0 0 2px #000);
 }
