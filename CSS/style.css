@@ -27,8 +27,12 @@
     --color-gold: #FFD700;        
     --color-gold-dim: #C5A059;    
     --color-text: #ECEFF1;        
-    --bg-dark-overlay: rgba(0, 0, 0, 0.90); 
-    --bg-light-overlay: rgba(0, 0, 0, 0.70);
+    
+    /* --- ĐÃ SỬA: LÀM LỚP PHỦ SÁNG HƠN --- */
+    /* Giảm độ mờ từ 0.9 xuống 0.65 (Viền) */
+    --bg-dark-overlay: rgba(0, 0, 0, 0.65); 
+    /* Giảm độ mờ từ 0.7 xuống 0.35 (Trung tâm) -> Để lộ video rõ hơn */
+    --bg-light-overlay: rgba(0, 0, 0, 0.35);
     
     /* CẤU HÌNH PHÔNG CHỮ */
     --font-heading: 'Playfair Display', serif; /* Phông mặc định cũ */
@@ -43,7 +47,7 @@
 /* PHẦN 2: CSS GỐC & CHỈNH SỬA THEO YÊU CẦU */
 /* ========================================= */
 
-/* 1. NỀN TRANG CHUNG (ĐÃ SỬA THÀNH VIDEO) */
+/* 1. NỀN TRANG CHUNG (VIDEO) */
 
 /* Cấu hình cho Video nền */
 #video-background {
@@ -55,7 +59,7 @@
     width: auto; 
     height: auto;
     z-index: -2; /* Đẩy video ra sau cùng */
-    object-fit: cover; /* Đảm bảo video phủ kín màn hình không bị méo */
+    object-fit: cover; /* Đảm bảo video phủ kín màn hình */
 }
 
 body {
@@ -67,7 +71,7 @@ body {
     background-color: transparent; /* Xóa màu nền để lộ video */
 }
 
-/* Tạo lớp phủ tối (Gradient) đè lên video để chữ dễ đọc hơn */
+/* Tạo lớp phủ tối (Gradient) đè lên video */
 body::before {
     content: '';
     position: fixed;
@@ -75,48 +79,60 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Giữ lại hiệu ứng tối dần ở góc như cũ */
+    /* Sử dụng biến màu đã làm sáng hơn ở trên */
     background: radial-gradient(circle at center, var(--bg-light-overlay) 0%, var(--bg-dark-overlay) 90%);
     z-index: -1; /* Nằm trên video nhưng dưới nội dung web */
-    pointer-events: none; /* Đảm bảo vẫn click được vào web */
-}
-/* 2. MENU (NAVBAR) */
-.navbar-custom {
-    background-color: #000;
-    padding: 10px 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,1);
-    position: sticky; top: 0; z-index: 1000;
-    border-bottom: 4px solid var(--color-gold-dim); 
+    pointer-events: none; 
 }
 
-/* LOGO: "THÁI NGUYÊN CULTURE" -> Phông Hương Vị Tết Xưa */
+/* 2. MENU (NAVBAR) - ĐÃ SỬA: TRONG SUỐT */
+.navbar-custom {
+    /* ĐÃ SỬA: Xóa nền đen, chuyển sang trong suốt */
+    background-color: transparent !important; 
+    
+    /* Thêm gradient nhẹ từ trên xuống để chữ Menu vẫn đọc được nếu video sáng */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+    
+    padding: 15px 0; /* Tăng padding một chút cho thoáng */
+    box-shadow: none; /* Bỏ bóng đổ đen đậm */
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.5); /* Làm viền vàng mỏng và mờ hơn cho tinh tế */
+    backdrop-filter: blur(2px); /* Làm mờ nhẹ video đằng sau menu */
+}
+
+/* LOGO: "THÁI NGUYÊN CULTURE" */
 .navbar-brand {
-    font-family: var(--font-tet-xua) !important; /* ĐÃ ĐỔI */
-    font-size: 2.2rem; /* Tăng lên một chút cho đẹp */
+    font-family: var(--font-tet-xua) !important; 
+    font-size: 2.2rem; 
     color: var(--color-gold) !important;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-    font-weight: normal; /* Phông này thường đậm sẵn */
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Tăng bóng sáng để nổi trên nền trong suốt */
+    font-weight: normal; 
 }
 
 .nav-link {
-    color: rgba(255,255,255,0.6) !important;
+    color: rgba(255,255,255,0.9) !important; /* Làm chữ sáng hơn (0.6 -> 0.9) để dễ đọc trên nền video */
     text-transform: uppercase; font-size: 0.9rem; margin: 0 10px; transition: 0.3s;
+    font-weight: 600; /* Đậm hơn một chút */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Thêm bóng đen sau chữ để chống lóa */
 }
 .nav-link:hover, .nav-link.active {
     color: var(--color-gold) !important;
-    text-shadow: 0 0 8px var(--color-gold);
+    text-shadow: 0 0 10px var(--color-gold);
 }
 
 /* 3. BANNER TRANG CHỦ (XOAY) */
 .main-banner {
     height: 500px; position: relative; display: flex;
     align-items: center; justify-content: center; overflow: hidden;
-    border-bottom: 4px solid var(--color-gold-dim);
-    flex-direction: column; /* Để Slogan nằm dưới Tiêu đề */
+    /* Xóa border dưới banner chính để hòa vào video nền */
+    border-bottom: none; 
+    flex-direction: column; 
 }
 .main-banner::before {
+    /* Giảm độ tối của nền banner riêng biệt (nếu có) */
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.75); z-index: 1;
+    background: rgba(0, 0, 0, 0.4); /* Giảm từ 0.75 xuống 0.4 */
+    z-index: 1;
 }
 .main-banner::after {
     content: ''; position: absolute; width: 800px; height: 800px;
@@ -128,26 +144,26 @@ body::before {
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .main-banner .container { position: relative; z-index: 2; text-align: center; }
 
-/* TIÊU ĐỀ: "THÁI NGUYÊN" -> Phông Tết Cổ Truyền */
+/* TIÊU ĐỀ: "THÁI NGUYÊN" */
 .main-banner h1 {
-    font-family: var(--font-co-truyen); /* ĐÃ ĐỔI */
-    font-weight: normal; /* Phông thư pháp không cần bold */
-    font-size: 6rem; /* To hơn để rõ nét */
+    font-family: var(--font-co-truyen); 
+    font-weight: normal; 
+    font-size: 6rem; 
     color: #FFF; 
     text-transform: uppercase; 
-    margin-bottom: 0px; /* Giảm khoảng cách với Slogan */
-    text-shadow: 0 4px 8px #000;
+    margin-bottom: 0px; 
+    text-shadow: 0 5px 15px rgba(0,0,0,0.9); /* Tăng bóng đổ để chữ nổi bật trên nền sáng */
     line-height: 1.1;
 }
 
-/* SLOGAN: "Vùng đất của văn hóa..." -> Phông Hương Vị Tết Xưa */
+/* SLOGAN */
 .main-banner p {
-    font-family: var(--font-tet-xua); /* ĐÃ ĐỔI */
+    font-family: var(--font-tet-xua); 
     color: #FFFACD; 
     font-size: 2.2rem; 
     font-weight: normal; 
     letter-spacing: 1px; 
-    text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+    text-shadow: 0 3px 8px rgba(0,0,0,1); /* Tăng bóng đổ */
     margin-top: 10px;
 }
 
@@ -160,13 +176,13 @@ body::before {
 }
 .main-banner-intro::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)); z-index: 1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)); z-index: 1;
 }
 
-/* TIÊU ĐỀ: "TỔNG QUAN TỈNH THÁI NGUYÊN" -> Phông Tết Cổ Truyền */
+/* TIÊU ĐỀ: "TỔNG QUAN TỈNH THÁI NGUYÊN" */
 .main-banner-intro h1 {
     position: relative; z-index: 2; 
-    font-family: var(--font-co-truyen); /* ĐÃ ĐỔI */
+    font-family: var(--font-co-truyen); 
     font-weight: normal; 
     font-size: 4.5rem; 
     color: var(--color-gold); text-transform: uppercase; text-shadow: 0 4px 15px #000;
@@ -181,14 +197,15 @@ body::before {
 
 /* 5. TIÊU ĐỀ KHÁC & ĐOẠN MÔ TẢ */
 
-/* TIÊU ĐỀ: "KHÁM PHÁ BẢN SẮC" -> Phông Tết Cổ Truyền, Xuống dưới */
+/* TIÊU ĐỀ: "KHÁM PHÁ BẢN SẮC" */
 h2.text-success {
-    font-family: var(--font-co-truyen); /* ĐÃ ĐỔI */
+    font-family: var(--font-co-truyen); 
     font-weight: normal; 
     font-size: 3.5rem;
-    text-transform: uppercase; color: var(--color-gold) !important; text-shadow: 0 2px 5px #000;
+    text-transform: uppercase; color: var(--color-gold) !important; 
+    text-shadow: 0 3px 10px rgba(0,0,0,0.9); /* Tăng bóng đổ */
     display: flex; align-items: center; justify-content: center; gap: 30px; 
-    margin: 80px 0 15px 0; /* ĐÃ SỬA: Tăng margin-top lên 80px để đẩy xuống */
+    margin: 80px 0 15px 0; 
 }
 h2.text-success::before, h2.text-success::after {
     content: ''; display: block; width: 70px; height: 70px;
@@ -197,16 +214,17 @@ h2.text-success::before, h2.text-success::after {
 }
 h2.text-success::before { transform: scaleX(-1); }
 
-/* ĐOẠN MÔ TẢ: "Thái Nguyên là nơi hội tụ..." -> Chữ nhỏ đi, xuống dưới */
+/* ĐOẠN MÔ TẢ */
 h2.text-success + p {
-    color: #ECEFF1; /* Màu sáng nhẹ */
-    font-family: var(--font-body); /* Dùng font thường để dễ đọc */
-    font-size: 1.0rem; /* ĐÃ SỬA: Nhỏ đi (từ 1.5 xuống 1.0) */
+    color: #FFFFFF; /* Đổi thành trắng tinh để nổi hơn */
+    font-family: var(--font-body); 
+    font-size: 1.1rem; /* Tăng nhẹ size lên 1.1 */
     text-align: center; 
     max-width: 800px; 
-    margin: 10px auto 60px auto; /* ĐÃ SỬA: Đẩy margin-bottom 60px */
+    margin: 10px auto 60px auto; 
     line-height: 1.6;
-    font-weight: 300;
+    font-weight: 400; /* Tăng độ đậm chữ */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Bóng đổ giúp chữ đọc được trên mọi nền */
 }
 
 /* 6. CARD GỐC (DÙNG CHO TRANG CHỦ - NỀN TỐI) */
@@ -238,7 +256,8 @@ h2.text-success + p {
 }
 .btn-outline-success:hover { background-color: var(--color-gold); color: #000; box-shadow: 0 0 15px var(--color-gold); }
 footer {
-    background-color: #000; color: var(--color-gold-dim); padding: 50px 0; margin-top: 80px;
+    background-color: rgba(0,0,0,0.8); /* Làm footer hơi trong suốt để đồng bộ */
+    color: var(--color-gold-dim); padding: 50px 0; margin-top: 80px;
     border-top: 5px solid transparent; border-image: url('../images/hoatiet.jpg') 30 stretch; text-align: center;
 }
 
@@ -258,10 +277,10 @@ footer {
     background-color: rgba(0, 0, 0, 0.92); z-index: 1;
 }
 
-/* TIÊU ĐỀ: "LIÊN HỆ & GÓP Ý" -> Phông Tết Cổ Truyền */
+/* TIÊU ĐỀ: "LIÊN HỆ & GÓP Ý" */
 .contact-banner h1 {
     position: relative; z-index: 2;
-    font-family: var(--font-co-truyen); /* ĐÃ ĐỔI */
+    font-family: var(--font-co-truyen); 
     font-weight: normal; 
     font-size: 4rem;
     color: var(--color-gold); text-transform: uppercase; letter-spacing: 3px;
@@ -294,15 +313,15 @@ footer {
     border-color: #B8860B !important;
 }
 
-/* TIÊU ĐỀ CON: "THÔNG TIN" & "GỬI TIN NHẮN" -> Phông Hương Vị Tết Xưa */
+/* TIÊU ĐỀ CON */
 .contact-glass-box h2, 
 .contact-glass-box h4, 
 .contact-glass-box strong {
-    font-family: var(--font-tet-xua) !important; /* ĐÃ ĐỔI */
+    font-family: var(--font-tet-xua) !important; 
     color: #B8860B !important;
     text-shadow: none !important;
     font-weight: normal; 
-    font-size: 2rem; /* Tăng size chút cho dễ đọc */
+    font-size: 2rem; 
 }
 
 .contact-glass-box i { color: #B8860B !important; margin-right: 5px;}
@@ -354,5 +373,3 @@ footer {
     margin-right: 10px;
     filter: drop-shadow(0 0 2px #000);
 }
-
-
