@@ -75,6 +75,17 @@ body::before {
     z-index: -1; /* Nằm trên video nhưng dưới nội dung web */
     pointer-events: none; 
 }
+/* Code ép video hiện lên nếu bị che */
+html, body {
+    background: transparent !important; /* Xóa màu nền bắt buộc */
+    height: 100%;
+}
+
+#video-background {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
 
 /* 2. MENU (NAVBAR) - ĐÃ SỬA: TRONG SUỐT */
 .navbar-custom {
@@ -364,4 +375,5 @@ footer {
     margin-right: 10px;
     filter: drop-shadow(0 0 2px #000);
 }
+
 
