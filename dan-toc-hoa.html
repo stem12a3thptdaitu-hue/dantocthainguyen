@@ -15,10 +15,63 @@
     
     <link rel="stylesheet" href="CSS/thanh-menu.css">
     <link rel="stylesheet" href="CSS/cac-dan-toc.css">
+
+    <style>
+        /* CSS Gốc của bạn */
+        body.theme-hoa { font-family: 'Montserrat', sans-serif; }
+        .primary-text { color: #B71C1C; } /* Đỏ đậm truyền thống */
+        .primary-bg { background-color: #B71C1C; }
+        .text-accent { color: #F57F17; /* Vàng cam đậm */ }
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        .pattern-bg {
+            background-image: radial-gradient(#B71C1C 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+        }
+
+        /* CSS Sidebar */
+        body { padding-left: 64px; }
+        nav.fixed { width: calc(100% - 64px) !important; margin-left: 64px !important; }
+        .sidebar-left { position: fixed; top: 0; left: 0; height: 100vh; width: 64px; background-color: white; display: flex; flex-direction: column; align-items: center; padding-top: 20px; box-shadow: 4px 0 10px rgba(0,0,0,0.05); z-index: 9999; }
+        .sidebar-item { width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-bottom: 16px; color: #5f5f5f; text-decoration: none; font-size: 20px; transition: all 0.2s ease; position: relative; cursor: pointer; }
+        .sidebar-item:hover { background-color: #f0f2f5; color: #198754; }
+        .icon-tea { color: #28a745; font-size: 28px; margin-bottom: 25px; }
+        .custom-img-icon { width: 100%; height: 100%; background-size: cover; background-position: center; display: block; }
+        .icon-drum-bg { background-image: url('images/trong-dong.jpg.png'); border-radius: 50%; }
+        .icon-brocade-bg { background-image: url('images/hoatiet.jpg'); border-radius: 8px; }
+        .badge-count { position: absolute; top: -2px; right: -2px; background-color: #e60023; color: white; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 10px; border: 2px solid white; }
+        .sidebar-item::after, .sidebar-item::before { opacity: 0; visibility: hidden; }
+
+        /* Lightbox CSS & Image cursor */
+        img { cursor: pointer; }
+        #imageModal { z-index: 100000; }
+        
+        .card-image-container {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-image-container img {
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .card-image-container:hover img {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 
 <body class="theme-hoa flex flex-col min-h-screen">
 
+    <!-- Modal Phóng to ảnh (Lightbox) -->
+    <div id="imageModal" class="fixed inset-0 z-[100000] hidden bg-black bg-opacity-95 flex items-center justify-center p-4 transition-opacity duration-300" onclick="closeModal()">
+        <span class="absolute top-5 right-8 text-white text-5xl font-bold cursor-pointer hover:text-gray-300">&times;</span>
+        <img id="modalImage" src="" alt="Phóng to" class="max-h-[90vh] max-w-full object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- SIDEBAR -->
     <div class="sidebar-left">
         <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
             <i class="fas fa-leaf"></i>
@@ -56,6 +109,7 @@
         </a>
     </div>
 
+    <!-- Navigation -->
     <nav class="bg-white shadow-md fixed top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -78,6 +132,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-60">
             <img src="https://images.unsplash.com/photo-1548622114-1d37b8d4365c?q=80&w=2070&auto=format&fit=crop" alt="Đèn lồng đỏ lễ hội" class="w-full h-full object-cover">
@@ -93,18 +148,20 @@
         </div>
     </header>
 
+    <!-- Section: Kinh Tế -->
     <section id="kinh-te" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
-                    <img src="https://images.unsplash.com/photo-1596468138766-9dc4620025f1?q=80&w=2070&auto=format&fit=crop" alt="Hiệu thuốc Bắc" class="w-full h-80 object-cover rounded-lg shadow-xl mb-4 image-card border-l-4 border-red-700">
+                    <!-- Ảnh Thuốc Hoa.jpg -->
+                    <img src="images/Thuốc Hoa.jpg" alt="Hiệu thuốc Bắc của người Hoa" class="w-full h-96 object-cover rounded-lg shadow-xl mb-4 image-card border-l-4 border-red-700">
                     <div class="mt-4 bg-yellow-50 p-4 rounded-lg border border-yellow-200 shadow-sm flex items-center">
-                         <i class="fas fa-hand-holding-medical text-red-700 text-2xl mr-4"></i>
-                         <div>
-                             <h4 class="font-bold text-red-900">Nghề gia truyền</h4>
-                             <p class="text-sm text-gray-700">Bốc thuốc Bắc (Đông y) và làm hương (nhang) thơm nức tiếng.</p>
-                         </div>
+                        <i class="fas fa-hand-holding-medical text-red-700 text-2xl mr-4"></i>
+                        <div>
+                            <h4 class="font-bold text-red-900">Nghề gia truyền</h4>
+                            <p class="text-sm text-gray-700">Bốc thuốc Bắc (Đông y) và làm hương (nhang) thơm nức tiếng.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
@@ -126,6 +183,7 @@
         </div>
     </section>
 
+    <!-- Section: Không gian sống -->
     <section id="khong-gian" class="section-padding bg-red-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -135,37 +193,40 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tiền điếm hậu gia (Hậu gia.jpg) -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-red-600 relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 text-gray-100 text-9xl font-serif z-0 select-none">福</div>
-                    <div class="relative z-10">
-                        <div class="text-4xl text-red-600 mb-4"><i class="fas fa-home"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Tiền điếm hậu gia</h3>
-                        <p class="text-gray-600">Kiến trúc kết hợp hài hòa: phía trước là cửa hàng buôn bán nhộn nhịp, phía sau là không gian sinh hoạt gia đình ấm cúng.</p>
+                    <div class="card-image-container">
+                        <img src="images/Hậu gia.jpg" alt="Kiến trúc Tiền điếm hậu gia" class="w-full object-cover">
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Tiền điếm hậu gia</h3>
+                    <p class="text-gray-600 text-sm">Kiến trúc kết hợp hài hòa: phía trước là cửa hàng buôn bán nhộn nhịp, phía sau là không gian sinh hoạt gia đình ấm cúng.</p>
                 </div>
+                
+                <!-- Sắc đỏ may mắn (Sắc đỏ.jpg) -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-yellow-500 relative overflow-hidden">
-                     <div class="absolute -right-4 -top-4 text-gray-100 text-9xl font-serif z-0 select-none">禄</div>
-                    <div class="relative z-10">
-                        <div class="text-4xl text-yellow-500 mb-4"><i class="fas fa-palette"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Sắc đỏ may mắn</h3>
-                        <p class="text-gray-600">Yêu thích màu đỏ tượng trưng cho lửa và hạnh phúc. Đèn lồng đỏ, câu đối Tết giấy hồng điều, chữ "Phúc" dán ngược luôn hiện diện.</p>
+                    <div class="card-image-container">
+                        <img src="images/Sắc đỏ.jpg" alt="Sắc đỏ và đèn lồng" class="w-full object-cover">
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Sắc đỏ may mắn</h3>
+                    <p class="text-gray-600 text-sm">Yêu thích màu đỏ tượng trưng cho lửa và hạnh phúc. Đèn lồng đỏ, câu đối Tết giấy hồng điều, chữ "Phúc" dán ngược luôn hiện diện.</p>
                 </div>
+                
+                <!-- Tín ngưỡng thờ cúng (Thờ Hoa.jpg) -->
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-gray-800 relative overflow-hidden">
-                     <div class="absolute -right-4 -top-4 text-gray-100 text-9xl font-serif z-0 select-none">寿</div>
-                    <div class="relative z-10">
-                        <div class="text-4xl text-gray-800 mb-4"><i class="fas fa-vihara"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Tín ngưỡng thờ cúng</h3>
-                        <p class="text-gray-600">Bàn thờ Thần Tài, Thổ Địa, Quan Công luôn khói hương nghi ngút, thể hiện niềm tin vào sự bảo hộ của thần linh trong kinh doanh.</p>
+                    <div class="card-image-container">
+                        <img src="images/Thờ Hoa.jpg" alt="Bàn thờ Thần Tài, Quan Công" class="w-full object-cover">
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Tín ngưỡng thờ cúng</h3>
+                    <p class="text-gray-600 text-sm">Bàn thờ Thần Tài, Thổ Địa, Quan Công luôn khói hương nghi ngút, thể hiện niềm tin vào sự bảo hộ của thần linh trong kinh doanh.</p>
                 </div>
             </div>
-             <div class="mt-12 text-center">
-                   <p class="text-sm text-gray-500 mt-2 italic">Góc tâm linh trang trọng trong ngôi nhà người Hoa</p>
-             </div>
+            <div class="mt-12 text-center">
+                <p class="text-sm text-gray-500 mt-2 italic">Góc tâm linh trang trọng trong ngôi nhà người Hoa</p>
+            </div>
         </div>
     </section>
 
+    <!-- Section: Ẩm thực -->
     <section id="am-thuc" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -175,43 +236,34 @@
                     <p class="text-gray-700 text-lg mb-6 leading-relaxed">
                         Ẩm thực là niềm tự hào lớn nhất. Họ quan niệm ăn uống là <strong>"Dược thiện"</strong> (bài thuốc dưỡng sinh), chú trọng sự cân bằng ngũ vị và kỹ thuật dùng lửa ("hơi thở của chảo").
                     </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-orange-50 p-3 rounded text-center border border-orange-200">
-                            <span class="block font-bold text-red-800">Vịt Quay</span>
-                            <span class="text-xs text-gray-500">Da giòn thịt mềm</span>
-                        </div>
-                        <div class="bg-orange-50 p-3 rounded text-center border border-orange-200">
-                            <span class="block font-bold text-red-800">Khâu Nhục</span>
-                            <span class="text-xs text-gray-500">Đậm đà hương vị</span>
-                        </div>
-                        <div class="bg-orange-50 p-3 rounded text-center border border-orange-200">
-                            <span class="block font-bold text-red-800">Dimsum</span>
-                            <span class="text-xs text-gray-500">Điểm tâm tinh tế</span>
-                        </div>
-                         <div class="bg-orange-50 p-3 rounded text-center border border-orange-200">
-                            <span class="block font-bold text-red-800">Xá Xíu</span>
-                            <span class="text-xs text-gray-500">Thơm ngon nức mũi</span>
-                        </div>
+                    <div class="grid grid-cols-3 gap-3 text-sm font-semibold">
+                        <div class="bg-orange-100 p-3 rounded text-center border border-orange-300 text-red-900">Vịt Quay</div>
+                        <div class="bg-orange-100 p-3 rounded text-center border border-orange-300 text-red-900">Khâu Nhục</div>
+                        <div class="bg-orange-100 p-3 rounded text-center border border-orange-300 text-red-900">Xá Xíu</div>
                     </div>
+                    <p class="text-gray-600 italic mt-6">"Hương vị say lòng thực khách, Dược thiện dưỡng sinh"</p>
                 </div>
-                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="space-y-4 pt-8">
-                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=2029&auto=format&fit=crop" alt="Dimsum há cảo" class="rounded-lg shadow-md h-48 w-full object-cover">
-                         <div class="bg-red-900 h-32 rounded-lg flex items-center justify-center p-4 text-center text-white">
-                            <span class="italic font-serif">"Hương vị say lòng thực khách"</span>
-                        </div>
+                <!-- Ảnh Ẩm thực (Vịt.jpg, Nhục.jpg, Xá xíu.jpg) -->
+                <div class="lg:w-1/2 grid grid-cols-3 gap-4">
+                    <div class="relative overflow-hidden rounded-lg shadow-md col-span-3">
+                        <img src="images/Nhục.jpg" alt="Khâu Nhục đậm đà" class="w-full h-56 object-cover hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-red-900 opacity-20 hover:opacity-0 transition duration-300"></div>
+                        <p class="absolute bottom-2 left-2 text-white font-bold text-sm bg-black bg-opacity-50 px-2 py-1 rounded">Khâu Nhục</p>
                     </div>
-                    <div class="space-y-4">
-                         <div class="bg-yellow-600 h-32 rounded-lg flex items-center justify-center p-4 text-center text-white">
-                             <span class="italic font-serif">"Dược thiện dưỡng sinh"</span>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1594956328406-3844d03823f0?q=80&w=2070&auto=format&fit=crop" alt="Vịt quay" class="rounded-lg shadow-md h-48 w-full object-cover">
+                    <div class="relative overflow-hidden rounded-lg shadow-md col-span-1">
+                        <img src="images/Vịt.jpg" alt="Vịt Quay giòn da" class="w-full h-36 object-cover hover:scale-105 transition duration-300">
+                        <p class="absolute bottom-2 left-2 text-white font-bold text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Vịt Quay</p>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-md col-span-2">
+                        <img src="images/Xá xíu.jpg" alt="Xá Xíu thơm ngon" class="w-full h-36 object-cover hover:scale-105 transition duration-300">
+                        <p class="absolute bottom-2 left-2 text-white font-bold text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Xá Xíu</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Section: Lễ hội (Múa Lân) -->
     <section id="le-hoi" class="section-padding bg-gray-900 text-white relative overflow-hidden">
         <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-red-600 rounded-full opacity-20 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-yellow-500 rounded-full opacity-20 blur-3xl"></div>
@@ -248,6 +300,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-red-900 text-white py-12 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4 font-serif text-yellow-300">Văn Hóa Người Hoa Thái Nguyên</h2>
@@ -263,14 +316,52 @@
         </div>
     </footer>
 
+    <!-- Script Xử lý phóng to ảnh & Smooth scroll -->
     <script>
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== "#") {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // Image Modal Logic (Lightbox)
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        
+        // Thêm sự kiện click cho tất cả thẻ img (trừ ảnh trong modal)
+        document.querySelectorAll('img:not(#modalImage)').forEach(img => {
+            img.onclick = function() {
+                modal.classList.remove('hidden');
+                modalImg.src = this.src;
+                // Thêm một chút delay để hiệu ứng transition hoạt động mượt mà
+                setTimeout(() => {
+                    modalImg.classList.remove('scale-95');
+                    modalImg.classList.add('scale-100');
+                }, 10);
+            }
+        });
+
+        // Hàm đóng modal
+        function closeModal() {
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Đợi hiệu ứng thu nhỏ xong mới ẩn
+        }
+
+        // Đóng modal khi nhấn ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
         });
     </script>
 </body>
