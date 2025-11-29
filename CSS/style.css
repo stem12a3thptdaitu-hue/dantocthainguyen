@@ -59,7 +59,7 @@
 /* Cấu hình ảnh nền cho toàn trang */
 body {
     /* Đường dẫn ảnh - Hãy đảm bảo bạn đã lưu ảnh vào thư mục images */
-    background-image: url('../images/Gemini_Generated_Image_vk2rwlvk2rwlvk2r.jpg') !important;
+    background-image: url('../images/backgr.jpg') !important;
     
     /* Căn chỉnh ảnh */
     background-size: cover;           /* Phủ kín màn hình */
@@ -379,6 +379,7 @@ footer {
     margin-right: 10px;
     filter: drop-shadow(0 0 2px #000);
 }
+
 
 
 
