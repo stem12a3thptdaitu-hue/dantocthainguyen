@@ -1,119 +1,133 @@
 /* =========================================
-   CSS CHO SIDEBAR (ĐÃ TỐI ƯU GỌN GÀNG)
+   TOOLTIP & SUBMENU (Code mới thêm)
    ========================================= */
 
-/* 1. Đẩy trang web sang phải ít hơn (cho khớp với sidebar mới) */
-body {
-    padding-left: 64px; /* ĐÃ CHỈNH: Giảm từ 80px xuống 64px */
-    background-color: #f8f9fa;
-}
+/* --- 1. TOOLTIP CƠ BẢN (Hiện chữ đen bên phải) --- */
 
-/* 2. Khung chính của Sidebar */
-.sidebar-left {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 64px;        /* ĐÃ CHỈNH: Giảm độ rộng còn 64px */
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;  /* ĐÃ CHỈNH: Giảm khoảng cách trên cùng chút cho cân */
-    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
-    z-index: 9999;
-}
-
-/* 3. Các nút (Item) chung */
+/* Cần set relative để tooltip định vị theo nút */
 .sidebar-item {
-    width: 40px;        /* ĐÃ CHỈNH: Giảm kích thước nút từ 48px xuống 40px */
-    height: 40px;
+    position: relative; 
+}
+
+/* Tạo khung chữ hiện ra */
+.sidebar-item::after {
+    content: attr(data-tooltip); /* Lấy nội dung từ HTML */
+    position: absolute;
+    left: 100%;       /* Nằm bên phải icon */
+    top: 50%;         /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%);
+    
+    background-color: #333; /* Nền đen */
+    color: #fff;            /* Chữ trắng */
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;    /* Không xuống dòng */
+    margin-left: 15px;      /* Cách icon ra một chút */
+    opacity: 0;             /* Mặc định ẩn */
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10000;
+    pointer-events: none;   /* Không cho chuột bấm vào tooltip */
+}
+
+/* Tạo mũi tên nhỏ chỉ vào icon (Tam giác) */
+.sidebar-item::before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent #333 transparent transparent; /* Mũi tên hướng trái */
+    margin-left: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10000;
+}
+
+/* Khi di chuột vào thì hiện lên */
+.sidebar-item:hover::after,
+.sidebar-item:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- 2. MENU DANH SÁCH DÂN TỘC (Dành riêng cho icon Thổ Cẩm) --- */
+
+/* Wrapper bao quanh icon Thổ Cẩm */
+.sidebar-item-wrap {
+    position: relative; /* Để menu con định vị theo nó */
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 50%; /* Bo tròn */
-    margin-bottom: 16px; /* Giảm khoảng cách giữa các nút */
-    color: #5f5f5f;     /* MÀU XÁM MẶC ĐỊNH (bao gồm cả icon NHÀ) */
-    text-decoration: none;
-    font-size: 20px;    /* Giảm cỡ icon FontAwesome đi 1 chút cho vừa khung */
-    transition: all 0.2s ease;
-    position: relative;
-    cursor: pointer;
-}
-
-/* Hiệu ứng khi di chuột vào */
-.sidebar-item:hover {
-    background-color: #f0f2f5;
-    color: #198754; /* Xanh lá khi hover */
-}
-
-/* Trạng thái đang chọn (Active) */
-.sidebar-item.active {
-    background-color: #000;
-    color: #fff;
-}
-
-/* --- TÙY CHỈNH CÁC ICON ẢNH (TRỐNG ĐỒNG & THỔ CẨM) --- */
-
-/* Class chung cho các icon dùng ảnh upload */
-.custom-img-icon {
     width: 100%;
-    height: 100%;
-    background-size: cover;     /* Ảnh phủ kín khung */
-    background-position: center; /* Căn giữa ảnh */
-    display: block;
 }
 
-/* A. ẢNH TRỐNG ĐỒNG (Bo tròn) */
-.icon-drum-bg {
-    /* Lưu ý: Bạn cần lưu file ảnh đúng tên vào thư mục images */
-    background-image: url('../images/trong-dong.jpg.jpg'); 
-    border-radius: 50%; /* Trống đồng hình tròn */
-    border: 1px solid transparent; /* Viền ẩn để tránh vỡ hạt mép */
+/* Ẩn tooltip mặc định của icon Thổ Cẩm để tránh bị che menu */
+.has-submenu .sidebar-item:hover::after,
+.has-submenu .sidebar-item:hover::before {
+    display: none; /* Tắt tooltip đen, thay bằng menu trắng to hơn */
 }
 
-/* B. ẢNH THỔ CẨM (Bo góc vuông nhẹ) */
-.icon-brocade-bg {
-    /* Lưu ý: Bạn cần lưu file ảnh đúng tên vào thư mục images */
-    background-image: url('../images/hoatiet.jpg');
-    border-radius: 8px; /* Bo nhẹ giống icon ứng dụng */
-}
-
-/* Hiệu ứng viền xanh khi di chuột vào icon ảnh */
-.sidebar-item:hover .icon-drum-bg,
-.sidebar-item:hover .icon-brocade-bg {
-    box-shadow: 0 0 0 2px #198754; /* Tạo viền xanh bao quanh ảnh */
-}
-
-
-/* --- CÁC THÀNH PHẦN KHÁC --- */
-
-/* Logo Trà trên cùng */
-.icon-tea {
-    color: #28a745;
-    font-size: 28px; /* Giảm chút cho vừa sidebar nhỏ */
-    margin-bottom: 25px;
-}
-.icon-tea:hover {
-    background-color: transparent;
-}
-
-/* Badge thông báo (số đỏ) */
-.badge-count {
+/* Menu con (Danh sách dân tộc) */
+.ethnic-menu {
     position: absolute;
-    top: -2px;
-    right: -2px;
-    background-color: #e60023;
-    color: white;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 1px 5px;
-    border-radius: 10px;
-    border: 2px solid white;
+    left: 70px; /* Cách lề trái (sidebar) ra, sidebar rộng 64px */
+    top: -50px; /* Đẩy lên trên một chút để cân đối */
+    width: 200px;
+    background-color: white;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.15); /* Đổ bóng đẹp */
+    border-radius: 8px;
+    padding: 10px 0;
+    
+    /* Ẩn mặc định */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px); /* Hiệu ứng trượt nhẹ */
+    transition: all 0.3s ease;
+    z-index: 10001;
 }
 
-/* Navbar cũ (nếu có) */
-.navbar-custom {
-    width: calc(100% - 64px); /* Trừ đi 64px */
-    margin-left: 64px;
+/* Header của menu (Chữ "Các dân tộc") */
+.ethnic-menu .menu-header {
+    font-weight: bold;
+    color: #198754;
+    padding: 5px 20px 10px 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 5px;
+}
+
+/* Danh sách ul li */
+.ethnic-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ethnic-menu li a {
+    display: block;
+    padding: 8px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+/* Hiệu ứng khi di chuột vào từng dòng dân tộc */
+.ethnic-menu li a:hover {
+    background-color: #f0f9f4; /* Xanh rất nhạt */
+    color: #198754; /* Xanh lá đậm */
+    padding-left: 25px; /* Hiệu ứng đẩy chữ sang phải */
+}
+
+/* --- KÍCH HOẠT MENU KHI DI CHUỘT --- */
+
+/* Khi di chuột vào icon Thổ Cẩm (.sidebar-item-wrap), hiện menu */
+.sidebar-item-wrap:hover .ethnic-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
 }
