@@ -195,29 +195,6 @@ html, body {
     /* ... (các thuộc tính khác giữ nguyên) ... */
     line-height: 1.1;
 }
-/* TIÊU ĐỀ: "THÁI NGUYÊN" */
-.main-banner h1 {
-    font-family: var(--font-co-truyen); 
-    font-weight: normal; 
-    font-size: 6rem; 
-    color: #FFF; 
-    text-transform: uppercase; 
-    margin-bottom: 0px; 
-    text-shadow: 0 5px 15px rgba(0,0,0,0.9); /* Tăng bóng đổ để chữ nổi bật trên nền sáng */
-    line-height: 1.1;
-}
-
-/* SLOGAN */
-.main-banner p {
-    font-family: var(--font-tet-xua); 
-    color: #FFFACD; 
-    font-size: 2.2rem; 
-    font-weight: normal; 
-    letter-spacing: 1px; 
-    text-shadow: 0 3px 8px rgba(0,0,0,1); /* Tăng bóng đổ */
-    margin-top: 10px;
-}
-
 /* 4. BANNER GIỚI THIỆU */
 .main-banner-intro {
     height: 450px; position: relative; display: flex;
@@ -446,6 +423,7 @@ h3.text-success, h4.text-success, .text-start .text-success {
     text-align: justify; /* Căn đều 2 bên cho đẹp */
     font-weight: 500;
 }
+
 
 
 
