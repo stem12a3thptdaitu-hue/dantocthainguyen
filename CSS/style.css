@@ -147,30 +147,27 @@ html, body {
     /* Thêm hiệu ứng làm mờ nhẹ để nền trông mềm mại hơn */
     backdrop-filter: blur(2px);
 }
-/* --- THAY ĐỔI 2: TRỐNG ĐỒNG SÁNG HƠN RẤT NHIỀU --- */
+/* --- THAY ĐỔI 2: TRỐNG ĐỒNG - ĐÃ ĐIỀU CHỈNH ĐẬM HƠN & RÕ NÉT HƠN --- */
 .main-banner::after {
     content: ''; position: absolute; width: 800px; height: 800px;
     background-image: url('../images/trong-dong.jpg.png');
     background-size: contain; background-repeat: no-repeat; background-position: center;
     
-    opacity: 1; 
+    /* YÊU CẦU 2: Độ trong suốt tầm 0.8-0.9 */
+    opacity: 0.85; 
     
-    z-index: 1; animation: spin 80s linear infinite;
+    /* Giữ z-index thấp để nằm dưới chữ */
+    z-index: 1; 
+    animation: spin 80s linear infinite;
     
-    /* --- ĐÃ CHỈNH SỬA LẠI Ở ĐÂY --- */
-    /* Tăng brightness từ 1.5 lên 2.5 để sáng hơn hẳn */
-    /* Tăng saturate từ 250% lên 300% để màu vàng không bị nhạt đi khi sáng lên */
-    filter: sepia(100%) hue-rotate(5deg) saturate(300%) brightness(2.5); 
+    /* YÊU CẦU 1: Làm trống đồng đậm hơn */
+    /* CŨ: brightness(2.5) -> Quá sáng */
+    /* MỚI: brightness(0.9) -> Màu đồng tối, đậm đà hơn */
+    /* Vẫn giữ sepia và saturate cao để giữ màu vàng đồng */
+    filter: sepia(100%) hue-rotate(5deg) saturate(300%) brightness(0.9); 
     
-    /* Vẫn giữ nguyên chế độ hòa trộn này để nó ăn nhập vào nền */
-    mix-blend-mode: multiply;
-}
-    
-    /* --- THAY ĐỔI 3 (QUAN TRỌNG): Tăng bóng đen để chữ nổi trên nền sáng --- */
-    /* Bóng đổ đậm hơn và sắc nét hơn */
-    text-shadow: 0 5px 20px rgba(0,0,0,1), 0 2px 5px rgba(0,0,0,1);
-    
-    line-height: 1.1;
+    /* QUAN TRỌNG: Bỏ chế độ hòa trộn cũ đi để hình ảnh trông "đặc" và rõ hơn */
+    /* mix-blend-mode: multiply; <--- ĐÃ XÓA DÒNG NÀY */
 }
 
 /* SLOGAN */
@@ -449,6 +446,7 @@ h3.text-success, h4.text-success, .text-start .text-success {
     text-align: justify; /* Căn đều 2 bên cho đẹp */
     font-weight: 500;
 }
+
 
 
 
