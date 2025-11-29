@@ -154,7 +154,7 @@ html, body {
     background-size: contain; background-repeat: no-repeat; background-position: center;
     
     /* YÊU CẦU 2: Độ trong suốt tầm 0.8-0.9 */
-    opacity: 0.85; 
+    opacity: 1; 
     
     /* Giữ z-index thấp để nằm dưới chữ */
     z-index: 1; 
@@ -423,6 +423,7 @@ h3.text-success, h4.text-success, .text-start .text-success {
     text-align: justify; /* Căn đều 2 bên cho đẹp */
     font-weight: 500;
 }
+
 
 
 
