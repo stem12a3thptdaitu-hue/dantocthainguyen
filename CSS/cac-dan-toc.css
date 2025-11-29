@@ -1,22 +1,22 @@
 /* Import phông chữ để tạo vẻ đẹp văn hóa và sang trọng giống ảnh tham khảo */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,400&family=Montserrat:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,400&family=Montserrat:wght@400;500;600&display=swap');
 
 :root {
-    /* Định nghĩa bảng màu dựa trên tông xanh (text-success) của bạn nhưng sang trọng hơn */
-    --dao-green-dark: #14522d;   /* Xanh rừng già đậm đà */
-    --dao-green-primary: #198754; /* Xanh lá chủ đạo (tương ứng text-success) */
-    --dao-green-light: #e8f5e9;   /* Xanh nhạt cho nền phụ */
-    --bg-cream: #fbf7f0;          /* Màu kem nền nã giống giấy dó/ảnh tham khảo */
-    --text-color: #2c3e50;
-    --gold-accent: #d4af37;       /* Màu vàng kim làm điểm nhấn */
+    /* Bảng màu lấy cảm hứng từ trang Fang's Noodles nhưng áp dụng cho Người Hoa */
+    --hoa-red-dark: #9a1b1b;      /* Đỏ đậm sang trọng (giống nền header/footer trong ảnh) */
+    --hoa-red-primary: #b71c1c;   /* Đỏ tươi hơn cho các điểm nhấn */
+    --hoa-gold: #d4af37;          /* Vàng kim loại sang trọng */
+    --hoa-cream: #fbf7f0;         /* Màu kem nền nã (giống phần thân trang trong ảnh) */
+    --hoa-text-dark: #2c1a1a;     /* Màu chữ nâu đen */
+    --hoa-card-bg: #8b1818;       /* Màu nền cho các thẻ bài (giống mục Soups/Noodles) */
 }
 
 /* --- Cấu trúc chung --- */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-cream);
-    color: var(--text-color);
-    line-height: 1.7;
+    background-color: var(--hoa-cream);
+    color: var(--hoa-text-dark);
+    line-height: 1.8;
 }
 
 h1, h2, h3, h4, .navbar-brand {
@@ -24,151 +24,178 @@ h1, h2, h3, h4, .navbar-brand {
 }
 
 /* --- Tùy biến Navbar --- */
-.navbar-custom {
-    background-color: var(--dao-green-dark);
-    box-shadow: 0 4px 12px rgba(20, 82, 45, 0.15);
-    padding: 1rem 0;
+nav.bg-white {
+    background-color: var(--hoa-red-dark) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.navbar-custom .navbar-brand {
-    color: #fff !important;
-    font-size: 1.5rem;
+nav .primary-text {
+    color: #fff !important; /* Chuyển chữ logo sang trắng để nổi bật trên nền đỏ */
     letter-spacing: 1px;
-    text-transform: uppercase;
 }
 
-.navbar-custom .nav-link {
+nav a.text-gray-600 {
     color: rgba(255, 255, 255, 0.8) !important;
     font-weight: 500;
-    margin-left: 15px;
     transition: all 0.3s ease;
 }
 
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link.active {
-    color: var(--gold-accent) !important;
+nav a.text-gray-600:hover {
+    color: var(--hoa-gold) !important;
     transform: translateY(-2px);
 }
 
-.dropdown-menu {
-    background-color: var(--bg-cream);
-    border: 1px solid var(--dao-green-light);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* --- Hero Section (Phần đầu trang) --- */
+header#gioi-thieu {
+    background-color: var(--hoa-red-dark); /* Đảm bảo nền đỏ đậm nếu ảnh chưa load */
 }
 
-.dropdown-item:hover {
-    background-color: var(--dao-green-light);
-    color: var(--dao-green-dark);
+/* Tiêu đề chính lớn và sang trọng */
+h1.text-4xl {
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 0.5rem;
 }
 
-/* --- Phần tiêu đề chính (Hero Text) --- */
-h1.text-success {
-    color: var(--dao-green-dark) !important; /* Ghi đè màu bootstrap gốc cho đậm đà hơn */
-    font-size: 3.5rem;
-    margin-top: 2rem;
+/* Dòng mô tả dưới tiêu đề */
+h2.text-xl {
+    color: var(--hoa-gold) !important;
+    font-style: italic;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+/* Nút bấm (CTA) */
+a.inline-block {
+    background-color: var(--hoa-gold);
+    color: var(--hoa-red-dark);
+    border: 2px solid #fff;
+    padding: 12px 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+a.inline-block:hover {
+    background-color: #fff;
+    color: var(--hoa-red-dark);
+    border-color: var(--hoa-gold);
+}
+
+/* --- Các Section Nội dung --- */
+.section-padding {
+    padding: 6rem 0;
+}
+
+/* Tiêu đề của từng phần (VD: "Phi thương bất phú") */
+h2.primary-text {
+    color: var(--hoa-red-dark) !important;
+    font-size: 3rem;
     position: relative;
     display: inline-block;
+    margin-bottom: 2rem;
 }
 
-/* Tạo đường gạch chân trang trí giống ảnh tham khảo */
-h1.text-success::after {
+/* Đường gạch chân trang trí dưới tiêu đề (giống ảnh mẫu) */
+h2.primary-text::after {
     content: '';
     display: block;
     width: 60px;
-    height: 4px;
-    background-color: var(--gold-accent);
-    margin: 15px auto;
-    border-radius: 2px;
+    height: 3px;
+    background-color: var(--hoa-gold);
+    margin: 15px auto 0; /* Căn giữa */
 }
 
-.fst-italic {
-    font-family: 'Merriweather', serif;
-    color: #666;
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
+/* Căn trái đường gạch chân nếu tiêu đề không ở giữa */
+.order-1 h2.primary-text::after {
+    margin: 15px 0 0; 
 }
 
-/* --- Phần nội dung (Cột trái) --- */
-h3.text-success {
-    color: var(--dao-green-dark) !important;
-    background-color: var(--dao-green-light); /* Tạo khối nền cho tiêu đề giống các thẻ trong ảnh */
-    padding: 10px 20px;
-    border-left: 5px solid var(--gold-accent); /* Điểm nhấn viền trái */
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    border-radius: 0 8px 8px 0;
-}
-
-p {
-    margin-bottom: 1.5rem;
-    text-align: justify;
-}
-
-ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-ul li {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border-left: 3px solid var(--dao-green-primary);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-/* --- Phần hình ảnh (Cột phải - Sticky) --- */
-/* Tạo khung hình ảnh giống như một tấm thẻ bài hoặc menu trong ảnh tham khảo */
-.sticky-top img {
-    border: 8px solid #fff;
-    box-shadow: 0 10px 30px rgba(20, 82, 45, 0.2);
-    transition: transform 0.3s ease;
-    border-radius: 12px;
-}
-
-.sticky-top img:hover {
-    transform: scale(1.02);
-}
-
-.sticky-top p.text-muted {
-    background-color: var(--dao-green-dark);
-    color: #fff !important;
-    padding: 10px;
-    margin-top: -5px; /* Kéo lên đè vào ảnh một chút */
+/* --- Card Styles (Các khối nội dung như Không gian sống) --- */
+/* Biến các khối này thành các thẻ bài màu đỏ đậm giống mục Menu trong ảnh */
+.bg-white.p-6.rounded-xl {
+    background-color: var(--hoa-card-bg); /* Nền đỏ đậm */
+    color: #fff; /* Chữ trắng */
+    border: 2px solid var(--hoa-gold); /* Viền vàng kim */
+    border-top: none; /* Bỏ border-top cũ của HTML gốc */
+    border-radius: 4px; /* Bo góc ít hơn để trông cứng cáp */
+    text-align: center;
+    padding: 2.5rem 1.5rem;
     position: relative;
-    z-index: 2;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(139, 24, 24, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.bg-white.p-6.rounded-xl:hover {
+    transform: translateY(-10px);
+}
+
+/* Chỉnh màu icon và tiêu đề trong card */
+.bg-white.p-6.rounded-xl .text-4xl,
+.bg-white.p-6.rounded-xl h3 {
+    color: var(--hoa-gold) !important;
+}
+
+.bg-white.p-6.rounded-xl p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.95rem;
+}
+
+/* Xử lý chữ Hán nền chìm */
+.bg-white.p-6.rounded-xl .absolute {
+    color: rgba(255, 255, 255, 0.1) !important; /* Làm mờ chữ Hán đi */
+}
+
+/* --- Hình ảnh --- */
+/* Tạo khung tròn hoặc bo góc mềm mại cho ảnh */
+img.rounded-lg, img.rounded-xl {
+    border: 4px solid #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Ảnh tròn (như bát súp trong ảnh mẫu) - áp dụng cho một số ảnh vuông */
+.image-card {
+    border-radius: 50%; /* Thử nghiệm làm tròn ảnh */
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 6px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Nếu ảnh không vuông, giữ bo góc thường nhưng thêm viền */
+.w-full.h-80.object-cover {
+    border-radius: 12px;
+    border: none;
+    aspect-ratio: auto;
 }
 
 /* --- Footer --- */
 footer {
-    background-color: var(--dao-green-dark);
+    background-color: var(--hoa-red-dark);
+    border-top: 8px solid var(--hoa-gold); /* Viền trên dày màu vàng */
     color: #fff;
-    margin-top: 5rem;
-    border-top: 5px solid var(--gold-accent);
+}
+
+footer h2 {
+    color: var(--hoa-gold);
+    letter-spacing: 1px;
 }
 
 footer p {
-    margin: 0;
-    opacity: 0.8;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center; /* Đảm bảo căn giữa */
+    color: rgba(255, 255, 255, 0.8);
 }
 
-/* --- Responsive adjustments --- */
-@media (max-width: 991px) {
-    h1.text-success {
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    h1.text-4xl {
         font-size: 2.5rem;
     }
-    
-    .sticky-top {
-        position: static !important; /* Tắt sticky trên mobile */
-        margin-top: 2rem;
+    h2.primary-text {
+        font-size: 2rem;
+    }
+    .section-padding {
+        padding: 4rem 0;
     }
 }
