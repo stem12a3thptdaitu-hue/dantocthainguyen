@@ -4,18 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Người Hoa - Sắc Đỏ May Mắn</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="CSS/cac-dan-toc.css">
     <link rel="stylesheet" href="CSS/thanh-menu.css">
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        /* Đẩy nội dung sang phải 64px */
+        body {
+            padding-left: 64px;
+        }
+        
+        /* Chỉnh lại Navbar trên cùng: Bắt đầu từ sau Sidebar */
+        nav.fixed {
+            left: 64px !important;
+            width: calc(100% - 64px) !important;
+        }
+
+        /* Đảm bảo Sidebar nằm trên tất cả (Z-index cao nhất) */
+        .sidebar-left {
+            z-index: 10000;
+        }
+    </style>
 </head>
+
 <body class="theme-hoa">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+    <div class="sidebar-left">
+        <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
+            <i class="fas fa-leaf"></i>
+        </a>
+
+        <a href="index.html" class="sidebar-item" data-tooltip="Trang chủ">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <a href="gioi-thieu.html" class="sidebar-item" data-tooltip="Giới thiệu">
+            <div class="custom-img-icon icon-drum-bg"></div>
+        </a>
+
+        <div class="sidebar-item-wrap has-submenu">
+            <a href="#" class="sidebar-item active" data-tooltip="Các dân tộc"> <div class="custom-img-icon icon-brocade-bg"></div>
+            </a>
+
+            <div class="ethnic-menu">
+                <div class="menu-header">Các dân tộc</div>
+                <ul>
+                    <li><a href="dan-toc-tay.html">Dân tộc Tày</a></li>
+                    <li><a href="dan-toc-nung.html">Dân tộc Nùng</a></li>
+                    <li><a href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
+                    <li><a href="dan-toc-san-chay.html">Dân tộc Sán Chay</a></li>
+                    <li><a href="dan-toc-dao.html">Dân tộc Dao</a></li>
+                    <li><a href="dan-toc-kinh.html">Dân tộc Kinh</a></li>
+                    <li><a href="dan-toc-hoa.html" style="color: #d9534f; font-weight: bold;">Dân tộc Hoa</a></li> <li><a href="dan-toc-muong.html">Dân tộc Mường</a></li>
+                    <li><a href="dan-toc-ngai.html">Dân tộc Ngái</a></li>
+                    <li><a href="dan-toc-thai.html">Dân tộc Thái</a></li>
+                    <li><a href="dan-toc-mong.html">Dân tộc H'Mông</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="lien-he.html" class="sidebar-item" data-tooltip="Liên hệ & Góp ý">
+            <i class="fas fa-comment-dots"></i>
+            <span class="badge-count">3</span>
+        </a>
+    </div>
+    <nav class="bg-white shadow-md fixed top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -28,7 +91,6 @@
                     <a href="#am-thuc" class="text-gray-600 hover:text-red-700 transition">Ẩm thực</a>
                     <a href="#le-hoi" class="text-gray-600 hover:text-red-700 transition">Lễ hội</a>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button class="text-gray-600 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
@@ -38,10 +100,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-60">
-            <!-- Ảnh nền đèn lồng đỏ rực rỡ -->
             <img src="https://images.unsplash.com/photo-1548622114-1d37b8d4365c?q=80&w=2070&auto=format&fit=crop" alt="Đèn lồng đỏ lễ hội" class="w-full h-full object-cover">
         </div>
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -55,7 +115,6 @@
         </div>
     </header>
 
-    <!-- Section: Kinh tế (Thương nghiệp) -->
     <section id="kinh-te" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -89,7 +148,6 @@
         </div>
     </section>
 
-    <!-- Section: Không gian sống -->
     <section id="khong-gian" class="section-padding bg-red-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -125,12 +183,11 @@
                 </div>
             </div>
              <div class="mt-12 text-center">
-                                  <p class="text-sm text-gray-500 mt-2 italic">Góc tâm linh trang trọng trong ngôi nhà người Hoa</p>
+                   <p class="text-sm text-gray-500 mt-2 italic">Góc tâm linh trang trọng trong ngôi nhà người Hoa</p>
              </div>
         </div>
     </section>
 
-    <!-- Section: Ẩm thực -->
     <section id="am-thuc" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -177,9 +234,7 @@
         </div>
     </section>
 
-    <!-- Section: Lễ hội (Lân Sư Rồng) -->
     <section id="le-hoi" class="section-padding bg-gray-900 text-white relative overflow-hidden">
-        <!-- Background decoration -->
         <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-red-600 rounded-full opacity-20 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-yellow-500 rounded-full opacity-20 blur-3xl"></div>
 
@@ -215,7 +270,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-red-900 text-white py-12 border-t-4 border-yellow-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4 font-serif text-yellow-300">Văn Hóa Người Hoa Thái Nguyên</h2>
@@ -231,7 +285,6 @@
         </div>
     </footer>
 
-    <!-- Smooth Scroll Script -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
