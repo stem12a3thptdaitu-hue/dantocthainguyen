@@ -47,22 +47,28 @@
 /* PHẦN 2: CSS GỐC & CHỈNH SỬA THEO YÊU CẦU */
 /* ========================================= */
 
-/* 1. NỀN TRANG CHUNG (VIDEO) */
+/* ========================================= */
+/* 1. NỀN TRANG CHUNG (ĐÃ ĐỔI SANG ẢNH) */
+/* ========================================= */
 
-/* Cấu hình cho Video nền */
+/* Ẩn video cũ nếu chưa xóa thẻ HTML */
 #video-background {
-    position: fixed;
-    right: 0; 
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    width: auto; 
-    height: auto;
-    z-index: -2; /* Đẩy video ra sau cùng */
-    object-fit: cover; /* Đảm bảo video phủ kín màn hình không bị méo */
+    display: none !important;
 }
 
-/* Lớp phủ tối đè lên video để chữ dễ đọc hơn */
+/* Cấu hình ảnh nền cho toàn trang */
+body {
+    /* Đường dẫn ảnh - Hãy đảm bảo bạn đã lưu ảnh vào thư mục images */
+    background-image: url('../images/Gemini_Generated_Image_vk2rwlvk2rwlvk2r.jpg') !important;
+    
+    /* Căn chỉnh ảnh */
+    background-size: cover;           /* Phủ kín màn hình */
+    background-repeat: no-repeat;     /* Không lặp lại */
+    background-position: center center; /* Căn giữa ảnh */
+    background-attachment: fixed;     /* Cố định ảnh khi cuộn chuột (tạo hiệu ứng đẹp) */
+}
+
+/* Lớp phủ tối đè lên ảnh để chữ dễ đọc hơn */
 body::before {
     content: '';
     position: fixed;
@@ -70,23 +76,21 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradient giúp video sáng ở giữa và tối dần về góc */
-    background: radial-gradient(circle at center, var(--bg-light-overlay) 0%, var(--bg-dark-overlay) 90%);
-    z-index: -1; /* Nằm trên video nhưng dưới nội dung web */
+    
+    /* Điều chỉnh Gradient: */
+    /* Giữa màn hình tối nhẹ (0.5) để thấy chi tiết ảnh */
+    /* Góc màn hình tối đậm (0.85) để tập trung thị giác */
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.85) 100%);
+    
+    z-index: -1; /* Nằm dưới nội dung web */
     pointer-events: none; 
 }
-/* Code ép video hiện lên nếu bị che */
+
+/* Đảm bảo body hiển thị 100% chiều cao */
 html, body {
-    background: transparent !important; /* Xóa màu nền bắt buộc */
     height: 100%;
+    margin: 0;
 }
-
-#video-background {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
 /* 2. MENU (NAVBAR) - ĐÃ SỬA: TRONG SUỐT */
 .navbar-custom {
     /* ĐÃ SỬA: Xóa nền đen, chuyển sang trong suốt */
@@ -375,5 +379,6 @@ footer {
     margin-right: 10px;
     filter: drop-shadow(0 0 2px #000);
 }
+
 
 
