@@ -14,22 +14,111 @@
     
     <link rel="stylesheet" href="CSS/cac-dan-toc.css">
     <link rel="stylesheet" href="CSS/thanh-menu.css">
+
+    <style>
+        /* CSS GỐC VÀ LIGHTBOX */
+        body.theme-tay { 
+            font-family: 'Montserrat', sans-serif; 
+            /* Thêm padding cho sidebar */
+            padding-left: 64px; 
+            background-color: #f8f8f8; 
+        }
+        .indigo-text { color: #312E81; } /* Indigo-900 */
+        .indigo-bg { background-color: #312E81; }
+        .text-accent { color: #D97706; } /* Amber-600 */
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        .pattern-bg {
+            background-image: radial-gradient(#312E81 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+        }
+
+        /* CSS Sidebar (Giữ nguyên từ code bạn gửi) */
+        nav.fixed { width: calc(100% - 64px) !important; margin-left: 64px !important; }
+        .sidebar-left { position: fixed; top: 0; left: 0; height: 100vh; width: 64px; background-color: white; display: flex; flex-direction: column; align-items: center; padding-top: 20px; box-shadow: 4px 0 10px rgba(0,0,0,0.05); z-index: 9999; }
+        .sidebar-item { width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-bottom: 16px; color: #5f5f5f; text-decoration: none; font-size: 20px; transition: all 0.2s ease; position: relative; cursor: pointer; }
+        .sidebar-item:hover { background-color: #f0f2f5; color: #198754; }
+        .icon-tea { color: #28a745; font-size: 28px; margin-bottom: 25px; }
+        .custom-img-icon { width: 100%; height: 100%; background-size: cover; background-position: center; display: block; }
+        .icon-drum-bg { background-image: url('images/trong-dong.jpg.png'); border-radius: 50%; }
+        .icon-brocade-bg { background-image: url('images/hoatiet.jpg'); border-radius: 8px; }
+        .badge-count { position: absolute; top: -2px; right: -2px; background-color: #e60023; color: white; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 10px; border: 2px solid white; }
+        .sidebar-item::after, .sidebar-item::before { opacity: 0; visibility: hidden; }
+
+        /* Lightbox CSS & Image cursor */
+        img { cursor: pointer; }
+        #imageModal { z-index: 100000; }
+        
+        .image-card img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Thêm style cho các container ảnh */
+        .img-container-default {
+            height: 160px;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .img-container-default img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .img-container-default:hover img {
+            transform: scale(1.05);
+        }
+        .img-container-full {
+            height: 384px; /* h-96 */
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .img-container-full img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .img-container-full:hover img {
+            transform: scale(1.05);
+        }
+        /* Style cho ảnh Guồng nước */
+        #nong-nghiep .img-grid-container {
+            height: 360px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        #nong-nghiep .img-grid-container img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body class="theme-tay">
     
+    <!-- Modal Phóng to ảnh (Lightbox) -->
+    <div id="imageModal" class="fixed inset-0 z-[100000] hidden bg-black bg-opacity-95 flex items-center justify-center p-4 transition-opacity duration-300" onclick="closeModal()">
+        <span class="absolute top-5 right-8 text-white text-5xl font-bold cursor-pointer hover:text-gray-300">&times;</span>
+        <img id="modalImage" src="" alt="Phóng to" class="max-h-[90vh] max-w-full object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- SIDEBAR -->
     <div class="sidebar-left">
         <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
             <i class="fas fa-leaf"></i>
         </a>
-
         <a href="index.html" class="sidebar-item" data-tooltip="Trang chủ">
             <i class="fas fa-home"></i>
         </a>
-
         <a href="gioi-thieu.html" class="sidebar-item" data-tooltip="Giới thiệu">
             <div class="custom-img-icon icon-drum-bg"></div>
         </a>
-
         <div class="sidebar-item-wrap has-submenu">
             <a href="#" class="sidebar-item active" data-tooltip="Các dân tộc">
                 <div class="custom-img-icon icon-brocade-bg"></div>
@@ -58,6 +147,8 @@
             <span class="badge-count">3</span>
         </a>
     </div>
+
+    <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -81,9 +172,10 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center indigo-bg text-white overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-40">
-            <img src="https://images.unsplash.com/photo-1528127220108-1e58f2f5c120?q=80&w=2070&auto=format&fit=crop" alt="Phong cảnh miền núi phía Bắc" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1528127220108-1e58f2f5c120?q=80&w=2070&auto=format&fit=cover" alt="Phong cảnh miền núi phía Bắc" class="w-full h-full object-cover">
         </div>
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
             <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight hover:scale-105 transition-transform duration-300 inline-block cursor-default">NGƯỜI TÀY</h1>
@@ -96,14 +188,24 @@
         </div>
     </header>
 
+    <!-- Section: Nông nghiệp -->
     <section id="nong-nghiep" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
-                     <div class="mt-4 grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1596395819057-a37aace88080?q=80&w=2072&auto=format&fit=crop" alt="Đồi chè Thái Nguyên" class="rounded-lg shadow-md h-40 w-full object-cover">
-                        <img src="https://images.unsplash.com/photo-1591528659585-6110f80e9803?q=80&w=2070&auto=format&fit=crop" alt="Guồng nước" class="rounded-lg shadow-md h-40 w-full object-cover">
+                    <div class="mt-4 img-grid-container">
+                        <!-- Ảnh lúa tày.jpg (Ảnh lớn chiếm 2/3 không gian) -->
+                        <div class="col-span-2 img-container-default h-64">
+                            <img src="images/lúa tày.jpg" alt="Ruộng lúa nước người Tày" class="w-full h-full object-cover">
+                        </div>
+                        <!-- Ảnh Guồng nước.jpg (Ảnh nhỏ) -->
+                        <div class="img-container-default">
+                             <img src="images/Guồng nước.jpg" alt="Guồng nước truyền thống" class="w-full h-full object-cover">
+                        </div>
+                        <div class="img-container-default bg-gray-50 flex items-center justify-center p-2 text-center">
+                             <p class="text-sm text-gray-600 font-serif italic">Hệ thống thủy lợi tinh xảo</p>
+                        </div>
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
@@ -125,6 +227,7 @@
         </div>
     </section>
 
+    <!-- Section: Kiến trúc -->
     <section id="kien-truc" class="section-padding bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -152,11 +255,14 @@
             </div>
             
             <div class="mt-12 rounded-xl overflow-hidden shadow-2xl">
-                    </div>
+                <!-- Ảnh sàn tày.jpg -->
+                <img src="images/sàn tày.jpg" alt="Kiến trúc Nhà sàn Tày" class="w-full h-auto object-cover">
+            </div>
             <p class="text-center mt-4 italic text-gray-500">Cầu thang 9 bậc tượng trưng cho sự may mắn và trường tồn.</p>
         </div>
     </section>
 
+    <!-- Section: Trang phục -->
     <section id="trang-phuc" class="section-padding indigo-bg text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -174,22 +280,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="md:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="space-y-4">
-                        <div class="bg-blue-900 h-32 rounded-lg flex items-center justify-center p-4 text-center">
-                            <span class="italic font-serif">"Đơn giản mà tinh tế"</span>
-                        </div>
-                    </div>
-                    <div class="space-y-4 pt-8">
-                        <div class="bg-teal-800 h-32 rounded-lg flex items-center justify-center p-4 text-center">
-                            <span class="italic font-serif">"Thủy chung son sắt"</span>
-                        </div>
+                <!-- Ảnh TP tày.jpg -->
+                <div class="md:w-1/2 grid grid-cols-1 gap-4">
+                    <div class="img-container-full">
+                        <img src="images/TP tày.jpg" alt="Trang phục Tày sắc chàm" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Section: Văn hóa -->
     <section id="van-hoa" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -203,6 +304,8 @@
 
             <div class="flex flex-col lg:flex-row gap-10 items-stretch">
                 <div class="lg:w-1/2 relative group overflow-hidden rounded-2xl shadow-xl">
+                    <!-- Ảnh Đàn tày.jpg -->
+                    <img src="images/Đàn tày.jpg" alt="Nghệ nhân đàn Tính" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-0 left-0 p-8 text-white">
                         <h3 class="text-2xl font-bold mb-2">Cây Đàn Tính</h3>
@@ -237,6 +340,7 @@
         </div>
     </section>
 
+    <!-- Section: Ẩm thực -->
     <section id="am-thuc" class="section-padding bg-green-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -270,12 +374,17 @@
                     </div>
                 </div>
                 <div class="relative">
-                     <div class="absolute -inset-4 bg-green-200 rounded-full opacity-50 blur-2xl"></div>
-                     </div>
+                    <div class="absolute -inset-4 bg-green-200 rounded-full opacity-50 blur-2xl"></div>
+                    <!-- Ảnh Chưng cake.jpg -->
+                    <div class="img-container-full">
+                        <img src="images/Chưng cake.jpg" alt="Bánh chưng Bờ Đậu" class="w-full h-full object-cover">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4">Văn Hóa Người Tày Thái Nguyên</h2>
@@ -291,18 +400,57 @@
         </div>
     </footer>
 
+    <!-- Script Xử lý phóng to ảnh & Smooth scroll -->
     <script>
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== "#") {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // Image Modal Logic (Lightbox)
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        
+        // Thêm sự kiện click cho tất cả thẻ img (trừ ảnh trong modal)
+        document.querySelectorAll('img:not(#modalImage)').forEach(img => {
+            img.onclick = function() {
+                modal.classList.remove('hidden');
+                modalImg.src = this.src;
+                // Thêm một chút delay để hiệu ứng transition hoạt động mượt mà
+                setTimeout(() => {
+                    modalImg.classList.remove('scale-95');
+                    modalImg.classList.add('scale-100');
+                }, 10);
+            }
+        });
+
+        // Hàm đóng modal
+        function closeModal() {
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Đợi hiệu ứng thu nhỏ xong mới ẩn
+        }
+
+        // Đóng modal khi nhấn ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
         });
     </script>
 </body>
 </html>
+
 
 
 
