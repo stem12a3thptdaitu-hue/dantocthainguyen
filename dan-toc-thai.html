@@ -224,5 +224,39 @@
             });
         });
     </script>
+    <script>
+    // --- PHẦN 1: XỬ LÝ LIGHTBOX (PHÓNG TO ẢNH) ---
+
+    // Lấy các phần tử cần thiết
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    // 1. Hàm đóng Modal (được gọi từ onclick="closeModal()" trong HTML)
+    function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    // 2. Ngăn việc click vào chính bức ảnh đang phóng to mà lại đóng modal
+    modalImg.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // 3. Tìm tất cả các ảnh trong phần nội dung và gắn sự kiện click
+    // Chúng ta chỉ chọn ảnh trong thẻ header và section để tránh icon ở menu
+    const contentImages = document.querySelectorAll('header img, section img');
+
+    contentImages.forEach(img => {
+        // Thêm con trỏ chuột dạng bàn tay để người dùng biết là bấm được
+        img.style.cursor = 'pointer';
+        
+        // Gắn sự kiện click
+        img.addEventListener('click', function() {
+            modalImg.src = this.src; // Lấy đường dẫn ảnh được click
+            modal.classList.remove('hidden'); // Hiện modal
+            modal.classList.add('flex'); // Căn giữa modal
+        });
+    });
+</script>
 </body>
 </html>
