@@ -9,10 +9,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/thanh-menu.css">
     <link rel="stylesheet" href="CSS/cac-dan-toc.css">
+
+    <style>
+        /* CSS GỐC VÀ LIGHTBOX */
+        body.theme-nung { 
+            font-family: 'Montserrat', sans-serif; 
+            /* Thêm padding cho sidebar */
+            padding-left: 64px; 
+            background-color: #f8f8f8; 
+        }
+        .primary-text { color: #312E81; } /* Indigo-900 */
+        .primary-bg { background-color: #312E81; }
+        .text-accent { color: #D97706; } /* Amber-600 */
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        .pattern-bg {
+            background-image: radial-gradient(#312E81 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+        }
+
+        /* CSS Sidebar (Giữ nguyên từ code bạn gửi) */
+        nav.fixed { width: calc(100% - 64px) !important; margin-left: 64px !important; }
+        .sidebar-left { position: fixed; top: 0; left: 0; height: 100vh; width: 64px; background-color: white; display: flex; flex-direction: column; align-items: center; padding-top: 20px; box-shadow: 4px 0 10px rgba(0,0,0,0.05); z-index: 9999; }
+        .sidebar-item { width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-bottom: 16px; color: #5f5f5f; text-decoration: none; font-size: 20px; transition: all 0.2s ease; position: relative; cursor: pointer; }
+        .sidebar-item:hover { background-color: #f0f2f5; color: #198754; }
+        .icon-tea { color: #28a745; font-size: 28px; margin-bottom: 25px; }
+        .custom-img-icon { width: 100%; height: 100%; background-size: cover; background-position: center; display: block; }
+        .icon-drum-bg { background-image: url('images/trong-dong.jpg.png'); border-radius: 50%; }
+        .icon-brocade-bg { background-image: url('images/hoatiet.jpg'); border-radius: 8px; }
+        .badge-count { position: absolute; top: -2px; right: -2px; background-color: #e60023; color: white; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 10px; border: 2px solid white; }
+        .sidebar-item::after, .sidebar-item::before { opacity: 0; visibility: hidden; }
+
+        /* Lightbox CSS & Image cursor */
+        img { cursor: pointer; }
+        #imageModal { z-index: 100000; }
+        
+        .image-card img:hover {
+            transform: scale(1.05);
+        }
+        
+        .image-container-lg {
+            width: 100%;
+            height: 384px; /* h-96 */
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .image-container-lg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
 
 <body class="theme-nung flex flex-col min-h-screen">
+    <!-- Modal Phóng to ảnh (Lightbox) -->
+    <div id="imageModal" class="fixed inset-0 z-[100000] hidden bg-black bg-opacity-95 flex items-center justify-center p-4 transition-opacity duration-300" onclick="closeModal()">
+        <span class="absolute top-5 right-8 text-white text-5xl font-bold cursor-pointer hover:text-gray-300">&times;</span>
+        <img id="modalImage" src="" alt="Phóng to" class="max-h-[90vh] max-w-full object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
+    </div>
 
+    <!-- SIDEBAR -->
     <div class="sidebar-left">
         <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ"><i class="fas fa-leaf"></i></a>
         <a href="index.html" class="sidebar-item" data-tooltip="Trang chủ"><i class="fas fa-home"></i></a>
@@ -39,6 +97,7 @@
         <a href="lien-he.html" class="sidebar-item" data-tooltip="Liên hệ & Góp ý"><i class="fas fa-comment-dots"></i><span class="badge-count">3</span></a>
     </div>
 
+    <!-- Navigation -->
     <nav class="bg-white shadow-md fixed top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -55,6 +114,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center primary-bg text-white overflow-hidden">
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
             <span class="text-blue-200 tracking-widest uppercase text-sm font-semibold mb-2 block">Dân tộc thiểu số đông thứ hai tại tỉnh Thái Nguyên</span>
@@ -66,12 +126,13 @@
         </div>
     </header>
 
+    <!-- Section: Kinh Tế -->
     <section id="kinh-te" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
-                     <h3 class="text-accent font-bold uppercase tracking-wide mb-2">Cần cù bậc nhất</h3>
+                    <h3 class="text-accent font-bold uppercase tracking-wide mb-2">Cần cù bậc nhất</h3>
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 primary-text hover:scale-105 transition-transform duration-300 inline-block cursor-default">Nông nghiệp đa canh</h2>
                     <p class="text-gray-600 mb-4 leading-relaxed">Người Nùng giỏi tận dụng đất đồi dốc để trồng ngô, khoai và cây công nghiệp như Chè và Hồi. Bên cạnh đó, họ cũng trồng lúa nước ở thung lũng.</p>
                     <p class="text-gray-600 mb-6 leading-relaxed">Họ mát tay trong chăn nuôi đại gia súc (trâu, bò) và lợn. Đặc biệt là giống lợn đen địa phương được chăn thả tự nhiên cho chất lượng thịt rất thơm ngon.</p>
@@ -81,13 +142,17 @@
                     </ul>
                 </div>
                 <div class="order-1 md:order-2">
-                    <img src="https://images.unsplash.com/photo-1597825686520-5c6832df752d?q=80&w=1974&auto=format&fit=crop" alt="Đồi chè Thái Nguyên" class="w-full h-96 object-cover rounded-lg shadow-xl mb-4 image-card border-r-4 border-indigo-700">
+                    <!-- Ảnh Chè Nùng.jpg -->
+                    <div class="image-container-lg mb-4 shadow-xl border-r-4 border-indigo-700">
+                        <img src="images/Chè Nùng.jpg" alt="Đồi chè của người Nùng" class="w-full h-full object-cover">
+                    </div>
                     <div class="text-center italic text-sm text-gray-500">Người Nùng gắn bó với nông nghiệp và núi rừng</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Section: Kiến trúc & Trang phục -->
     <section id="kientruc-trangphuc" class="section-padding bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -96,20 +161,28 @@
                 <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Nét độc đáo trong không gian sống và trang phục truyền thống.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Nhà Trình Tường -->
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-yellow-600 relative overflow-hidden group">
                     <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition"><i class="fas fa-home text-9xl text-yellow-800"></i></div>
                     <h3 class="text-2xl font-bold mb-4 text-yellow-800"><i class="fas fa-layer-group mr-2"></i>Nhà Trình Tường (Nhà đất)</h3>
-                    <p class="text-gray-600 mb-4">Kiểu nhà độc đáo của người Nùng ở vùng cao biên giới di cư về Thái Nguyên.</p>
+                    <!-- Ảnh trình tường.jpg -->
+                    <div class="image-container-lg mb-4 shadow-md">
+                        <img src="images/trình tường.jpg" alt="Kiến trúc Nhà trình tường" class="w-full h-full object-cover">
+                    </div>
                     <ul class="list-disc list-inside text-gray-700 space-y-2">
                         <li><strong>Cấu tạo:</strong> Tường làm bằng đất nện dày, mái lợp ngói âm dương.</li>
                         <li><strong>Ưu điểm:</strong> Tạo ra không gian "đông ấm, hè mát".</li>
                         <li><strong>Chức năng:</strong> Có khả năng phòng thủ rất tốt (chống đạn, chống trộm cướp ngày xưa).</li>
                     </ul>
                 </div>
+                <!-- Trang phục Sắc Chàm -->
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition border-t-4 border-indigo-900 relative overflow-hidden group">
-                     <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition"><i class="fas fa-tshirt text-9xl text-indigo-900"></i></div>
+                    <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition"><i class="fas fa-tshirt text-9xl text-indigo-900"></i></div>
                     <h3 class="text-2xl font-bold mb-4 text-indigo-900"><i class="fas fa-palette mr-2"></i>Sắc chàm thuần khiết</h3>
-                    <p class="text-gray-600 mb-4">Trang phục chinh phục người nhìn bởi sắc chàm (indigo) thuần khiết, không rực rỡ hoa văn thêu thùa.</p>
+                    <!-- Ảnh TP Nùng.jpg -->
+                    <div class="image-container-lg mb-4 shadow-md">
+                        <img src="images/TP Nùng.jpg" alt="Trang phục Nùng sắc chàm" class="w-full h-full object-cover">
+                    </div>
                     <ul class="list-disc list-inside text-gray-700 space-y-2">
                         <li><strong>Chất liệu:</strong> Vải tự dệt từ sợi bông, nhuộm chàm nhiều lần đến khi có màu xanh đen bóng hoặc tím than.</li>
                         <li><strong>Nam giới:</strong> Áo cổ đứng, xẻ ngực, hàng cúc vải.</li>
@@ -120,9 +193,10 @@
         </div>
     </section>
 
+    <!-- Section: Văn hóa (Điệu Sli) -->
     <section id="van-hoa" class="section-padding bg-indigo-900 text-white relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full">
-            <img src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-10 mix-blend-overlay" alt="Minh họa đêm trăng">
+            <img src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2070&auto=format&fit=cover" class="w-full h-full object-cover opacity-10 mix-blend-overlay" alt="Minh họa đêm trăng">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col md:flex-row gap-12 items-center">
@@ -137,8 +211,9 @@
                 </div>
                 <div class="md:w-1/2 text-center">
                     <div class="relative inline-block">
-                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-yellow-300 overflow-hidden shadow-2xl mx-auto animate-pulse-slow">
-                             <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop" alt="Hát giao duyên" class="w-full h-full object-cover">
+                        <!-- Ảnh Sli.jpg -->
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-yellow-300 overflow-hidden shadow-2xl mx-auto">
+                             <img src="images/Sli.jpg" alt="Hát giao duyên Sli" class="w-full h-full object-cover">
                         </div>
                         <div class="absolute -bottom-4 -right-4 bg-white text-indigo-900 px-4 py-2 rounded-full font-bold shadow-lg"><i class="fas fa-music"></i> Hát Sli</div>
                     </div>
@@ -147,6 +222,7 @@
         </div>
     </section>
 
+    <!-- Section: Ẩm thực -->
     <section id="am-thuc" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -155,7 +231,8 @@
             </div>
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1625938145744-e38051527743?q=80&w=2072&auto=format&fit=crop" alt="Lợn quay lá mác mật" class="rounded-lg shadow-2xl w-full h-auto object-cover border-4 border-gray-200">
+                    <!-- Ảnh Heo quay.jpg -->
+                    <img src="images/Heo quay.jpg" alt="Lợn quay lá mác mật" class="rounded-lg shadow-2xl w-full h-auto object-cover border-4 border-gray-200">
                 </div>
                 <div class="lg:w-1/2">
                     <h3 class="text-2xl font-bold mb-4 text-gray-800">Món ăn không thể thiếu trong lễ tết</h3>
@@ -175,6 +252,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12 border-t-4 border-indigo-500 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4 font-serif text-indigo-300">Văn Hóa Người Nùng Thái Nguyên</h2>
@@ -190,14 +268,52 @@
         </div>
     </footer>
 
+    <!-- Script Xử lý phóng to ảnh & Smooth scroll -->
     <script>
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== "#") {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // Image Modal Logic (Lightbox)
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        
+        // Thêm sự kiện click cho tất cả thẻ img (trừ ảnh trong modal)
+        document.querySelectorAll('img:not(#modalImage)').forEach(img => {
+            img.onclick = function() {
+                modal.classList.remove('hidden');
+                modalImg.src = this.src;
+                // Thêm một chút delay để hiệu ứng transition hoạt động mượt mà
+                setTimeout(() => {
+                    modalImg.classList.remove('scale-95');
+                    modalImg.classList.add('scale-100');
+                }, 10);
+            }
+        });
+
+        // Hàm đóng modal
+        function closeModal() {
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Đợi hiệu ứng thu nhỏ xong mới ẩn
+        }
+
+        // Đóng modal khi nhấn ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
         });
     </script>
 </body>
