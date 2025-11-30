@@ -69,6 +69,22 @@
         .craft-img-container:hover img {
             transform: scale(1.05);
         }
+
+        /* Điều chỉnh cho một ảnh Thủ công duy nhất */
+        #thu-cong .md\:order-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #thu-cong .craft-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Chỉ 1 cột */
+            gap: 1rem;
+            width: 100%; /* Đảm bảo grid chiếm hết chiều rộng */
+        }
+        #thu-cong .craft-img-container {
+            height: 300px; /* Tăng chiều cao cho ảnh đơn */
+        }
     </style>
 </head>
 <body class="theme-ngai">
@@ -162,20 +178,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
-                    <div class="mt-4 grid grid-cols-2 gap-4">
-                        <div class="bg-orange-50 rounded-lg flex items-center justify-center p-4 text-center border border-orange-200 col-span-2">
+                    <div class="mt-4 craft-grid">
+                        <div class="bg-orange-50 rounded-lg flex items-center justify-center p-4 text-center border border-orange-200 col-span-1">
                              <span class="font-serif italic text-orange-900">"Nghệ nhân chân đất"</span>
                         </div>
                         
-                        <!-- Ảnh Nông Ngái.jpg (Canh tác/Trị thủy) -->
+                        <!-- Ảnh Nông Ngái.jpg (Được giữ lại) -->
                         <div class="craft-img-container">
                             <img src="images/Nông Ngái.jpg" alt="Canh tác và Trị thủy của người Ngái" class="w-full">
                         </div>
                         
-                        <!-- Ảnh Thủ công (Placeholder) -->
-                        <div class="craft-img-container">
-                            <img src="https://images.unsplash.com/photo-1629881827653-a55e2c6686d6?q=80&w=2070&auto=format&fit=cover" alt="Thủ công đan lát" class="w-full">
-                        </div>
+                        <!-- Đã xóa khung ảnh placeholder thứ hai -->
                     </div>
                 </div>
                 <div class="order-1 md:order-2">
@@ -275,8 +288,8 @@
             <div class="flex flex-col lg:flex-row gap-10 items-center">
                 <div class="lg:w-1/2 relative">
                     <div class="absolute -inset-4 bg-pink-100 rounded-full opacity-60 blur-2xl"></div>
-                    <!-- Ảnh Sường Cô.jpg -->
-                    <img src="images/Sường Cô.jpg" alt="Điệu hát Sường Cô" class="relative z-10 rounded-2xl shadow-2xl w-full object-cover h-96">
+                    <!-- Ảnh Sường cô.jpg -->
+                    <img src="images/Sường cô.jpg" alt="Điệu hát Sường Cô" class="relative z-10 rounded-2xl shadow-2xl w-full object-cover h-96">
                     <p class="text-center mt-4 text-gray-500 italic">"Lời ca bóng bẩy gửi gắm tình yêu đôi lứa"</p>
                 </div>
                 
