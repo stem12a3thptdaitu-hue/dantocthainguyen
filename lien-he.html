@@ -66,25 +66,29 @@
                     <div class="card-body p-5 text-start">
                         <h2 class="text-center mb-4" style="font-size: 1.8rem;">GỬI TIN NHẮN</h2>
                         
-                        <form>
-                            <div class="mb-4">
-                                <label class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control form-control-lg" placeholder="Nhập tên của bạn...">
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Email liên hệ</label>
-                                <input type="email" class="form-control form-control-lg" placeholder="name@example.com">
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Nội dung góp ý</label>
-                                <textarea class="form-control form-control-lg" rows="5" placeholder="Bạn muốn nhắn gửi điều gì?"></textarea>
-                            </div>
-                            <div class="d-grid mt-5">
-                                <button type="button" class="btn btn-outline-success btn-lg py-3">
-                                    GỬI TIN NHẮN NGAY
-                                </button>
-                            </div>
-                        </form>
+                       <form action="https://formspree.io/f/xvgeopyo" method="POST">
+    
+    <div class="mb-4">
+        <label class="form-label">Họ và tên</label>
+        <input type="text" name="name" class="form-control form-control-lg" placeholder="Nhập tên của bạn..." required>
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label">Email liên hệ</label>
+        <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label">Nội dung góp ý</label>
+        <textarea name="message" class="form-control form-control-lg" rows="5" placeholder="Bạn muốn nhắn gửi điều gì?" required></textarea>
+    </div>
+
+    <div class="d-grid mt-5">
+        <button type="submit" class="btn btn-outline-success btn-lg py-3">
+            GỬI TIN NHẮN NGAY
+        </button>
+    </div>
+</form>
                     </div>
                 </div>
             </div>
@@ -101,5 +105,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
 
