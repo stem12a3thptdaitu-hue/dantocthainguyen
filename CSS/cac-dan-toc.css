@@ -351,99 +351,80 @@ nav.fixed, nav.w-full {
     }
 }
 /* ======================================================
-   PHẦN BỔ SUNG RIÊNG CHO ẨM THỰC TÀY (PHONG CÁCH BÁO CHÍ)
-   (Dán đoạn này xuống cuối cùng file css để không lỗi trang khác)
+   PHẦN BỔ SUNG RIÊNG CHO ẨM THỰC TÀY (ĐÃ FIX LỖI)
    ====================================================== */
 
-/* 1. Khung ảnh chính (Main Magazine Image) */
+/* 1. Khung ảnh chính */
 #am-thuc .img-container-full {
     width: 100%;
     height: 100%;
-    min-height: 500px; /* Tăng chiều cao thêm chút nữa */
+    min-height: 500px; 
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* QUAN TRỌNG: Để visible để ảnh nhỏ lòi ra ngoài không bị cắt */
     border-radius: 1rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    z-index: 10; /* Đảm bảo nằm dưới ảnh phụ */
+    z-index: 10;
 }
 
-/* 2. Ảnh phụ nhỏ (Floating/Overlay Image) - Bánh Coóc Mò */
+/* 2. Ảnh phụ nhỏ (Bánh Coóc Mò) */
 #am-thuc .img-overlay-card {
     position: absolute;
-    bottom: -2rem; /* Đặt thấp xuống một chút */
-    left: -2rem; /* Đặt lệch sang trái một chút */
-    /* --- TĂNG KÍCH THƯỚC ẢNH NHỎ Ở ĐÂY --- */
-    width: 200px; /* Tăng từ 160px lên 200px */
-    height: 200px; /* Tăng từ 160px lên 200px */
+    bottom: 2rem; /* Đưa lên cao hơn một chút để không bị rớt ra ngoài quá nhiều */
+    left: -3rem;  /* Đẩy sang trái nhiều hơn để tạo vẻ phá cách */
+    
+    /* --- TĂNG KÍCH THƯỚC ẢNH --- */
+    width: 240px;  /* Tăng từ 200px lên 240px cho to rõ */
+    height: 240px; /* Tương ứng */
+    
     border-radius: 1rem;
-    border: 6px solid white; /* Viền trắng dày hơn cho nổi */
-    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.2);
+    border: 6px solid white;
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    z-index: 50; /* Luôn nằm trên cùng */
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Hiệu ứng nảy khi hover */
+    z-index: 50; 
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Mẹo: Đặt object-fit để ảnh bên trong không bị méo */
+    object-fit: cover; 
 }
 
-/* Hiệu ứng khi di chuột vào ảnh nhỏ */
 #am-thuc .img-overlay-card:hover {
-    transform: scale(1.05) rotate(-3deg); /* Phóng to và xoay nhẹ */
-    border-color: #f0fdf4; /* Đổi màu viền sang xanh nhạt */
+    transform: scale(1.05) rotate(-3deg);
+    border-color: #f0fdf4;
 }
 
-/* 3. Lớp phủ chữ trên ảnh lớn (Caption Overlay) */
+/* 3. Lớp phủ chữ (Caption) - ĐÃ SỬA PADDING */
 #am-thuc .img-caption-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    /* Tạo gradient tối ở dưới để làm nổi chữ */
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
-    /* --- ĐIỀU CHỈNH PADDING ĐỂ TRÁNH BỊ CHE --- */
-    padding: 6rem 2rem 2rem 8rem; /* Padding-left lớn (8rem) để né ảnh nhỏ bên trái */
-    pointer-events: none; /* Để chuột có thể tương tác với ảnh nhỏ bên dưới */
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.6) 60%, transparent 100%);
+    
+    /* --- FIX LỖI CHE CHỮ TẠI ĐÂY --- */
+    /* Ảnh rộng 240px, trừ đi phần lòi ra ngoài, ta cần khoảng 14-15rem để an toàn */
+    padding: 6rem 2rem 2rem 14rem; 
+    
+    pointer-events: none;
+    border-bottom-left-radius: 1rem; /* Bo góc theo khung cha */
+    border-bottom-right-radius: 1rem;
 }
 
-/* 4. Hiệu ứng Tem Đặc Sản (Badge) */
-#am-thuc .badge-dac-san {
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 40;
-}
-#am-thuc .img-container-full:hover .badge-dac-san {
-    transform: rotate(0deg) scale(1.1) !important;
-}
+/* ... Các phần khác giữ nguyên ... */
 
-/* 5. Hiệu ứng Box nội dung */
-#am-thuc .bg-white {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-#am-thuc .bg-white:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(20, 83, 45, 0.15);
-}
-
-/* 6. Tinh chỉnh Responsive trên điện thoại */
+/* 6. Responsive (Mobile) - Cần chỉnh lại vì màn hình nhỏ không chứa nổi padding to */
 @media (max-width: 768px) {
-    #am-thuc .img-container-full {
-        min-height: 350px;
-    }
-    
-    /* Trên mobile, thu nhỏ ảnh phụ và đặt lại vị trí cho gọn */
     #am-thuc .img-overlay-card {
-        width: 120px;
-        height: 120px;
-        bottom: -1rem;
-        left: 1rem;
-        border-width: 4px;
+        width: 140px;  /* Nhỏ lại trên mobile */
+        height: 140px;
+        bottom: -1.5rem; /* Cho rớt xuống dưới một chút */
+        left: 50%; /* Căn giữa ảnh */
+        transform: translateX(-50%); /* Kỹ thuật căn giữa tuyệt đối */
     }
 
-    /* Điều chỉnh lại padding chữ trên mobile */
     #am-thuc .img-caption-overlay {
-        padding: 4rem 1rem 1rem 1rem; /* Padding đều hơn trên màn hình nhỏ */
-        text-align: center; /* Canh giữa chữ cho đẹp */
-    }
-    
-    #am-thuc .badge-dac-san {
-        transform: scale(0.8) rotate(12deg);
-        right: 0.5rem;
-        top: 0.5rem;
+        /* Trên mobile, ảnh nằm dưới cùng hoặc giữa, nên chữ không cần né sang trái nữa */
+        padding: 2rem 1rem 5rem 1rem; /* Đẩy padding bottom lên để chữ không bị ảnh đè (nếu ảnh nằm dưới) */
+        text-align: center;
+        background: linear-gradient(to top, rgba(0,0,0,1) 20%, transparent 100%);
     }
 }
