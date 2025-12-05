@@ -18,13 +18,11 @@
 </head>
 <body class="theme-tay">
     
-    <!-- Modal Phóng to ảnh (Lightbox) -->
     <div id="imageModal" class="fixed inset-0 z-[100000] hidden bg-black bg-opacity-95 flex items-center justify-center p-4 transition-opacity duration-300" onclick="closeModal()">
         <span class="absolute top-5 right-8 text-white text-5xl font-bold cursor-pointer hover:text-gray-300">&times;</span>
         <img id="modalImage" src="" alt="Phóng to" class="max-h-[90vh] max-w-full object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
     </div>
 
-    <!-- SIDEBAR -->
     <div class="sidebar-left">
         <a href="index.html" class="sidebar-item icon-tea" data-tooltip="Trang chủ">
             <i class="fas fa-leaf"></i>
@@ -64,7 +62,6 @@
         </a>
     </div>
 
-    <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -88,7 +85,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="gioi-thieu" class="relative h-screen flex items-center justify-center indigo-bg text-white overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-40">
             <img src="https://images.unsplash.com/photo-1528127220108-1e58f2f5c120?q=80&w=2070&auto=format&fit=cover" alt="Phong cảnh miền núi phía Bắc" class="w-full h-full object-cover">
@@ -104,18 +100,15 @@
         </div>
     </header>
 
-    <!-- Section: Nông nghiệp -->
     <section id="nong-nghiep" class="section-padding bg-white relative">
         <div class="absolute inset-0 pattern-bg"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
                     <div class="mt-4 img-grid-container">
-                        <!-- Ảnh lúa tày.jpg (Ảnh lớn chiếm 2/3 không gian) -->
                         <div class="col-span-2 img-container-default h-64">
                             <img src="images/lúa tày.jpg" alt="Ruộng lúa nước người Tày" class="w-full h-full object-cover">
                         </div>
-                        <!-- Ảnh Guồng nước.jpg (Ảnh nhỏ) -->
                         <div class="img-container-default">
                              <img src="images/Guồng nước.jpg" alt="Guồng nước truyền thống" class="w-full h-full object-cover">
                         </div>
@@ -143,7 +136,6 @@
         </div>
     </section>
 
-    <!-- Section: Kiến trúc -->
     <section id="kien-truc" class="section-padding bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -171,14 +163,12 @@
             </div>
             
             <div class="mt-12 rounded-xl overflow-hidden shadow-2xl">
-                <!-- Ảnh sàn tày.jpg -->
                 <img src="images/sàn tày.jpg" alt="Kiến trúc Nhà sàn Tày" class="w-full h-auto object-cover">
             </div>
             <p class="text-center mt-4 italic text-gray-500">Cầu thang 9 bậc tượng trưng cho sự may mắn và trường tồn.</p>
         </div>
     </section>
 
-    <!-- Section: Trang phục -->
     <section id="trang-phuc" class="section-padding indigo-bg text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -196,7 +186,6 @@
                         </ul>
                     </div>
                 </div>
-                <!-- Ảnh TP tày.jpg -->
                 <div class="md:w-1/2 grid grid-cols-1 gap-4">
                     <div class="img-container-full">
                         <img src="images/TP tày.jpg" alt="Trang phục Tày sắc chàm" class="w-full h-full object-cover">
@@ -206,7 +195,6 @@
         </div>
     </section>
 
-    <!-- Section: Văn hóa -->
     <section id="van-hoa" class="section-padding bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -220,7 +208,6 @@
 
             <div class="flex flex-col lg:flex-row gap-10 items-stretch">
                 <div class="lg:w-1/2 relative group overflow-hidden rounded-2xl shadow-xl">
-                    <!-- Ảnh Đàn tày.jpg -->
                     <img src="images/Đàn tày.jpg" alt="Nghệ nhân đàn Tính" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-0 left-0 p-8 text-white">
@@ -309,13 +296,13 @@
                              alt="Bánh chưng đen đặc sản Định Hóa" 
                              class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
                         
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-12">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-12 md:pl-56">
                             <p class="text-white font-bold text-lg">Sự hòa quyện của Nếp nương & Tro cây rừng</p>
                             <p class="text-gray-300 text-xs uppercase tracking-widest mt-1">Hương vị Bản Tày</p>
                         </div>
                     </div>
 
-                    <div class="hidden md:block absolute -bottom-6 -left-6 w-40 h-40 rounded-lg border-4 border-white shadow-xl overflow-hidden z-20 hover:scale-105 transition duration-300">
+                    <div class="hidden md:block absolute -bottom-6 -left-6 w-48 h-48 rounded-lg border-4 border-white shadow-xl overflow-hidden z-20 hover:scale-105 transition duration-300">
                         <img src="images/banh-cooc-mo.jpg" 
                              alt="Bánh Coóc mò" 
                              class="w-full h-full object-cover">
@@ -324,7 +311,6 @@
             </div>
         </div>
     </section>
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-bold mb-4">Văn Hóa Người Tày Thái Nguyên</h2>
@@ -340,7 +326,6 @@
         </div>
     </footer>
 
-    <!-- Script Xử lý phóng to ảnh & Smooth scroll -->
     <script>
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -390,10 +375,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
