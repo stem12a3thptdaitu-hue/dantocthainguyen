@@ -318,3 +318,35 @@ nav.fixed, nav.w-full {
     font-size: 9px; font-weight: 700; padding: 1px 5px;
     border-radius: 10px; border: 2px solid white;
 }
+/* =========================================
+   STYLE CHO PHẦN ẨM THỰC (Thêm mới)
+   ========================================= */
+
+/* Hiệu ứng hover nhẹ cho thẻ chứa món ăn */
+.food-card {
+    transition: transform 0.3s ease;
+}
+
+/* Định dạng box thông tin đặc biệt (Bí quyết/Hương vị) */
+.feature-box {
+    position: relative;
+    /* Hiệu ứng bóng đổ nhẹ làm nổi box lên */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Icon trong tiêu đề box */
+.feature-box i {
+    width: 24px;
+    text-align: center;
+}
+
+/* Responsive cho ảnh ẩm thực trên mobile */
+@media (max-width: 768px) {
+    .food-card img {
+        height: 250px !important; /* Giảm chiều cao ảnh trên điện thoại */
+    }
+    
+    .food-card h3 {
+        font-size: 1.5rem; /* Giảm cỡ chữ tiêu đề trên điện thoại */
+    }
+}
