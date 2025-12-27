@@ -554,3 +554,58 @@ h3.text-success, h4.text-success, .text-start .text-success {
     .sapo-text { font-size: 1.1rem; }
     .pull-quote { font-size: 1.4rem; }
 }
+/* ==========================================================================
+   BỔ SUNG: THEME CHO CÁC TRANG CHUYÊN ĐỀ (TRÀ, LỄ HỘI, DÂN CƯ)
+   ========================================================================== */
+
+/* === VĂN HÓA TRÀ (Xanh lá - Thiên nhiên - Tinh tế) === */
+.theme-tra {
+    background-color: #F1F8E9; /* Xanh cốm nhạt */
+    color: #33691E; /* Xanh rêu đậm */
+}
+.theme-tra .primary-bg { background-color: #33691E; }
+.theme-tra .primary-text { color: #33691E; }
+.theme-tra .secondary-bg { background-color: #AED581; } /* Xanh lá mạ */
+.theme-tra .text-accent { color: #FBC02D; } /* Vàng nghệ */
+.theme-tra .border-theme { border-color: #33691E; }
+.theme-tra .pattern-bg {
+    /* Họa tiết lá cách điệu (chấm tròn xanh) */
+    background-image: radial-gradient(#33691E 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+}
+
+/* === LỄ HỘI (Đỏ - Vàng - Náo nhiệt) === */
+.theme-lehoi {
+    background-color: #FFFDE7; /* Vàng kem nhạt */
+    color: #5D1013; /* Đỏ bầm tối */
+}
+.theme-lehoi .primary-bg { background-color: #B71C1C; } /* Đỏ tươi */
+.theme-lehoi .primary-text { color: #B71C1C; }
+.theme-lehoi .secondary-bg { background-color: #FF6F00; } /* Cam cháy */
+.theme-lehoi .text-accent { color: #FFD600; } /* Vàng tươi */
+.theme-lehoi .border-theme { border-color: #B71C1C; }
+.theme-lehoi .pattern-bg {
+    /* Họa tiết đan chéo lễ hội */
+    background-image: linear-gradient(45deg, #B71C1C 25%, transparent 25%, transparent 75%, #B71C1C 75%, #B71C1C), linear-gradient(45deg, #B71C1C 25%, transparent 25%, transparent 75%, #B71C1C 75%, #B71C1C);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.05;
+}
+
+/* === DÂN CƯ (Xanh dương - Khoa học - Số liệu) === */
+.theme-dancu {
+    background-color: #E3F2FD; /* Xanh dương nhạt */
+    color: #0D47A1; /* Xanh biển đậm */
+}
+.theme-dancu .primary-bg { background-color: #1565C0; }
+.theme-dancu .primary-text { color: #1565C0; }
+.theme-dancu .secondary-bg { background-color: #42A5F5; } /* Xanh sáng */
+.theme-dancu .text-accent { color: #D84315; } /* Cam đậm (để làm nổi bật số liệu) */
+.theme-dancu .border-theme { border-color: #1565C0; }
+.theme-dancu .pattern-bg {
+    /* Họa tiết lưới (Grid) biểu thị kết nối/số liệu */
+    background-image: linear-gradient(#1565C0 0.5px, transparent 0.5px), linear-gradient(90deg, #1565C0 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+}
