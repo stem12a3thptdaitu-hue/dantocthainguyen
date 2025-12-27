@@ -5,23 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lễ hội Truyền thống - Thái Nguyên Culture</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body class="theme-lehoi">
 
-    <header class="position-relative overflow-hidden">
-        <div class="position-absolute w-100 h-100 pattern-bg" style="z-index: 0;"></div>
-        
-        <div class="container position-relative py-5" style="z-index: 1;">
+    <div class="sidebar-left">
+        <a href="index.html" class="sidebar-item"><i class="bi bi-house-door-fill"></i></a>
+        <a href="van-hoa-tra.html" class="sidebar-item"><i class="bi bi-cup-hot-fill"></i></a>
+        <a href="le-hoi.html" class="sidebar-item active"><i class="bi bi-music-note-beamed"></i></a>
+        <a href="dan-cu.html" class="sidebar-item"><i class="bi bi-people-fill"></i></a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm" style="margin-left: 64px; width: calc(100% - 64px);">
+        <div class="container">
+            <a class="navbar-brand fw-bold primary-text" href="index.html" style="font-family: 'Merriweather', serif;">THÁI NGUYÊN CULTURE</a>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="position-relative section-padding pb-0" style="margin-top: 60px;">
+        <div class="position-absolute w-100 h-100 pattern-bg top-0 start-0" style="z-index: 0;"></div>
+        <div class="container position-relative" style="z-index: 1;">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-lg-6 mb-4 mb-lg-0">
                     <span class="fw-bold text-accent text-uppercase letter-spacing-2">Văn hóa & Tín ngưỡng</span>
                     <h1 class="display-3 fw-bold primary-text mt-2 mb-4">LỄ HỘI<br>TRUYỀN THỐNG</h1>
                     <p class="lead mb-4">"Tháng Giêng là tháng ăn chơi<br>Trống dong cờ mở, gọi mời khách qua"</p>
-                    <a href="index.html" class="btn text-white rounded-pill px-4 py-2" style="background-color: var(--accent-gold, #FFD600); color: #B71C1C !important; font-weight: bold;">Quay lại Trang chủ</a>
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="col-lg-6 text-center">
                     <img src="images/banner-lehoi.jpg" class="img-fluid rounded-4 shadow-lg border border-5 border-white image-card" alt="Lễ hội">
                 </div>
             </div>
@@ -32,55 +49,38 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-8">
-                    <p class="lead mb-5">
-                        Thái Nguyên có hơn 300 lễ hội lớn nhỏ, nhưng tiêu biểu nhất là các lễ hội gắn liền với tín ngưỡng cầu mùa và tưởng nhớ các anh hùng dân tộc.
-                    </p>
-
                     <div class="d-flex align-items-center mb-3">
                         <span class="display-4 fw-bold text-accent me-3">01</span>
                         <h2 class="fw-bold primary-text mb-0">Lễ hội Lồng Tồng</h2>
                     </div>
-                    
-                    <div class="card border-0 shadow-sm mb-4">
+                    <div class="card border-0 shadow-sm mb-4 image-card">
                         <img src="images/le-hoi-long-tong.jpg" class="card-img-top" alt="Lồng Tồng">
-                        <div class="card-body bg-light">
-                            <p class="card-text fst-italic text-center">Nghi thức Tịch điền (cày ruộng) đầu năm cầu mùa màng bội thu.</p>
-                        </div>
                     </div>
-
                     <p>
-                        "Lồng Tồng" trong tiếng Tày nghĩa là "xuống đồng". Đây là lễ hội cầu mùa lớn nhất khu vực Việt Bắc tổ chức tại <strong class="text-accent">ATK Định Hóa</strong>. Phần lễ có nghi thức dâng hương tạ ơn trời đất, thần linh; cầu cho mưa thuận gió hòa.
+                        "Lồng Tồng" (Xuống đồng) là lễ hội cầu mùa lớn nhất khu vực Việt Bắc, tổ chức tại <strong class="text-accent">ATK Định Hóa</strong>. Lễ hội gồm các nghi thức tạ ơn trời đất và cầu mưa thuận gió hòa.
                     </p>
-                    <p>
-                        <strong>Hoạt động đặc sắc:</strong> Lễ tịch điền, tung còn, thi cấy lúa, bắn nỏ và hát Then đàn Tính.
-                    </p>
-
+                    <p><strong>Hoạt động:</strong> Lễ tịch điền, tung còn, thi cấy lúa, hát Then.</p>
+                    
                     <hr class="my-5 border-theme opacity-50">
 
                     <div class="d-flex align-items-center mb-3">
                         <span class="display-4 fw-bold text-accent me-3">02</span>
                         <h2 class="fw-bold primary-text mb-0">Lễ hội Đền Đuổm</h2>
                     </div>
-
                     <div class="row align-items-center mb-4">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <img src="images/den-duom.jpg" class="img-fluid rounded shadow-sm image-card" alt="Đền Đuổm">
                         </div>
-                        <div class="col-md-6">
-                            <p>
-                                Lễ hội tưởng nhớ danh tướng <strong class="text-accent">Dương Tự Minh</strong> (Thánh Đuổm) - thủ lĩnh phủ Phú Lương, phò mã nhà Lý.
-                            </p>
-                            <p>
-                                Nghi lễ chính bao gồm: Rước đất, rước nước, lễ dựng cây nêu và đại tế. Đây là dịp để nhân dân bày tỏ lòng biết ơn uống nước nhớ nguồn.
-                            </p>
+                        <div class="col-md-7">
+                            <p>Tưởng nhớ danh tướng <strong class="text-accent">Dương Tự Minh</strong> (Thánh Đuổm). Nghi lễ gồm rước đất, rước nước, dựng cây nêu, thể hiện đạo lý uống nước nhớ nguồn.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="sticky-top" style="top: 2rem;">
-                        <div class="primary-bg text-white p-4 rounded-top">
-                            <h4 class="fw-bold mb-0 text-center">📅 LỊCH LỄ HỘI LỚN</h4>
+                    <div class="sticky-top" style="top: 100px;">
+                        <div class="primary-bg text-white p-4 rounded-top shadow-sm">
+                            <h4 class="fw-bold mb-0 text-center">📅 LỊCH HỘI LỚN</h4>
                         </div>
                         <div class="bg-light p-4 rounded-bottom shadow-sm border border-top-0">
                             <ul class="list-unstyled mb-0">
@@ -92,22 +92,11 @@
                                     <strong>Lồng Tồng</strong>
                                     <span class="badge secondary-bg">09-10 tháng Giêng</span>
                                 </li>
-                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom border-secondary-subtle">
-                                    <strong>Chùa Hang</strong>
-                                    <span class="badge secondary-bg">19-20 tháng Giêng</span>
-                                </li>
                                 <li class="d-flex justify-content-between">
-                                    <strong>Hội Hích</strong>
-                                    <span class="badge secondary-bg">15 tháng Giêng</span>
+                                    <strong>Chùa Hang</strong>
+                                    <span class="badge secondary-bg">20 tháng Giêng</span>
                                 </li>
                             </ul>
-                        </div>
-
-                        <div class="mt-4 p-4 rounded border-theme border bg-white shadow-sm position-relative">
-                            <i class="bi bi-quote fs-1 text-accent position-absolute top-0 start-0 translate-middle"></i>
-                            <p class="fst-italic mb-0 text-center">
-                                "Lễ hội là nơi lưu giữ hồn cốt của dân tộc, là cầu nối giữa quá khứ hào hùng và hiện tại phát triển."
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -118,7 +107,6 @@
     <footer class="primary-bg text-white text-center py-4 mt-5">
         <p class="mb-0">Dự án STEM © 2025 | Trường THPT Đại Từ</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
