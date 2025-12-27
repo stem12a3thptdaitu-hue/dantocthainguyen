@@ -3,109 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Văn hóa Trà - Thái Nguyên Culture</title>
+    <title>Huyền thoại Trà Tân Cương - Tạp chí Văn hóa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/style.css">
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="CSS/style.css"> </head>
 <body>
+    
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
-                    
-                    <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="dan-toc-tay.html">Dân tộc Tày</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-nung.html">Dân tộc Nùng</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-san-diu.html">Dân tộc Sán Dìu</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-san-chay.html">Dân tộc Sán Chay</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-dao.html">Dân tộc Dao</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-kinh.html">Dân tộc Kinh</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-hoa.html">Dân tộc Hoa</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-muong.html">Dân tộc Mường</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-ngai.html">Dân tộc Ngái</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-thai.html">Dân tộc Thái</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-mong.html">Dân tộc H'Mông</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
-                </ul>
-            </div>
+            <a href="gioi-thieu.html" class="btn btn-outline-warning ms-auto rounded-pill px-4">Quay lại</a>
         </div>
     </nav>
 
-    <header class="page-header" style="background: url('images/banner-tra.jpg') no-repeat center center/cover; height: 350px; position: relative;">
-        <div class="overlay" style="background: rgba(0,0,0,0.5); position: absolute; inset: 0;"></div>
-        <div class="container h-100 d-flex align-items-center justify-content-center position-relative text-white">
+    <header style="background: url('images/banner-tra.jpg') no-repeat center center/cover; height: 80vh; position: relative; background-attachment: fixed;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(18,18,18,1));"></div>
+        <div class="container h-100 d-flex align-items-end justify-content-center pb-5 position-relative">
             <div class="text-center">
-                <h1 class="display-4 fw-bold">VĂN HÓA TRÀ</h1>
-                <p class="lead">Hương vị "Đệ nhất danh trà" làm say lòng người</p>
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2">E-MAGAZINE</span>
+                <h1 class="display-2 text-white" style="font-family: var(--font-co-truyen); text-shadow: 0 5px 15px #000;">Huyền Thoại<br>"Đệ Nhất Danh Trà"</h1>
             </div>
         </div>
     </header>
 
-    <div class="container my-5">
-        <div class="row g-5">
-            <div class="col-md-8">
-                <h2 class="text-success fw-bold mb-4">🍵 Cội nguồn "Đệ nhất danh trà"</h2>
-                <p>
-                    Thái Nguyên được mệnh danh là "Đệ nhất danh trà" của Việt Nam. Tuy nhiên, cây chè không phải giống cây bản địa tự sinh mà được mang về trồng tại vùng Tân Cương khoảng những năm 1920.
-                </p>
-                <p>
-                    Người có công lớn nhất trong việc khai khẩn và đưa cây chè về vùng đất này là ông <strong>Vũ Văn Hiệt (cụ Đội Năm)</strong>. Nhờ điều kiện thổ nhưỡng đặc biệt của vùng đất dưới chân dãy Tam Đảo, cây chè Tân Cương đã tạo nên hương vị "tiền chát, hậu ngọt" đặc trưng không nơi nào có được. Năm 1935, chè Tân Cương với thương hiệu "Cánh Hạc" đã vinh dự đoạt giải Nhất trong cuộc thi đấu xảo tại Hà Nội, chính thức khẳng định vị thế.
-                </p>
+    <article class="article-container">
+        
+        <div class="author-line text-center">
+            Bài viết: <strong>Ban Nội Dung</strong> &bull; Ảnh: <strong>Tư liệu</strong> &bull; Ngày: <strong>27/12/2025</strong>
+        </div>
 
-                <h3 class="mt-5 text-success">Các vùng chè nổi tiếng (Tứ đại danh trà)</h3>
-                <p>Thái Nguyên không chỉ có Tân Cương. Văn hóa trà tại đây được bồi đắp bởi 4 vùng trồng chè nức tiếng:</p>
-                <ul>
-                    <li><strong>Chè Tân Cương (TP. Thái Nguyên):</strong> Nổi tiếng với búp chè nhỏ, xoăn tít như móc câu, hương cốm non nồng nàn.</li>
-                    <li><strong>Chè La Bằng (Đại Từ):</strong> Vùng chè dưới chân núi Tam Đảo với vị đậm đà, nước xanh óng.</li>
-                    <li><strong>Chè Trại Cài (Đồng Hỷ):</strong> Hương vị đặc trưng của vùng đất Minh Lập.</li>
-                    <li><strong>Chè Vô Tranh - Tức Tranh (Phú Lương):</strong> Làng nghề chè truyền thống lâu đời.</li>
-                </ul>
-            </div>
+        <p class="sapo-text">
+            Không phải ngẫu nhiên mà Thái Nguyên được mệnh danh là "Đệ nhất danh trà". Đằng sau hương vị "tiền chát, hậu ngọt" trứ danh ấy là cả một câu chuyện lịch sử kéo dài cả thế kỷ và nghệ thuật chế biến tỉ mỉ của những nghệ nhân vùng đất Tân Cương.
+        </p>
+
+        <div class="content-body text-white" style="font-family: 'Be Vietnam Pro', sans-serif; font-size: 1.1rem; line-height: 1.8;">
             
-            <div class="col-md-4">
-                <div class="card shadow-sm mb-4">
-                    <img src="images/che-tan-cuong.jpg" class="card-img-top" alt="Đồi chè Tân Cương">
-                    <div class="card-body bg-light">
-                        <p class="fst-italic text-center">"Thái Nguyên đệ nhất danh trà<br>Nước xanh như cốm, đậm đà tình quê."</p>
-                    </div>
-                </div>
+            <p class="drop-cap">
+                Người ta vẫn thường kể cho nhau nghe câu chuyện về cụ Đội Năm (Vũ Văn Hiệt) - người đầu tiên mang giống chè về vùng đất Tân Cương vào khoảng những năm 1920. Từ những đồi đất cằn cỗi dưới chân núi Tam Đảo, cây chè đã bén rễ, hút lấy tinh hoa của đất trời, uống giọt sương mai của núi rừng Việt Bắc để tạo nên một thức uống trân quý.
+            </p>
+
+            <blockquote class="pull-quote">
+                "Thái Nguyên đệ nhất danh trà<br>Nước xanh như cốm, đậm đà tình quê"
+            </blockquote>
+
+            <p>
+                Năm 1935, tại cuộc thi đấu xảo ở Hà Nội, thương hiệu chè "Cánh Hạc" của cụ Đội Năm đã vinh dự đoạt giải Nhất, chính thức đưa trà Thái Nguyên lên bản đồ nông sản Việt Nam và quốc tế.
+            </p>
+
+            <figure class="my-5">
+                <img src="images/che-tan-cuong.jpg" class="w-100 shadow rounded" alt="Đồi chè Tân Cương">
+                <figcaption class="photo-caption">Những búp chè non "một tôm hai lá" được hái vào sáng sớm tinh mơ.</figcaption>
+            </figure>
+
+            <h3 class="text-warning mt-5 mb-3" style="font-family: var(--font-tet-xua);">Nghệ thuật "Nhất thủy - Nhì trà"</h3>
+            
+            <p>
+                Thưởng trà Thái Nguyên không dành cho người vội vã. Đó là một hành trình của các giác quan. Bắt đầu từ việc chọn nước (nhất thủy) - tốt nhất là nước suối đầu nguồn hoặc nước sương đọng trên lá sen. Tiếp đến là chọn trà (nhì trà), pha trà (tam pha) và chọn ấm (tứ ấm).
+            </p>
+            <p>
+                Khi nước sôi hạ nhiệt xuống khoảng 85-90 độ C rót vào ấm tử sa, cánh trà bắt đầu nở ra như những bông hoa nhỏ. Hương cốm non nồng nàn tỏa ra theo làn khói. Nhấp một ngụm, vị chát nhẹ nơi đầu lưỡi nhanh chóng tan biến, nhường chỗ cho vị ngọt thanh lan tỏa khắp khoang miệng. Đó chính là cái "hậu ngọt" mà người sành trà mê đắm.
+            </p>
+
+        </div>
+
+        <div class="mt-5 pt-4 border-top border-secondary text-center">
+            <p class="text-muted fst-italic">Chia sẻ bài viết này:</p>
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-sm btn-outline-primary"><i class="bi bi-facebook"></i> Facebook</button>
+                <button class="btn btn-sm btn-outline-info"><i class="bi bi-twitter"></i> Twitter</button>
             </div>
         </div>
 
-        <hr class="my-5">
+    </article>
 
-        <div class="row align-items-center">
-            <div class="col-md-5 order-md-2">
-                <img src="images/thuong-tra.jpg" class="img-fluid rounded shadow" alt="Nghệ thuật thưởng trà">
-            </div>
-            <div class="col-md-7 order-md-1">
-                <h2 class="text-success fw-bold">Nghệ thuật thưởng trà</h2>
-                <p>
-                    Với người Thái Nguyên, uống trà không chỉ là giải khát mà là một nghệ thuật ("Thưởng trà"). Một ấm trà ngon phải hội tụ đủ 4 yếu tố: <em>"Nhất thủy - Nhì trà - Tam pha - Tứ ấm"</em>.
-                </p>
-                <p>
-                    Trà phải được pha bằng nước giếng khơi hoặc nước suối đầu nguồn. Khi rót trà, hương thơm tỏa ra như mùi cốm, nước xanh vàng ong. Nhấp một ngụm thấy vị chát nhẹ ở đầu lưỡi, nhưng ngay sau đó là vị ngọt thanh lan tỏa trong khoang miệng (vị hậu ngọt). Đây chính là nét tinh tế khiến trà Thái Nguyên trở thành thức quà quý giá gửi đi muôn phương.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <footer class="bg-dark text-white text-center py-3 mt-5">
+    <footer class="text-center py-4 text-secondary mt-5" style="background: #000;">
         <p>Dự án STEM © 2025 | Trường THPT Đại Từ</p>
     </footer>
+
 </body>
 </html>
