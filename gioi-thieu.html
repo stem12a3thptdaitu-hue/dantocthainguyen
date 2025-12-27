@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giới thiệu chung - Thái Nguyên Culture</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <!-- MENU -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">🌿 THÁI NGUYÊN CULTURE</a>
@@ -35,7 +36,7 @@
                              <li><a class="dropdown-item" href="dan-toc-kinh.html">Dân tộc Kinh</a></li>
                             <li><a class="dropdown-item" href="dan-toc-dao.html">Dân tộc Dao</a></li>
                              <li><a class="dropdown-item" href="dan-toc-ngai.html">Dân tộc Ngái</a></li>
-                            <li><a class="dropdown-item" href="dan-toc-hmong.html">Dân tộc H'Mông</a></li>
+                            <li><a class="dropdown-item" href="dan-toc-mong.html">Dân tộc H'Mông</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
@@ -44,21 +45,18 @@
         </div>
     </nav>
 
-    <!-- HEADER BANNER -->
     <header class="main-banner-intro">
         <div class="container text-center">
             <h1>TỔNG QUAN TỈNH THÁI NGUYÊN</h1>
         </div>
     </header>
 
-    <!-- CONTENT -->
     <div class="container my-5">
         <div class="row align-items-center mb-5">
             <div class="col-md-6 mb-4">
                 <h3 class="text-success mb-3">Vị trí địa lý</h3>
                 <p>Thái Nguyên nằm ở trung tâm vùng trung du miền núi Bắc Bộ. Đây là "cửa ngõ" giao lưu kinh tế - xã hội giữa vùng trung du miền núi với vùng đồng bằng Bắc Bộ.</p>
                 
-                <!-- Đã sửa phần này: Thay class Bootstrap bằng class riêng -->
                 <ul class="intro-location-list">
                     <li>📍 <strong>Phía Bắc:</strong> Giáp tỉnh Cao Bằng</li>
                     <li>📍 <strong>Phía Tây:</strong> Giáp Tuyên Quang</li>
@@ -70,57 +68,56 @@
             <div class="col-md-6 text-center">
                 <div class="map-responsive">
                     <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945193.0940081499!2d105.17952558442315!3d22.271908353839645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36cae0484a85eb4d%3A0xbf0390482b496ed0!2zQuG6r2MgS-G6oW4sIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1764426870838!5m2!1svi!2s" 
-    style="border:0; width: 100%; height: 200px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-                    <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d474548.0820553327!2d105.52807035399549!3d21.68691787881521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134c41872a07a77%3A0x57a9371069ef4f5b!2zVGjDoWkgTmd1ecOqbiwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1764426607705!5m2!1svi!2s" 
-    style="border:0; width: 100%; height: 200px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237685.26357497746!2d105.70327329381734!3d21.57960309106069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313526e41e57c8e3%3A0x6d97c030d93708f2!2zVGjDoWkgTmd1ecOqbiwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1709123456789!5m2!1svi!2s" 
+                        style="border:0; width: 100%; height: 300px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
                 <p class="text-muted small mt-2" style="color: var(--color-gold) !important;">Bản đồ hành chính tỉnh Thái Nguyên</p>
             </div>
         </div>
 
-        <div class="row g-4 text-center">
+        <div class="row g-4 text-center justify-content-center">
+            
             <div class="col-md-4">
-                <div class="info-box">
-                    <div class="display-4">🍵</div>
-                    <h4>Văn hóa Trà</h4>
-                    <p>Nổi tiếng với vùng chè Tân Cương - "Đệ nhất danh trà". Hương vị trà Thái Nguyên đã đi vào thơ ca và lòng người.</p>
+                <div class="card h-100 p-4 text-white position-relative shadow-lg" style="background: rgba(0,0,0,0.75); border: 2px solid #d4af37;">
+                    <div class="card-body">
+                        <i class="bi bi-cup-hot-fill display-4 text-warning mb-3"></i>
+                        <h4 class="card-title fw-bold text-uppercase" style="color: #d4af37;">Văn hóa Trà</h4>
+                        <p class="card-text text-light">Nổi tiếng với vùng chè Tân Cương - "Đệ nhất danh trà". Hương vị trà Thái Nguyên đã đi vào thơ ca và lòng người.</p>
+                        <a href="van-hoa-tra.html" class="stretched-link"></a>
+                    </div>
                 </div>
             </div>
+
             <div class="col-md-4">
-                <div class="info-box">
-                    <div class="display-4">👥</div>
-                    <h4>Dân cư</h4>
-                    <p>Hội tụ hơn 50 dân tộc anh em cùng sinh sống hòa thuận, tạo nên bản sắc văn hóa phong phú và đa dạng.</p>
+                <div class="card h-100 p-4 text-white position-relative shadow-lg" style="background: rgba(0,0,0,0.75); border: 2px solid #d4af37;">
+                    <div class="card-body">
+                        <i class="bi bi-people-fill display-4 text-warning mb-3"></i>
+                        <h4 class="card-title fw-bold text-uppercase" style="color: #d4af37;">Dân cư</h4>
+                        <p class="card-text text-light">Hội tụ hơn 50 dân tộc anh em cùng sinh sống hòa thuận, tạo nên bản sắc văn hóa phong phú và đa dạng.</p>
+                        <a href="dan-cu.html" class="stretched-link"></a>
+                    </div>
                 </div>
             </div>
+
             <div class="col-md-4">
-                <div class="info-box">
-                    <div class="display-4">🥁</div>
-                    <h4>Lễ hội</h4>
-                    <p>Đa dạng với lễ hội Lồng Tồng, Cầu mùa, Hát Then... mang đậm bản sắc tâm linh và tín ngưỡng bản địa.</p>
+                <div class="card h-100 p-4 text-white position-relative shadow-lg" style="background: rgba(0,0,0,0.75); border: 2px solid #d4af37;">
+                    <div class="card-body">
+                        <i class="bi bi-music-note-beamed display-4 text-warning mb-3"></i>
+                        <h4 class="card-title fw-bold text-uppercase" style="color: #d4af37;">Lễ hội</h4>
+                        <p class="card-text text-light">Đa dạng với lễ hội Lồng Tồng, Cầu mùa, Hát Then... mang đậm bản sắc tâm linh và tín ngưỡng bản địa.</p>
+                        <a href="le-hoi.html" class="stretched-link"></a>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer><p>Dự án STEM © 2025 | Trường THPT Đại Từ</p></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
