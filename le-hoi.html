@@ -3,129 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Những lễ hội truyền thống đặc sắc dịp đầu Xuân</title>
+    <title>Giá trị lịch sử và tín ngưỡng trong lễ hội truyền thống Thái Nguyên</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body class="news-layout theme-lehoi">
 
-    <header class="news-header sticky-top">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="index.html" class="fw-bold fs-4 text-dark text-decoration-none" style="font-family: 'Times New Roman', serif;">
-                THÁI NGUYÊN <span style="color: #9f224e;">CULTURE</span>
+    <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html" style="font-family: 'Merriweather', serif;">
+                THÁI NGUYÊN <span style="color: var(--primary-color);">CULTURE</span>
             </a>
-            <div class="small text-secondary">Thứ bảy, 27/12/2025</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto fw-bold text-uppercase small">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-3" href="#" data-bs-toggle="dropdown">Các dân tộc</a>
+                        <ul class="dropdown-menu shadow-sm border-0">
+                            <li><a class="dropdown-item" href="dan-toc-tay.html">Người Tày</a></li>
+                            <li><a class="dropdown-item" href="dan-toc-nung.html">Người Nùng</a></li>
+                            <li><a class="dropdown-item" href="dan-toc-dao.html">Người Dao</a></li>
+                            <li><a class="dropdown-item" href="dan-toc-san-diu.html">Người Sán Dìu</a></li>
+                            <li><a class="dropdown-item" href="dan-toc-mong.html">Người Mông</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link px-3" href="van-hoa-tra.html">Trà</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="le-hoi.html">Lễ hội</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
         </div>
-    </header>
+    </nav>
+
+    <div class="news-header" style="margin-top: 70px;">
+        <div class="container text-end small text-secondary">Cập nhật: 27/12/2025</div>
+    </div>
 
     <div class="container my-4">
         <div class="row">
-            <div class="col-lg-8 pe-lg-5">
-                <div class="breadcrumb">
-                    <a href="index.html">Trang chủ</a> <i class="bi bi-chevron-right"></i>
-                    <a href="#">Văn hóa</a> <i class="bi bi-chevron-right"></i>
-                    <span>Lễ hội</span>
-                </div>
+            <div class="col-lg-8">
+                <div class="article-card">
+                    <div class="breadcrumb mb-3">
+                        <a href="index.html">Trang chủ</a> <i class="bi bi-chevron-right mx-2"></i> <span>Di sản Văn hóa</span>
+                    </div>
 
-                <h1 class="title-detail">Những lễ hội truyền thống đặc sắc dịp đầu Xuân tại Thái Nguyên</h1>
+                    <h1 class="title-detail">Bảo tồn và phát huy giá trị Di sản văn hóa phi vật thể trong các lễ hội truyền thống</h1>
 
-                <div class="d-flex justify-content-between text-secondary mb-3 small">
-                    <span><strong>Hoàng Nam</strong></span>
-                    <span><i class="bi bi-clock"></i> 27/12/2025, 09:00 (GMT+7)</span>
-                </div>
+                    <div class="d-flex justify-content-between text-secondary mb-3 small">
+                        <span><strong>Ban Văn hóa - Xã hội</strong></span>
+                        <span>27/12/2025</span>
+                    </div>
 
-                <p class="description">
-                    "Tháng Giêng là tháng ăn chơi". Với hơn 300 lễ hội lớn nhỏ, Thái Nguyên là điểm đến tâm linh hấp dẫn, nơi du khách được hòa mình vào không gian văn hóa tín ngưỡng độc đáo của đồng bào các dân tộc Việt Bắc.
-                </p>
-
-                <div class="article-content">
-                    <p>
-                        Nổi bật nhất trong hệ thống lễ hội tại Thái Nguyên là <strong>Lễ hội Lồng Tồng</strong> (Hội xuống đồng). Đây là lễ hội cầu mùa lớn nhất của người Tày, Nùng khu vực Việt Bắc, được tổ chức định kỳ vào ngày mùng 9 và 10 tháng Giêng âm lịch tại Di tích lịch sử ATK Định Hóa.
+                    <p class="description">
+                        Lễ hội tại Thái Nguyên không đơn thuần là hoạt động vui chơi giải trí, mà là môi trường diễn xướng văn hóa, nơi lưu giữ ký ức lịch sử hào hùng và tín ngưỡng phồn thực của cư dân nông nghiệp lúa nước vùng Việt Bắc.
                     </p>
 
-                    <figure>
-                        <img src="images/le-hoi-long-tong.jpg" alt="Lễ hội Lồng Tồng">
-                        <figcaption>Nghi lễ Tịch điền (cày ruộng) trong lễ hội Lồng Tồng cầu mong mùa màng bội thu. Ảnh: <i>Báo Thái Nguyên</i></figcaption>
-                    </figure>
+                    <div class="article-content">
+                        <h3>1. Lễ hội Lồng Tồng: Tín ngưỡng cầu mùa</h3>
+                        <p>
+                            Lễ hội Lồng Tồng (hay Lồng Tộng - Hội xuống đồng) là lễ hội tiêu biểu nhất của đồng bào Tày, Nùng, đã được Bộ Văn hóa, Thể thao và Du lịch công nhận là <strong>Di sản văn hóa phi vật thể quốc gia</strong>. Lễ hội phản ánh tín ngưỡng đa thần giáo, thờ cúng Thần Nông (thần cai quản nông nghiệp) và Thành Hoàng làng.
+                        </p>
+                        <p>
+                            Nghi thức quan trọng nhất là <strong>Lễ Tịch điền</strong> (cày ruộng đầu năm). Đường cày đầu tiên được thực hiện bởi một người đức độ, uy tín trong bản, tượng trưng cho sự khởi đầu may mắn, cầu mong mưa thuận gió hòa, mùa màng bội thu.
+                        </p>
 
-                    <p>
-                        Phần lễ diễn ra trang trọng với nghi thức dâng hương tạ ơn trời đất, thần linh, cầu cho mưa thuận gió hòa, cây cối tốt tươi. Phần hội sôi động với các trò chơi dân gian mang đậm bản sắc như: tung còn, bắn nỏ, đi cà kheo, thi cấy lúa và những làn điệu Hát Then, đàn Tính mượt mà.
-                    </p>
+                        <figure>
+                            <img src="images/le-hoi-long-tong.jpg" alt="Lễ Tịch điền">
+                            <figcaption>Nghi thức Tịch điền tại Lễ hội Lồng Tồng ATK Định Hóa. Ảnh: Tư liệu lịch sử.</figcaption>
+                        </figure>
 
-                    <h3 class="fw-bold fs-5 my-3">Lễ hội Đền Đuổm: Tưởng nhớ người anh hùng</h3>
-                    
-                    <p>
-                        Nếu Lồng Tồng mang không khí vui tươi của hội làng, thì <strong>Lễ hội Đền Đuổm</strong> (huyện Phú Lương) lại mang màu sắc trang nghiêm, kính cẩn. Diễn ra vào ngày mùng 6 tháng Giêng, lễ hội là dịp để nhân dân tưởng nhớ danh tướng <strong>Dương Tự Minh</strong> (Thánh Đuổm) – thủ lĩnh phủ Phú Lương, phò mã của hai đời vua nhà Lý, người có công lớn bảo vệ vững chắc biên cương phía Bắc.
-                    </p>
+                        <h3>2. Lễ hội Đền Đuổm: Giáo dục truyền thống lịch sử</h3>
+                        <p>
+                            Đền Đuổm (huyện Phú Lương) thờ danh tướng <strong>Dương Tự Minh</strong>, thủ lĩnh phủ Phú Lương dưới triều Lý (thế kỷ XII). Ông là người có công lớn trong việc bảo vệ biên cương phía Bắc và thực hiện chính sách "nhu viễn" (đoàn kết dân tộc) của vương triều.
+                        </p>
+                        <p>
+                            Lễ hội Đền Đuổm tổ chức vào ngày 06 tháng Giêng âm lịch hằng năm không chỉ là hoạt động tâm linh mà còn là bài học lịch sử sống động, giáo dục lòng yêu nước và đạo lý "Uống nước nhớ nguồn" cho thế hệ trẻ.
+                        </p>
 
-                    <figure>
-                        <img src="images/den-duom.jpg" alt="Đền Đuổm">
-                        <figcaption>Đền Đuổm cổ kính tựa vào vách núi, điểm đến tâm linh nổi tiếng. Ảnh: <i>Tư liệu</i></figcaption>
-                    </figure>
-
-                    <p>
-                        Các nghi lễ chính bao gồm: Rước đất, rước nước, lễ dựng cây nêu và đại tế. Không gian lễ hội tái hiện lại hào khí thượng võ của cha ông, giáo dục truyền thống "uống nước nhớ nguồn" cho thế hệ trẻ.
-                    </p>
-
-                    <div class="text-end mt-4">
-                        <a href="gioi-thieu.html" class="btn-back"><i class="bi bi-arrow-left"></i> Trở về</a>
+                        <figure>
+                            <img src="images/den-duom.jpg" alt="Kiến trúc Đền Đuổm">
+                            <figcaption>Đền Đuổm mang kiến trúc cổ thời Lý - Trần, nằm uy nghiêm dưới chân núi Đuổm.</figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-4">
-                <div class="sidebar-box bg-light">
-                    <h5 class="fw-bold text-danger mb-3" style="font-size: 16px; border-bottom: 2px solid #dc3545; padding-bottom: 5px;">LỊCH SỰ KIỆN NỔI BẬT</h5>
-                    <table class="table table-striped table-sm small">
-                        <thead>
-                            <tr>
-                                <th>Ngày (AL)</th>
-                                <th>Sự kiện</th>
-                                <th>Địa điểm</th>
-                            </tr>
-                        </thead>
+                <div class="sidebar-box">
+                    <h4 class="sidebar-title">Lịch Di sản (Âm lịch)</h4>
+                    <table class="table table-hover small">
+                        <thead><tr><th>Ngày</th><th>Lễ hội</th><th>Xếp hạng</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td class="fw-bold">06/01</td>
-                                <td>Hội Đền Đuổm</td>
-                                <td>Phú Lương</td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold">09-10/01</td>
-                                <td>Hội Lồng Tồng</td>
-                                <td>Định Hóa</td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold">15/01</td>
-                                <td>Hội Hích</td>
-                                <td>Đồng Hỷ</td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold">20/01</td>
-                                <td>Hội Chùa Hang</td>
-                                <td>TP. TN</td>
-                            </tr>
+                            <tr><td>06/01</td><td>Đền Đuổm</td><td>Quốc gia</td></tr>
+                            <tr><td>10/01</td><td>Lồng Tồng</td><td>Quốc gia</td></tr>
+                            <tr><td>20/01</td><td>Chùa Hang</td><td>Cấp Tỉnh</td></tr>
                         </tbody>
                     </table>
-                </div>
-
-                <div class="sidebar-box">
-                    <h4 class="sidebar-title">TIN LIÊN QUAN</h4>
-                    <div class="related-news">
-                        <a href="van-hoa-tra.html"><span>01</span> Thưởng trà Tân Cương - Nét văn hóa tao nhã</a>
-                        <a href="dan-cu.html"><span>02</span> Tìm hiểu cộng đồng 54 dân tộc tại Thái Nguyên</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <footer class="bg-light border-top py-4 mt-5">
-        <div class="container text-center text-secondary small">
-            <p class="mb-1"><strong>© 2025 THÁI NGUYÊN CULTURE</strong></p>
-        </div>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
