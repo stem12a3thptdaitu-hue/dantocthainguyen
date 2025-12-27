@@ -444,3 +444,34 @@ h3.text-success, h4.text-success, .text-start .text-success {
     text-align: justify; /* Căn đều 2 bên cho đẹp */
     font-weight: 500;
 }
+/* ========================================= */
+/* PHẦN BỔ SUNG: HIỆU ỨNG HỘP BAY (HOVER CARD) */
+/* ========================================= */
+
+/* Định nghĩa hiệu ứng cho cái hộp */
+.hover-card {
+    transition: all 0.4s ease; /* Chuyển động mượt mà */
+}
+
+/* Khi di chuột vào hộp */
+.hover-card:hover {
+    transform: translateY(-15px); /* Bay lên trên 15px */
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5) !important; /* Bóng sáng màu vàng kim */
+    border-color: #fff !important; /* Viền trắng */
+    background: rgba(0,0,0,0.85) !important; /* Nền đậm hơn */
+    cursor: pointer;
+}
+
+/* Hiệu ứng xoay icon bên trong */
+.hover-card:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng sáng chữ tiêu đề */
+.hover-card:hover h4 {
+    color: #fff !important;
+    text-shadow: 0 0 10px #d4af37;
+    transition: all 0.3s ease;
+}
