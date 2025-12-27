@@ -644,3 +644,156 @@ body.has-sidebar .navbar {
     overflow: hidden;
 }
 .image-card:hover { transform: translateY(-5px); }
+/* ======================================================
+   PHẦN BỔ SUNG: GIAO DIỆN BÁO CHÍ (KIỂU VNEXPRESS)
+   (Dùng cho các trang: Văn hóa Trà, Lễ hội, Dân cư)
+   ====================================================== */
+
+/* Import phông chữ có chân cho Tiêu đề (giống báo giấy) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
+/* 1. Cấu hình chung cho trang tin tức */
+body.news-layout {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fcfcfc; /* Nền trắng hơi xám nhẹ dịu mắt */
+    color: #222;
+}
+
+/* 2. Header báo chí (Thanh trên cùng) */
+.news-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 0;
+    background: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* 3. Breadcrumb (Đường dẫn phía trên bài viết) */
+.breadcrumb {
+    font-size: 13px;
+    color: #757575;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.breadcrumb a {
+    color: #757575;
+    text-decoration: none;
+}
+.breadcrumb i {
+    font-size: 10px;
+}
+
+/* 4. Typography (Tiêu đề & Nội dung) */
+.title-detail {
+    font-family: "Merriweather", serif; /* Phông có chân sang trọng */
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+    font-weight: 600; /* In đậm đoạn Sapo */
+    margin-bottom: 25px;
+}
+
+.article-content {
+    font-size: 17px; /* Cỡ chữ to dễ đọc */
+    line-height: 1.6;
+    color: #222;
+    text-align: justify;
+}
+.article-content p { margin-bottom: 20px; }
+.article-content strong { font-weight: bold; }
+
+/* 5. Hình ảnh & Chú thích (Caption) */
+.article-content figure {
+    margin: 25px 0;
+    text-align: center;
+    background: #f7f7f7; /* Nền xám nhẹ sau ảnh */
+    padding-bottom: 10px;
+}
+.article-content figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.article-content figcaption {
+    color: #666;
+    padding: 10px 15px 0;
+    font-size: 14px;
+    text-align: left; /* Chú thích căn trái giống VnExpress */
+    font-style: italic;
+    background: #f7f7f7;
+}
+
+/* 6. Sidebar (Cột bên phải) */
+.sidebar-box {
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.sidebar-title {
+    font-size: 16px;
+    font-weight: 700;
+    border-bottom: 2px solid #9f224e; /* Màu đỏ mận đặc trưng */
+    color: #9f224e;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+/* Link tin liên quan */
+.related-news a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+.related-news a:hover {
+    color: #9f224e;
+}
+.related-news span {
+    color: #999;
+    margin-right: 8px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/* 7. Các thành phần khác */
+/* Box số liệu nổi bật (Trang Dân cư) */
+.data-card {
+    background: #f0f7ff;
+    border-left: 4px solid #0d6efd;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+/* Nút Quay lại */
+.btn-back {
+    background: #9f224e;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+}
+.btn-back:hover {
+    background: #821b3f;
+    color: #fff;
+}
