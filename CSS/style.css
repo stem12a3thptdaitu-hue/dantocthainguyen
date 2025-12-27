@@ -645,155 +645,189 @@ body.has-sidebar .navbar {
 }
 .image-card:hover { transform: translateY(-5px); }
 /* ======================================================
-   PHẦN BỔ SUNG: GIAO DIỆN BÁO CHÍ (KIỂU VNEXPRESS)
-   (Dùng cho các trang: Văn hóa Trà, Lễ hội, Dân cư)
+   PHẦN GIAO DIỆN BÁO CHÍ (CUSTOM STYLE - KHÔNG GIỐNG VNEXPRESS)
    ====================================================== */
 
-/* Import phông chữ có chân cho Tiêu đề (giống báo giấy) */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+/* Import phông chữ sang trọng */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Playfair+Display:wght@400;700&display=swap');
 
-/* 1. Cấu hình chung cho trang tin tức */
-body.news-layout {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #fcfcfc; /* Nền trắng hơi xám nhẹ dịu mắt */
-    color: #222;
+/* 1. Cấu hình màu sắc riêng cho từng trang (Dùng biến CSS) */
+/* Mặc định (Nếu quên class body) */
+:root {
+    --primary-color: #333;
+    --accent-color: #666;
+    --bg-light: #f9f9f9;
 }
 
-/* 2. Header báo chí (Thanh trên cùng) */
+/* Theme Trà (Xanh Cốm - Vàng) */
+body.theme-tra {
+    --primary-color: #2e5c1d; /* Xanh rêu đậm cho chữ */
+    --accent-color: #5c8d3e;  /* Xanh lá tươi cho điểm nhấn */
+    --link-color: #d4a017;    /* Vàng trà cho link */
+    --bg-light: #f4f8f1;      /* Nền xanh rất nhạt */
+}
+
+/* Theme Lễ hội (Đỏ Mận - Vàng Đồng) */
+body.theme-lehoi {
+    --primary-color: #8a1c1c; /* Đỏ mận chín cho chữ */
+    --accent-color: #bd2a2a;  /* Đỏ tươi hơn */
+    --link-color: #d69e2e;    /* Vàng đồng */
+    --bg-light: #fffcf5;      /* Nền vàng kem rất nhạt */
+}
+
+/* Theme Dân cư (Xanh Dương Đậm - Cam Đất) */
+body.theme-dancu {
+    --primary-color: #0d3b66; /* Xanh biển sâu */
+    --accent-color: #2a6f97;  /* Xanh sáng hơn */
+    --link-color: #e07a5f;    /* Cam đất */
+    --bg-light: #f0f7fa;      /* Nền xanh băng */
+}
+
+/* 2. Cấu trúc chung */
+body.news-layout {
+    font-family: 'Segoe UI', Arial, sans-serif; /* Phông chữ hiện đại hơn VnExpress */
+    color: #333;
+    background-color: #fff;
+}
+
+/* Header riêng biệt */
 .news-header {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 3px solid var(--primary-color); /* Viền màu theo chủ đề */
     padding: 15px 0;
     background: #fff;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
 
-/* 3. Breadcrumb (Đường dẫn phía trên bài viết) */
-.breadcrumb {
-    font-size: 13px;
-    color: #757575;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
 .breadcrumb a {
-    color: #757575;
+    color: var(--accent-color);
+    font-weight: 600;
     text-decoration: none;
-}
-.breadcrumb i {
-    font-size: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-/* 4. Typography (Tiêu đề & Nội dung) */
+/* 3. Typography (Nghệ thuật chữ) */
 .title-detail {
-    font-family: "Merriweather", serif; /* Phông có chân sang trọng */
-    font-size: 32px;
+    font-family: 'Playfair Display', serif; /* Phông tiêu đề sang trọng, nghệ thuật */
+    color: var(--primary-color); /* Tiêu đề ăn theo màu chủ đạo */
+    font-size: 36px;
     font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 15px;
-    color: #000;
+    line-height: 1.3;
+    margin-bottom: 20px;
 }
 
 .description {
+    font-family: 'Merriweather', serif;
     font-size: 18px;
-    line-height: 1.6;
-    color: #444;
-    font-weight: 600; /* In đậm đoạn Sapo */
-    margin-bottom: 25px;
+    line-height: 1.8;
+    color: #444; /* Màu xám đậm thay vì đen */
+    border-left: 4px solid var(--link-color); /* Kẻ dọc màu vàng/cam bên trái */
+    padding-left: 20px;
+    margin-bottom: 30px;
+    font-style: italic;
 }
 
 .article-content {
-    font-size: 17px; /* Cỡ chữ to dễ đọc */
-    line-height: 1.6;
-    color: #222;
-    text-align: justify;
-}
-.article-content p { margin-bottom: 20px; }
-.article-content strong { font-weight: bold; }
-
-/* 5. Hình ảnh & Chú thích (Caption) */
-.article-content figure {
-    margin: 25px 0;
-    text-align: center;
-    background: #f7f7f7; /* Nền xám nhẹ sau ảnh */
-    padding-bottom: 10px;
-}
-.article-content figure img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-.article-content figcaption {
-    color: #666;
-    padding: 10px 15px 0;
-    font-size: 14px;
-    text-align: left; /* Chú thích căn trái giống VnExpress */
-    font-style: italic;
-    background: #f7f7f7;
+    font-size: 18px; /* Chữ to hơn báo thường một chút để dễ đọc */
+    line-height: 1.8;
 }
 
-/* 6. Sidebar (Cột bên phải) */
-.sidebar-box {
-    border: 1px solid #e5e5e5;
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-.sidebar-title {
-    font-size: 16px;
+/* Các tiêu đề con trong bài (H2, H3) */
+.article-content h3 {
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
-    border-bottom: 2px solid #9f224e; /* Màu đỏ mận đặc trưng */
-    color: #9f224e;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
+    margin-top: 40px;
+    border-bottom: 1px dashed var(--accent-color);
+    padding-bottom: 10px;
     display: inline-block;
+}
+
+/* 4. Hình ảnh & Chú thích */
+figure {
+    margin: 30px 0;
+    text-align: center;
+    background: var(--bg-light); /* Nền màu nhạt theo theme */
+    padding: 10px;
+    border-radius: 8px;
+}
+figure img {
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+figcaption {
+    color: var(--accent-color); /* Màu chú thích ăn theo theme */
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* 5. Sidebar & Các Box */
+.sidebar-box {
+    background: var(--bg-light); /* Nền sidebar đổi màu theo theme */
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.sidebar-title {
+    color: var(--primary-color);
+    font-weight: 900;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--link-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 /* Link tin liên quan */
 .related-news a {
-    display: block;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-    color: #333;
+    color: #444;
     text-decoration: none;
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
     font-weight: 600;
-    font-size: 15px;
-    transition: color 0.2s;
+    transition: 0.3s;
 }
 .related-news a:hover {
-    color: #9f224e;
+    color: var(--primary-color);
+    padding-left: 10px; /* Hiệu ứng đẩy chữ sang phải */
 }
 .related-news span {
-    color: #999;
-    margin-right: 8px;
-    font-weight: normal;
-    font-size: 14px;
+    color: var(--link-color); /* Số thứ tự màu nổi */
+    font-weight: 900;
+    margin-right: 10px;
+    font-size: 18px;
 }
 
-/* 7. Các thành phần khác */
-/* Box số liệu nổi bật (Trang Dân cư) */
-.data-card {
-    background: #f0f7ff;
-    border-left: 4px solid #0d6efd;
-    padding: 15px;
-    margin-bottom: 20px;
-}
-/* Nút Quay lại */
+/* Nút quay lại */
 .btn-back {
-    background: #9f224e;
+    background-color: var(--primary-color);
     color: #fff;
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 3px;
+    padding: 10px 25px;
+    border-radius: 50px;
     text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
     display: inline-block;
-    transition: background 0.3s;
 }
 .btn-back:hover {
-    background: #821b3f;
+    background-color: var(--link-color);
     color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+
+/* Riêng cho trang Dân Cư: Box số liệu */
+.data-card {
+    background: #fff;
+    border: 2px solid var(--primary-color);
+    box-shadow: 5px 5px 0px var(--link-color); /* Hiệu ứng bóng cứng hiện đại */
+    padding: 20px;
+    margin: 30px 0;
+}
+
