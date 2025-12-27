@@ -660,15 +660,33 @@ body.theme-lehoi { --primary-color: #8a1c1c; --accent-color: #bd2a2a; --link-col
 
 /* Theme Dân cư (Xanh Biển) */
 body.theme-dancu { --primary-color: #0d3b66; --accent-color: #2a6f97; --link-color: #e07a5f; --bg-light: #f0f7fa; background-image: url('../images/bg-dancu.jpg'); }
+}
+/* --- FILE: CSS/style.css --- */
+
+/* ... (Các phần định nghĩa màu ở trên giữ nguyên) ... */
 
 /* 2. CẤU TRÚC CHUNG */
 body.news-layout {
     font-family: 'Segoe UI', Arial, sans-serif;
     color: #333;
-    /* Ảnh nền toàn trang */
     background-size: cover; background-attachment: fixed; background-position: center;
 }
 
+/* Header & Menu */
+.navbar { border-bottom: 3px solid var(--primary-color); }
+
+/* --- BẮT ĐẦU PHẦN THÊM MỚI --- */
+/* Ép buộc Logo đồng bộ 1 màu theo theme */
+body.news-layout .navbar-brand,
+body.news-layout .navbar-brand span {
+    color: var(--primary-color) !important; /* Sử dụng màu chủ đạo và ưu tiên cao nhất */
+}
+/* --- KẾT THÚC PHẦN THÊM MỚI --- */
+
+
+.news-header { border-bottom: 1px solid #eee; background: rgba(255,255,255,0.95); padding: 10px 0; }
+
+/* ... (Các phần bên dưới giữ nguyên) ... */
 /* Header & Menu */
 .navbar { border-bottom: 3px solid var(--primary-color); }
 .news-header { border-bottom: 1px solid #eee; background: rgba(255,255,255,0.95); padding: 10px 0; }
@@ -705,5 +723,6 @@ figcaption { color: var(--accent-color); font-style: italic; font-size: 14px; ma
 
 /* Box số liệu trang Dân cư */
 .data-card { background: #fff; border: 2px solid var(--primary-color); box-shadow: 5px 5px 0px var(--link-color); padding: 20px; margin: 30px 0; }
+
 
 
