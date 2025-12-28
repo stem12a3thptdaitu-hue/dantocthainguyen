@@ -475,3 +475,29 @@ h3.text-success, h4.text-success, .text-start .text-success {
     text-shadow: 0 0 10px #d4af37;
     transition: all 0.3s ease;
 }
+/* =========================================
+   HIỆU ỨNG CARD VÀ MODAL VIDEO
+   ========================================= */
+
+/* Tạo độ mượt và đổi con trỏ chuột */
+.card {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Khi di chuột vào card: Bay lên + Bóng sáng */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(212, 175, 55, 0.4) !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Chỉnh nút tắt (X) của Modal thành màu trắng */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Chỉnh viền vàng cho Modal Video */
+.modal-content.bg-black {
+    border: 1px solid #d4af37;
+}
