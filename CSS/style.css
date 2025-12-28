@@ -501,3 +501,33 @@ h3.text-success, h4.text-success, .text-start .text-success {
 .modal-content.bg-black {
     border: 1px solid #d4af37;
 }
+/* =========================================
+   PHẦN HEADER: NỀN ĐEN - CHỮ VÀNG
+   ========================================= */
+
+/* 1. Tạo nền tối màu đen mờ chuyển sắc */
+.header-custom-dark {
+    background: linear-gradient(to bottom, #2c3e50, #000000); /* Chuyển màu từ xám xanh sang đen */
+    padding: 80px 0;
+    border-bottom: 3px solid #d4af37; /* Viền vàng ở dưới */
+}
+
+/* 2. Tạo chữ màu vàng kim loại, có bóng phát sáng */
+.title-gold-glow {
+    color: #FFD700; /* Màu vàng kim */
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900; /* Chữ đậm */
+    letter-spacing: 2px; /* Khoảng cách chữ */
+    /* Hiệu ứng bóng đổ và viền sáng */
+    text-shadow: 
+        2px 2px 0px #8B4513, 
+        0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* 3. Chữ phụ bên dưới màu trắng mờ */
+.subtitle-glow {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
